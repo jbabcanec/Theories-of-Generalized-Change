@@ -1,0 +1,2418 @@
+
+\chapter{Vector-Valued Functions and Motion in Space}
+
+\section*{Introduction}
+
+The study of vector-valued functions marks an important progression in our exploration of multivariable calculus, seamlessly combining geometry and calculus to describe motion, curves, and change in three-dimensional space. Interestingly, we have already encountered a special case of vector-valued functions in Chapter 1 when we discussed parametric equations of lines in space. At the time, we focused on their geometric interpretation without explicitly framing them as vector-valued functions. In essence, those parametric representations—where we expressed lines as functions of a parameter—were early examples of linear vector-valued functions. \\ \\ By revisiting and expanding on this foundation, we will now view these functions through a broader lens, exploring their behavior, calculus, and applications in motion and geometry. This chapter builds on that implicit understanding, introducing parametric equations in their full generality and extending calculus to these functions. Concepts like velocity, acceleration, and arc length emerge naturally from the derivatives and integrals of vector-valued functions, allowing us to model and analyze dynamic systems in physics and engineering with mathematical rigor. \\ \\ The connections we uncover here not only highlight the unifying power of mathematics but also provide a deeper appreciation for how foundational concepts like lines in space can evolve into tools for analyzing complex systems. By recognizing these links, students can better appreciate how the ideas in earlier chapters inform and enrich their understanding of new topics.
+\newpage 
+
+
+
+
+
+\lecture{Vector-Valued Functions} \index{Vector-Valued Functions} \index{Scalar Functions}
+
+Vector-valued functions provide a powerful framework for describing curves, motion, and physical phenomena in three-dimensional space. Prior functions you've seen like $f(x) = x^2$ are technically called scalar functions, mapping a real number to a single real value, whereas vector-valued functions output ordered components that capture both magnitude and direction. Building on the geometric intuition developed in Chapter 1, where we discussed lines as parametric equations, we now revisit those concepts as a foundation and extend them to describe more general curves. This section focuses on parametric equations, the cornerstone of vector-valued functions, and lays the groundwork for their application in analyzing motion and change in space.
+
+\subsection*{Parametric Equations} \index{Parametric Equations}
+
+\noindent In Chapter 1, we described a line in space as the set of points extending in a given direction from a specific starting point. If \( \mathbf{P}_0 = \langle x_0, y_0, z_0 \rangle \) is a fixed point on the line and \( \mathbf{d} = \langle a, b, c \rangle \) is a direction vector, the position of any point on the line can be expressed as:
+\[
+\mathbf{r}(t) = \mathbf{P}_0 + t\mathbf{d}, \quad t \in \mathbb{R}.
+\]
+Here:
+\begin{itemize}
+    \item \( \mathbf{P}_0 \) specifies the starting point of the line.
+    \item \( \mathbf{d} \) indicates the direction and orientation of the line.
+    \item The parameter \( t \) determines the location along the line: \( t > 0 \) moves in the direction of \( \mathbf{d} \), \( t < 0 \) moves in the opposite direction, and \( t = 0 \) corresponds to the point \( \mathbf{P}_0 \).
+\end{itemize}
+
+\noindent This parametric representation makes clear that a line is defined by a starting point and a direction vector, with the parameter \( t \) serving as a simple scalar that scales the direction vector.
+
+\subsubsection*{Generalizing to Parametric Curves}
+
+\noindent The simplicity of the line inspires us to generalize this approach to more complex curves. Instead of restricting each coordinate to vary linearly with \( t \), we allow each coordinate to be an independent function of \( t \). A general parametric curve in three-dimensional space can then be expressed as:
+\[
+\mathbf{r}(t) = \langle f(t), g(t), h(t) \rangle, \quad t \in I,
+\]
+where \( f(t), g(t), \) and \( h(t) \) are continuous functions defined on an interval \( I \). These functions describe the evolution of the curve’s \( x \)-, \( y \)-, and \( z \)-coordinates, respectively, as the parameter \( t \) varies. This representation of curves as vector-valued functions allows us to extend the linear model of lines to a broader class of paths, capturing motion and shape in space with remarkable flexibility. \\ \\ 
+\textit{Note:} In two dimensions, the parametric equation \( \mathbf{r}(t) = \langle t, f(t) \rangle \) essentially represents the graph of the function \( y = f(x) \). Here, \( t \) serves as both the parameter and the \( x \)-coordinate, making it straightforward to visualize the curve as the usual plot of \( y \) versus \( x \).
+
+
+\subsubsection*{Common Parametric Curves}
+
+\noindent Consider the following examples to illustrate the generalization from lines to more complex curves:
+
+\begin{itemize}
+    \item \textbf{Circle in the \( xy \)-Plane:} A circle of radius \( R \), centered at the origin, can be parameterized as:
+    \[
+    \mathbf{r}(t) = \langle R \cos(t), R \sin(t), 0 \rangle, \quad t \in [0, 2\pi].
+    \]
+    Here, \( t \) represents the angle, in radians, that the position vector makes with the positive \( x \)-axis.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=2]
+            % Axes
+            \draw[->] (-1.2, 0) -- (1.2, 0) node[anchor=north] {$x$};
+            \draw[->] (0, -1.2) -- (0, 1.2) node[anchor=west] {$y$};
+            
+            % Circle
+            \draw[thick, blue] (0,0) circle (1);
+            
+            % Label radius
+            \draw[dashed] (0,0) -- (1,0) node[midway, anchor=north] {$R$};
+        \end{tikzpicture}
+        \caption{\textit{Circle in the \( xy \)-plane with radius \( R \).}}
+        \label{fig:circle_param}
+    \end{figure}
+
+    \item \textbf{Helix:} A helix is a three-dimensional curve that spirals around an axis. For instance, a helix with radius \( R \) and constant upward motion along the \( z \)-axis can be expressed as:
+    \[
+    \mathbf{r}(t) = \langle R \cos(t), R \sin(t), ct \rangle, \quad t \in \mathbb{R},
+    \]
+    where \( c \) determines the rate of ascent along the \( z \)-axis.
+
+\tdplotsetmaincoords{60}{110}
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[tdplot_main_coords, scale=2]
+            % Axes
+            \draw[->] (0,0,0) -- (1.5,0,0) node[anchor=north east] {$x$};
+            \draw[->] (0,0,0) -- (0,1.5,0) node[anchor=north west] {$y$};
+            \draw[->] (0,0,0) -- (0,0,2.5) node[anchor=south] {$z$};
+            
+            % Helix
+            \draw[domain=0:720, variable=\t, smooth, samples=200, thick, blue]
+                plot ({cos(\t)}, {sin(\t)}, {\t/360});
+        \end{tikzpicture}
+        \caption{\textit{Helix with radius \( R \) spiraling around the \( z \)-axis.}}
+        \label{fig:helix_param}
+    \end{figure}
+
+    \item \textbf{Cycloid:} A cycloid is the path traced by a point on the rim of a wheel as it rolls along a straight line. Assuming the wheel has radius \( R \), and it starts rolling from the origin, the parametric equation for the cycloid is:
+    \[
+    \mathbf{r}(t) = \langle R(t - \sin(t)), R(1 - \cos(t)), 0 \rangle, \quad t \in \mathbb{R}.
+    \]
+
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=1]
+            % Axes
+            \draw[->] (-1, 0) -- (7, 0) node[anchor=north] {$x$};
+            \draw[->] (0, -1) -- (0, 3) node[anchor=west] {$y$};
+            
+            % Cycloid
+            \draw[domain=0:6.3, samples=200, smooth, thick, blue]
+                plot ({\x - sin(\x r)}, {1 - cos(\x r)});
+        \end{tikzpicture}
+        \caption{\textit{Cycloid traced by a point on the rim of a rolling wheel.}}
+        \label{fig:cycloid_param}
+    \end{figure}
+
+\end{itemize}
+
+\noindent These examples illustrate how allowing the components of \( \mathbf{r}(t) \) to vary independently enables the description of diverse paths in space. The cycloid, for instance, captures a real-world motion, while the helix and circle provide insights into more abstract trajectories.
+
+
+
+
+
+\subsubsection*{Properties of Parametric Curves}
+
+\noindent Understanding the properties of parametric curves is essential for analyzing their behavior. Here, we explore several key properties:
+
+\begin{itemize}
+    \item \textbf{Orientation:} 
+    One of the primary advantages of parametric equations is their ability to encode the \textit{orientation} of a curve. The parameter \( t \) determines the direction of traversal. For instance, in the parametric equation of a circle:
+    \[
+    \mathbf{r}(t) = \langle \cos(t), \sin(t), 0 \rangle, \quad t \in [0, 2\pi],
+    \]
+    the curve is traversed counterclockwise in the \( xy \)-plane as \( t \) increases. Reversing the parameter (e.g., substituting \( t \to -t \)) reverses the orientation, resulting in clockwise traversal.
+
+    \item \textbf{Smoothness:} 
+    A parametric curve \( \mathbf{r}(t) = \langle f(t), g(t), h(t) \rangle \) is \textit{smooth} if its components \( f(t), g(t), h(t) \) are differentiable and \( \mathbf{r}'(t) \neq \mathbf{0} \) for all \( t \) in the interval of interest. Smoothness ensures that the curve has no abrupt changes in direction or cusps.
+
+    \item \textbf{Reparameterization:}
+    A parametric curve can often be reparameterized to simplify its representation or emphasize certain properties. For example, reparameterizing a curve by its arc length \( s \) provides a direct measure of distance traveled along the curve. Arc length reparameterization is a key topic in the calculus of vector-valued functions, as it allows for uniform treatment of curves regardless of their initial parameterization. We will explore this later.
+\end{itemize}
+
+
+
+\subsubsection*{Applications of Parametric Equations}
+
+\noindent Parametric equations are foundational in physics, engineering, and computer graphics, where they are used to model motion, design structures, and render visual effects. Examples include:
+
+\begin{itemize}
+    \item \textbf{Modeling Motion:} The trajectory of a projectile under gravity can be described parametrically as:
+    \[
+    \mathbf{r}(t) = \langle v_0 \cos(\theta) t, v_0 \sin(\theta) t - \frac{1}{2} g t^2, 0 \rangle,
+    \]
+    where \( v_0 \) is the initial velocity, \( \theta \) is the launch angle, and \( g \) is the acceleration due to gravity.
+
+    \item \textbf{Kinematics of Rigid Bodies:} In robotics, the position and orientation of a robotic arm are described using parametric equations, enabling precise control of movement.
+
+    \item \textbf{Rendering Curves in 3D Graphics:} Parametric equations are used to generate and manipulate curves in computer graphics, such as Bézier curves in animations and CAD design.
+\end{itemize}
+
+\noindent As we delve into the calculus of vector-valued functions, the ability to differentiate and integrate parametric equations will allow us to analyze motion and physical systems in unprecedented detail. For instance, consider a particle moving along a winding path. At any instant \( t \), its position \( \mathbf{r}(t) \) is determined by the functions \( f(t), g(t), \) and \( h(t) \). The derivatives of these functions will later help us describe the particle’s velocity and acceleration, revealing insights into its behavior at each point along the curve. With this generalization in place, we are now ready to explore the calculus of vector-valued functions, which provides tools to analyze change and motion along these curves.
+
+
+
+\subsection*{Calculus of Vector-Valued Functions}  \index{Vector Calculus}
+
+\noindent Now that we have established the foundation of parametric equations and their representation through vector-valued functions, we move to the calculus of these functions. This section explores the derivatives and integrals of vector-valued functions, tools that enable us to analyze curves and change in space. By extending the familiar principles of single-variable calculus to the vector domain, we unlock a powerful framework for understanding the behavior of dynamic systems.
+
+\subsubsection*{Derivatives of Vector-Valued Functions}
+
+\noindent To begin, let us consider the vector-valued function:
+\[
+\mathbf{r}(t) = \langle f(t), g(t), h(t) \rangle,
+\]
+where \( f(t), g(t), \) and \( h(t) \) are differentiable scalar functions. The derivative of \( \mathbf{r}(t) \) with respect to \( t \) is defined component-wise as:
+\[
+\mathbf{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle.
+\]
+This derivative represents the rate of change of the vector-valued function with respect to the parameter \( t \). Geometrically, \( \mathbf{r}'(t) \) is a vector tangent to the curve defined by \( \mathbf{r}(t) \) at the point corresponding to \( t \). Its direction indicates how the curve is changing at that point. For example, if \( \mathbf{r}'(t) \) points upward, the curve is ascending; if it points downward, the curve is descending. \\ \\ Higher derivatives are also defined component-wise. The second derivative of \( \mathbf{r}(t) \) is given by:
+\[
+\mathbf{r}''(t) = \langle f''(t), g''(t), h''(t) \rangle,
+\]
+which provides information about the concavity of the curve or how sharply it is bending at each point. These higher-order derivatives are critical for analyzing properties such as increasing or decreasing behavior, inflection points, and curvature. \\ \\ The concept of component-wise differentiation not only simplifies calculations but also lays the foundation for generalizing change in multidimensional contexts. By treating each coordinate function \( f(t), g(t), h(t) \) independently, we maintain a structured approach to understanding how the entire system evolves.
+
+\exampleline
+\begin{example}
+Suppose a curve is defined by the vector-valued function:
+\[
+\mathbf{r}(t) = \langle t^3, \sin(t), e^t \rangle.
+\]
+Determine whether each component is increasing, decreasing, or concave at \( t = \pi \).
+\begin{solution}
+To analyze the behavior of each component at \( t = \pi \), we compute the first and second derivatives of \( \mathbf{r}(t) \):
+\[
+\mathbf{r}'(t) = \langle 3t^2, \cos(t), e^t \rangle, \quad \mathbf{r}''(t) = \langle 6t, -\sin(t), e^t \rangle.
+\]
+
+\noindent At \( t = \pi \), we evaluate the derivatives component-wise:
+\begin{align*}
+    \text{First derivative:} & \quad \mathbf{r}'(\pi) = \langle 3\pi^2, \cos(\pi), e^\pi \rangle = \langle 3\pi^2, -1, e^\pi \rangle, \\
+    \text{Second derivative:} & \quad \mathbf{r}''(\pi) = \langle 6\pi, -\sin(\pi), e^\pi \rangle = \langle 6\pi, 0, e^\pi \rangle.
+\end{align*}
+
+\noindent Component-wise analysis:
+\begin{itemize}
+    \item \( x(t) = t^3 \): The first derivative \( 3\pi^2 > 0 \) indicates \( x(t) \) is increasing. The second derivative \( 6\pi > 0 \) confirms \( x(t) \) is concave upward.
+    \item \( y(t) = \sin(t) \): The first derivative \( \cos(\pi) = -1 \) indicates \( y(t) \) is decreasing. The second derivative \( -\sin(\pi) = 0 \) suggests no concavity at this point.
+    \item \( z(t) = e^t \): The first derivative \( e^\pi > 0 \) indicates \( z(t) \) is increasing. The second derivative \( e^\pi > 0 \) confirms \( z(t) \) is concave upward.
+\end{itemize}
+
+\noindent Thus, \( x(t) \) and \( z(t) \) are increasing and concave upward, while \( y(t) \) is decreasing with no concavity at \( t = \pi \).
+\end{solution}
+\end{example}
+\exampleline
+
+\noindent The analysis of derivatives provides a systematic way to study the behavior of vector-valued functions. By extending these principles, we can explore higher-order changes and geometric properties of curves in space.
+
+
+\subsubsection*{Integrals of Vector-Valued Functions}
+
+\noindent Just as derivatives measure rates of change, integrals of vector-valued functions accumulate quantities over an interval. Given a vector-valued function:
+\[
+\mathbf{r}(t) = \langle f(t), g(t), h(t) \rangle,
+\]
+the integral of \( \mathbf{r}(t) \) with respect to \( t \) is defined component-wise:
+\[
+\int \mathbf{r}(t) \, dt = \langle \int f(t) \, dt, \int g(t) \, dt, \int h(t) \, dt \rangle + \mathbf{C},
+\]
+where \( \mathbf{C} = \langle C_1, C_2, C_3 \rangle \) is a constant vector of integration. \\ \\ Integrals of vector-valued functions allow us to reconstruct curves, compute displacements, and analyze the accumulation of quantities across space. This process is inherently component-wise, treating each spatial dimension independently, while combining them to form the overall trajectory or system. \\ \\ Consider a general situation where a vector-valued function \( \mathbf{v}(t) \) represents some change, such as motion or growth, in three-dimensional space. Integrating \( \mathbf{v}(t) \) over time allows us to recover the function \( \mathbf{r}(t) \) that describes the system:
+\[
+\mathbf{r}(t) = \int \mathbf{v}(t) \, dt = \langle \int v_x(t) \, dt, \int v_y(t) \, dt, \int v_z(t) \, dt \rangle + \mathbf{r}_0,
+\]
+where \( \mathbf{r}_0 = \langle x_0, y_0, z_0 \rangle \) is the initial condition or position at \( t = 0 \). \\ \\ This approach highlights the power of vector-valued integration in understanding phenomena that depend on independent contributions along multiple dimensions. Similarly, if \( \mathbf{a}(t) = \mathbf{r}''(t) \) is a second derivative, integrating \( \mathbf{a}(t) \) twice recovers \( \mathbf{r}(t) \), with each step of integration requiring the addition of constants reflecting initial conditions. \\ \\ By framing integrals component-wise, we emphasize the generalizability of these operations to multidimensional systems, while preserving the simplicity and independence of single-variable integration.
+
+
+
+\exampleline
+\begin{example}
+Let \(\mathbf{F}(t) = \langle 3t^2, 2\sin t, e^{2t} \rangle\) be a vector-valued function defined on the interval \( [0, 1] \).
+
+\begin{enumerate}
+    \item Compute the definite integral \(\displaystyle \int_0^1 \mathbf{F}(t) \, dt\).
+    \item Verify that \(\displaystyle \int_0^1 \mathbf{F}'(t) \, dt = \mathbf{F}(1) - \mathbf{F}(0)\).
+    \item Explain why the Fundamental Theorem of Calculus applies component-wise to vector-valued functions.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item To compute the definite integral of \(\mathbf{F}(t)\), we integrate each component separately:
+    \[
+    \int_0^1 \mathbf{F}(t) \, dt = \left\langle \int_0^1 3t^2 \, dt, \int_0^1 2\sin t \, dt, \int_0^1 e^{2t} \, dt \right\rangle.
+    \]
+    Compute each integral:
+
+    \textbf{First component:}
+    \[
+    \int_0^1 3t^2 \, dt = \left[ t^3 \right]_0^1 = 1^3 - 0^3 = 1.
+    \]
+
+    \textbf{Second component:}
+    \[
+    \int_0^1 2\sin t \, dt = -2\cos t \bigg|_0^1 = \left( -2\cos 1 \right) - \left( -2\cos 0 \right) = (-2\cos 1) + 2(1) = 2(1 - \cos 1).
+    \]
+
+    \textbf{Third component:}
+    \[
+    \int_0^1 e^{2t} \, dt = \left[ \frac{1}{2} e^{2t} \right]_0^1 = \frac{1}{2} \left( e^{2} - e^{0} \right) = \frac{1}{2} (e^{2} - 1).
+    \]
+
+    Therefore,
+    \[
+    \int_0^1 \mathbf{F}(t) \, dt = \left\langle 1, \, 2(1 - \cos 1), \, \dfrac{1}{2}(e^{2} - 1) \right\rangle.
+    \]
+
+    \item First, compute \(\mathbf{F}'(t)\):
+    \[
+    \mathbf{F}'(t) = \left\langle \frac{d}{dt} 3t^2, \, \frac{d}{dt} 2\sin t, \, \frac{d}{dt} e^{2t} \right\rangle = \left\langle 6t, \, 2\cos t, \, 2e^{2t} \right\rangle.
+    \]
+    Then compute the integral of \(\mathbf{F}'(t)\):
+    \[
+    \int_0^1 \mathbf{F}'(t) \, dt = \left\langle \int_0^1 6t \, dt, \, \int_0^1 2\cos t \, dt, \, \int_0^1 2e^{2t} \, dt \right\rangle.
+    \]
+    Compute each integral:
+
+    \textbf{First component:}
+    \[
+    \int_0^1 6t \, dt = \left[ 3t^2 \right]_0^1 = 3(1)^2 - 3(0)^2 = 3.
+    \]
+
+    \textbf{Second component:}
+    \[
+    \int_0^1 2\cos t \, dt = 2\sin t \bigg|_0^1 = 2\sin 1 - 2\sin 0 = 2\sin 1 - 0 = 2\sin 1.
+    \]
+
+    \textbf{Third component:}
+    \[
+    \int_0^1 2e^{2t} \, dt = \left[ e^{2t} \right]_0^1 = e^{2} - e^{0} = e^{2} - 1.
+    \]
+
+    Now compute \(\mathbf{F}(1) - \mathbf{F}(0)\):
+    \[
+    \mathbf{F}(1) = \left\langle 3(1)^2, \, 2\sin 1, \, e^{2(1)} \right\rangle = \left\langle 3, \, 2\sin 1, \, e^{2} \right\rangle.
+    \]
+    \[
+    \mathbf{F}(0) = \left\langle 3(0)^2, \, 2\sin 0, \, e^{2(0)} \right\rangle = \left\langle 0, \, 0, \, 1 \right\rangle.
+    \]
+    Therefore,
+    \[
+    \mathbf{F}(1) - \mathbf{F}(0) = \left\langle 3 - 0, \, 2\sin 1 - 0, \, e^{2} - 1 \right\rangle = \left\langle 3, \, 2\sin 1, \, e^{2} - 1 \right\rangle.
+    \]
+    Comparing the results:
+    \[
+    \int_0^1 \mathbf{F}'(t) \, dt = \left\langle 3, \, 2\sin 1, \, e^{2} - 1 \right\rangle = \mathbf{F}(1) - \mathbf{F}(0).
+    \]
+    Thus, we have verified that \(\displaystyle \int_0^1 \mathbf{F}'(t) \, dt = \mathbf{F}(1) - \mathbf{F}(0)\).
+
+    \item The Fundamental Theorem of Calculus states that for a real-valued differentiable function \( f \):
+    \[
+    \int_a^b f'(t) \, dt = f(b) - f(a).
+    \]
+    For vector-valued functions, each component is a real-valued function. Therefore, we can apply the Fundamental Theorem of Calculus to each component individually:
+    \[
+    \int_a^b \mathbf{F}'(t) \, dt = \left\langle \int_a^b F_1'(t) \, dt, \, \int_a^b F_2'(t) \, dt, \, \int_a^b F_3'(t) \, dt \right\rangle \]
+\[= \left\langle F_1(b) - F_1(a), \, F_2(b) - F_2(a), \, F_3(b) - F_3(a) \right\rangle = \mathbf{F}(b) - \mathbf{F}(a).
+    \]
+    This shows that the Fundamental Theorem of Calculus applies component-wise to vector-valued functions because integration and differentiation are performed separately on each real-valued component function.
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+
+
+\subsection*{Applications of Calculus with Vector-Valued Functions}
+
+\noindent The calculus of vector-valued functions has a wide range of applications in physics, engineering, and computer science. Some examples include:
+
+\begin{itemize}
+    \item \textbf{Kinematics:} Derivatives and integrals of position vectors describe velocity, acceleration, and displacement, essential for analyzing the motion of objects.
+    \item \textbf{Electromagnetism:} In physics, vector-valued functions are used to model electric and magnetic fields, with integrals representing quantities like flux.
+    \item \textbf{Computer Graphics:} Derivatives of vector-valued functions are used to compute normals and tangents, while integrals are employed in generating smooth curves and surfaces.
+\end{itemize}
+
+\noindent By understanding the calculus of vector-valued functions, we gain the ability to analyze and predict the behavior of dynamic systems in space, paving the way for more advanced topics in multivariable calculus.
+
+
+
+
+\exampleline
+\begin{example}
+Consider the parametric curve defined by
+\[
+\mathbf{r}(t) = \langle e^t, e^{-t}, t \rangle, \quad t \in \mathbb{R}.
+\]
+\begin{enumerate}
+    \item Show that this curve lies on the surface defined by \( x y = 1 \).
+    \item Find the equation of the tangent line to the curve at the point where \( t = 0 \).
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+    \item To show that the curve lies on the surface \( x y = 1 \), substitute \( x = e^t \) and \( y = e^{-t} \) into the equation:
+    \[
+    x y = e^t \cdot e^{-t} = e^{t - t} = e^0 = 1.
+    \]
+    Therefore, for all \( t \in \mathbb{R} \), the point \( (x, y, z) \) lies on the surface \( x y = 1 \).
+
+    \item The tangent vector to the curve at \( t \) is given by:
+    \[
+    \mathbf{r}'(t) = \left\langle \frac{d}{dt} e^t, \frac{d}{dt} e^{-t}, \frac{d}{dt} t \right\rangle = \langle e^t, -e^{-t}, 1 \rangle.
+    \]
+    At \( t = 0 \):
+    \[
+    \mathbf{r}(0) = \langle e^0, e^{0}, 0 \rangle = \langle 1, 1, 0 \rangle,
+    \]
+    \[
+    \mathbf{r}'(0) = \langle e^0, -e^{0}, 1 \rangle = \langle 1, -1, 1 \rangle.
+    \]
+    Since we are working in three dimensions, we use the parametric equation of a line:
+    \[
+    \mathbf{r}(s) = \mathbf{P}_0 + s \mathbf{d},
+    \]
+    where \( \mathbf{P}_0 \) is a point on the line and \( \mathbf{d} \) is the direction vector of the line.
+
+    In this context:
+    \[
+    \mathbf{P}_0 = \mathbf{r}(0) = \langle 1, 1, 0 \rangle, \quad \mathbf{d} = \mathbf{r}'(0) = \langle 1, -1, 1 \rangle.
+    \]
+    Therefore, the equation of the tangent line at \( t = 0 \) is:
+    \[
+    \mathbf{L}(s) = \mathbf{P}_0 + s \mathbf{d} = \langle 1, 1, 0 \rangle + s \langle 1, -1, 1 \rangle.
+    \]
+    Simplifying, we obtain:
+    \[
+    \mathbf{L}(s) = \langle 1 + s, 1 - s, 0 + s \rangle = \langle 1 + s, 1 - s, s \rangle.
+    \]
+    This parametric equation represents the tangent line to the curve at \( t = 0 \).
+
+    \textbf{Explanation:} In three-dimensional space, lines are described using vector equations. The general form is:
+    \[
+    \mathbf{r}(s) = \mathbf{P}_0 + s \mathbf{d},
+    \]
+    where \( \mathbf{P}_0 \) is a fixed point on the line and \( \mathbf{d} \) is a direction vector parallel to the line. The parameter \( s \) allows us to trace every point along the line. In this problem, \( \mathbf{r}(0) \) provides the point of tangency, and \( \mathbf{r}'(0) \) gives the direction of the tangent line, which is why we use them in constructing the equation.
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+
+\newpage
+
+
+
+
+
+
+
+
+\lecture{Motion Along a Curve}
+
+\noindent Building on our understanding of vector-valued functions and their derivatives, we now turn to the study of motion along a curve. This section explores how the calculus of vector-valued functions is applied to describe physical motion in space. Specifically, we examine how position, velocity, and acceleration work together to describe the behavior of moving objects, using the calculus of vector-valued functions.
+
+\subsection*{Motion Along a Curve} \index{Motion}
+
+\noindent When an object moves along a curve in three-dimensional space, its position at time \( t \) is described by a vector-valued function:
+\[
+\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle,
+\]
+where \( x(t), y(t), \) and \( z(t) \) are the coordinates of the object as functions of time. The path traced by \( \mathbf{r}(t) \) represents the trajectory of the object. Analyzing this motion relies on the concepts of derivatives and integrals to extract information about how the position vector changes over time and to reconstruct paths from rates of change. \\ \\  \textbf{The Velocity Vector} \( \mathbf{v}(t) \) is defined as the derivative of the position vector:
+\[
+\mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \langle x'(t), y'(t), z'(t) \rangle.
+\]
+This vector is tangent to the curve at the point \( \mathbf{r}(t) \), indicating the direction of motion at time \( t \). Its magnitude represents the speed of the object:
+\[
+|\mathbf{v}(t)| = \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2}.
+\]
+Geometrically, the velocity vector connects the rate of change of the coordinates \( x, y, \) and \( z \), capturing the instantaneous direction and rate at which the object moves along the curve. \\ \\ \textbf{The Acceleration Vector} \( \mathbf{a}(t) \) is defined as the derivative of the velocity vector:
+\[
+\mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = \frac{d^2\mathbf{r}}{dt^2} = \langle x''(t), y''(t), z''(t) \rangle.
+\]
+The acceleration vector quantifies how the velocity vector changes over time, indicating whether the object is speeding up, slowing down, or changing direction. The magnitude of the acceleration vector:
+\[
+|\mathbf{a}(t)| = \sqrt{x''(t)^2 + y''(t)^2 + z''(t)^2},
+\]
+provides the total rate of change of velocity. \\ \\ \textbf{Integrals and Motion Reconstruction:} In addition to derivatives, integrals play a fundamental role in understanding motion. The velocity vector \( \mathbf{v}(t) \) is often given as the rate of change of position, and integrating \( \mathbf{v}(t) \) allows us to reconstruct the position vector:
+\[
+\mathbf{r}(t) = \int \mathbf{v}(t) \, dt + \mathbf{r}_0,
+\]
+where \( \mathbf{r}_0 \) is the initial position of the object. Similarly, the acceleration vector \( \mathbf{a}(t) \), if known, can be integrated to recover the velocity:
+\[
+\mathbf{v}(t) = \int \mathbf{a}(t) \, dt + \mathbf{v}_0,
+\]
+where \( \mathbf{v}_0 \) is the initial velocity of the object. These integrations reveal how the motion accumulates over time, allowing us to describe both the trajectory and the forces acting on the object. \\ \\ Both velocity and acceleration vectors are essential in understanding the dynamics of motion along a curve. For instance:
+\begin{itemize}
+    \item If the velocity vector \( \mathbf{v}(t) \) is constant, the object moves along the curve with uniform speed.
+    \item If the acceleration vector \( \mathbf{a}(t) \) is zero, the object moves at constant velocity, tracing a straight line in space.
+    \item If \( \mathbf{a}(t) \) is not zero, the motion becomes more complex, involving changes in both speed and direction.
+\end{itemize}
+
+\noindent The interplay between \( \mathbf{v}(t) \), \( \mathbf{a}(t) \), and their respective integrals provides insights into real-world motion, such as the trajectories of projectiles or the orbits of celestial bodies. In cases where motion occurs under uniform forces, such as gravity, the integration process enables the reconstruction of entire paths from basic physical laws. These relationships will be expanded upon in subsequent sections, where we explore specific examples and applications of motion in physical systems.
+
+\exampleline
+\begin{example}
+Suppose a particle moves along a curve with velocity:
+\[
+\mathbf{v}(t) = \langle 3t, 4, t^2 \rangle, \quad t \in [0, 2].
+\]
+Find the displacement of the particle as well as total distance traveled.
+\begin{solution}
+To find the displacement of the particle, we integrate the velocity vector:
+\[
+\mathbf{r}(t) = \int \mathbf{v}(t) \, dt = \langle \int 3t \, dt, \int 4 \, dt, \int t^2 \, dt \rangle + \mathbf{r}_0.
+\]
+Assuming the particle starts at the origin (\( \mathbf{r}_0 = \langle 0, 0, 0 \rangle \)), the components of \( \mathbf{r}(t) \) are computed as follows:
+\begin{align*}
+    \int 3t \, dt &= \frac{3t^2}{2}, \\
+    \int 4 \, dt &= 4t, \\
+    \int t^2 \, dt &= \frac{t^3}{3}.
+\end{align*}
+Thus, the position function is:
+\[
+\mathbf{r}(t) = \langle \frac{3t^2}{2}, 4t, \frac{t^3}{3} \rangle.
+\]
+
+\noindent At \( t = 2 \), the displacement is:
+\[
+\mathbf{r}(2) = \langle \frac{3(2)^2}{2}, 4(2), \frac{(2)^3}{3} \rangle = \langle 6, 8, \frac{8}{3} \rangle.
+\]
+This vector gives the particle’s position relative to its starting point. \\ \\ To calculate the total distance traveled, we integrate the speed of the particle, which is the magnitude of the velocity:
+\[
+|\mathbf{v}(t)| = \sqrt{(3t)^2 + 4^2 + (t^2)^2}.
+\]
+The total distance is given by:
+\[
+\int_{0}^{2} |\mathbf{v}(t)| \, dt = \int_{0}^{2} \sqrt{(3t)^2 + 4^2 + (t^2)^2} \, dt.
+\]
+
+\noindent Simplifying the expression inside the square root:
+\[
+|\mathbf{v}(t)| = \sqrt{9t^2 + 16 + t^4}.
+\]
+Since this integral does not have a simple closed-form solution, numerical methods, such as Simpson's Rule or a computational tool, are typically used to evaluate it.
+\end{solution}
+\end{example}
+\exampleline
+
+\subsection*{Projectile Motion} \index{Projectile Motion}
+
+\noindent A classic example of motion along a curve is projectile motion, where an object is launched with an initial speed \( v_0 \) at an angle \( \theta \) above the horizontal plane. The initial velocity vector is given by:
+\[
+\mathbf{v}_0 = \langle v_{x0}, v_{y0}, v_{z0} \rangle = \langle v_0 \cos \theta, 0, v_0 \sin \theta \rangle,
+\]
+assuming motion occurs in the \( xz \)-plane (no motion in the \( y \)-direction). The acceleration due to gravity acts downward along the \( z \)-axis, so the acceleration vector is:
+\[
+\mathbf{a}(t) = \langle 0, 0, -g \rangle,
+\]
+where \( g \) is the acceleration due to gravity. Integrating the acceleration vector with respect to time gives the velocity vector:
+\[
+\mathbf{v}(t) = \int \mathbf{a}(t) \, dt + \mathbf{C}_1 = \langle v_0 \cos \theta, 0, v_0 \sin \theta - gt \rangle,
+\]
+where \( \mathbf{C}_1 = \mathbf{v}_0 \) is the constant of integration representing the initial velocity. Integrating the velocity vector yields the position vector:
+\[
+\mathbf{r}(t) = \int \mathbf{v}(t) \, dt + \mathbf{C}_2 = \langle v_0 \cos \theta \, t + x_0, \, y_0, \, v_0 \sin \theta \, t - \tfrac{1}{2} gt^2 + z_0 \rangle,
+\]
+where \( \mathbf{C}_2 = \langle x_0, y_0, z_0 \rangle \) is the initial position vector.
+
+\vspace{2mm}
+
+\noindent These equations describe the parabolic trajectory of a projectile. The horizontal motion (\( x \)-direction) is uniform, while the vertical motion (\( z \)-direction) is uniformly accelerated due to gravity. \\ \\ The parametric equations for the motion are:
+\[
+\begin{cases}
+x(t) = v_0 \cos \theta \, t + x_0, \\
+y(t) = y_0, \\
+z(t) = v_0 \sin \theta \, t - \tfrac{1}{2} gt^2 + z_0.
+\end{cases}
+\]
+
+\noindent To eliminate \( t \) and find the equation of the trajectory, solve for \( t \) from \( x(t) \):
+\[
+t = \frac{x - x_0}{v_0 \cos \theta}.
+\]
+\noindent Substitute \( t \) into \( z(t) \):
+\[
+z = v_0 \sin \theta \left( \frac{x - x_0}{v_0 \cos \theta} \right) - \tfrac{1}{2} g \left( \frac{x - x_0}{v_0 \cos \theta} \right)^2 + z_0.
+\]
+\noindent Simplify:
+\[
+z = (x - x_0) \tan \theta - \frac{g (x - x_0)^2}{2 v_0^2 \cos^2 \theta} + z_0.
+\]
+\noindent This equation represents the parabolic path of the projectile in the \( xz \)-plane.
+
+\subsubsection*{Maximum Height}
+
+\noindent The maximum height \( z_{\text{max}} \) of the projectile can be found by analyzing the vertical motion. The vertical component of velocity is:
+\[
+v_z(t) = v_0 \sin \theta - gt.
+\]
+\noindent The maximum height occurs when \( v_z(t) = 0 \):
+\[
+v_0 \sin \theta - gt_{\text{max}} = 0 \implies t_{\text{max}} = \frac{v_0 \sin \theta}{g}.
+\]
+\noindent Substitute \( t_{\text{max}} \) into \( z(t) \) to find \( z_{\text{max}} \):
+\[
+z_{\text{max}} = v_0 \sin \theta \left( \frac{v_0 \sin \theta}{g} \right) - \tfrac{1}{2} g \left( \frac{v_0 \sin \theta}{g} \right)^2 + z_0.
+\]
+\noindent Simplify:
+\[
+z_{\text{max}} = \frac{v_0^2 \sin^2 \theta}{g} - \frac{v_0^2 \sin^2 \theta}{2g} + z_0 = \frac{v_0^2 \sin^2 \theta}{2g} + z_0.
+\]
+\subsubsection*{Angle for Maximum Height}
+
+\noindent The maximum height \( z_{\text{max}} \) depends on \( \sin^2 \theta \). Since \( \sin \theta \) reaches its maximum value at \( \theta = 90^\circ \), the maximum height is achieved when the projectile is launched vertically upward. Therefore, the angle that produces the maximum height is:
+\[
+\theta_{\text{max\_height}} = 90^\circ.
+\]
+
+\subsubsection*{Maximum Range}
+
+\noindent The horizontal range \( R \) of the projectile (assuming it lands at the same vertical position from which it was launched, i.e., \( z = z_0 \)) is found by determining the time of flight \( t_{\text{flight}} \) when \( z(t_{\text{flight}}) = z_0 \):
+
+\noindent Set \( z(t_{\text{flight}}) = z_0 \):
+\[
+v_0 \sin \theta \, t_{\text{flight}} - \tfrac{1}{2} g t_{\text{flight}}^2 + z_0 = z_0.
+\]
+\noindent Simplify:
+\[
+v_0 \sin \theta \, t_{\text{flight}} - \tfrac{1}{2} g t_{\text{flight}}^2 = 0.
+\]
+\noindent Factor out \( t_{\text{flight}} \neq 0 \):
+\[
+t_{\text{flight}} = \frac{2 v_0 \sin \theta}{g}.
+\]
+\noindent The horizontal range is:
+\[
+R = x(t_{\text{flight}}) - x_0 = v_0 \cos \theta \, t_{\text{flight}} = v_0 \cos \theta \left( \frac{2 v_0 \sin \theta}{g} \right) = \frac{2 v_0^2 \sin \theta \cos \theta}{g}.
+\]
+\noindent Using the identity \( \sin 2\theta = 2 \sin \theta \cos \theta \):
+\[
+R = \frac{v_0^2 \sin 2\theta}{g}.
+\]
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[x=(330:1cm),y=(30:1cm),z=(90:1cm)]
+        % green ground
+        \fill [LightGreen] (-1,-1,0) -- (-.5,1,0) -- (11,2,0) -- (11,-2,0) -- cycle;
+        \fill[Green] (9,0,0) circle [x radius=1.5, y radius=1];
+        % black hole
+        \fill[black] (10,0,0) circle [x radius=.1, y radius=.1];
+        % red flag
+        \draw[Brown, thick, line cap=round] (10,0,0) -- (10,0,1);
+        \fill[Red] (10,0,1) -- (9.8,0,0.9) -- (10,0,0.8) -- cycle;
+        % yellow sand hill
+        \fill[Yellow, shift={(7,0,0)}] 
+            plot [domain=0:340, samples=20, smooth cycle, variable=\t] 
+                (\t:rnd/16+0.25 and rnd/8+0.75);
+
+        % origin
+        \node[below left] {$O$};
+        % x-axis
+        \draw (0, 0) -- (10, 0) 
+            node[midway, yshift=-.8cm, rotate=330] {Distance, \( x \) (m)};
+        \draw foreach \i in {2,4,6,8} 
+            { (\i, 0) node[below, rotate=330] {\i} -- ++(0, .15) };
+        % z-axis
+        \draw (0, 0, 0) -- (0, 0, 5) 
+            node[pos=.8, xshift=-.8cm, rotate=90] {Height, \( z \) (m)};
+        \draw foreach \i in {2,4} 
+            { (0, 0, \i) node[left] {\i} -- ++(.15, 0, 0) };
+
+        \foreach \a[evaluate={\v=70; \T=\v*sin(\a)/9.807*2;}] in {10, 20, ..., 80} {
+            \draw[x=(330:0.5pt), z=(90:0.5pt), Black, dashed]
+                plot [smooth, domain=0:\T, samples=50, variable=\t,
+                      mark=*, mark repeat=2, mark size=1.8pt, mark options={fill=white, solid}]
+                    (\v*\t*cos \a, 0, -9.807/2*\t^2+\v*\t*sin \a +0.1016) coordinate (end);
+            \filldraw[fill=White] (end) circle [radius=1.8pt];
+        }
+    \end{tikzpicture}
+    \caption{\textit{A 3D visualization of projectile motion on a golf course. The ball is launched in a parabolic trajectory, reaching the hole marked by the red flag.}
+    \label{fig:golf_course_projectile_motion}}
+\end{figure}
+
+\subsubsection*{Angle for Maximum Range}
+
+\noindent The maximum range occurs when \( \sin 2\theta \) is maximized. Since \( \sin 2\theta \) reaches its maximum value of 1 when \( 2\theta = 90^\circ \), i.e., \( \theta = 45^\circ \):
+\[
+\theta_{\text{max\_range}} = 45^\circ.
+\]
+\noindent Therefore, to achieve the maximum horizontal range, the projectile should be launched at an angle of \( 45^\circ \).
+
+
+\exampleline
+\begin{example}
+A golfer is attempting to hit a golf ball over a sandtrap onto the green. The sandtrap is located between 50 meters and 70 meters from the golfer. The green starts at a distance of 70 meters from the golfer. The golfer can hit the ball with an initial speed of \( v_0 = 45 \) m/s. At what minimum angle \( \theta \) above the horizontal must the golfer hit the ball to ensure the ball clears the sandtrap and lands on the green? Ignore air resistance and assume the ball lands at the same vertical level from which it was hit.
+
+\begin{solution}
+To ensure the ball clears the sandtrap and lands on the green, the golfer must hit the ball so that it lands at a horizontal distance \( x \geq 70 \) meters from the starting point. \\ \\ The horizontal range \( R \) of a projectile launched at an angle \( \theta \) with initial speed \( v_0 \) and landing at the same vertical level is given by:
+
+\[
+R = \dfrac{v_0^2 \sin 2\theta}{g},
+\]
+
+where \( g = 9.8 \, \text{m/s}^2 \) is the acceleration due to gravity.
+
+We need to find the minimum angle \( \theta \) such that \( R \geq 70 \) meters.
+
+\begin{enumerate}
+    \item \textbf{Set up the inequality for the range:}
+
+    \[
+    R = \dfrac{v_0^2 \sin 2\theta}{g} \geq 70.
+    \]
+
+    \item \textbf{Solve for \( \sin 2\theta \):}
+
+    \[
+    \sin 2\theta \geq \dfrac{70g}{v_0^2}.
+    \]
+
+    Substitute \( v_0 = 45 \, \text{m/s} \) and \( g = 9.8 \, \text{m/s}^2 \):
+
+    \[
+    \sin 2\theta \geq \dfrac{70 \times 9.8}{45^2} = \dfrac{686}{2025} \approx 0.338.
+    \]
+
+    \item \textbf{Solve for \( 2\theta \):}
+
+    \[
+    2\theta \geq \sin^{-1}(0.338).
+    \]
+
+    Compute \( \sin^{-1}(0.338) \):
+
+    \[
+    2\theta \geq 19.78^\circ.
+    \]
+
+    \item \textbf{Solve for \( \theta \):}
+
+    \[
+    \theta \geq \dfrac{19.78^\circ}{2} = 9.89^\circ.
+    \]
+
+\end{enumerate}
+
+\noindent \textbf{Conclusion:} The golfer must hit the ball at a minimum angle of approximately \( 9.89^\circ \) above the horizontal to ensure the ball clears the sandtrap and lands on the green.
+
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+
+\subsubsection*{Energy Considerations}
+
+\noindent The initial kinetic energy \( K \) of the projectile is:
+\[
+K = \tfrac{1}{2} m v_0^2,
+\]
+where \( m \) is the mass of the projectile. At the maximum height, the kinetic energy is:
+\[
+K_{\text{max\_height}} = \tfrac{1}{2} m \left( v_0 \cos \theta \right)^2 = \tfrac{1}{2} m v_0^2 \cos^2 \theta.
+\]
+\noindent The potential energy increase is:
+\[
+\Delta U = m g z_{\text{max}} = m g \left( \frac{v_0^2 \sin^2 \theta}{2g} + z_0 \right) = \tfrac{1}{2} m v_0^2 \sin^2 \theta + m g z_0.
+\]
+\noindent This shows the conservation of mechanical energy:
+\[
+K = K_{\text{max\_height}} + \Delta U.
+\]
+
+\exampleline
+\begin{example}
+An object is launched from the origin (\( x_0 = z_0 = 0 \)) with an initial speed \( v_0 = 20 \, \text{m/s} \) at an angle \( \theta = 45^\circ \). 
+
+\begin{enumerate}
+    \item Derive the parametric equations for the motion of the object, assuming acceleration due to gravity is \( g = 9.8 \, \text{m/s}^2 \).
+    \item Find the maximum height of the object using kinematic equations.
+    \item Determine the total time of flight.
+    \item Calculate the horizontal range of the projectile.
+    \item Using energy considerations, calculate the maximum height the object reaches.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item \textbf{Parametric Equations.}
+    
+    Decompose the initial velocity into horizontal and vertical components:
+    
+    \[
+    v_{x0} = v_0 \cos \theta = 20 \cos 45^\circ = 20 \left( \frac{\sqrt{2}}{2} \right) = 10\sqrt{2} \, \text{m/s},
+    \]
+    
+    \[
+    v_{z0} = v_0 \sin \theta = 20 \sin 45^\circ = 20 \left( \frac{\sqrt{2}}{2} \right) = 10\sqrt{2} \, \text{m/s}.
+    \]
+    
+    The parametric equations are:
+    
+    \[
+    x(t) = v_{x0} t = 10\sqrt{2} \, t,
+    \]
+    
+    \[
+    z(t) = v_{z0} t - \tfrac{1}{2} g t^2 = 10\sqrt{2} \, t - 4.9 t^2.
+    \]
+    
+    \item \textbf{Maximum Height Using Kinematics.}
+    
+    The maximum height occurs when the vertical velocity becomes zero:
+    
+    \[
+    v_z(t) = v_{z0} - g t = 0 \implies t_{\text{max}} = \dfrac{v_{z0}}{g} = \dfrac{10\sqrt{2}}{9.8} \approx 1.44 \, \text{s}.
+    \]
+    
+    Substitute \( t_{\text{max}} \) into \( z(t) \):
+    
+    \[
+    \begin{aligned}
+    z_{\text{max}} &= 10\sqrt{2} \left( \dfrac{10\sqrt{2}}{9.8} \right) - 4.9 \left( \dfrac{10\sqrt{2}}{9.8} \right)^2 \\
+    &= \dfrac{200}{9.8} - 4.9 \left( \dfrac{200}{(9.8)^2} \right) \\
+    &= \dfrac{200}{9.8} - \dfrac{200}{9.8} \\
+    &= \dfrac{200}{9.8} - \dfrac{200}{9.8} = 10.204 \, \text{m}.
+    \end{aligned}
+    \]
+    
+    So, the maximum height is approximately \( 10.2 \, \text{m} \).
+    
+    \item \textbf{Total Time of Flight.}
+    
+    The total time is when the projectile returns to \( z = 0 \):
+    
+    \[
+    z(t) = 0 \implies 10\sqrt{2} \, t - 4.9 t^2 = 0.
+    \]
+    
+    Factor out \( t \neq 0 \):
+    
+    \[
+    t \left( 10\sqrt{2} - 4.9 t \right) = 0 \implies t_{\text{total}} = \dfrac{10\sqrt{2}}{4.9} \approx 2.04 \, \text{s}.
+    \]
+    
+    \item \textbf{Horizontal Range.}
+    
+    The horizontal range is:
+    
+    \[
+    x_{\text{range}} = v_{x0} \times t_{\text{total}} = 10\sqrt{2} \times 2.04 \approx 28.9 \, \text{m}.
+    \]
+    
+    \item \textbf{Maximum Height Using Energy Considerations.}
+    
+    We will use the conservation of mechanical energy to find \( z_{\text{max}} \).
+    
+    \begin{enumerate}
+        \item \textbf{Initial Kinetic Energy:}
+        
+        \[
+        K_i = \tfrac{1}{2} m v_0^2 = \tfrac{1}{2} m (20)^2 = 200 m.
+        \]
+        
+        \item \textbf{Kinetic Energy at Maximum Height:}
+        
+        At maximum height, vertical velocity is zero, so:
+        
+        \[
+        K_{\text{max}} = \tfrac{1}{2} m v_{x0}^2 = \tfrac{1}{2} m (10\sqrt{2})^2 = 100 m.
+        \]
+        
+        \item \textbf{Potential Energy at Maximum Height:}
+        
+        \[
+        U_{\text{max}} = m g z_{\text{max}}.
+        \]
+        
+        \item \textbf{Conservation of Mechanical Energy:}
+        
+        \[
+        K_i = K_{\text{max}} + U_{\text{max}}.
+        \]
+        
+        \item \textbf{Solve for \( z_{\text{max}} \):}
+        
+        \[
+        200 m = 100 m + m g z_{\text{max}} \implies m g z_{\text{max}} = 100 m.
+        \]
+        
+        Cancel \( m \) from both sides:
+        
+        \[
+        g z_{\text{max}} = 100 \implies z_{\text{max}} = \dfrac{100}{g} = \dfrac{100}{9.8} \approx 10.204 \, \text{m}.
+        \]
+        
+    \end{enumerate}
+    
+    \textbf{Conclusion:} The maximum height calculated using energy considerations is approximately \( 10.2 \, \text{m} \), which matches the result obtained using kinematic equations.
+    
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+\newpage
+
+\lecture{The TNB Frame, Curvature and Torsion} \index{TNB Frame} \index{Curvature} \index{Torsion}
+
+\noindent As we extend our study of motion in space, we now introduce the TNB frame—a powerful tool for analyzing the geometry of curves and the motion of objects along those curves. The TNB frame consists of three mutually orthogonal vectors: the tangent vector, the normal vector, and the binormal vector. Together, these vectors form a moving frame that evolves along the curve, providing a dynamic coordinate system to describe its behavior. This section also introduces the Frenet-Serret equations, which govern the interplay between these vectors, and discusses applications of the TNB frame to motion in space.
+
+\subsection*{The TNB Frame}
+
+\noindent In previous sections, we discussed the derivatives of vector-valued functions, which naturally give rise to the tangent vector (\( \mathbf{T}(t) \)), and explored the normal vector (\( \mathbf{N}(t) \)) as a tool for understanding how curves bend. Building upon this foundation, we now introduce the binormal vector (\( \mathbf{B}(t) \)) to complete the TNB frame. Together, these vectors form an orthonormal basis that evolves along the curve, providing a dynamic coordinate system tied directly to the curve’s intrinsic geometry and motion. \\
+
+\noindent Consider a smooth curve parameterized by a vector-valued function:
+\[
+\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle, \quad t \in I,
+\]
+where \( \mathbf{r}'(t) \neq \mathbf{0} \) for all \( t \). The TNB frame is constructed as follows:
+\begin{itemize}
+    \item \textbf{Tangent Vector (\( \mathbf{T}(t) \)):} The unit tangent vector is defined as:
+    \[
+    \mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}.
+    \]
+    It points in the direction of motion, describing the instantaneous direction of the curve at each point.
+    \item \textbf{Normal Vector (\( \mathbf{N}(t) \)):} The principal normal vector is defined as:
+    \[
+    \mathbf{N}(t) = \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|}.
+    \]
+    It quantifies how the curve bends by pointing toward the center of curvature at each point.
+    \item \textbf{Binormal Vector (\( \mathbf{B}(t) \)):} The binormal vector is defined by the cross product:
+    \[
+    \mathbf{B}(t) = \mathbf{T}(t) \times \mathbf{N}(t).
+    \]
+    It is orthogonal to both \( \mathbf{T}(t) \) and \( \mathbf{N}(t) \), completing the right-handed orthonormal basis.
+\end{itemize}
+
+\noindent These vectors collectively form the TNB frame, providing a coordinate system uniquely tied to the geometry of the curve. The evolution of the TNB frame along the curve encodes information about its curvature and torsion. Below is an example of a TNB frame of a parametric curve that is going around a cylinder:
+
+\tikzset
+{
+  surface/.style={draw=cyan,left color=cyan,fill opacity=0.5},
+  top/.style={draw=cyan,fill=cyan!30,fill opacity=0.5,canvas is xy plane at z=4},
+  pics/helix/.style 2 args={code=% #1 = initial angle, #2 = final angle
+    {\draw[pic actions] plot[domain=#1:#2,samples=0.5*#2-0.5*#1+1] 
+      ({1.5*cos(\x)},{1.5*sin(\x)},1.5*\x/180);}}, % Added scaling factor of 1.5
+  pics/vectors/.style={code=% #1 = angle
+    {\draw[green!50!black,-latex,opacity=0.3] ({1.5*cos(#1)},{1.5*sin(#1)},1.5*#1/180) -- 
+      ({0.6*cos(#1)},{0.6*sin(#1)},1.5*#1/180) node[pos=1.5] {$\textbf{N}$};
+     \begin{scope}[shift={({1.5*cos(#1)},{1.5*sin(#1)},1.5*#1/180)},rotate around z=90+#1,canvas is xz plane at y=0]
+       \draw[blue!50!black,-latex]    (0,0) --++ ({atan(1/pi)}:1.125) node[pos=1.4] {$\textbf{T}$};
+       \draw[magenta!50!black,-latex] (0,0) --++ ({90+atan(1/pi)}:1.5) node[pos=1.3] {$\textbf{B}$};
+     \end{scope}}}
+}
+
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}[scale=1, isometric view,rotate around z=180,font=\small,
+                    line cap=round,line join=round]
+% axes
+\draw[-latex] (0,0,0) -- (2,0,0) node[left]  {\strut$x$};
+\draw[-latex] (0,0,0) -- (0,2,0) node[right] {\strut$y$};
+% helix,   background
+\pic[red] {helix={135}{315}};
+\pic[red] {helix={495}{675}};
+% z-axis,  background
+\draw (0,0,0) -- (0,0,4);
+% vectors, background
+\foreach\i in {270,550}
+  \pic {vectors=\i};
+% cylinder
+\draw[surface] (-45:1.5) arc (-45:135:1.5) --++ (0,0,4) arc (135:-45:1.5) -- cycle; % Scaled cylinder radius
+\draw[top] (0,0) circle (1.5); % Scaled top circle radius
+% z-axis,  foreground
+\draw[-latex] (0,0,4) -- (0,0,5.5) node[above] {$z$};
+% helix,   foreground
+\pic[red] {helix=  {0}{135}};
+\pic[red] {helix={315}{495}};
+\pic[red] {helix={675}{720}};
+% vectors, foreground
+\foreach\i in {30,110}
+  \pic {vectors=\i};
+\end{tikzpicture}
+    \caption{\textit{A TNB Frame on a parametric curve around a scaled cylinder}}
+    \label{fig:tnb_example}
+\end{figure}
+
+\exampleline
+\begin{example}
+A particle moves along the space curve:
+\[
+\mathbf{r}(t) = \langle t, t^2, t^3 \rangle, \quad t \in [0, 2].
+\]
+Find the TNB frame vectors (\( \mathbf{T}(t), \mathbf{N}(t), \mathbf{B}(t) \)) at \( t = 1 \).
+
+\begin{solution}
+\begin{enumerate}
+    \item Compute derivatives of \( \mathbf{r}(t) \):
+    \[
+    \mathbf{r}'(t) = \langle 1, 2t, 3t^2 \rangle, \quad \mathbf{r}'(1) = \langle 1, 2, 3 \rangle, \quad |\mathbf{r}'(1)| = \sqrt{1^2 + 2^2 + 3^2} = \sqrt{14}.
+    \]
+    \[
+    \mathbf{r}''(t) = \langle 0, 2, 6t \rangle, \quad \mathbf{r}''(1) = \langle 0, 2, 6 \rangle.
+    \]
+
+    \item Compute \( \mathbf{T}(1) \):
+    \[
+    \mathbf{T}(t) = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}, \quad \mathbf{T}(1) = \frac{\langle 1, 2, 3 \rangle}{\sqrt{14}} = \left\langle \frac{1}{\sqrt{14}}, \frac{2}{\sqrt{14}}, \frac{3}{\sqrt{14}} \right\rangle.
+    \]
+
+    \item Compute \( \mathbf{N}(1) \):
+    Using:
+    \[
+    \mathbf{N}(t) = \frac{\mathbf{r}''(t) - \left( \mathbf{r}''(t) \cdot \mathbf{T}(t) \right)\mathbf{T}(t)}{\left| \mathbf{r}''(t) - \left( \mathbf{r}''(t) \cdot \mathbf{T}(t) \right)\mathbf{T}(t) \right|},
+    \]
+    compute the dot product:
+    \[
+    \mathbf{r}''(1) \cdot \mathbf{T}(1) = \langle 0, 2, 6 \rangle \cdot \left\langle \frac{1}{\sqrt{14}}, \frac{2}{\sqrt{14}}, \frac{3}{\sqrt{14}} \right\rangle = \frac{22}{\sqrt{14}}.
+    \]
+    Subtract:
+    \[
+    \mathbf{r}''(1) - \left( \mathbf{r}''(1) \cdot \mathbf{T}(1) \right) \mathbf{T}(1) = \langle 0, 2, 6 \rangle - \frac{22}{14} \langle 1, 2, 3 \rangle = \left\langle -\frac{11}{7}, -\frac{8}{7}, \frac{9}{7} \right\rangle.
+    \]
+    Compute the magnitude:
+    \[
+    \left| \mathbf{N}_{\text{numerator}} \right| = \sqrt{\left( -\frac{11}{7} \right)^2 + \left( -\frac{8}{7} \right)^2 + \left( \frac{9}{7} \right)^2} = \frac{\sqrt{266}}{7}.
+    \]
+    Thus:
+    \[
+    \mathbf{N}(1) = \left\langle -\frac{11}{\sqrt{266}}, -\frac{8}{\sqrt{266}}, \frac{9}{\sqrt{266}} \right\rangle.
+    \]
+
+    \item Compute \( \mathbf{B}(1) \):
+    Using:
+    \[
+    \mathbf{B}(1) = \mathbf{T}(1) \times \mathbf{N}(1),
+    \]
+    compute the cross product:
+    \[
+    \mathbf{B}(1) = \left\langle \frac{3}{\sqrt{266}}, -\frac{3}{\sqrt{266}}, \frac{1}{\sqrt{266}} \right\rangle.
+    \]
+\end{enumerate}
+
+\noindent At \( t = 1 \), the TNB frame is:
+\[
+\begin{aligned}
+\mathbf{T}(1) &= \left\langle \frac{1}{\sqrt{14}}, \frac{2}{\sqrt{14}}, \frac{3}{\sqrt{14}} \right\rangle, \\
+\mathbf{N}(1) &= \left\langle -\frac{11}{\sqrt{266}}, -\frac{8}{\sqrt{266}}, \frac{9}{\sqrt{266}} \right\rangle, \\
+\mathbf{B}(1) &= \left\langle \frac{3}{\sqrt{266}}, -\frac{3}{\sqrt{266}}, \frac{1}{\sqrt{266}} \right\rangle.
+\end{aligned}
+\]
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+
+
+\subsection*{Curvature} \index{Curvature}
+
+\noindent Beyond position, velocity, and acceleration, the curvature of a curve provides insights into how sharply the trajectory bends at each point. It quantifies the rate at which the direction of the curve changes as you move along it. For a smooth curve defined by the vector-valued function \( \mathbf{r}(t) \), the curvature \( \kappa(t) \) at a point is given by:
+\[
+\kappa(t) = \frac{|\mathbf{r}'(t) \times \mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3} = \frac{|\mathbf{v}(t) \times \mathbf{a}(t)|}{|\mathbf{v}(t)|^3} = \frac{|\mathbf{T}'(s)|}{|\mathbf{r}'(s)|}
+\]
+Here:
+\begin{itemize}
+    \item \( \mathbf{r}'(t) \) is the first derivative of \( \mathbf{r}(t) \), representing the velocity vector.
+    \item \( \mathbf{r}''(t) \) is the second derivative of \( \mathbf{r}(t) \), representing the acceleration vector.
+    \item The cross product \( \mathbf{r}'(t) \times \mathbf{r}''(t) \) captures the tendency of the curve to twist out of a straight path, emphasizing the interaction between velocity and acceleration.
+\end{itemize}
+
+\noindent In the case of \textbf{plane curves} (curves that lie entirely in a plane), there is a simplified formula for curvature. If the curve is given parametrically by \( \mathbf{r}(t) = \langle x(t), y(t) \rangle \), the curvature \( \kappa(t) \) can be calculated as:
+\[
+\kappa(t) = \frac{|x'(t) y''(t) - y'(t) x''(t)|}{\left( [x'(t)]^2 + [y'(t)]^2 \right)^{3/2}}
+\]
+This formula is derived from the general vector formula for curvature by evaluating the cross product and magnitudes in two dimensions. When dealing with a single-variable function \( y = f(x) \), we can consider it as a plane curve by parameterizing it as:
+\[
+\mathbf{r}(t) = \langle t, f(t) \rangle.
+\]
+In this case, the derivatives are:
+\[
+x(t) = t, \quad y(t) = f(t), \quad x'(t) = 1, \quad y'(t) = f'(t), \quad x''(t) = 0, \quad y''(t) = f''(t).
+\]
+Substituting into the plane curve curvature formula:
+\[
+\kappa(t) = \frac{|x'(t) y''(t) - y'(t) x''(t)|}{\left( [x'(t)]^2 + [y'(t)]^2 \right)^{3/2}} = \frac{|1 \cdot f''(t) - f'(t) \cdot 0|}{\left( [1]^2 + [f'(t)]^2 \right)^{3/2}} = \frac{|f''(t)|}{\left( 1 + [f'(t)]^2 \right)^{3/2}}.
+\]
+Since \( x = t \), we can write \( \kappa(x) \) as:
+\[
+\kappa(x) = \frac{|f''(x)|}{\left( 1 + [f'(x)]^2 \right)^{3/2}}.
+\]
+This formula gives the curvature of the graph of a function \( y = f(x) \) at any point \( x \). This progression shows how the general formula simplifies under specific conditions, making it easier to compute curvature in various contexts. \\ \\ Curvature has a natural interpretation: it describes how much the direction of the \textbf{tangent vector} \( \mathbf{T}(t) = \dfrac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} \) changes per unit of \textbf{arc length}. This highlights a critical property of curvature: it is independent of the speed at which the curve is traversed. Whether a particle moves along the curve quickly or slowly, the curvature remains tied solely to the trajectory's geometry. \\ \\ The plane curve curvature formula emphasizes how curvature depends on the rates of change of the components of the curve. The numerator \( x'(t) y''(t) - y'(t) x''(t) \) represents the rate at which the direction is changing, while the denominator normalizes this by the speed to the third power, ensuring that curvature is a geometric property of the curve itself, not dependent on parameterization.
+
+\subsubsection*{Osculating Circles} \index{Osculating Circles}
+The osculating circle at a point on the curve is the unique circle that shares the same tangent and curvature as the curve at that point. Its radius \( R \), known as the \textit{radius of curvature}, is inversely proportional to the curvature:
+\[
+R = \frac{1}{\kappa}.
+\]
+For straight lines, where \( \kappa = 0 \), the radius of curvature is infinite, reflecting the absence of bending. Conversely, for a tightly curved loop, \( \kappa \) is large, and \( R \) is small. The osculating circle provides a geometric representation of curvature, capturing the curve’s local behavior with remarkable accuracy. These ideas are not merely theoretical—they allow for practical analysis of paths and trajectories. For example, in designing smooth transitions in roads or roller coasters, one must ensure that the curvature does not exceed safe limits, as excessive bending introduces significant forces.
+
+\subsubsection*{Motion Context}
+Curvature also reflects constraints imposed by motion. Consider a car driving along a curved path. The curvature dictates the centripetal force required to maintain the car’s trajectory. A sharper turn (higher curvature) demands greater centripetal acceleration, which is proportional to \( \kappa v^2 \), where \( v \) is the car's speed. Similarly, in orbital mechanics, the curvature of a planet’s trajectory provides insight into the forces acting upon it. The curvature is directly tied to the balance of gravitational pull and the tangential velocity of the orbiting body. \\ \\ To illustrate the concept of curvature, consider the sine curve \( \mathbf{r}(t) = \langle t, t^3 - 3t^2 + t - 2 \rangle \). This curve alternates between regions of high and low curvature. At peaks and troughs, where the curve bends most sharply, the curvature is maximized. In contrast, at inflection points, where the curve transitions between bending upward and downward, the curvature diminishes.
+
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}
+    % First axis for the function f(x)
+    \begin{axis}[
+        name=primary,
+        axis y line*=left,
+        axis x line*=bottom,
+        xlabel={$x$},
+        ylabel={$f(x)$},
+        xmin=-1, xmax=4,
+        ymin=-10, ymax=20,
+        grid=both,
+        width=12cm,
+        height=8cm,
+        legend style={
+            at={(0,1.05)}, % Place the legend above the left side of the plot
+            anchor=south west,
+            cells={align=left},
+        },
+    ]
+        % Plot of f(x)
+        \addplot[
+            domain=-1:4,
+            samples=200,
+            blue,
+            thick,
+        ] {x^3 - 3*x^2 + x - 2};
+        \addlegendentry{$f(x)$}
+    \end{axis}
+    
+    % Second axis for the curvature kappa(x)
+    \begin{axis}[
+        axis y line*=right,
+        axis x line=none,
+        xmin=-1, xmax=4,
+        ymin=0, ymax=5,
+        ylabel={$\kappa(x)$},
+        width=12cm,
+        height=8cm,
+        at=(primary.south west),
+        anchor=south west,
+        legend style={
+            at={(1,1.05)}, % Place the legend above the right side of the plot
+            anchor=south east,
+            cells={align=left},
+        },
+    ]
+        % Plot of curvature kappa(x)
+        \addplot[
+            domain=-1:4,
+            samples=200,
+            red,
+            dashed,
+            thick,
+        ] {abs(6*x - 6) / ((1 + (3*x^2 - 6*x + 1)^2)^(1.5))};
+        \addlegendentry[
+            style={red, dashed, thick}
+        ]{$\kappa(x)$}
+    \end{axis}
+\end{tikzpicture}
+
+
+    \caption{\textit{A polynomial and its curvature (\(\kappa\)) plotted together. The function is shown in blue, and the curvature is shown in dashed red, with a combined legend for clarity.}}
+    \label{fig:fun_curvature}
+\end{figure}
+
+
+
+\noindent In Figure \ref{fig:fun_curvature}, the plot illustrates:
+\begin{itemize}
+    \item The function \(f(x)\), shown as a blue solid line, representing a cubic polynomial. It exhibits inflection points where the curvature changes sign, corresponding to transitions between concave up and concave down behavior.
+    \item The curvature \(\kappa(x)\), shown as a red dashed line, which has peaks at \(x \approx 0\), \(x \approx 1.5\), and \(x \approx 2.5\), indicating regions of high curvature.
+    \item Low curvature values for \(\kappa(x)\) near \(x = -1\), \(x = 4\), and other regions where \(f(x)\) is nearly linear.
+\end{itemize}
+
+\noindent Below is a python snippet that you can use to see a function with its curvature on the same plot.
+
+
+
+
+\vspace{1.3em} \index{Python}
+
+
+\begin{lstlisting}[language=Python]
+import numpy as np
+import matplotlib.pyplot as plt
+
+def plot_function_and_curvature(func, x_range, scaling_factor=1):
+    # Generate x values
+    x = np.linspace(x_range[0], x_range[1], 1000)
+    dx = x[1] - x[0]  # Assuming uniform spacing
+
+    # Compute y = f(x)
+    y = func(x)
+
+    # First derivative f'(x) using numerical differentiation
+    f_prime = np.gradient(y, dx)
+
+    # Second derivative f''(x)
+    f_double_prime = np.gradient(f_prime, dx)
+
+    # Compute curvature k = |f''(x)| / (1 + [f'(x)]^2)^(3/2)
+    curvature = np.abs(f_double_prime) / (1 + f_prime**2)**1.5
+    curvature *= scaling_factor  # Apply scaling if needed
+
+    # Plotting
+    fig, ax1 = plt.subplots(figsize=(10, 6))
+
+    # Plot the function on the left y-axis
+    color1 = 'tab:blue'
+    ax1.set_xlabel('x')
+    ax1.set_ylabel('Function', color=color1)
+    ax1.plot(x, y, label='Function', color=color1, linewidth=2)
+    ax1.tick_params(axis='y', labelcolor=color1)
+    ax1.grid(True)
+
+    # Create a second y-axis for the curvature
+    ax2 = ax1.twinx()
+
+    color2 = 'tab:red'
+    ax2.set_ylabel('Curvature', color=color2)
+    ax2.plot(x, curvature, label='Curvature', color=color2, linestyle='--', linewidth=2)
+    ax2.tick_params(axis='y', labelcolor=color2)
+
+    # Combine legends
+    lines_1, labels_1 = ax1.get_legend_handles_labels()
+    lines_2, labels_2 = ax2.get_legend_handles_labels()
+    ax1.legend(lines_1 + lines_2, labels_1 + labels_2, loc='upper right')
+
+    plt.title('Function and Curvature')
+    plt.show()
+
+# Example usage with a polynomial function
+def polynomial_function(x):
+    return x**3 - 3*x**2 + x - 2
+
+plot_function_and_curvature(polynomial_function, x_range=(-1, 4))
+
+\end{lstlisting}
+
+\vspace{1.3em}
+
+\exampleline
+\begin{example}
+An engineer is designing a curved road described by the parametric equations:
+\[
+\mathbf{r}(t) = \langle t, t^2 \rangle, \quad t \in [0, 5].
+\]
+\begin{enumerate}
+    \item Compute the curvature \( \kappa(t) \) of the road at any point \( t \).
+    \item Determine the point along the road where the curvature is maximized within the interval \( t \in [0, 5] \).
+    \item Discuss how the curvature affects the design and safety of the road.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item First, we identify the components of \( \mathbf{r}(t) \):
+    \[
+    x(t) = t, \quad y(t) = t^2.
+    \]
+    Compute the first derivatives:
+    \[
+    x'(t) = 1, \quad y'(t) = 2t.
+    \]
+    Compute the second derivatives:
+    \[
+    x''(t) = 0, \quad y''(t) = 2.
+    \]
+    The curvature \( \kappa(t) \) for plane curves is given by:
+    \[
+    \kappa(t) = \frac{|x'(t) y''(t) - y'(t) x''(t)|}{\left( [x'(t)]^2 + [y'(t)]^2 \right)^{3/2}}.
+    \]
+    Substitute the derivatives:
+    \[
+    \kappa(t) = \frac{| (1)(2) - (2t)(0) |}{\left( 1^2 + (2t)^2 \right)^{3/2}} = \frac{2}{\left( 1 + 4t^2 \right)^{3/2}}.
+    \]
+    \item To find where the curvature is maximized, we can analyze \( \kappa(t) \):
+    \[
+    \kappa(t) = \frac{2}{\left( 1 + 4t^2 \right)^{3/2}}.
+    \]
+    Since the denominator increases with \( t \), the curvature decreases as \( t \) increases. Therefore, the maximum curvature occurs at \( t = 0 \):
+    \[
+    \kappa_{\text{max}} = \kappa(0) = \frac{2}{(1 + 0)^{3/2}} = 2.
+    \]
+    \item \textbf{Implications:}
+    \begin{itemize}
+        \item \textbf{Design and Safety:} The highest curvature at \( t = 0 \) indicates the sharpest bend in the road occurs at the starting point. High curvature requires careful design to ensure vehicles can navigate the curve safely without skidding or overturning.
+        \item \textbf{Speed Limits:} Areas with higher curvature may require lower speed limits to maintain safety, as centripetal acceleration increases with curvature and speed.
+        \item \textbf{Banking the Road:} Engineers might design the road with banking (tilting the road towards the center of the curve) at high-curvature sections to counteract lateral acceleration and enhance safety.
+        \item \textbf{Driver Comfort:} Gradually decreasing curvature along the road (as \( t \) increases) provides a smoother driving experience, reducing the risk of accidents due to sudden changes in direction.
+    \end{itemize}
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+
+\subsection*{Torsion} \index{Torsion}
+
+\noindent While curvature quantifies how sharply a curve bends in space, torsion measures how much the curve deviates from being planar—it captures the twist of a space curve out of the plane of curvature. Torsion is a fundamental concept in the study of space curves, providing insights into the three-dimensional behavior of trajectories. For a smooth curve defined by the vector-valued function \( \mathbf{r}(t) \), the torsion \( \tau(t) \) at a point can also be expressed in terms of the tangent, normal, and binormal vectors. Specifically, the torsion relates to the rate of rotation of the binormal vector \( \mathbf{B} \) as:
+\[
+\mathbf{B}' = -\tau \mathbf{N},
+\]
+where \( \mathbf{B}' \) is the derivative of the binormal vector, and \( \mathbf{N} \) is the principal normal vector. This provides an alternative definition for torsion:
+\[
+\tau(t) = -\mathbf{N} \cdot \mathbf{B}'.
+\]
+Alternatively, using the derivatives of \( \mathbf{r}(t) \), torsion can be computed as:
+\[
+\tau(t) = \frac{ \left( \mathbf{r}'(t) \times \mathbf{r}''(t) \right) \cdot \mathbf{r}'''(t) }{ \left| \mathbf{r}'(t) \times \mathbf{r}''(t) \right|^2 }.
+\]
+
+\noindent Similarly, as we have done with curvature, if we consider a curve in the form \( \mathbf{r}(t) = \langle t, f(t) \rangle \), we can derive an expression for torsion for any function \( f(t) \). For such a curve:
+\[
+\mathbf{r}(t) = \langle t, f(t), 0 \rangle.
+\]
+The derivatives of \( \mathbf{r}(t) \) are:
+\[
+\mathbf{r}'(t) = \langle 1, f'(t), 0 \rangle, \quad 
+\mathbf{r}''(t) = \langle 0, f''(t), 0 \rangle, \quad 
+\mathbf{r}'''(t) = \langle 0, f'''(t), 0 \rangle.
+\]
+The cross product \( \mathbf{r}'(t) \times \mathbf{r}''(t) \) is:
+\[
+\mathbf{r}'(t) \times \mathbf{r}''(t) = \langle 0, 0, -f''(t) \rangle.
+\]
+Taking the dot product \( \left( \mathbf{r}'(t) \times \mathbf{r}''(t) \right) \cdot \mathbf{r}'''(t) \):
+\[
+\left( \mathbf{r}'(t) \times \mathbf{r}''(t) \right) \cdot \mathbf{r}'''(t) = 0.
+\]
+Finally, the torsion for the curve \( \mathbf{r}(t) = \langle t, f(t), 0 \rangle \) simplifies to:
+\[
+\tau(t) = 0.
+\]
+
+\noindent This result shows that a curve defined entirely in a plane (as \( \mathbf{r}(t) = \langle t, f(t) \rangle \) implies) has zero torsion. Torsion is zero for \textbf{planar curves}, as they do not twist out of their plane. A non-zero torsion, on the other hand, indicates that the curve is three-dimensional, exhibiting a helical or twisting behavior. The torsion \( \tau(t) \) measures the rate at which the curve's osculating plane rotates about the tangent vector \( \mathbf{T}(t) \). This rotation reflects the deviation of the curve from being planar. The relationship between torsion and the behavior of a space curve can be summarized as follows:
+
+\begin{itemize}
+    \item A \textbf{zero torsion} implies that the osculating plane is constant---the curve lies entirely within a fixed plane.
+    \item A \textbf{positive torsion} indicates a right-handed twist of the curve.
+    \item A \textbf{negative torsion} indicates a left-handed twist of the curve.
+\end{itemize}
+
+\noindent The sign and magnitude of the torsion provide critical information about the direction and intensity of the twist. This insight is invaluable in applications such as DNA helices, spiral staircases, and other helical structures. For instance:
+
+\begin{itemize}
+    \item \textbf{Torsion in Mechanics:} The stress on a twisted rod or beam is directly related to the applied torque \( T \), the polar moment of inertia \( J \), and the radius \( r \):
+    \[ \tau_s = \frac{T r}{J}. \]
+    \item \textbf{Helical Springs:} In engineering, torsion helps predict the deformation behavior of springs and coils under load.
+    \item \textbf{Oscillatory Motion:} The torsional oscillation frequency \( \omega \) of a system is given by:
+    \[ \omega = \sqrt{\frac{C}{I}}, \]
+    where \( C \) is the torsional constant, and \( I \) is the moment of inertia.
+\end{itemize}
+
+\noindent The interplay between torsion \( \tau(t) \) and curvature \( \kappa(t) \) characterizes the local behavior of a space curve. Together, they describe the curve’s geometry and allow for its reconstruction up to position in space. This is formalized in the \textit{Fundamental Theorem of Space Curves}: A space curve is uniquely determined (up to rigid motions in space) by its curvature \( \kappa(t) \) and torsion \( \tau(t) \), provided that \( \kappa(t) > 0 \). The theorem underlines how torsion complements curvature to provide a full geometric understanding of a curve, aiding in both theoretical studies and practical applications. Below is a parametric curve with its respective curvature and torsion plotted below it:
+
+% Plot of the parametric curve with markers, dotted lines, and projections onto x- and y-axes on the xy-plane
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            view={60}{30},
+            xlabel={$x$},
+            ylabel={$y$},
+            zlabel={$z$},
+            xmin=-1.5, xmax=1.5,
+            ymin=-1.5, ymax=1.5,
+            zmin=-1.5, zmax=1.5,
+            axis lines=center,
+            ticks=none,
+            width=12cm,
+            height=10cm,
+            grid=both,
+            trig format=rad,
+        ]
+            % Plot of the parametric curve
+            \addplot3[
+                domain=0:12.5664,
+                samples=200,
+                samples y=0,
+                blue,
+                thick,
+            ] (
+                {cos(x)},
+                {sin(x)},
+                {sin(2*x)}
+            );
+            
+            % Maxima and minima points
+            \def\maxima{pi/4, 5*pi/4, 9*pi/4}
+            \def\minima{3*pi/4, 7*pi/4, 11*pi/4}
+            
+            % Markers at maxima (blue dots) and projections
+            \foreach \t in \maxima {
+                \pgfmathsetmacro{\x}{cos(\t)}
+                \pgfmathsetmacro{\y}{sin(\t)}
+                \pgfmathsetmacro{\z}{sin(2*\t)}
+                \addplot3[
+                    only marks,
+                    mark=*,
+                    mark options={blue},
+                ] coordinates {
+                    (\x,\y,\z)
+                };
+                % Dotted line down to xy-plane
+                \addplot3[
+                    dashed,
+                    blue,
+                ] coordinates {
+                    (\x,\y,\z)
+                    (\x,\y,0)
+                };
+                % Dotted line along x to x-axis on xy-plane
+                \addplot3[
+                    dashed,
+                    blue,
+                ] coordinates {
+                    (\x,\y,0)
+                    (0,\y,0)
+                };
+                % Dotted line along y to y-axis on xy-plane
+                \addplot3[
+                    dashed,
+                    blue,
+                ] coordinates {
+                    (\x,\y,0)
+                    (\x,0,0)
+                };
+            }
+            
+            % Markers at minima (red dots) and projections
+            \foreach \t in \minima {
+                \pgfmathsetmacro{\x}{cos(\t)}
+                \pgfmathsetmacro{\y}{sin(\t)}
+                \pgfmathsetmacro{\z}{sin(2*\t)}
+                \addplot3[
+                    only marks,
+                    mark=*,
+                    mark options={red},
+                ] coordinates {
+                    (\x,\y,\z)
+                };
+                % Dotted line down to xy-plane
+                \addplot3[
+                    dashed,
+                    red,
+                ] coordinates {
+                    (\x,\y,\z)
+                    (\x,\y,0)
+                };
+                % Dotted line along x to x-axis on xy-plane
+                \addplot3[
+                    dashed,
+                    red,
+                ] coordinates {
+                    (\x,\y,0)
+                    (0,\y,0)
+                };
+                % Dotted line along y to y-axis on xy-plane
+                \addplot3[
+                    dashed,
+                    red,
+                ] coordinates {
+                    (\x,\y,0)
+                    (\x,0,0)
+                };
+            }
+            
+            % Draw grid lines on the xy-plane
+            \foreach \x in {-1.5,-1.2,...,1.5} {
+                \addplot3[
+                    gray!50,
+                    thin,
+                ] coordinates {
+                    (\x,-1.5,0)
+                    (\x,1.5,0)
+                };
+            }
+            \foreach \y in {-1.5,-1.2,...,1.5} {
+                \addplot3[
+                    gray!50,
+                    thin,
+                ] coordinates {
+                    (-1.5,\y,0)
+                    (1.5,\y,0)
+                };
+            }
+        \end{axis}
+    \end{tikzpicture}
+    \caption{\textit{Parametric curve $\mathbf{r}(t) = \langle \cos t, \sin t, \sin 2t \rangle$ with markers at local maxima (blue) and minima (red) of $z(t)$, and dotted lines indicating projections onto the $xy$-plane and x- and y-axes.}}
+    \label{fig:parametric_curve}
+\end{figure}
+
+
+
+\pgfplotsset{compat=1.14}
+% \pgfplotsset{trig format=rad} % Remove or comment out this line
+
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}
+    % First axis for curvature
+    \begin{axis}[
+        name=primary,
+        axis y line=left,
+        axis x line=bottom,
+        xlabel={$t$},
+        ylabel={Curvature $\kappa(t)$},
+        ylabel style={
+            align=center,
+            yshift=0.0cm,
+        },
+        xmin=0, xmax=12.5664,
+        ymin=0, ymax=1.5,
+        grid=both,
+        width=12cm,
+        height=8cm,
+        legend style={
+            at={(0,1.05)},
+            anchor=south west,
+            cells={align=left},
+        },
+    ]
+        % Plot of curvature using degrees
+        \addplot[
+            domain=0:12.5664,
+            samples=500,
+            blue,
+            thick,
+        ] {
+            sqrt(sin(deg(2*x))^2 + 1) / ((1 + 4 * cos(deg(2*x))^2)^(1.5))
+        };
+        \addlegendentry{$\kappa(t)$ (Curvature)}
+    \end{axis}
+    
+    % Second axis for torsion
+    \begin{axis}[
+        axis y line=right,
+        axis x line=none,
+        xlabel={$t$},
+        ylabel={Torsion $\tau(t)$},
+        ylabel style={
+            align=center,
+            yshift=0.0cm,
+        },
+        xmin=0, xmax=12.5664,
+        ymin=-2, ymax=2,
+        width=12cm,
+        height=8cm,
+        at=(primary.south west),
+        anchor=south west,
+        legend style={
+            at={(1,1.05)},
+            anchor=south east,
+            cells={align=left},
+        },
+    ]
+        % Plot of torsion using degrees
+        \addplot[
+            domain=0:12.5664,
+            samples=500,
+            red,
+            dashed,
+            thick,
+        ] {
+            -2 * cos(deg(2*x)) / (sin(deg(2*x))^2 + 1)
+        };
+        \addlegendentry{$\tau(t)$ (Torsion)}
+    \end{axis}
+\end{tikzpicture}
+
+    \caption{\textit{Curvature $\kappa(t)$ (solid blue) and torsion $\tau(t)$ (dashed red) for the parametric curve $\mathbf{r}(t) = \langle \cos t, \sin t, \sin 2t \rangle$.}
+    \label{fig:curvature_torsion}}
+\end{figure}
+
+
+
+
+\noindent The circular helix in Figure \ref{fig:curvature_torsion} illustrates a constant rate of twist, embodying the concept of torsion in a tangible form.
+
+\subsubsection*{Motion Context}
+
+In the context of motion, torsion affects the angular momentum of a particle moving along a space curve. The torsion determines how the plane of motion rotates, influencing gyroscopic effects and the stability of the motion. In designing roller coasters or space trajectories, engineers must account for torsion to ensure comfort and structural integrity.
+
+\vspace{1.3em}
+
+\exampleline
+\begin{example}
+A particle moves along the space curve defined by:
+\[
+\mathbf{r}(t) = \langle \cos(t),\ \sin(t),\ t \rangle, \quad t \in [0, 2\pi].
+\]
+\begin{enumerate}
+    \item Compute the torsion \( \tau(t) \) of the curve at any point \( t \).
+    \item Evaluate the torsion at \( t = \frac{\pi}{2} \).
+    \item Interpret the significance of the torsion for this curve.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item \textbf{Compute \( \tau(t) \):}
+
+    First, compute the derivatives:
+
+    \textbf{First derivative} \( \mathbf{r}'(t) \):
+    \[
+    \mathbf{r}'(t) = \langle -\sin(t),\ \cos(t),\ 1 \rangle.
+    \]
+
+    \textbf{Second derivative} \( \mathbf{r}''(t) \):
+    \[
+    \mathbf{r}''(t) = \langle -\cos(t),\ -\sin(t),\ 0 \rangle.
+    \]
+
+    \textbf{Third derivative} \( \mathbf{r}'''(t) \):
+    \[
+    \mathbf{r}'''(t) = \langle \sin(t),\ -\cos(t),\ 0 \rangle.
+    \]
+
+    Compute the cross product \( \mathbf{r}'(t) \times \mathbf{r}''(t) \):
+    \[
+    \begin{aligned}
+    \mathbf{r}'(t) \times \mathbf{r}''(t) &= \left| \begin{array}{ccc}
+    \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+    -\sin(t) & \cos(t) & 1 \\
+    -\cos(t) & -\sin(t) & 0 \\
+    \end{array} \right| \\
+    &= \langle \sin(t),\ -\cos(t),\ 1 \rangle.
+    \end{aligned}
+    \]
+
+    Compute the magnitude:
+    \[
+    \left| \mathbf{r}'(t) \times \mathbf{r}''(t) \right| = \sqrt{ \sin^2(t) + \cos^2(t) + 1^2 } = \sqrt{1 + 1} = \sqrt{2}.
+    \]
+
+    Compute the dot product \( \left( \mathbf{r}'(t) \times \mathbf{r}''(t) \right) \cdot \mathbf{r}'''(t) \):
+    \[
+    \begin{aligned}
+    \left( \mathbf{r}'(t) \times \mathbf{r}''(t) \right) \cdot \mathbf{r}'''(t) &= \langle \sin(t),\ -\cos(t),\ 1 \rangle \cdot \langle \sin(t),\ -\cos(t),\ 0 \rangle \\
+    &= \sin^2(t) + (-\cos(t))^2 + 1 \cdot 0 \\
+    &= \sin^2(t) + \cos^2(t) + 0 = 1.
+    \end{aligned}
+    \]
+
+    Therefore, the torsion is:
+    \[
+    \tau(t) = \frac{1}{ \left( \sqrt{2} \right)^2 } = \frac{1}{2}.
+    \]
+
+    \item \textbf{Evaluate \( \tau\left( \dfrac{\pi}{2} \right) \):}
+
+    Since \( \tau(t) \) is constant and equals \( \dfrac{1}{2} \), we have:
+    \[
+    \tau\left( \dfrac{\pi}{2} \right) = \frac{1}{2}.
+    \]
+
+    \item \textbf{Interpretation:}
+
+    The curve \( \mathbf{r}(t) = \langle \cos(t),\ \sin(t),\ t \rangle \) describes a circular helix with radius 1 and constant upward pitch. The constant torsion \( \tau = \dfrac{1}{2} \) indicates that the curve twists uniformly in space. The positive value signifies a right-handed helix. The constant curvature and torsion reflect the uniform bending and twisting of the helix, characterizing its geometric properties completely.
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+
+
+\newpage
+
+
+\lecture{Arc Length and Reparameterization} \index{Arc Length} \index{Reparameterization}
+
+\noindent The concept of arc length is fundamental in calculus and geometry, providing a measure of the distance along a curve. Understanding how to compute arc length is essential for analyzing the properties of curves in various coordinate systems, including Cartesian, parametric, and polar coordinates. Additionally, reparameterizing curves by arc length simplifies many problems in differential geometry and physics by providing a natural parameterization that relates directly to the geometry of the curve.
+
+\subsection*{Computing Arc Length}
+
+\noindent To derive the formula for arc length, consider a smooth curve \( C \) in the plane defined by the function \( y = f(x) \), where \( x \) ranges from \( a \) to \( b \). We can approximate the curve by partitioning the interval \( [a, b] \) into \( n \) subintervals and connecting consecutive points with straight line segments. The length \( \Delta s_i \) of each segment is approximately:
+
+\[
+\Delta s_i \approx \sqrt{ \Delta x_i^2 + \Delta y_i^2 } = \sqrt{ (\Delta x_i)^2 + [f'(x_i^*) \Delta x_i]^2 } = \Delta x_i \sqrt{ 1 + [f'(x_i^*)]^2 },
+\]
+
+\noindent where \( x_i^* \) is some point in the \( i \)-th subinterval.  Note, that we replace the finite difference \( (\Delta y_i)^2 \) with the derivative \( f'(x_i^*) \) multiplied by the finite difference \( \Delta x_i \), following the limit definition of the derivative. This substitution simplifies the expression and emphasizes the relationship between the derivative and the arc length formula. 
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.0]
+        % Draw the curve y = sin(x/4) + 2
+        \draw[thick, domain=0:8, smooth, variable=\x, blue] plot ({\x}, {sin(deg(\x/4)) + 2});
+        
+        % Points on the curve
+        \coordinate (A) at (2, {sin(deg(2/4)) + 2});
+        \coordinate (B) at (4, {sin(deg(4/4)) + 2});
+        
+        % Projection of B onto the horizontal line at y = y(A)
+        \coordinate (B_proj) at (4, {sin(deg(2/4)) + 2});
+        
+        % Draw the triangle
+        \draw[red, thick] (A) -- (B) -- (B_proj) -- cycle;
+        
+        % Deltas
+        \draw[-] (A) -- (B) node[midway, above] {$\Delta s$};
+        \draw[-] (B_proj) -- (B) node[midway, right] {$\Delta y$};
+        \draw[-] (A) -- (B_proj) node[midway, below] {$\Delta x$};
+        
+        % Axes
+        \draw[->] (-0.5,0) -- (9,0) node[right] {$x$};
+        \draw[->] (0,-0.5) -- (0,4) node[above] {$y$};
+        
+        % Labels for points
+        \filldraw[black] (A) circle (1pt) node[below left] {$(x, y)$};
+        \filldraw[black] (B) circle (1pt) node[above right] {$(x+\Delta x, y+\Delta y)$};
+        
+        % Dashed lines to show projection onto y = y(A)
+        \draw[dashed] (B) -- (B_proj);
+        
+        % Optional grid
+        % \draw[step=1cm, gray, very thin] (-0.5,-0.5) grid (9,4);
+    \end{tikzpicture}
+    \caption{Approximating the arc length of a curve using a right triangle with \( \Delta s \) as the hypotenuse, \( \Delta x \) as the base, and \( \Delta y \) as the height.}
+    \label{fig:arc_length_approximation_single_triangle}
+\end{figure}
+
+
+\noindent Next, summing over all segments, the total approximate arc length \( S \) is:
+
+\[
+S \approx \sum_{i=1}^{n} \Delta s_i = \sum_{i=1}^{n} \Delta x_i \sqrt{ 1 + [f'(x_i^*)]^2 }.
+\]
+
+\noindent Taking the limit as \( n \to \infty \) and \( \Delta x_i \to 0 \), the sum becomes an integral:
+
+\[
+S = \int_{a}^{b} \sqrt{ 1 + [f'(x)]^2 } \, dx.
+\]
+
+\noindent The integrand \( \sqrt{ 1 + [f'(x)]^2 } \) represents the differential arc length element \( ds \), so we can express the arc length as:
+
+\[
+S = \int_{C} ds = \int_{a}^{b} \sqrt{ 1 + [f'(x)]^2 } \, dx.
+\]
+
+\noindent For a closed curve $C$, we may also introduce the notation to be later used:
+
+\[
+S = \oint_{C} ds = \int_{a}^{b} \sqrt{ 1 + [f'(x)]^2 } \, dx.
+\]
+
+\noindent Similarly, for a curve defined parametrically by \( x = x(t) \) and \( y = y(t) \), with \( t \) ranging over \( [\alpha, \beta] \), we can derive the arc length formula starting from the Cartesian form \( ds = \sqrt{1 + [f'(x)]^2} \, dx \). Using the relationships \( dx = x'(t) \, dt \) and \( dy = y'(t) \, dt \), and noting that \( f'(x) = \frac{dy}{dx} = \frac{y'(t)}{x'(t)} \), substituting and simplifying gives:
+
+\[
+ds = \sqrt{ [x'(t)]^2 + [y'(t)]^2 } \, dt.
+\]
+
+\noindent Thus, the arc length \( S \) is:
+
+\[
+S = \int_{C} ds = \int_{\alpha}^{\beta} \sqrt{ [x'(t)]^2 + [y'(t)]^2 } \, dt.
+\]
+
+\noindent Extending this to three-dimensional space, where the curve is given by \( \mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle \), the differential arc length element becomes:
+
+\[
+ds = \sqrt{ [x'(t)]^2 + [y'(t)]^2 + [z'(t)]^2 } \, dt = \left| \mathbf{r}'(t) \right| \, dt.
+\]
+
+\noindent Therefore, the arc length \( S \) is:
+
+\[
+S = \int_{C} ds = \int_{\alpha}^{\beta} \left| \mathbf{r}'(t) \right| \, dt.
+\]
+
+\noindent A typical application of arc length is sector length that you may have studied in your Pre-Calculus class:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        % Define the circle
+        \draw[thick] (0,0) circle (2);
+        
+        % Draw radius lines
+        \draw[thick] (0,0) -- (2,0);
+        \draw[thick] (0,0) -- ({2*cos(45)},{2*sin(45)}) node[midway, above left] {Radius};
+        
+        % Highlight the arc length
+        \draw[very thick, red] (2,0) arc[start angle=0, end angle=45, radius=2] 
+            node[midway, above right, text=black] {Arc Length};
+        
+        % Add angle
+        \draw[->] (1.2,0) arc[start angle=0, end angle=45, radius=1.2];
+        \node at (1.5,0.5) {$\theta$};
+        
+        % Add center point
+        \filldraw (0,0) circle (2pt) node[below] {Center};
+        
+        % Label circle
+        \node at (0,-3.5) {Circle with radius $r$};
+    \end{tikzpicture}
+    \caption{A circular sector with radius \( r \), central angle \( \theta \), and arc length \( L = r\theta \).}
+\end{figure}
+
+
+\subsubsection*{Arc Length in Polar Coordinates} \index{Polar Coordinate Arc Length}
+
+\noindent In polar coordinates, where a curve is defined by \( r = r(\theta) \), the differential arc length element is derived using the relationship between Cartesian and polar coordinates:
+
+\[
+ds = \sqrt{ \left( \frac{dx}{d\theta} \right)^2 + \left( \frac{dy}{d\theta} \right)^2 } \, d\theta.
+\]
+
+\noindent Since \( x = r(\theta) \cos \theta \) and \( y = r(\theta) \sin \theta \), we have:
+
+\[
+\frac{dx}{d\theta} = r'(\theta) \cos \theta - r(\theta) \sin \theta, \quad \frac{dy}{d\theta} = r'(\theta) \sin \theta + r(\theta) \cos \theta.
+\]
+
+\noindent Computing \( \left( \dfrac{dx}{d\theta} \right)^2 + \left( \dfrac{dy}{d\theta} \right)^2 \) simplifies to:
+
+\[
+\left( \frac{dx}{d\theta} \right)^2 + \left( \frac{dy}{d\theta} \right)^2 = [r'(\theta)]^2 + [r(\theta)]^2.
+\]
+
+\noindent Thus, the arc length \( S \) in polar coordinates is:
+
+\[
+S = \int_{C} ds = \int_{\theta_1}^{\theta_2} \sqrt{ [r'(\theta)]^2 + [r(\theta)]^2 } \, d\theta.
+\]
+
+\noindent These formulas provide the tools necessary to compute the length of curves in various coordinate systems, facilitating the analysis of geometric properties and physical applications. In previous lectures, we explored vector-valued functions and their derivatives, which are fundamental in understanding the behavior of curves and motion in space.
+
+
+\exampleline
+\begin{example}
+Compute the arc length of a circular sector of radius \( r = 3 \) and central angle \( \theta = \frac{\pi}{4} \) using both rectangular and polar coordinates. Verify that the results are consistent and generalize to the formula \( L = r \theta \).
+
+\begin{solution}
+\begin{enumerate}
+    \item \textbf{Using Rectangular Coordinates:}
+    
+    The equation of the circle is \( x^2 + y^2 = r^2 \), which can be solved for \( y \):
+    \[
+    y = \sqrt{r^2 - x^2}.
+    \]
+    For the sector from \( \theta = 0 \) to \( \theta = \frac{\pi}{4} \), the corresponding \( x \)-values are:
+    \[
+    x = r \cos \theta.
+    \]
+    \emph{Explanation:} As \( \theta \) ranges from \( 0 \) to \( \frac{\pi}{4} \), \( x \) ranges from \( x = r \cos\left(0\right) = r \) to \( x = r \cos\left(\frac{\pi}{4}\right) = \frac{r}{\sqrt{2}} \).
+
+    Therefore, \( x \) ranges from \( x_1 = r \) to \( x_2 = \frac{r}{\sqrt{2}} \).
+
+    The arc length formula is:
+    \[
+    L = \int_{x_1}^{x_2} \sqrt{1 + \left( \frac{dy}{dx} \right)^2 } \, dx.
+    \]
+    Differentiating \( y \) with respect to \( x \):
+    \[
+    \frac{dy}{dx} = \frac{-x}{\sqrt{r^2 - x^2}}.
+    \]
+    Computing the integrand:
+    \[
+    \sqrt{1 + \left( \frac{dy}{dx} \right)^2 } = \sqrt{1 + \frac{x^2}{r^2 - x^2}} = \frac{r}{\sqrt{r^2 - x^2}}.
+    \]
+    Thus, the arc length becomes:
+    \[
+    L = \int_{r}^{\frac{r}{\sqrt{2}}} \frac{r}{\sqrt{r^2 - x^2}} \, dx.
+    \]
+    Let \( x = r \cos t \), which implies \( dx = -r \sin t \, dt \) and \( \sqrt{r^2 - x^2} = r \sin t \). Changing the bounds:
+    \[
+    \text{When } x = r, \quad \cos t = \frac{x}{r} = 1 \implies t = 0.
+    \]
+    \[
+    \text{When } x = \frac{r}{\sqrt{2}}, \quad \cos t = \frac{1}{\sqrt{2}} \implies t = \frac{\pi}{4}.
+    \]
+    Substituting into the integral:
+    \[
+    L = \int_{t = 0}^{t = \frac{\pi}{4}} \frac{r}{r \sin t} \cdot (-r \sin t) \, dt = -r \int_{0}^{\frac{\pi}{4}} dt = -r \left( \frac{\pi}{4} - 0 \right).
+    \]
+    The negative sign arises because \( dx = -r \sin t \, dt \), and we reversed the limits when changing variables.
+
+    Therefore:
+    \[
+    L = -r \left( \frac{\pi}{4} \right) = -\frac{r \pi}{4}.
+    \]
+    Taking the absolute value (since length is positive):
+    \[
+    L = \frac{r \pi}{4}.
+    \]
+    Substituting \( r = 3 \):
+    \[
+    L = \frac{3 \pi}{4}.
+    \]
+
+    \item \textbf{Using Polar Coordinates:}
+    
+    In polar coordinates, the arc length formula is:
+    \[
+    L = \int_{\theta_1}^{\theta_2} \sqrt{ \left( \frac{dr}{d\theta} \right)^2 + r^2 } \, d\theta.
+    \]
+    For a circle of radius \( r \), \( r \) is constant, so \( \frac{dr}{d\theta} = 0 \). Thus:
+    \[
+    L = \int_{0}^{\frac{\pi}{4}} \sqrt{ 0^2 + r^2 } \, d\theta = \int_{0}^{\frac{\pi}{4}} r \, d\theta = r \left( \frac{\pi}{4} - 0 \right) = \frac{r \pi}{4}.
+    \]
+    Substituting \( r = 3 \):
+    \[
+    L = \frac{3 \pi}{4}.
+    \]
+
+    \item \textbf{Generalization Using the Arc Length Formula:}
+    
+    The general formula for the arc length of a circular sector in polar coordinates is:
+    \[
+    L = \int_{\theta_1}^{\theta_2} r \, d\theta = r (\theta_2 - \theta_1) = r \theta.
+    \]
+    This confirms the classic formula:
+    \[
+    L = r \theta.
+    \]
+    Therefore, the results from both rectangular and polar coordinates are consistent with the general formula for the arc length of a circular sector.
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+\begin{example}
+Compute the arc length of the parametric curve defined by \( \mathbf{r}(t) = \langle t^2, t^3 \rangle \) for \( t \) ranging from \( 0 \) to \( 1 \).
+
+\begin{solution}
+The arc length \( S \) of a parametric curve \( \mathbf{r}(t) = \langle x(t), y(t) \rangle \) from \( t = a \) to \( t = b \) is given by:
+\[
+S = \int_{a}^{b} \sqrt{ [x'(t)]^2 + [y'(t)]^2 } \, dt.
+\]
+
+Compute the derivatives:
+\[
+x'(t) = \frac{d}{dt} [t^2] = 2t, \quad y'(t) = \frac{d}{dt} [t^3] = 3t^2.
+\]
+
+Compute the integrand:
+\[
+\sqrt{ [x'(t)]^2 + [y'(t)]^2 } = \sqrt{ (2t)^2 + (3t^2)^2 } = \sqrt{ 4t^2 + 9t^4 } = t \sqrt{ 4 + 9t^2 }.
+\]
+
+Thus, the arc length is:
+\[
+S = \int_{0}^{1} t \sqrt{ 4 + 9t^2 } \, dt.
+\]
+
+Let’s make a substitution to simplify the integral. Let \( u = 4 + 9t^2 \), then \( du = 18t \, dt \).
+
+Solving for \( t \, dt \):
+\[
+t \, dt = \frac{du}{18}.
+\]
+
+Change the limits of integration:
+
+When \( t = 0 \):
+\[
+u = 4 + 9(0)^2 = 4.
+\]
+
+When \( t = 1 \):
+\[
+u = 4 + 9(1)^2 = 13.
+\]
+
+Substitute into the integral:
+\[
+S = \int_{u = 4}^{u = 13} \frac{1}{18} \sqrt{u} \, du = \frac{1}{18} \int_{4}^{13} u^{1/2} \, du.
+\]
+
+Integrate:
+\[
+\frac{1}{18} \left[ \frac{u^{3/2}}{\tfrac{3}{2}} \right]_{4}^{13} = \frac{1}{18} \left[ \frac{2}{3} u^{3/2} \right]_{4}^{13} = \frac{1}{27} \left[ u^{3/2} \right]_{4}^{13}.
+\]
+
+Compute \( u^{3/2} \) at the limits:
+
+At \( u = 13 \):
+\[
+13^{3/2} = \sqrt{13^3} = \sqrt{2197} = 13 \sqrt{13}.
+\]
+
+At \( u = 4 \):
+\[
+4^{3/2} = \sqrt{4^3} = \sqrt{64} = 8.
+\]
+
+Therefore,
+\[
+S = \frac{1}{27} \left( 13 \sqrt{13} - 8 \right).
+\]
+
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+\subsubsection*{Arc Length in Higher Dimensions} \index{High-Dimensional Arc Length}
+
+\noindent The concept of arc length extends beyond three dimensions into \( n \)-dimensional space. For a curve \( \mathbf{r}(t) = \langle x_1(t), x_2(t), \dots, x_n(t) \rangle \), the differential arc length element is:
+
+\[
+ds = \sqrt{ [x_1'(t)]^2 + [x_2'(t)]^2 + \dots + [x_n'(t)]^2 } \, dt = \left| \mathbf{r}'(t) \right| \, dt.
+\]
+
+\noindent Therefore, the arc length \( S \) is:
+
+\[
+S = \int_{C} ds = \int_{\alpha}^{\beta} \left| \mathbf{r}'(t) \right| \, dt.
+\]
+
+\noindent This generalization is crucial in fields like physics and engineering, where motion and paths in higher-dimensional spaces are considered. The notation \( \int_{C} f \, ds \) represents the integral of a function \( f \) along a curve \( C \) with respect to arc length, which is an important concept in line integrals and further studies in vector calculus.
+
+\subsection*{Arc Length Parameterization and Reparameterization}
+
+\noindent Parameterizing a curve by its arc length \( s \) provides a natural and intrinsic description of the curve, independent of the specific parameterization used initially. This means that the parameter \( s \) directly measures the distance along the curve from a fixed starting point, offering a uniform way to describe points on the curve based solely on their position along it. The arc length from a fixed point \( t_0 \) is defined as:
+\[
+s(t) = \int_{t_0}^{t} \left| \mathbf{r}'(u) \right| \, du,
+\]
+where \( \left| \mathbf{r}'(u) \right| \) represents the speed of traversal along the curve at each point \( u \). This integral accumulates the infinitesimal distances \( ds = \left| \mathbf{r}'(u) \right| du \) along the curve from \( t_0 \) to \( t \).
+
+\noindent By reparameterizing the curve using \( s \), we ensure that:
+\[
+\left| \dfrac{d\mathbf{r}}{ds} \right| = 1,
+\]
+meaning the magnitude of the derivative of \( \mathbf{r} \) with respect to \( s \) is unity. In other words, the speed along the curve is constant with respect to \( s \). This property simplifies calculations involving the curve's geometry, as derivatives with respect to \( s \) directly reflect changes per unit length along the curve. \\
+
+\noindent Reparameterizing a curve by arc length involves finding a new parameter \( s \) such that \( \mathbf{r} \) is expressed as a function of \( s \), and the condition \( \left| \dfrac{d\mathbf{r}}{ds} \right| = 1 \) holds. The steps for reparameterization are:
+
+\begin{enumerate}
+    \item Compute the arc length function \( s(t) \) from a fixed point \( t_0 \):
+    \[
+    s(t) = \int_{t_0}^{t} \left| \mathbf{r}'(u) \right| \, du.
+    \]
+    \item Invert the function \( s(t) \) to find \( t(s) \): Solve for \( t \) in terms of \( s \) to get \( t = t(s) \).
+    \item Substitute \( t(s) \) back into \( \mathbf{r}(t) \) to obtain \( \mathbf{r}(s) \):
+    \[
+    \mathbf{r}(s) = \mathbf{r}(t(s)).
+    \]
+\end{enumerate}
+
+\noindent When a curve is parameterized by an arbitrary parameter \( t \), the speed \( \left| \mathbf{r}'(t) \right| \) can vary, making it more complicated to analyze properties that depend on the distance along the curve. By switching to arc length parameterization, we eliminate the influence of the parameter's rate of change, focusing solely on the geometric properties of the curve. This reparameterization is particularly useful when dealing with curves where the speed is not constant, as it allows for a uniform treatment of the curve's properties and simplifies calculations in differential geometry and physics.
+
+\exampleline
+\begin{example}
+Consider the curve defined by \( \mathbf{r}(t) = \left\langle 2\cos t,\ 2\sin t,\ 3t \right\rangle \), where \( t \in [0, 2\pi] \).
+\begin{enumerate}
+    \item Compute the arc length \( s(t) \) as a function of \( t \), starting from \( t_0 = 0 \).
+    \item Reparameterize the curve by its arc length \( s \).
+    \item Verify that \( \left| \dfrac{d\mathbf{r}}{ds} \right| = 1 \) for the reparameterized curve.
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}
+    \item \textbf{Compute \( s(t) \):}
+    
+    First, compute the derivative \( \mathbf{r}'(t) \):
+    \[
+    \mathbf{r}'(t) = \left\langle -2\sin t,\ 2\cos t,\ 3 \right\rangle.
+    \]
+    Compute the magnitude of \( \mathbf{r}'(t) \):
+    \[
+    \left| \mathbf{r}'(t) \right| = \sqrt{ (-2\sin t)^2 + (2\cos t)^2 + 3^2 } = \sqrt{ 4\sin^2 t + 4\cos^2 t + 9 }.
+    \]
+    Simplify using \( \sin^2 t + \cos^2 t = 1 \):
+    \[
+    \left| \mathbf{r}'(t) \right| = \sqrt{ 4(1) + 9 } = \sqrt{13}.
+    \]
+    The speed \( \left| \mathbf{r}'(t) \right| \) is constant. The arc length from \( t_0 = 0 \) to \( t \) is:
+    \[
+    s(t) = \int_{0}^{t} \left| \mathbf{r}'(u) \right| \, du = \int_{0}^{t} \sqrt{13} \, du = \sqrt{13}\, t.
+    \]
+    
+    \item \textbf{Reparameterize by arc length \( s \):}
+    
+    Solve for \( t \) in terms of \( s \):
+    \[
+    s = \sqrt{13}\, t \implies t = \dfrac{s}{\sqrt{13}}.
+    \]
+    Substitute \( t = \dfrac{s}{\sqrt{13}} \) into \( \mathbf{r}(t) \):
+    \[
+    \mathbf{r}(s) = \left\langle 2\cos\left( \dfrac{s}{\sqrt{13}} \right),\ 2\sin\left( \dfrac{s}{\sqrt{13}} \right),\ \dfrac{3s}{\sqrt{13}} \right\rangle.
+    \]
+    
+    \item \textbf{Verify \( \left| \dfrac{d\mathbf{r}}{ds} \right| = 1 \):}
+    
+    Compute the derivative \( \dfrac{d\mathbf{r}}{ds} \) using the chain rule:
+    \[
+    \dfrac{d\mathbf{r}}{ds} = \left\langle -2\sin\left( \dfrac{s}{\sqrt{13}} \right) \cdot \dfrac{1}{\sqrt{13}},\ 
+    2\cos\left( \dfrac{s}{\sqrt{13}} \right) \cdot \dfrac{1}{\sqrt{13}},\ \dfrac{3}{\sqrt{13}} \right\rangle.
+    \]
+    Simplify:
+    \[
+    \dfrac{d\mathbf{r}}{ds} = \dfrac{1}{\sqrt{13}} \left\langle -2\sin\left( \dfrac{s}{\sqrt{13}} \right),\ 
+    2\cos\left( \dfrac{s}{\sqrt{13}} \right),\ 3 \right\rangle.
+    \]
+    Compute the magnitude \( \left| \dfrac{d\mathbf{r}}{ds} \right| \):
+    \[
+    \left| \dfrac{d\mathbf{r}}{ds} \right| = \dfrac{1}{\sqrt{13}} \left| \left\langle -2\sin\left( \dfrac{s}{\sqrt{13}} \right),\ 
+    2\cos\left( \dfrac{s}{\sqrt{13}} \right),\ 3 \right\rangle \right|.
+    \]
+    Calculate the square of the magnitude:
+    \begin{align*}
+    \left| \dfrac{d\mathbf{r}}{ds} \right|^2 &= \left( \dfrac{1}{\sqrt{13}} \right)^2 \left( [ -2\sin\left( \dfrac{s}{\sqrt{13}} \right) ]^2 + [ 2\cos\left( \dfrac{s}{\sqrt{13}} \right) ]^2 + 3^2 \right) \\
+    &= \dfrac{1}{13} \left( 4\sin^2\left( \dfrac{s}{\sqrt{13}} \right) + 4\cos^2\left( \dfrac{s}{\sqrt{13}} \right) + 9 \right).
+    \end{align*}
+    Simplify using \( \sin^2 \theta + \cos^2 \theta = 1 \):
+    \[
+    4\sin^2\left( \dfrac{s}{\sqrt{13}} \right) + 4\cos^2\left( \dfrac{s}{\sqrt{13}} \right) = 4( \sin^2\theta + \cos^2\theta ) = 4(1) = 4.
+    \]
+    Therefore,
+    \[
+    \left| \dfrac{d\mathbf{r}}{ds} \right|^2 = \dfrac{1}{13} (4 + 9) = \dfrac{13}{13} = 1.
+    \]
+    Thus,
+    \[
+    \left| \dfrac{d\mathbf{r}}{ds} \right| = 1,
+    \]
+    confirming that the curve is correctly parameterized by arc length.
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+
+
+\subsection*{Numerical Approximation of Arc Length} \index{Numerical Arc Length}
+
+\noindent When the arc length integral cannot be evaluated analytically due to a complex integrand or non-elementary functions, numerical methods and approximations provide practical solutions. These techniques are essential for estimating arc lengths in engineering and physics applications where precise measurements are necessary but exact calculations are infeasible.
+
+\subsubsection*{Approximation Techniques}
+
+\noindent One common approach is to approximate the integrand by neglecting higher-order terms when they contribute insignificantly to the value of the integral. This method is particularly effective when dealing with small quantities, where squared or higher powers of a small parameter can be considered negligible. \\
+
+\noindent For example, if \( \epsilon \) is a small parameter (i.e., \( \epsilon \ll 1 \)), then \( \epsilon^2 \) is much smaller than \( \epsilon \) and can often be neglected in the approximation. This simplification reduces the complexity of the integrand, making the integral more tractable. Consider a curve where the integrand involves a square root of a sum of terms, such as:
+
+\[
+ds = \sqrt{1 + \left( \dfrac{dy}{dx} \right)^2 } \, dx.
+\]
+
+\noindent If \( \left| \dfrac{dy}{dx} \right| \) is small over the interval of interest, we can use the approximation:
+
+\[
+\sqrt{1 + \left( \dfrac{dy}{dx} \right)^2 } \approx 1 + \dfrac{1}{2} \left( \dfrac{dy}{dx} \right)^2,
+\]
+
+\noindent since \( \left( \dfrac{dy}{dx} \right)^2 \) is much smaller than 1, and higher-order terms can be neglected.
+
+\subsubsection*{Common Numerical Methods}
+
+\noindent Beyond approximation techniques, several numerical integration methods are widely used:
+
+\begin{itemize}
+    \item \textbf{Trapezoidal Rule:} Divides the interval into small segments, approximating the area under the curve as a series of trapezoids. The arc length is estimated by summing the lengths of these trapezoidal segments.
+    \item \textbf{Simpson’s Rule:} Uses quadratic polynomials (parabolic arcs) to approximate the integrand over each subinterval, providing higher accuracy than the trapezoidal rule for smooth functions.
+    \item \textbf{Gaussian Quadrature:} Employs weighted sums of function values at specified points within the integration interval, optimizing the approximation for polynomials up to a certain degree.
+    \item \textbf{Adaptive Quadrature:} Adjusts the size of the subintervals based on the behavior of the integrand, refining the approximation where the function changes rapidly.
+\end{itemize}
+
+\noindent These numerical methods are crucial in practical scenarios where exact solutions are unattainable, enabling engineers and scientists to estimate arc lengths with desired accuracy.
+
+\exampleline
+\begin{example}
+Consider the curve defined by \( y = \epsilon x \), where \( \epsilon \) is a small constant (\( \epsilon \ll 1 \)) and \( x \in [0, L] \).
+
+\begin{enumerate}
+    \item Approximate the arc length \( S \) of the curve from \( x = 0 \) to \( x = L \) using the small angle approximation.
+    \item Compare the approximate arc length to the exact value obtained without approximation.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item \textbf{Approximate Arc Length Using Small Angle Approximation:}
+    
+    Compute the derivative:
+    \[
+    \dfrac{dy}{dx} = \epsilon.
+    \]
+    Since \( \epsilon \ll 1 \), \( \left( \dfrac{dy}{dx} \right)^2 = \epsilon^2 \) is even smaller.
+    
+    Using the approximation:
+    \[
+    \sqrt{1 + \left( \dfrac{dy}{dx} \right)^2 } \approx 1 + \dfrac{1}{2} \left( \dfrac{dy}{dx} \right)^2 = 1 + \dfrac{\epsilon^2}{2}.
+    \]
+    
+    The approximate arc length is:
+    \[
+    S_{\text{approx}} = \int_{0}^{L} \left( 1 + \dfrac{\epsilon^2}{2} \right) dx = \left[ x + \dfrac{\epsilon^2}{2} x \right]_0^{L} = L + \dfrac{\epsilon^2 L}{2}.
+    \]
+    
+    \item \textbf{Exact Arc Length:}
+    
+    Compute the exact integrand:
+    \[
+    \sqrt{1 + \left( \dfrac{dy}{dx} \right)^2 } = \sqrt{1 + \epsilon^2}.
+    \]
+    
+    The exact arc length is:
+    \[
+    S_{\text{exact}} = \int_{0}^{L} \sqrt{1 + \epsilon^2} \, dx = \sqrt{1 + \epsilon^2} \cdot L.
+    \]
+    
+    \textbf{Comparison:}
+    
+    Expand \( \sqrt{1 + \epsilon^2} \) using a binomial series for small \( \epsilon \):
+    \[
+    \sqrt{1 + \epsilon^2} = 1 + \dfrac{\epsilon^2}{2} - \dfrac{\epsilon^4}{8} + \mathcal{O}(\epsilon^6).
+    \]
+    
+    Therefore:
+    \[
+    S_{\text{exact}} = \left( 1 + \dfrac{\epsilon^2}{2} - \dfrac{\epsilon^4}{8} \right) L.
+    \]
+    
+    The approximate arc length is:
+    \[
+    S_{\text{approx}} = \left( 1 + \dfrac{\epsilon^2}{2} \right) L.
+    \]
+    
+    \textbf{Difference Between Exact and Approximate Values:}
+    
+    The difference is:
+    \[
+    S_{\text{exact}} - S_{\text{approx}} = \left( 1 + \dfrac{\epsilon^2}{2} - \dfrac{\epsilon^4}{8} \right) L - \left( 1 + \dfrac{\epsilon^2}{2} \right) L = -\dfrac{\epsilon^4 L}{8}.
+    \]
+    
+    Since \( \epsilon^4 \) is negligible compared to \( \epsilon^2 \), the error introduced by the approximation is minimal for small \( \epsilon \).
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+
+\newpage
+
+\formsdefs{}
+
+\subsection*{Important Vocabulary}
+\begin{itemize}
+    \item \textbf{Vector-Valued Functions:} Functions where each component is a scalar function of a parameter, typically used to describe motion or curves in space.
+    \item \textbf{Parametric Equations:} Equations that express the coordinates of a point as functions of a parameter, providing a way to represent curves.
+    \item \textbf{Arc Length:} The length of a curve, calculated using the integral of the magnitude of the derivative of the position vector.
+    \item \textbf{Curvature (\(\kappa\)):} A measure of how sharply a curve bends at a given point, derived from the rate of change of the tangent vector.
+    \item \textbf{TNB Frame:} The Tangent (\(\mathbf{T}\)), Normal (\(\mathbf{N}\)), and Binormal (\(\mathbf{B}\)) vectors forming an orthonormal basis for describing motion along a curve.
+    \item \textbf{Torsion (\(\tau\)):} A measure of the rate at which a curve twists out of its osculating plane.
+    \item \textbf{Osculating Circle:} The circle that best approximates the curve at a point, characterized by the same curvature.
+\end{itemize}
+
+\subsection*{Key Formulas}
+\begin{multicols}{2}
+
+\paragraph{Parametric Equations for a Curve:}
+\[
+\mathbf{r}(t) = \langle f(t), g(t), h(t) \rangle
+\]
+
+\paragraph{Derivative of a Vector-Valued Function:}
+\[
+\mathbf{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle
+\]
+
+\paragraph{Integral of a Vector-Valued Function:}
+\begin{align*}
+\int \mathbf{r}(t) \, dt &= \langle \int f(t) \, dt, \\
+&\qquad \int g(t) \, dt, \\
+&\qquad \int h(t) \, dt \rangle + \mathbf{C}
+\end{align*}
+
+\paragraph{Arc Length:}
+\begin{align*}
+S &= \int_a^b |\mathbf{r}'(t)| \, dt \\
+  &= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt
+\end{align*}
+
+\paragraph{Curvature:}
+\[
+\kappa(t) = \frac{|\mathbf{r}'(t) \times \mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3} = \frac{|\mathbf{T}'(s)|}{|\mathbf{r}'(s)|}
+\]
+\[
+\kappa(x) = \frac{|f''(x)|}{\left( 1 + [f'(x)]^2 \right)^{3/2}}.
+\]
+
+\paragraph{TNB Frame Vectors:}
+\begin{align*}
+\mathbf{T}(t) &= \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}, \\
+\mathbf{N}(t) &= \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|}, \\
+\mathbf{B}(t) &= \mathbf{T}(t) \times \mathbf{N}(t)
+\end{align*}
+
+\paragraph{Torsion:}
+\[
+\tau(t) = \frac{(\mathbf{r}'(t) \times \mathbf{r}''(t)) \cdot \mathbf{r}'''(t)}{|\mathbf{r}'(t) \times \mathbf{r}''(t)|^2}
+\]
+
+\paragraph{Fundamental Theorem of Calculus for Vector-Valued Functions:}
+\[
+\int_a^b \mathbf{r}'(t) \, dt = \mathbf{r}(b) - \mathbf{r}(a)
+\]
+
+\paragraph{Osculating Circle Radius:}
+\[
+R = \frac{1}{\kappa(t)}
+\]
+
+\paragraph{Arc Length in Polar Coordinates:}
+\[
+S = \int_{\theta_1}^{\theta_2} \sqrt{[r'(\theta)]^2 + [r(\theta)]^2} \, d\theta
+\]
+
+\paragraph{Projectile Motion:}
+\begin{align*}
+\mathbf{r}(t) &= \langle v_0 \cos\theta \, t, \\
+&\qquad 0, \\
+&\qquad v_0 \sin\theta \, t - \tfrac{1}{2} g t^2 \rangle, \\
+z_{\text{max}} &= \frac{v_0^2 \sin^2\theta}{2g}, \\
+R &= \frac{v_0^2 \sin 2\theta}{g}, \\
+t_{\text{flight}} &= \frac{2 v_0 \sin\theta}{g}, \\
+K &= \frac{1}{2} m v_0^2, \\
+U &= m g z, \\
+E_{\text{total}} &= K + U
+\end{align*}
+
+\end{multicols}
+
+
+
+
+\newpage
+
+
+\practice{}
+
+\begin{multicols}{2}
+
+\begin{enumerate}
+% Vector-Valued Functions: Parametric Equations
+    \item Determine whether the curve \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \) is smooth for all \( t \).
+    \item Compute the derivative \( \mathbf{r}'(t) \) of the vector-valued function \( \mathbf{r}(t) = \langle t^2, e^{2t}, \ln t \rangle \).
+    \item Find the vector equation of the line passing through the points \( \mathbf{r}_1 = \langle 1, 2, 3 \rangle \) and \( \mathbf{r}_2 = \langle 4, 5, 6 \rangle \).
+    \item Write the parametric equations for the curve \( \mathbf{r}(t) = \langle 3\cos t, 3\sin t, t \rangle \) and describe the geometric shape of the curve.
+    \item Show that the curve \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \) lies on the surface \( z = y^{3/2} \).
+    \item Find the velocity vector of the particle whose position is \( \mathbf{r}(t) = \langle t, \sin t, \cos t \rangle \) and determine whether the speed is constant.
+    \item Compute the integral \( \int_0^1 \mathbf{r}(t) \, dt \) for \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \).
+    \item Determine the length of the curve \( \mathbf{r}(t) = \langle t, t^2, 0 \rangle \) from \( t = 0 \) to \( t = 2 \).
+
+% Vector-Valued Functions: Calculus with Vector-Valued Functions
+    \item Compute \( \mathbf{r}'(t) \) and \( \mathbf{r}''(t) \) for \( \mathbf{r}(t) = \langle t^3, t^2, t \rangle \).
+    \item Evaluate the integral \( \int_0^{\pi} \mathbf{r}(t) \times \mathbf{r}'(t) \, dt \) where \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \).
+    \item Given \( \mathbf{r}(t) = \langle e^t \cos t, e^t \sin t, t^2 \rangle \), compute its derivative and interpret its geometric meaning.
+    \item Find the second derivative of \( \mathbf{r}(t) = \langle \ln t, t, \sqrt{t} \rangle \).
+    \item A particle moves along the curve \( \mathbf{r}(t) = \langle e^t, \ln t, t^3 \rangle \). Compute its velocity and acceleration vectors at \( t = 1 \).
+    \item Write the vector equation of the tangent line to \( \mathbf{r}(t) = \langle t^2, t^3, t \rangle \) at \( t = 1 \).
+    \item Determine the acceleration vector \( \mathbf{a}(t) \) for the curve \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \) and discuss its significance.
+    \item Find the velocity and acceleration vectors for the position vector \( \mathbf{r}(t) = \langle t, \cos t, e^t \rangle \).
+    \item Evaluate \( \int \mathbf{r}(t) \cdot \mathbf{r}'(t) \, dt \) where \( \mathbf{r}(t) = \langle t^2, \sin t, \cos t \rangle \).
+
+% Motion Along a Curve: Velocity, Acceleration, and Projectile Motion
+    \item Find the velocity and acceleration vectors of the projectile \( \mathbf{r}(t) = \langle 10t, 20t - 4.9t^2 \rangle \) at \( t = 1 \).
+    \item A particle moves along the curve \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \). Determine its speed and acceleration at \( t = \frac{\pi}{4} \).
+    \item An object is projected with initial velocity \( \mathbf{v}_0 = \langle 20, 30 \rangle \) m/s. Write its position vector as a function of time, assuming acceleration due to gravity is \( \mathbf{a} = \langle 0, -9.8 \rangle \).
+    \item Determine the maximum height of the projectile \( \mathbf{r}(t) = \langle v_0 \cos \theta \, t, v_0 \sin \theta \, t - \frac{1}{2} g t^2 \rangle \).
+    \item A particle moves with velocity \( \mathbf{v}(t) = \langle t^2, \sin t \rangle \). If the particle starts at \( \langle 1, 0 \rangle \), find its position vector \( \mathbf{r}(t) \).
+    \item Compute the velocity and acceleration vectors for a particle moving along \( \mathbf{r}(t) = \langle t^3, t^2, t \rangle \) at \( t = 2 \).
+    \item A projectile is launched with speed \( v_0 \) at an angle \( \theta \) above the horizontal. Derive the expressions for its horizontal and vertical components of velocity as functions of time.
+    \item Given the position vector \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \), find the speed of the particle at any time \( t \).
+    \item A car travels along a straight path with acceleration \( \mathbf{a}(t) = \langle 0, 2 \rangle \) m/s² and initial velocity \( \mathbf{v}(0) = \langle 5, 0 \rangle \) m/s. Find its position vector \( \mathbf{r}(t) \).
+    \item Determine the time at which the projectile \( \mathbf{r}(t) = \langle 10 t, 20 t - 4.9 t^2 \rangle \) reaches its maximum height.
+
+% Motion Along a Curve: Curvature and Normal Vectors
+    \item Compute the unit tangent vector \( \mathbf{T}(t) \) for \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \) at \( t = 1 \).
+    \item Find the curvature \( \kappa(t) \) of the curve \( \mathbf{r}(t) = \langle t, t^2, 0 \rangle \).
+    \item Compute the radius of curvature at \( t = 0 \) for \( \mathbf{r}(t) = \langle t, t^3, t^2 \rangle \).
+    \item Determine the curvature of the helix \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \) and show it is constant.
+    \item Find the normal vector \( \mathbf{N}(t) \) and the binormal vector \( \mathbf{B}(t) \) for \( \mathbf{r}(t) = \langle t, \ln t, t^2 \rangle \) at \( t = 1 \).
+    \item For the curve \( \mathbf{r}(t) = \langle t, \sin t, \cos t \rangle \), compute the curvature and determine where the curve is most curved.
+    \item A particle moves along the curve \( \mathbf{r}(t) = \langle e^t, e^{-t}, t \rangle \). Find the curvature \( \kappa(t) \) at \( t = 0 \).
+    \item Calculate the curvature of the curve \( \mathbf{r}(t) = \langle t, \ln t, \sqrt{t} \rangle \).
+    \item Find the curvature and the principal normal vector for the curve \( \mathbf{r}(t) = \langle t^2, t^3, t \rangle \) at \( t = 1 \).
+    \item Determine the curvature of the curve \( \mathbf{r}(t) = \langle \ln(t+1), \sqrt{t}, t^2 \rangle \) at \( t = 1 \).
+
+% The TNB Frame and Curvature
+    \item Compute the tangent vector \( \mathbf{T}(t) \), the normal vector \( \mathbf{N}(t) \), and the binormal vector \( \mathbf{B}(t) \) for the curve \( \mathbf{r}(t) = \langle t, \ln t, t^2 \rangle \) at \( t = 1 \).
+    \item For the curve \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \), compute the tangent, normal, and binormal vectors at any \( t \).
+    \item A particle moves along a helix \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \). Compute its curvature and torsion.
+    \item Given the curve \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \), find the binormal vector \( \mathbf{B}(t) \) at \( t = 1 \).
+    \item Compute the Frenet-Serret formulas for the curve \( \mathbf{r}(t) = \langle t, \sin t, \cos t \rangle \).
+    \item A curve is defined by \( \mathbf{r}(t) = \langle t, e^t, e^{-t} \rangle \). Find the Frenet-Serret frame vectors at \( t = 0 \).
+    \item Determine the torsion \( \tau(t) \) of the curve \( \mathbf{r}(t) = \langle t, \ln t, \sqrt{t} \rangle \).
+    \item For the space curve \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \), compute the derivative of the binormal vector \( \mathbf{B}(t) \).
+    \item Find the binormal vector \( \mathbf{B}(t) \) for the curve \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \) at \( t = \pi \).
+    \item A curve has constant curvature \( \kappa \) and constant torsion \( \tau \). Describe the geometric nature of the curve.
+
+% Arc Length and Reparameterization
+    \item Compute the arc length of the curve \( \mathbf{r}(t) = \langle t, t^2, 0 \rangle \) from \( t = 0 \) to \( t = 3 \).
+    \item Reparameterize the curve \( \mathbf{r}(t) = \langle 3t, 4t, 0 \rangle \) by its arc length \( s \).
+    \item Find the arc length of the polar curve \( r(\theta) = 3\theta \) for \( \theta \in [0, \pi] \).
+    \item A particle moves along the curve \( \mathbf{r}(t) = \langle e^t, e^{-t}, t \rangle \). Compute the arc length of its path from \( t = 0 \) to \( t = 2 \).
+    \item Approximate the arc length of \( y = \epsilon x^2 \), where \( \epsilon \ll 1 \), from \( x = 0 \) to \( x = 1 \).
+    \item Design a smooth path for a robotic arm moving from \( \langle 0, 0, 0 \rangle \) to \( \langle 1, 1, 1 \rangle \) using a vector-valued function with continuous derivatives.
+    \item Compute the arc length of the curve \( \mathbf{r}(t) = \langle t^3, t^2, t \rangle \) from \( t = 0 \) to \( t = 2 \).
+    \item Reparameterize the curve \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \) by arc length \( s \).
+    \item Find the arc length parameterization of \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \).
+    \item Given \( \mathbf{r}(t) = \langle t^2, t^3, t \rangle \), compute the arc length from \( t = 0 \) to \( t = 1 \).
+
+% Arc Length and Reparameterization: Applications in Engineering Paths
+    \item A robotic arm needs to follow a smooth path described by \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \). Determine the arc length parameterization for \( t \in [0, 1] \).
+    \item An engineer designs a roller coaster track modeled by \( \mathbf{r}(t) = \langle t, \sin t, \cos t \rangle \). Calculate the arc length from \( t = 0 \) to \( t = 2\pi \).
+    \item A drone flies along the path \( \mathbf{r}(t) = \langle e^t, \ln t, t \rangle \). Compute the total distance traveled from \( t = 1 \) to \( t = 3 \).
+    \item Optimize the path of a vehicle moving along the curve \( \mathbf{r}(t) = \langle t, t^2, t^4 \rangle \) to minimize the travel time given a constant speed.
+    \item A satellite orbits Earth following the curve \( \mathbf{r}(t) = \langle 7000\cos t, 7000\sin t, 0 \rangle \) km. Compute the arc length of one complete orbit.
+    \item Reparameterize the curve \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \) using the arc length from \( t = 0 \) to \( t = 1 \).
+    \item Calculate the arc length of the space curve \( \mathbf{r}(t) = \langle t, e^t, \ln t \rangle \) from \( t = 1 \) to \( t = 2 \).
+    \item Determine the arc length of the curve \( \mathbf{r}(t) = \langle t, \sin t, \cos t \rangle \) from \( t = 0 \) to \( t = \pi \).
+    \item A roller coaster track is described by \( \mathbf{r}(t) = \langle 10\cos t, 10\sin t, t^2 \rangle \). Find the arc length from \( t = 0 \) to \( t = \pi \).
+    \item Design an engineering path for a drone to move smoothly from \( \langle 0, 0, 0 \rangle \) to \( \langle 5, 5, 5 \rangle \) with uniform speed. Provide the arc length parameterization.
+
+% Applied Problems
+    \item A projectile is launched at an angle of 45 degrees with an initial velocity of 50 m/s. Find its horizontal range and maximum height.
+    \item A car travels along a circular path of radius 100 m. If its speed increases at a constant rate of 2 m/s², compute its total acceleration at the point where its speed is 10 m/s.
+    \item A roller coaster travels along the curve \( \mathbf{r}(t) = \langle 10\cos t, 10\sin t, t^2 \rangle \). Find its speed and acceleration at \( t = 1 \).
+    \item A particle follows the curve \( \mathbf{r}(t) = \langle \ln(t+1), \sqrt{t}, t^2 \rangle \). Find its arc length from \( t = 0 \) to \( t = 2 \).
+    \item A drone follows a path described by \( \mathbf{r}(t) = \langle t, t^2, \ln t \rangle \). Determine the curvature of the path at \( t = 1 \).
+    \item A satellite orbits the Earth along the curve \( \mathbf{r}(t) = \langle 7000\cos t, 7000\sin t, 0 \rangle \) km. Determine its speed and centripetal acceleration.
+    \item A robotic arm needs to move smoothly from \( \langle 0, 0, 0 \rangle \) to \( \langle 2, 2, 2 \rangle \). Design a vector-valued function describing its path with continuous first and second derivatives.
+    \item A particle moves along the path \( \mathbf{r}(t) = \langle t, \sin t, \cos t \rangle \). Compute the total distance traveled from \( t = 0 \) to \( t = 2\pi \).
+    \item An object moves along the curve \( \mathbf{r}(t) = \langle t, t^3, t \rangle \). Find its velocity, acceleration, and speed at \( t = 1 \).
+    \item A drone is programmed to fly along the curve \( \mathbf{r}(t) = \langle e^t, e^{-t}, t \rangle \). Calculate the distance it travels from \( t = 0 \) to \( t = 1 \).
+
+% Advanced Challenges
+    \item Compute the TNB frame for the curve \( \mathbf{r}(t) = \langle t, \ln t, t^2 \rangle \) at \( t = 1 \).
+    \item A particle moves along a helix \( \mathbf{r}(t) = \langle \cos t, \sin t, t \rangle \). Compute its arc length from \( t = 0 \) to \( t = 2\pi \).
+    \item Find the arc length parameterization of \( \mathbf{r}(t) = \langle t^3, t^2, t \rangle \) and use it to reparameterize the curve.
+    \item Given \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \), compute the curvature and the torsion of the curve at \( t = 1 \).
+    \item A satellite orbits Earth following the curve \( \mathbf{r}(t) = \langle 7000\cos t, 7000\sin t, 0 \rangle \) km. Compute the arc length of one complete orbit.
+    \item For the curve \( \mathbf{r}(t) = \langle t, \ln t, \sqrt{t} \rangle \), find the arc length from \( t = 0 \) to \( t = 2 \).
+    \item Given \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \), determine the speed function \( |\mathbf{r}'(t)| \) and analyze its behavior as \( t \) approaches infinity.
+    \item A roller coaster track is designed by \( \mathbf{r}(t) = \langle 10\cos t, 10\sin t, t^2 \rangle \). Calculate the total distance traveled in one full loop from \( t = 0 \) to \( t = 2\pi \).
+    \item A drone must follow a path described by \( \mathbf{r}(t) = \langle t, t^2, t^3 \rangle \) with constant speed. Find the appropriate reparameterization of the curve using arc length.
+    \item Analyze the motion of a particle along \( \mathbf{r}(t) = \langle t, e^t, \ln t \rangle \) by finding its velocity, acceleration, curvature, and torsion at \( t = 1 \).
+
+\end{enumerate}
+
+\end{multicols}
+
+

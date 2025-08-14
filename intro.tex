@@ -1,0 +1,191 @@
+%%%%%%%introduction
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\section*{Purpose of This Book}
+This book is structured to provide comprehensive coverage of Calculus III concepts, with applications relevant to fields such as engineering, physics, and applied sciences. The aim is to build on students' foundation in single-variable calculus, introducing the complexities of multivariable calculus and vector calculus. By focusing on practical and theoretical elements, the book equips students to understand multidimensional space, vector fields, integrals over curves and surfaces, and more advanced mathematical modeling techniques. \\ \\ This text is designed as a primary resource, integrating lecture material with detailed explanations, examples, and practice problems to foster a strong grasp of the subject.
+
+\section*{How to Use This Book}
+This book should be used as a guide and practice tool alongside lectures. Each section breaks down complex ideas, followed by examples and exercises. Students should:
+\begin{itemize}
+    \item \textbf{Preview Sections:} Familiarize yourself with topics before lectures for easier engagement.
+    \item \textbf{Engage During Lectures:} Participate in discussions to solidify your understanding.
+    \item \textbf{Work Through Examples:} Each example is chosen to illustrate key techniques.
+    \item \textbf{Attempt Problems Independently:} Practice problems build problem-solving skills.
+    \item \textbf{Use as Reference:} Refer back to specific sections when tackling homework or exams.
+\end{itemize}
+
+\section*{Overview of Chapters}
+This book is organized into nine chapters, progressively covering essential topics in multivariable calculus and applications:
+
+\begin{enumerate}
+    \item \textbf{Vectors and the Geometry of Space:} Covers 3D coordinate systems, vector operations, lines, planes, and quadric surfaces, including applications in engineering.
+    \item \textbf{Vector-Valued Functions and Motion in Space:} Explores vector functions, derivatives, motion along curves, curvature, arc length, and engineering applications.
+    \item \textbf{Partial Derivatives:} Examines functions of several variables, limits, partial derivatives, chain rule, tangent planes, and optimization, crucial for multidimensional analysis.
+    \item \textbf{Multiple Integrals:} Discusses double and triple integrals in various coordinates, with applications in area, volume, mass, and center of mass.
+    \item \textbf{Vector Calculus:} Focuses on vector fields, line and surface integrals, and major theorems like Green’s, Stokes’, and the Divergence Theorem.
+    \item \textbf{Differential Equations:} Introduces ODEs and PDEs with applications.
+    \item \textbf{Complex Variables:} Covers basic complex analysis, including complex functions, integration, and applications in physics.
+
+\end{enumerate}
+
+\section*{Prerequisites}
+This course requires a solid foundation in Calculus I and II. Students should be comfortable with:
+
+\begin{itemize}
+    \item \textbf{Differentiation and Integration:} Mastery of techniques for single-variable calculus.
+    \item \textbf{Series and Sequences:} Familiarity with Taylor and power series.
+    \item \textbf{Basic Linear Algebra:} Matrix operations and systems of linear equations is very helpful.
+    \item \textbf{Mathematical Reasoning:} Ability to follow and construct rigorous proofs will ensure you get the very most out of this book.
+\end{itemize}
+
+\section*{Acknowledgments}
+Special thanks to my colleagues and the mathematics department for their support and input. I also must of course mention my family who puts up with me when I write such textbooks (this is my third), and go bat-shit crazy for a few months.
+
+\section*{Basic Terminology} \index{Basic Terminology}
+
+Below is an extensive list of terms essential to Calculus III and related subject matter to be covered in this text.
+
+\begin{description}
+
+  \item[\textbf{3D Coordinate System}] A system for describing positions in three-dimensional space using three coordinates (e.g., $(x,y,z)$) relative to mutually perpendicular axes.
+
+  \item[\textbf{Cartesian Coordinates}] A coordinate system in which points are described by their distances along perpendicular axes, typically labeled $x$, $y$, and $z$.
+
+  \item[\textbf{Cylindrical Coordinates}] A three-dimensional coordinate system using $(r, \theta, z)$, where $r$ is the radius in the $xy$-plane, $\theta$ is the angle around the $z$-axis, and $z$ is the vertical coordinate.
+
+  \item[\textbf{Spherical Coordinates}] A three-dimensional coordinate system using $(\rho, \theta, \phi)$, where $\rho$ is the distance from the origin, $\theta$ is the angle in the $xy$-plane, and $\phi$ is the angle from the positive $z$-axis.
+
+  \item[\textbf{Vectors}] Quantities with both magnitude and direction, often represented as $\langle x, y, z \rangle$ in three dimensions.
+
+  \item[\textbf{Magnitude (Norm) of a Vector}] The length of a vector, computed as $\sqrt{x^2 + y^2 + z^2}$ in 3D.
+
+  \item[\textbf{Unit Vector}] A vector of length 1 in a particular direction.
+
+  \item[\textbf{Dot Product}] An operation that takes two vectors and produces a scalar, measuring the extent to which they point in the same or opposite directions.
+
+  \item[\textbf{Cross Product}] An operation that takes two vectors in 3D and produces a vector perpendicular to both, with magnitude related to the area of the parallelogram formed by the two vectors.
+
+  \item[\textbf{Vector-Valued Functions}] Functions whose outputs are vectors, commonly written as $\mathbf{r}(t) = \langle x(t), y(t), z(t) \rangle$.
+
+  \item[\textbf{Parametric Equations of Curves}] Expressions for $x$, $y$, and $z$ in terms of a parameter $t$, used to describe curves in three dimensions.
+
+  \item[\textbf{Tangent Vector}] The derivative of a vector-valued function, indicating the instantaneous direction of the curve.
+
+  \item[\textbf{Arc Length}] The length of a curve over an interval, computed by integrating the magnitude of the derivative of the vector-valued function.
+
+  \item[\textbf{Curvature}] A measure of how sharply a curve bends at a given point.
+
+  \item[\textbf{T, N, B (Frenet-Serret Frame)}] The unit tangent ($\mathbf{T}$), the principal normal ($\mathbf{N}$), and the binormal ($\mathbf{B}$) vectors associated with a curve in space.
+
+  \item[\textbf{Level Surfaces}] Sets of points in 3D where a function of three variables is constant.
+
+  \item[\textbf{Partial Derivatives}] Derivatives of a function of several variables with respect to one variable, treating the others as constants.
+
+  \item[\textbf{Gradient}] A vector of all partial derivatives of a function, pointing in the direction of greatest increase.
+
+  \item[\textbf{Directional Derivative}] The rate of change of a function in the direction of a specified vector.
+
+  \item[\textbf{Chain Rule (Multivariable)}] A rule for computing the derivative of a composite function where the variables themselves depend on other parameters.
+
+  \item[\textbf{Jacobian}] A determinant representing how a function of several variables transforms infinitesimal elements during a change of variables.
+
+  \item[\textbf{Local Extrema (Maxima/Minima)}] Points where a function takes on locally highest or lowest values, found using partial derivatives and tests involving second derivatives.
+
+  \item[\textbf{Saddle Point}] A point where a function is neither a local maximum nor a local minimum, but partial derivatives are zero.
+
+  \item[\textbf{Multiple Integrals}] Integrals taken over regions in higher dimensions (e.g., double integrals over areas or triple integrals over volumes).
+
+  \item[\textbf{Double Integral}] An integral over a two-dimensional region, typically written as $\iint_{D} f(x,y)\, dA$.
+
+  \item[\textbf{Triple Integral}] An integral over a three-dimensional region, typically written as $\iiint_{E} f(x,y,z)\, dV$.
+
+  \item[\textbf{Iterated Integrals}] The process of evaluating a multiple integral by integrating one variable at a time.
+
+  \item[\textbf{Line Integrals}] Integrals that sum a function along a curve, with either scalar or vector integrands.
+
+  \item[\textbf{Surface Integrals}] Integrals that sum a function over a surface in 3D, used for scalar fields or vector fields.
+
+  \item[\textbf{Vector Fields}] Functions that assign a vector to each point in space, often denoted $\mathbf{F}(x,y,z)$.
+
+  \item[\textbf{Divergence}] A scalar measure of how much a vector field spreads out or converges at a given point.
+
+  \item[\textbf{Curl}] A vector measure of the rotation or swirling strength of a vector field at a point.
+
+  \item[\textbf{Laplacian}] The sum of second partial derivatives of a function (in 3D, $\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$).
+
+  \item[\textbf{Green's Theorem}] Relates a line integral around a simple closed curve in the plane to a double integral over the region it encloses.
+
+  \item[\textbf{Stokes' Theorem}] Relates a surface integral of the curl of a vector field to a line integral of the field around the boundary of the surface.
+
+  \item[\textbf{Divergence Theorem (Gauss's Theorem)}] Relates the flux of a vector field through a closed surface to the volume integral of the divergence of the field over the region it encloses.
+
+  \item[\textbf{Ordinary Differential Equations (ODEs)}] Equations involving derivatives of functions of one variable.
+
+  \item[\textbf{Order of an ODE}] The highest derivative present in the equation (e.g., first-order, second-order).
+
+  \item[\textbf{Linear ODE}] An ODE where the function and its derivatives appear to the first power and there are no products of the function and/or its derivatives.
+
+  \item[\textbf{Nonlinear ODE}] An ODE that does not meet the criteria for linearity; may include products of the function and its derivatives or other nonlinear terms.
+
+  \item[\textbf{Initial Value Problem (IVP)}] An ODE with specified initial conditions at a particular point.
+
+  \item[\textbf{Partial Differential Equations (PDEs)}] Equations involving partial derivatives of functions of multiple variables (e.g., the heat equation or wave equation).
+
+  \item[\textbf{Boundary Conditions}] Constraints specifying the values (or behavior) of a function along boundaries of a domain for PDEs.
+
+  \item[\textbf{Complex Numbers}] Numbers of the form $z = x + iy$, where $i$ is the imaginary unit and $x,y$ are real.
+
+  \item[\textbf{Complex Plane}] A two-dimensional plane representing the real part on the horizontal axis and the imaginary part on the vertical axis.
+
+  \item[\textbf{Polar Form of a Complex Number}] Writing a complex number as $re^{i\theta}$, where $r$ is the magnitude and $\theta$ is the argument (angle).
+
+  \item[\textbf{Complex Function}] A function with complex input and output, often written $f(z)$.
+
+  \item[\textbf{Holomorphic (Analytic) Function}] A complex function that is differentiable everywhere in its domain, satisfying the Cauchy-Riemann equations.
+
+  \item[\textbf{Contour}] A path or curve in the complex plane along which a complex integral can be computed.
+
+  \item[\textbf{Residue}] A coefficient representing the behavior of a complex function near its singularity, used for evaluating contour integrals via the residue theorem.
+
+  \item[\textbf{Contour Integral}] An integral of a complex function along a specified path in the complex plane.
+
+  \item[\textbf{Euler's Formula}] A fundamental relationship $e^{i\theta} = \cos(\theta) + i\sin(\theta)$, connecting complex exponentials with trigonometric functions.
+
+\end{description}
+
+
+\section*{Mathematical Symbols and Notation} \index{Mathematical Symbols}
+
+A comprehensive list of symbols used throughout Calculus III:
+
+\begin{description}
+    \item[$\vec{r}$, \textbf{r}] Position vector.
+    \item[$|\vec{v}|$, $|\textbf{v}|$, $\| \textbf{v} \|$, $\|\textbf{v}\|_2$] Magnitude of vector $\vec{v}$.
+    \item[$\Delta$] Finite Difference.
+    \item[$\int$] Integral sign.
+    \item[$\sum$] Summation.
+    \item[$\prod$] Product.
+    \item[$\nabla$] Del operator (used in gradient, divergence, curl).
+    \item[$\partial$] Partial derivative symbol. Also used to indicate boundary, ie, $\partial C$
+    \item[$dA$, $dV$] Area and volume elements.
+    \item[$\rho$, $\theta$, $\phi$] Spherical coordinates.
+    \item[$\vec{F}$, \textbf{F}] Vector field.
+    \item[$\int_C$] Line integral.
+    \item[$\iint_S$] Surface integral.
+    \item[$\iiint_V$] Triple integral.
+    \item[$\oint_C$] Closed Contour Line integral.
+    \item[$\oiint_S$] Closed Contour Surface integral.
+    \item[$O$] Big $O$ notation.
+    \item[$\approx$] Approximately equal.
+    \item[$\equiv$] Identically equal.
+    \item[$\perp$] Perpendicular.
+    \item[$\parallel$] Parallel.
+    \item[$\Rightarrow$] Implies.
+\end{description}
+
+
+\vspace{1em}
+
+\noindent This book aims to provide a comprehensive understanding of these and other core concepts, supporting students in developing the mathematical maturity required for advanced studies and professional applications.

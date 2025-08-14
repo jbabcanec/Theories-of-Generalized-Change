@@ -1,0 +1,532 @@
+
+
+% Start of the appendices
+\newpage
+
+% Custom page style for the appendix
+\fancypagestyle{appendix}{
+    \fancyhf{} % Clear all header and footer fields
+    \fancyhead[R]{\textit{\MakeUppercase{Appendices}}} % Right-justified, italicized, and capitalized header
+    \fancyfoot[C]{\thepage} % Page number in the center of the footer
+
+% Custom page style for the appendix
+\fancypagestyle{index}{
+    \fancyhf{} % Clear all header and footer fields
+    \fancyhead[R]{\textit{\MakeUppercase{}}} % Right-justified, italicized, and capitalized header
+    \fancyfoot[C]{\thepage} % Page number in the center of the footer
+}
+}
+
+\chapter*{Appendices}
+\section*{Introduction}
+These appendices review all of the formulas for this book. I highly emphasize that teachers let their students use these during quizzes and exams. Upon completion of basic differential equations proficiency, it is reasonable to assume that a student should be able to look up what they need quickly in order to solve a question on an exam, and hence a question that they may face in real life. Students in this day and age will always have something to reference, either Google, ChatGPT, or this book even. In my opinion, if one is able to quickly produce an answer and be confident that it is correct, then all resources are therefore valid to use.
+
+\appendix
+% Applying custom page style for appendices
+\pagestyle{appendix}
+
+
+\chapter*{Appendix A: Derivative and Integral Identities}
+\addcontentsline{toc}{chapter}{Appendix A: Derivative and Integral Identities}
+
+\begin{multicols}{2}
+
+\section*{Derivative Identities} \index{Derivatives}
+
+\subsection*{Basic Rules}
+\begin{itemize}
+\item $\frac{d}{dx}(c) = 0$, where $c$ is a constant
+\item $\frac{d}{dx}(x^n) = nx^{n-1}$
+\item $\frac{d}{dx}(e^x) = e^x$
+\item $\frac{d}{dx}(\ln|x|) = \frac{1}{x}$, $x \neq 0$
+\item $\frac{d}{dx}(a^x) = a^x \ln(a)$, $a > 0$
+\item $\frac{d}{dx}(\sin x) = \cos x$
+\item $\frac{d}{dx}(\cos x) = -\sin x$
+\item $\frac{d}{dx}(\tan x) = \sec^2 x$
+\item $\frac{d}{dx}(\cot x) = -\csc^2 x$
+\item $\frac{d}{dx}(\sec x) = \sec x \tan x$
+\item $\frac{d}{dx}(\csc x) = -\csc x \cot x$
+\end{itemize}
+
+\subsection*{Product Rule}
+\begin{itemize}
+\item $\frac{d}{dx}(f(x)g(x)) = f'(x)g(x) + f(x)g'(x)$
+\end{itemize}
+
+\subsection*{Quotient Rule}
+\begin{itemize}
+\item $\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right) = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$
+\end{itemize}
+
+\subsection*{Chain Rule}
+\begin{itemize}
+\item $\frac{d}{dx}(f(g(x))) = f'(g(x))g'(x)$
+\end{itemize}
+
+\subsection*{Inverse Function Rule}
+\begin{itemize}
+\item $\frac{d}{dx}(f^{-1}(x)) = \frac{1}{f'(f^{-1}(x))}$
+\end{itemize}
+
+\subsection*{Inverse Trigonometric Functions}
+\begin{itemize}
+\item $\frac{d}{dx}(\arcsin x) = \frac{1}{\sqrt{1-x^2}}$, $|x| < 1$
+\item $\frac{d}{dx}(\arccos x) = -\frac{1}{\sqrt{1-x^2}}$, $|x| < 1$
+\item $\frac{d}{dx}(\arctan x) = \frac{1}{1+x^2}$
+\item $\frac{d}{dx}(\arccot x) = -\frac{1}{1+x^2}$
+\item $\frac{d}{dx}(\arcsec x) = \frac{1}{|x|\sqrt{x^2-1}}$, $|x| > 1$
+\item $\frac{d}{dx}(\arccsc x) = -\frac{1}{|x|\sqrt{x^2-1}}$, $|x| > 1$
+\end{itemize}
+
+\subsection*{Hyperbolic Functions}
+\begin{itemize}
+\item $\frac{d}{dx}(\sinh x) = \cosh x$
+\item $\frac{d}{dx}(\cosh x) = \sinh x$
+\item $\frac{d}{dx}(\tanh x) = \text{sech}^2 x$
+\item $\frac{d}{dx}(\coth x) = -\text{csch}^2 x$
+\item $\frac{d}{dx}(\text{sech } x) = -\text{sech } x \tanh x$
+\item $\frac{d}{dx}(\text{csch } x) = -\text{csch } x \coth x$
+\end{itemize}
+
+\section*{Integral Identities} \index{Integrals}
+
+\subsection*{Basic Integrals}
+\begin{itemize}
+\item $\int x^n dx = \frac{x^{n+1}}{n+1} + C$, $n \neq -1$
+\item $\int \frac{1}{x} dx = \ln|x| + C$
+\item $\int e^x dx = e^x + C$
+\item $\int a^x dx = \frac{a^x}{\ln a} + C$, $a > 0$, $a \neq 1$
+\item $\int \sin x dx = -\cos x + C$
+\item $\int \cos x dx = \sin x + C$
+\item $\int \tan x dx = -\ln|\cos x| + C$
+\item $\int \cot x dx = \ln|\sin x| + C$
+\item $\int \sec x dx = \ln|\sec x + \tan x| + C$
+\item $\int \csc x dx = -\ln|\csc x + \cot x| + C$
+\end{itemize}
+
+\subsection*{Trigonometric Integrals}
+\begin{itemize}
+\item $\int \sin^2 x dx = \frac{x}{2} - \frac{\sin(2x)}{4} + C$
+\item $\int \cos^2 x dx = \frac{x}{2} + \frac{\sin(2x)}{4} + C$
+\item $\int \tan^2 x dx = \tan x - x + C$
+\item $\int \sec^2 x dx = \tan x + C$
+\item $\int \csc^2 x dx = -\cot x + C$
+\end{itemize}
+
+\subsection*{Integration by Parts}
+\begin{itemize}
+\item $\int u dv = uv - \int v du$
+\end{itemize}
+
+\subsection*{Integration by Substitution}
+\begin{itemize}
+\item $\int f(g(x))g'(x)dx = \int f(u)du$, where $u = g(x)$
+\end{itemize}
+
+\subsection*{Partial Fractions}
+For $\frac{P(x)}{Q(x)}$ where degree of $P < $ degree of $Q$:
+\begin{itemize}
+\item Linear factors: $\frac{A}{(x-a)} + \frac{B}{(x-b)} + \cdots$
+\item Repeated linear factors: $\frac{A}{(x-a)} + \frac{B}{(x-a)^2} + \cdots$
+\item Quadratic factors: $\frac{Ax+B}{x^2+px+q} + \frac{Cx+D}{(x^2+px+q)^2} + \cdots$
+\end{itemize}
+
+\subsection*{Trigonometric Substitutions}
+\begin{itemize}
+\item $\sqrt{a^2-x^2}$: use $x = a\sin\theta$
+\item $\sqrt{a^2+x^2}$: use $x = a\tan\theta$
+\item $\sqrt{x^2-a^2}$: use $x = a\sec\theta$
+\end{itemize}
+\end{multicols}
+
+\newpage
+\appendix
+
+\chapter*{Appendix B: Vector Properties and Formulas}
+\addcontentsline{toc}{chapter}{Appendix B: Vector Properties and Formulas}
+\begin{multicols}{2}
+\subsection*{Vector Algebra}
+\begin{itemize}
+\item Addition: $\vec{u} + \vec{v} = \langle u_1+v_1, u_2+v_2, u_3+v_3 \rangle$
+\item Scalar Multiplication: $c\vec{u} = \langle cu_1, cu_2, cu_3 \rangle$
+\item Dot Product: $\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3 = |\vec{u}||\vec{v}|\cos\theta$
+\item Cross Product: $\vec{u} \times \vec{v} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+u_1 & u_2 & u_3 \\
+v_1 & v_2 & v_3 \\
+\end{vmatrix}$
+\item Magnitude: $|\vec{u}| = \sqrt{u_1^2 + u_2^2 + u_3^2}$
+\item Unit Vector: $\hat{u} = \frac{\vec{u}}{|\vec{u}|}$
+\end{itemize}
+
+\subsection*{Equations of a Line}
+\begin{itemize}
+\item Parametric Form: $\vec{r}(t) = \vec{r}_0 + t\vec{v}$, where $\vec{v}$ is the direction vector
+\item Symmetric Form: $\frac{x-x_0}{v_1} = \frac{y-y_0}{v_2} = \frac{z-z_0}{v_3}$
+\end{itemize}
+
+\subsection*{Equations of a Plane}
+\begin{itemize}
+\item General Form: $ax + by + cz + d = 0$
+\item Normal Form: $\vec{n} \cdot (\vec{r} - \vec{r}_0) = 0$
+\item Parametric Form: $\vec{r}(s,t) = \vec{r}_0 + s\vec{v}_1 + t\vec{v}_2$
+\end{itemize}
+
+\subsection*{Curvature and Torsion}
+\begin{itemize}
+\item Curvature: $\kappa = \frac{|\vec{T}'(s)|}{|\vec{r}'(t)|} = \frac{|\vec{r}'(t) \times \vec{r}''(t)|}{|\vec{r}'(t)|^3}$
+\item Torsion: $\tau = \frac{\vec{B} \cdot (\vec{T}' \times \vec{N})}{|\vec{r}'|}$
+\item TNB Frame:
+  \begin{itemize}
+  \item Tangent: $\vec{T} = \frac{\vec{r}'(t)}{|\vec{r}'(t)|}$
+  \item Normal: $\vec{N} = \frac{\vec{T}'(t)}{|\vec{T}'(t)|}$
+  \item Binormal: $\vec{B} = \vec{T} \times \vec{N}$
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Equations of Motion in Physics}
+\begin{itemize}
+\item Position: $\vec{r}(t) = \vec{r}_0 + \vec{v}_0t + \frac{1}{2}\vec{a}t^2$
+\item Velocity: $\vec{v}(t) = \vec{v}_0 + \vec{a}t$
+\item Acceleration: $\vec{a}(t) = \frac{d\vec{v}}{dt}$
+\end{itemize}
+
+\subsection*{Common Parameterizations}
+\begin{itemize}
+\item Circle: $\vec{r}(t) = \langle R\cos t, R\sin t \rangle$
+\item Helix: $\vec{r}(t) = \langle R\cos t, R\sin t, ht \rangle$
+\item Ellipse: $\vec{r}(t) = \langle a\cos t, b\sin t \rangle$
+\item Parabola: $\vec{r}(t) = \langle t, at^2 \rangle$
+\item Sphere: 
+    \begin{multline*}
+\vec{r}(\theta, \phi) = \langle R\sin\phi\cos\theta, \\
+R\sin\phi\sin\theta, R\cos\phi \rangle
+    \end{multline*}
+\end{itemize}
+
+\subsection*{Vector Calculus}
+\begin{itemize}
+\item Gradient: $\nabla f = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle$
+\item Divergence: $\nabla \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$
+\item Curl: $\nabla \times \vec{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+F_x & F_y & F_z \\
+\end{vmatrix}$
+\item Laplacian: $\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$
+\end{itemize}
+
+\subsection*{Vector Projections}
+\begin{itemize}
+\item Projection of $\vec{u}$ onto $\vec{v}$: $\text{proj}_{\vec{v}}\vec{u} = \frac{\vec{u} \cdot \vec{v}}{\vec{v} \cdot \vec{v}}\vec{v}$
+\item Component of $\vec{u}$ along $\vec{v}$: $\text{comp}_{\vec{v}}\vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|}$
+\end{itemize}
+
+\subsection*{Distance Formulas}
+\begin{itemize}
+\item Point to Line: $d = \frac{|\vec{n} \cdot (\vec{r} - \vec{r}_0)|}{|\vec{n}|}$
+\item Point to Plane: $d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$
+\item Line to Line (Skew): $d = \frac{|(\vec{r}_2 - \vec{r}_1) \cdot (\vec{v}_1 \times \vec{v}_2)|}{|\vec{v}_1 \times \vec{v}_2|}$
+\end{itemize}
+
+\end{multicols}
+
+
+\newpage
+\appendix
+
+\chapter*{Appendix C: Calculus Theorems}
+\addcontentsline{toc}{chapter}{Appendix C: Calculus Theorems}
+
+
+\begin{multicols}{2}
+
+\subsection*{Calculus I (Single Variable)}
+\subsubsection*{Limits and Continuity}
+\begin{itemize}
+\item \textbf{Squeeze Theorem}: If $f(x) \leq g(x) \leq h(x)$ for all $x$ near $a$ and $\lim_{x \to a} f(x) = \lim_{x \to a} h(x) = L$, then $\lim_{x \to a} g(x) = L$.
+\item \textbf{Intermediate Value Theorem (IVT)}: If $f$ is continuous on $[a, b]$ and $N$ is between $f(a)$ and $f(b)$, then there exists $c \in [a, b]$ such that $f(c) = N$.
+\end{itemize}
+
+\subsubsection*{Differentiation}
+\begin{itemize}
+\item \textbf{Mean Value Theorem (MVT)}: If $f$ is continuous on $[a, b]$ and differentiable on $(a, b)$, then there exists $c \in (a, b)$ such that $f'(c) = \frac{f(b) - f(a)}{b - a}$.
+\item \textbf{Rolle's Theorem}: If $f$ is continuous on $[a, b]$, differentiable on $(a, b)$, and $f(a) = f(b)$, then there exists $c \in (a, b)$ such that $f'(c) = 0$.
+\item \textbf{L'Hôpital's Rule}: If $\lim_{x \to c} \frac{f(x)}{g(x)}$ is indeterminate, and $f$ and $g$ are differentiable, then $\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}$.
+\end{itemize}
+
+\subsubsection*{Integration}
+\begin{itemize}
+\item \textbf{Fundamental Theorem of Calculus (FTC)}:
+\begin{enumerate}
+\item Part 1: If $F(x) = \int_a^x f(t) \, dt$, then $F'(x) = f(x)$.
+\item Part 2: $\int_a^b f(x) \, dx = F(b) - F(a)$, where $F$ is any antiderivative of $f$.
+\end{enumerate}
+\item \textbf{Integration by Substitution}: If $u = g(x)$, then $\int f(g(x))g'(x)dx = \int f(u)du$.
+\end{itemize}
+
+\subsection*{Calculus II (Techniques and Series)}
+\subsubsection*{Sequences and Series}
+\begin{itemize}
+\item \textbf{Convergence of Series}: $\sum a_n$ converges if $\lim_{n \to \infty} S_n = S$ (finite).
+\item \textbf{Comparison Test}: If $0 \leq a_n \leq b_n$ for all $n$ and $\sum b_n$ converges, then $\sum a_n$ converges.
+\item \textbf{Ratio Test}: $\sum a_n$ converges absolutely if $\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| < 1$.
+\item \textbf{Alternating Series Test}: An alternating series $\sum (-1)^n a_n$ converges if $a_n$ is decreasing and $\lim_{n \to \infty} a_n = 0$.
+\end{itemize}
+
+\subsubsection*{Parametric and Polar Calculus}
+\begin{itemize}
+\item \textbf{Arc Length (Parametric)}: $L = \int_a^b \sqrt{\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2} \, dt$.
+\item \textbf{Arc Length (Polar)}: $L = \int_\alpha^\beta \sqrt{r^2 + \left( \frac{dr}{d\theta} \right)^2} \, d\theta$.
+\item \textbf{Area (Polar)}: $A = \frac{1}{2} \int_\alpha^\beta r^2 \, d\theta$.
+\end{itemize}
+
+\subsection*{Calculus III (Multivariable Calculus)}
+\subsubsection*{Vector Calculus}
+\begin{itemize}
+\item \textbf{Gradient}: $\nabla f = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle$
+\item \textbf{Divergence}: $\nabla \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$
+\item \textbf{Curl}: $\nabla \times \vec{F} = \begin{vmatrix}
+\hat{i} & \hat{j} & \hat{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+F_x & F_y & F_z \\
+\end{vmatrix}$
+\item \textbf{Laplacian}: $\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$
+\end{itemize}
+
+\subsubsection*{Theorems of Vector Calculus}
+\begin{itemize}
+\item \textbf{Green's Theorem}: $\int_C \vec{F} \cdot d\vec{r} = \int\!\!\!\int_R \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA$
+\item \textbf{Stokes' Theorem}: $\int_S (\nabla \times \vec{F}) \cdot \vec{n} \, dS = \int_C \vec{F} \cdot d\vec{r}$
+\item \textbf{Divergence Theorem}: $\int\!\!\!\int\!\!\!\int_V (\nabla \cdot \vec{F}) \, dV = \int_S \vec{F} \cdot \vec{n} \, dS$
+\end{itemize}
+
+\subsubsection*{Extrema and Optimization}
+\begin{itemize}
+\item \textbf{Critical Points}: $\nabla f = \vec{0}$
+\item \textbf{Second Derivative Test}: Classify critical points using the Hessian matrix $H$.
+\item \textbf{Lagrange Multipliers}: $\nabla f = \lambda \nabla g$ to find extrema subject to $g(x, y, z) = 0$.
+\end{itemize}
+
+\end{multicols}
+
+\newpage
+\appendix
+
+\chapter*{Appendix D: Quick Reference for First-Order ODEs}
+\addcontentsline{toc}{chapter}{Appendix D: Quick Reference for First-Order ODEs}
+
+\subsection*{Basic Recipes}
+
+\begin{enumerate}
+\item \textbf{Separable Equations}: $\frac{dy}{dx} = g(x)h(y)$
+   \begin{itemize}
+   \item Rewrite as $\frac{dy}{h(y)} = g(x)dx$
+   \item Integrate both sides: $\int \frac{dy}{h(y)} = \int g(x)dx + C$
+   \end{itemize}
+
+\item \textbf{Linear Equations}: $\frac{dy}{dx} + P(x)y = Q(x)$
+   \begin{itemize}
+   \item Find integrating factor: $\mu(x) = e^{\int P(x)dx}$
+   \item Multiply both sides by $\mu(x)$
+   \item Rewrite as $\frac{d}{dx}[\mu(x)y] = \mu(x)Q(x)$
+   \item Integrate: $y = \frac{1}{\mu(x)}[\int \mu(x)Q(x)dx + C]$
+   \end{itemize}
+
+\item \textbf{Exact Equations}: $M(x,y)dx + N(x,y)dy = 0$
+   \begin{itemize}
+   \item Check if $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$
+   \item Find $\psi(x,y)$ such that $\frac{\partial \psi}{\partial x} = M$ and $\frac{\partial \psi}{\partial y} = N$
+   \item Solution is $\psi(x,y) = C$
+   \end{itemize}
+
+\item \textbf{Bernoulli Equations}: $\frac{dy}{dx} + P(x)y = Q(x)y^n$
+   \begin{itemize}
+   \item Substitute $v = y^{1-n}$
+   \item Solve resulting linear equation in $v$
+   \item Substitute back $y = v^{\frac{1}{1-n}}$
+   \end{itemize}
+\end{enumerate}
+
+\chapter*{Appendix E: Useful Tables for Differential Equations}
+\addcontentsline{toc}{chapter}{Appendix E: Useful Tables for Differential Equations}
+
+{
+  \renewcommand{\arraystretch}{2} % Increase cell height for this table only
+  \begin{table}[H]
+    \centering
+    \caption{\textit{Comprehensive Table of Laplace Transform Pairs: These pairs enable both forward transformation for problem-solving and inverse transformation for solution recovery.}}
+    \label{table:laplace_transforms}
+    \begin{tabular}{|c|c||c|c|}
+      \hline
+      \( f(t) \) & \(\mathcal{L}\{f(t)\}\) & \( f(t) \) & \(\mathcal{L}\{f(t)\}\) \\ \hline
+      \(1\) & \(\frac{1}{s}\) & \(t\sin(at)\) & \(\frac{2a}{(s^2+a^2)^2}\) \\ \hline
+      \(t\) & \(\frac{1}{s^2}\) & \(t\cos(at)\) & \(\frac{s^2-a^2}{(s^2+a^2)^2}\) \\ \hline
+      \(t^n\) & \(\frac{n!}{s^{n+1}}\) & \(t^ne^{at}\) & \(\frac{n!}{(s-a)^{n+1}}\) \\ \hline
+      \(e^{at}\) & \(\frac{1}{s-a}\) & \(\frac{t^n}{n!}\) & \(\frac{1}{s^{n+1}}\) \\ \hline
+      \(\sin(at)\) & \(\frac{a}{s^2+a^2}\) & \(t^n\cos(at)\) & \(\frac{n!s}{(s^2+a^2)^{n+1}}\) \\ \hline
+      \(\cos(at)\) & \(\frac{s}{s^2+a^2}\) & \(t^n\sin(at)\) & \(\frac{n!a}{(s^2+a^2)^{n+1}}\) \\ \hline
+      \(\sinh(at)\) & \(\frac{a}{s^2-a^2}\) & \(\frac{\sin(at)}{t}\) & \(\tan^{-1}\!\left(\frac{a}{s}\right)\) \\ \hline
+      \(\cosh(at)\) & \(\frac{s}{s^2-a^2}\) & \(J_0(at)\) & \(\frac{1}{\sqrt{s^2+a^2}}\) \\ \hline
+      \(e^{at}\sin(bt)\) & \(\frac{b}{(s-a)^2+b^2}\) & \(u(t-c)\) & \(\frac{e^{-cs}}{s}\) \\ \hline
+      \(e^{at}\cos(bt)\) & \(\frac{s-a}{(s-a)^2+b^2}\) & \(\delta(t-c)\) & \(e^{-cs}\) \\ \hline
+      \(e^{at}f(t)\) & \(F(s-a)\) & \(u(t-a)\) & \(\frac{e^{-as}}{s}\) \\ \hline
+      \(te^{at}\) & \(\frac{1}{(s-a)^2}\) & \(\displaystyle \int_{0}^{t} f(\tau)g(t-\tau)\,d\tau\) & \(F(s)G(s)\) \\ \hline
+      \(e^{-at^2}\) & \(\frac{\sqrt{\pi}}{2\sqrt{a}}\,e^{\frac{s^2}{4a}}\operatorname{erfc}\!\left(\frac{s}{2\sqrt{a}}\right)\) & \(t^n u(t)\) & \(\frac{n!}{s^{n+1}}\) \\ \hline
+    \end{tabular}
+  \end{table}
+}
+
+\begin{table}[H]
+\centering
+\caption{\textit{Comprehensive Table of Common PDE Operators and Their Green's Functions. In these expressions, the notation \(G(x,t;\xi,0)\) (or \(G(\mathbf{x},\boldsymbol{\xi})\)) denotes the Green's function where the first set of variables indicates the field point (where the solution is observed) and the second set indicates the source point (where the impulse is applied).}}
+\begin{tabular}{|>{\centering\arraybackslash}m{0.3\textwidth}|>{\centering\arraybackslash}m{0.65\textwidth}|}
+\hline
+\textbf{PDE/Operator} & \textbf{Green's Function} \\
+\hline
+\rule{0pt}{6ex}
+Laplacian in \(\mathbb{R}^3\) &
+\(\displaystyle G(\mathbf{x},\boldsymbol{\xi}) = \frac{1}{4\pi\,\lvert \mathbf{x} - \boldsymbol{\xi} \rvert}\) \\[3ex]
+\hline
+\rule{0pt}{6ex}
+Laplacian in \(\mathbb{R}^2\) &
+\(\displaystyle G(\mathbf{x},\boldsymbol{\xi}) = -\frac{1}{2\pi}\,\ln \lvert \mathbf{x} - \boldsymbol{\xi} \rvert\) \\[3ex]
+\hline
+\rule{0pt}{6ex}
+Heat Equation in \(\mathbb{R}\) &
+\(\displaystyle G(x,t;\xi,0)=\frac{1}{\sqrt{4\pi t}}\;\exp\!\Biggl(-\frac{(x-\xi)^2}{4t}\Biggr),\quad t>0\) \\[5ex]
+\hline
+\rule{0pt}{6ex}
+Wave Equation in \(\mathbb{R}^3\) &
+\(\displaystyle G(t,\mathbf{x};t',\boldsymbol{\xi}) = \frac{\delta\Bigl(t-t'-\frac{\lvert \mathbf{x} - \boldsymbol{\xi} \rvert}{c}\Bigr)}{4\pi\,\lvert \mathbf{x} - \boldsymbol{\xi} \rvert}\) \\[5ex]
+\hline
+\rule{0pt}{6ex}
+Free Schrödinger Equation in 1D &
+\(\displaystyle G(x,t;\xi,0)=\sqrt{\frac{m}{2\pi i\hbar t}}\;\exp\Biggl(\frac{i m (x-\xi)^2}{2\hbar t}\Biggr)\) \\[5ex]
+\hline
+\rule{0pt}{6ex}
+Helmholtz Equation in \(\mathbb{R}^3\) &
+\(\displaystyle G(\mathbf{x},\boldsymbol{\xi}) = \frac{e^{ik\,\lvert \mathbf{x} - \boldsymbol{\xi} \rvert}}{4\pi\,\lvert \mathbf{x} - \boldsymbol{\xi} \rvert}\) \\[5ex]
+\hline
+\end{tabular}
+\label{table:greens_functions}
+\end{table}
+
+{
+  \renewcommand{\arraystretch}{2} % Increase cell height for this table only
+  \begin{table}[H]
+    \caption{\textit{Comprehensive Table of Fourier Transform Pairs: These pairs enable both forward and inverse transformations for analysis and signal processing.}}
+    \label{table:fourier_transforms}
+    \centering
+    \begin{tabular}{|c|c||c|c|}
+      \hline
+      \(f(t)\) & \(F(\omega)\) & \(f(t)\) & \(F(\omega)\) \\ \hline
+      \(\delta(t)\) & \(1\) & \(1\) & \(2\pi\,\delta(\omega)\) \\ \hline
+      \(e^{-at^2}\) & \(\sqrt{\frac{\pi}{a}}\,e^{-\frac{\omega^2}{4a}}\) & \(e^{i\omega_0t}\) & \(2\pi\,\delta(\omega-\omega_0)\) \\ \hline
+      \(\cos(\omega_0t)\) & \(\pi\Big[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)\Big]\) & \(\sin(\omega_0t)\) & \(i\pi\Big[\delta(\omega+\omega_0)-\delta(\omega-\omega_0)\Big]\) \\ \hline
+      \(e^{-at}u(t)\) & \(\frac{1}{a+i\omega}\) & \(t\,e^{-at}u(t)\) & \(\frac{1}{(a+i\omega)^2}\) \\ \hline
+      \(u(t)\) & \(\pi\,\delta(\omega)+\frac{1}{i\omega}\) & \(e^{-a|t|}\) & \(\frac{2a}{a^2+\omega^2}\) \\ \hline
+    \end{tabular}
+  \end{table}
+}
+
+\chapter*{Appendix F: Complex Analysis Identities}
+\addcontentsline{toc}{chapter}{Appendix F: Complex Analysis Identities}
+\begin{multicols}{2}
+\section*{Basic Identities} \index{Complex Numbers}
+\subsection*{Euler's Formula}
+\begin{itemize}
+\item $e^{ix} = \cos x + i\sin x$
+\item $e^{i\pi} + 1 = 0$
+\item $\cos x = \frac{e^{ix} + e^{-ix}}{2}$
+\item $\sin x = \frac{e^{ix} - e^{-ix}}{2i}$
+\end{itemize}
+\subsection*{Complex Conjugate}
+\begin{itemize}
+\item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
+\item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
+\item $\overline{z_1 / z_2} = \overline{z_1} / \overline{z_2}$
+\item $\overline{\overline{z}} = z$
+\item $z \cdot \overline{z} = |z|^2$
+\item $\overline{z^n} = \overline{z}^n$
+\item $\overline{e^z} = e^{\overline{z}}$
+\end{itemize}
+\subsection*{Modulus Properties}
+\begin{itemize}
+\item $|z_1 \cdot z_2| = |z_1| \cdot |z_2|$
+\item $|z_1 / z_2| = |z_1| / |z_2|$
+\item $|z_1 + z_2| \leq |z_1| + |z_2|$ (Triangle Inequality)
+\item $|z_1 - z_2| \geq ||z_1| - |z_2||$
+\item $|z^n| = |z|^n$
+\item $|e^z| = e^{\text{Re}(z)}$
+\item $|i^n| = 1$ for all integers $n$
+\end{itemize}
+\subsection*{Trigonometric Connections}
+\begin{itemize}
+\item $\cos(iz) = \cosh(z)$
+\item $\sin(iz) = i\sinh(z)$
+\item $\cosh(iz) = \cos(z)$
+\item $\sinh(iz) = i\sin(z)$
+\item $\tan(iz) = i\tanh(z)$
+\item $\tanh(iz) = i\tan(z)$
+\end{itemize}
+\subsection*{Hyperbolic Trigonometric Identities}
+\begin{itemize}
+\item $\sinh(z) = \frac{e^z - e^{-z}}{2}$
+\item $\cosh(z) = \frac{e^z + e^{-z}}{2}$
+\item $\tanh(z) = \frac{\sinh(z)}{\cosh(z)} = \frac{e^z - e^{-z}}{e^z + e^{-z}}$
+\item $\coth(z) = \frac{\cosh(z)}{\sinh(z)} = \frac{e^z + e^{-z}}{e^z - e^{-z}}$
+\item $\text{sech}(z) = \frac{1}{\cosh(z)} = \frac{2}{e^z + e^{-z}}$
+\item $\text{csch}(z) = \frac{1}{\sinh(z)} = \frac{2}{e^z - e^{-z}}$
+\item $\cosh^2(z) - \sinh^2(z) = 1$
+\item $1 - \tanh^2(z) = \text{sech}^2(z)$
+\item $\coth^2(z) - 1 = \text{csch}^2(z)$
+\item $\sinh(z_1 \pm z_2) = \sinh(z_1)\cosh(z_2) \pm \cosh(z_1)\sinh(z_2)$
+\item $\cosh(z_1 \pm z_2) = \cosh(z_1)\cosh(z_2) \pm \sinh(z_1)\sinh(z_2)$
+\item $\sinh(2z) = 2\sinh(z)\cosh(z)$
+\item $\cosh(2z) = \cosh^2(z) + \sinh^2(z) = 2\cosh^2(z) - 1 = 1 + 2\sinh^2(z)$
+\item $\tanh(z_1 \pm z_2) = \frac{\tanh(z_1) \pm \tanh(z_2)}{1 \pm \tanh(z_1)\tanh(z_2)}$
+\end{itemize}
+\section*{Complex Functions} \index{Complex Functions}
+\subsection*{Logarithmic Identities}
+\begin{itemize}
+\item $\log(z) = \ln|z| + i\arg(z)$
+\item $\log(z_1 z_2) = \log(z_1) + \log(z_2) + 2\pi i k$ for some integer $k$
+\item $\log(z^n) = n\log(z) + 2\pi i k$ for some integer $k$
+\item $\log(1/z) = -\log(z) + 2\pi i k$ for some integer $k$
+\item $\log(e^z) = z + 2\pi i k$ for some integer $k$
+\item $\log(-z) = \log(z) + i\pi$ up to multiples of $2\pi i$
+\end{itemize}
+\subsection*{Power Identities}
+\begin{itemize}
+\item $z^{1/n} = |z|^{1/n} e^{i(\arg(z) + 2\pi k)/n}$ for $k = 0,1,...,n-1$
+\item $z^{w} = e^{w\log(z)}$
+\item $(e^z)^w = e^{zw}$
+\item $(-1)^n = e^{in\pi} = \cos(n\pi) + i\sin(n\pi)$
+\item $(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$
+
+\end{itemize}
+\section*{Analytic Functions} \index{Analyticity}
+\subsection*{Cauchy-Riemann Equations}
+If $f(z) = u(x,y) + iv(x,y)$ is analytic, then:
+\begin{itemize}
+\item $\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}$
+\item $\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}$
+\item $\nabla^2 u = \nabla^2 v = 0$ (Laplace's equation)
+\end{itemize}
+
+\section*{Conformal Mappings} \index{Conformal Mappings}
+\subsection*{Transformation Properties}
+\begin{itemize}
+\item $w = z + a$ (Translation)
+\item $w = az$ (Rotation and scaling)
+\item $w = 1/z$ (Inversion)
+\item $w = (az+b)/(cz+d)$ (Möbius transformation)
+\item $w = z^n$ (Power mapping)
+\item $w = e^z$ (Exponential mapping)
+\item $w = \log(z)$ (Logarithmic mapping)
+\end{itemize}
+
+\end{multicols}
+
+    

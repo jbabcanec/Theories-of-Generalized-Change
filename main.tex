@@ -1,0 +1,403 @@
+\documentclass[12pt, oneside]{book}
+
+%-------------------- Geometry --------------------
+\usepackage[margin=1in]{geometry}
+
+%-------------------- Font and Typography --------------------
+\usepackage{amsmath, amssymb, amsthm}    % Mathematical symbols and environments
+\usepackage{booktabs}                    % Enhanced table formatting
+\usepackage{physics}                     % Physics-related commands
+\usepackage{color, xcolor}               % Color management
+\usepackage[prefix=]{xcolor-material}    % Material design colors
+\usepackage{caption}                     % Customizing captions
+\usepackage{titlesec}                    % Customizing section titles
+\usepackage{esint} % various fancy integral symbols
+
+%-------------------- Graphics and Figures --------------------
+\usepackage{graphicx}                    % Enhanced graphics support
+\usepackage{svg}                         % SVG image inclusion
+\usepackage{pgfplots}                    % Plotting library
+\usepgfplotslibrary{fillbetween, colormaps, colorbrewer, patchplots} % PGFPlots libraries
+\pgfplotsset{width=9cm, compat=1.18}      % PGFPlots settings
+
+\usepackage{tikz}                        % Drawing package
+\usetikzlibrary{
+    arrows,
+    arrows.meta,
+    calc,
+    decorations.pathreplacing,
+    decorations.pathmorphing,
+    decorations.markings,
+    intersections,
+    matrix,
+    patterns,
+    patterns.meta,
+    perspective
+}
+\usepackage{circuitikz}                  % Electrical circuits
+\usepackage{tikz-3dplot}                 % 3D plotting with TikZ
+
+%-------------------- Tables and Listings --------------------
+\usepackage{longtable}                   % Tables that span multiple pages
+\usepackage{multirow}                    % Table cells spanning multiple rows
+\usepackage{array}                       % Extended table features
+\usepackage{float}                       % Improved float handling
+\usepackage{subcaption}                  % Sub-figures and sub-tables
+\usepackage{listings}                    % Code listings
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    columns=fullflexible,
+    keepspaces=true,
+    frame=single,
+    showspaces=false,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    tabsize=4,
+}
+
+%-------------------- Indexing --------------------
+\usepackage{makeidx}                     % Index generation
+\usepackage{imakeidx}                    % Enhanced index features
+\makeindex
+
+%-------------------- Table of Contents --------------------
+\usepackage{tocloft}                     % Customizable table of contents
+
+%-------------------- Headers and Footers --------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Custom page styles will be defined later in the document
+
+%-------------------- Hyperlinks --------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,       % Adjust as needed
+    urlcolor=blue,        % Adjust as needed
+    citecolor=blue,       % Adjust as needed
+}
+
+%-------------------- Warning Suppression --------------------
+\usepackage{silence}                     % Suppress warnings
+\WarningFilter{latex}{Underfull \hbox}
+\WarningFilter{latex}{Overfull \hbox}
+\WarningFilter{latex}{Lonely}
+
+%-------------------- Framed Environments --------------------
+\usepackage{mdframed}                    % Framed environments
+
+%-------------------- Symbols --------------------
+\usepackage{pifont}                      % Dingbats and symbols
+
+%-------------------- Custom Commands and Environments --------------------
+% Mathematical commands
+\newcommand{\dom}[1]{\mathrm{dom}\,#1}
+\newcommand{\range}{\mathrm{range}\,}
+
+% Custom color definitions
+\definecolor{exampleblue}{rgb}{0.1, 0.3, 0.7}
+
+% Custom line command
+\newcommand{\exampleline}{%
+    \noindent\makebox[\textwidth]{\textcolor{exampleblue}{\rule[0.5ex]{0.7\textwidth}{0.5pt}}} % Adjust 0.7\textwidth for line length
+}
+
+% Lecture counter and command
+\newcounter{lecture}[chapter]
+\newcommand{\lecture}[1]{%
+    \stepcounter{lecture}%
+    \section*{Lecture \thechapter.\thelecture: #1}%
+    \addcontentsline{toc}{section}{Lecture \thechapter.\thelecture: #1}%
+    \markright{Lecture~\thechapter.\thelecture: #1}
+}
+
+% Sections for Formulas, Definitions, and Practice Problems
+\newcommand{\formsdefs}{%
+    \section*{Formulas and Definitions}%
+    \addcontentsline{toc}{section}{Formulas and Definitions}%
+}
+\newcommand{\practice}{%
+    \section*{Practice Problems}%
+    \addcontentsline{toc}{section}{Practice Problems}%
+}
+
+% Example environment
+\newcounter{examplecounter}[lecture]
+\renewcommand{\theexamplecounter}{\thechapter.\thelecture.\arabic{examplecounter}}
+
+\newenvironment{example}[1][]{
+    \refstepcounter{examplecounter}
+    \par\medskip
+    \begin{mdframed}[%
+        linecolor=white,%
+        linewidth=0pt,%
+        innertopmargin=6pt,%
+        innerbottommargin=6pt,%
+        innerleftmargin=10pt,%
+        skipabove=6pt,%
+        skipbelow=6pt
+    ]
+    \noindent\begin{tikzpicture}[baseline=-0.5ex]
+        \node[right] at (0,0) {\textbf{\ding{115} Example~\theexamplecounter}};
+    \end{tikzpicture}
+}{
+    \end{mdframed}
+    \medskip
+}
+
+% Solution environment
+\newenvironment{solution}{
+    \par\medskip
+    \noindent\textbf{Solution}
+}{
+    \par\medskip
+}
+
+% Custom drawing commands
+\newcommand\DrawBlock[3]{%
+    \ifx#1b\relax
+        \path[draw]
+            (lm\the\numexpr#2-1\relax) -- ++(0,0,#3) coordinate (blocklf)
+            (bm\the\numexpr#2-1\relax) -- ++(0,0,#3) coordinate (blocklb)
+            (lm#2) -- ++(0,0,#3) coordinate (blockrf)
+            (bm#2) -- ++(0,0,#3) coordinate (blockrb);
+        \filldraw[fill=white, draw=black]
+            (lm\the\numexpr#2-1\relax) -- (blocklf) -- (blocklb) -- (blockrb) -- (blockrf) -- (lm#2);
+    \else
+        \ifx#1f\relax
+            \path[draw]
+                (fm\the\numexpr#2-1\relax) -- ++(0,0,#3) coordinate (blocklf)
+                (lm\the\numexpr#2-1\relax) -- ++(0,0,#3) coordinate (blocklb)
+                (fm#2) -- ++(0,0,#3) coordinate (blockrf)
+                (lm#2) -- ++(0,0,#3) coordinate (blockrb);
+            \filldraw[fill=white, draw=black]
+                (fm\the\numexpr#2-1\relax) -- (blocklf) -- (blocklb) -- (blockrb) -- (blockrf) -- (fm#2);
+        \fi
+    \fi
+    \draw (blocklf) -- (blockrf);
+}
+
+% Cylindrical Coordinate
+\newcommand{\cylindricalcoordinate}[4]{%
+    \coordinate (#4) at ({#1*cos(#2)}, {#1*sin(#2)}, {#3});
+    \coordinate (#4xy) at ({#1*cos(#2)}, {#1*sin(#2)}, 0);
+}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\Arg}{\operatorname{Arg}}
+
+\tikzset
+{
+  surface/.style={draw=blue,shading=ball,ball color=cyan!60!blue,fill opacity=0.8},
+  plane/.style={draw=orange,fill=orange,fill opacity=0.6},
+  vector/.style={draw=magenta,thick,-latex}
+}
+
+% Miscellaneous settings
+\sloppy %Need this for Macs for some reason
+\allowdisplaybreaks[4]
+
+%-------------------- Header Customizations --------------------
+\makeatletter
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{Lecture~\thechapter.\thelecture: #1}}
+\makeatother
+
+%-------------------- End of Preamble --------------------
+
+\title{Theories of Generalized Change}
+\author{Joseph J Babčanec}
+\date{\today}
+
+\begin{document}
+
+%-------------------- Title Page --------------------
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge \textbf{Theories of Generalized Change} \par}
+    \vspace{1.5cm}
+    
+    {\Large Joseph J. Babčanec \par}
+    
+    \vspace{2cm}
+    
+    \includegraphics[width=.9\textwidth]{pics/dja.png}
+    
+    \vspace{2cm}
+    
+    % Uncomment the following line if you want to include a copyright
+    % {\large \copyright\ 2024 \par}
+    
+    \vfill
+\end{titlepage}
+
+%-------------------- Subsequent Empty Pages --------------------
+\newpage
+\thispagestyle{empty}
+\
+\clearpage
+\newpage
+
+%-------------------- Second Page --------------------
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+    \vspace*{4cm}
+    {\Large \textbf{Theories of Generalized Change}} \\
+    \vspace{1cm}
+    {\Large \textit{Joseph J. Babčanec}} \\
+    \vspace{2cm}
+    {\Large First Edition} \\
+    \vspace{1cm}
+    {\Large \copyright\ 2025}
+\end{center}
+
+\clearpage
+
+%-------------------- Dedication Page --------------------
+\newpage
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+\itshape
+To my wife Emily and my sons Andy and Jamie \\
+To my former math teacher Heather Elfen
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+%-------------------- Additional Empty Pages --------------------
+\newpage
+\thispagestyle{empty}
+\
+\clearpage
+
+%-------------------- Copyright and Publishing Information --------------------
+\newpage
+\thispagestyle{empty}
+\vspace*{2cm}
+
+\noindent Theories of Generalized Change \\
+First Edition
+
+\vspace{1.2cm}
+
+\noindent Copyright © 2025 by Joseph J. Babčanec
+
+\noindent All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means—electronic, mechanical, photocopying, recording, or otherwise—without the prior written permission of the author, except in the case of brief quotations used in reviews or scholarly analysis.
+
+\vspace{1.2cm}
+
+\noindent Some illustrations in this book are original works by the author; others are sourced from public domain or free-to-use archives, and are credited where appropriate.
+
+\vspace{1.2cm}
+
+\noindent ISBN 978-1-23456-789-0
+
+\vspace{1.2cm}
+
+\noindent Cover design and interior layout by Joseph J. Babčanec
+
+\vspace{1.2cm}
+
+\noindent Printed in the United States of America
+
+\vspace{1.2cm}
+
+\noindent 10 9 8 7 6 5 4 3 2 1
+
+\noindent First Printing, \the\year
+
+\vfill
+
+\noindent Set in \LaTeX\ using the Computer Modern typeface.
+\newpage
+
+%-------------------- Introduction Page Style --------------------
+\fancypagestyle{intro}{
+    \fancyhf{} % Clear all header and footer fields
+    \fancyhead[R]{\textit{\MakeUppercase{Introduction}}} % Right-justified, italicized, and capitalized header
+    \fancyfoot[C]{\thepage} % Page number in the center of the footer
+}
+\pagestyle{intro}
+
+%-------------------- Table of Contents --------------------
+\tableofcontents
+% Start Roman numeral page numbering
+\pagenumbering{roman}
+
+%-------------------- Front Matter --------------------
+\input{preface}
+\input{intro}
+
+%-------------------- Main Content --------------------
+% Reset page numbering to Arabic for the main content
+\cleardoublepage
+\pagenumbering{arabic}
+
+% Define the custom page style for chapters
+\fancypagestyle{mystyle}{
+    \fancyhf{} % Clear all header and footer fields
+    
+    % Odd page: show chapter title only, right-aligned and italicized
+    \fancyhead[RO]{\textit{\leftmark}} 
+    
+    % Even page: show chapter title and lecture title if available, left-aligned and italicized
+    \fancyhead[LE]{%
+        \textit{\leftmark} % Chapter title
+        \ifnum\value{lecture}>0 : Lecture \thechapter.\thelecture \fi % Lecture title if exists
+    }
+    
+    % Center the page number in the footer on all pages
+    \fancyfoot[C]{\thepage}
+}
+
+% Apply the custom page style globally
+\pagestyle{mystyle}
+
+% Include chapters
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
+\input{chapters/chapter6}
+\input{chapters/chapter7}
+	
+%-------------------- Appendices --------------------
+\newpage
+
+% Custom page style for the appendix
+\fancypagestyle{appendix}{
+    \fancyhf{} % Clear all header and footer fields
+    \fancyhead[R]{\textit{\MakeUppercase{Appendices}}} % Right-justified, italicized, and capitalized header
+    \fancyfoot[C]{\thepage} % Page number in the center of the footer
+}
+
+% Custom page style for the index within appendix environment
+\fancypagestyle{index}{
+    \fancyhf{} % Clear all header and footer fields
+    \fancyhead[R]{\textit{\MakeUppercase{}}} % Right-justified, italicized, and capitalized header
+    \fancyfoot[C]{\thepage} % Page number in the center of the footer
+}
+
+\input{appendix}
+\input{refs}
+
+%-------------------- Index --------------------
+\clearpage  % Ensure the index starts on a new page
+% Add "Index" to the Table of Contents without showing a title
+\addcontentsline{toc}{chapter}{Index}
+\pagestyle{index}
+\printindex
+
+\newpage
+\newpage
+\newpage
+\end{document}
