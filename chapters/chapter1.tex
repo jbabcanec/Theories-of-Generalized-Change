@@ -3,7 +3,7 @@
 
 \section*{Introduction}
 
-In this chapter, we begin our journey into multivariable calculus by revisiting core concepts from Calculus I and Calculus II. These reviews will serve as stepping stones as we enter into the world of ``high-dimensional thinking." Our goal is to build a solid foundation for understanding functions that involve several variables, expanding beyond the single-variable functions studied previously. Functions of multiple variables naturally arise in physics and engineering. This chapter will introduce functions like these that depend on multiple variables, setting the stage for exploring complex systems where outcomes are influenced by more than one parameter. \\ \\To engage with these new concepts, we will introduce vectors, essential tools for representing quantities with both magnitude and direction. Vectors are critical for understanding spatial relationships and navigating the geometry of three-dimensional space. We will cover the fundamental operations on vectors, including addition, scalar multiplication, dot product, and cross product, each with significant applications in describing physical forces, directions, and motions. Furthermore, this chapter will introduce the geometry of space, specifically three-dimensional coordinate systems. By exploring Cartesian, cylindrical, and spherical coordinates, we will establish methods to describe points, lines, planes, and surfaces in space. These systems provide multiple ways of visualizing and solving problems, especially in fields like engineering and physics, where spatial reasoning and high-dimensional analysis are vital. \\ \\ In summary, this chapter lays the groundwork for high-dimensional thinking, equipping students with the skills to analyze functions of several variables and understand the fundamental geometry of space. With a thorough review of Calculus I and II concepts, we’ll be ready to explore multivariable calculus, ultimately deepening our ability to model and interpret complex systems.
+In this chapter, we begin our journey into multivariable calculus by revisiting core concepts from Calculus I and Calculus II. These reviews will serve as stepping stones as we enter into the world of ``high-dimensional thinking." Our goal is to build a solid foundation for understanding functions that involve several variables, expanding beyond the single-variable functions studied previously. Functions of multiple variables naturally arise in physics and engineering. For instance, predicting the temperature at every point in a room requires a function of three variables, and describing the force of wind on a sail requires vectors with both magnitude and direction. This chapter will introduce functions like these that depend on multiple variables, setting the stage for exploring complex systems where outcomes are influenced by more than one parameter. \\ \\To engage with these new concepts, we will introduce vectors, essential tools for representing quantities with both magnitude and direction. Vectors are critical for understanding spatial relationships and navigating the geometry of three-dimensional space. We will cover the fundamental operations on vectors, including addition, scalar multiplication, dot product, and cross product, each with significant applications in describing physical forces, directions, and motions. Furthermore, this chapter will introduce the geometry of space, specifically three-dimensional coordinate systems. By exploring Cartesian, cylindrical, and spherical coordinates, we will establish methods to describe points, lines, planes, and surfaces in space. These systems provide multiple ways of visualizing and solving problems, especially in fields like engineering and physics, where spatial reasoning and high-dimensional analysis are vital.
 \newpage
 
 
@@ -47,7 +47,7 @@ Evaluate the derivative of \( f(x) = x^2 e^x \).
 \begin{solution}
 We use the product rule, which states:
 \[
-\frac{d}{dx} f(x) = u(x)v'(x) + v(x)u'(x).
+\frac{d}{dx} f(x) = u'(x)v(x) + u(x)v'(x).
 \]
 Here, \( u(x) = x^2 \) and \( v(x) = e^x \). Compute:
 \[
@@ -60,6 +60,9 @@ Thus, the derivative is \( f'(x) = e^x(x^2 + 2x) \).
 \end{solution}
 \end{example}
 \exampleline
+
+\noindent In multivariable calculus, the product rule extends naturally to products of multivariate functions and is essential when computing partial derivatives.
+
 \begin{example}
 Find the general solution to \( \int \frac{1}{1 - x} \, dx \).
 
@@ -101,12 +104,13 @@ Thus, the solution is \( (x, y) = (2, 1) \).
 \end{example}
 \exampleline
 
+\noindent Systems of equations like this arise frequently when finding intersection points of planes and lines in three-dimensional space.
 
 
 
 \subsubsection*{Single-Variable Limits} \index{Limits}
 
-\noindent Limits are fundamental in calculus, allowing us to understand the behavior of functions as they approach specific values. They provide a rigorous framework for defining instantaneous rates of change, which are crucial for differentiation and integration. Limits help us analyze functions near points of interest, including points where the function may not be defined, making them indispensable in fields like physics and engineering. You may not have encountered the formal epsilon-delta definition, but it forms the mathematical foundation for how limits are defined precisely.
+\noindent Limits are fundamental in calculus, allowing us to understand the behavior of functions as they approach specific values. They provide a rigorous framework for defining instantaneous rates of change, which are crucial for differentiation and integration. Limits help us analyze functions near points of interest, including points where the function may not be defined, making them indispensable in fields like physics and engineering. The formal epsilon-delta definition forms the mathematical foundation for how limits are defined precisely.
 \index{Limit Rules}
 \begin{itemize}
 
@@ -114,9 +118,9 @@ Thus, the solution is \( (x, y) = (2, 1) \).
 
 \item \textbf{Properties}:
 \begin{itemize}
-\item \textbf{Sum Rule}: $$\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)$$
-\item \textbf{Product Rule}: $$\lim_{x \to a} [f(x)g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)$$
-\item \textbf{Quotient Rule}: $$\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}, \text{ if } \lim_{x \to a} g(x) \neq 0$$
+\item \textbf{Sum Rule}: \[\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\]
+\item \textbf{Product Rule}: \[\lim_{x \to a} [f(x)g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)\]
+\item \textbf{Quotient Rule}: \[\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}, \text{ if } \lim_{x \to a} g(x) \neq 0\]
 \end{itemize}
 
 \item \textbf{Single-Sided Limits}: \index{Single-Sided Limits}
@@ -180,6 +184,8 @@ This definition means we can make $f(x)$ as close to $L$ as desired (within $\ep
     \caption{\textit{A limit being approached notated with $\epsilon-\delta$ notation.}}
 \end{figure}
 
+\noindent In the figure, the horizontal band represents all \( y \)-values within \( \varepsilon \) of \( L \), while the vertical band represents all \( x \)-values within \( \delta \) of \( a \). The definition guarantees that for any \( \varepsilon \)-band we choose, a sufficiently narrow \( \delta \)-band exists so that the curve stays inside.\\ \\
+
 \item \textbf{L'Hôpital's Rule}: \index{L'Hôpital's Rule}
 When calculating limits, we sometimes encounter indeterminate forms, such as $\frac{0}{0}$ or $\frac{\infty}{\infty}$. L'Hôpital's Rule is a powerful tool for handling these cases. 
 
@@ -188,6 +194,8 @@ When calculating limits, we sometimes encounter indeterminate forms, such as $\f
     \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}
     \]
     Provided the limit on the right exists or is infinite. L'Hôpital's Rule can also be applied iteratively. If an indeterminate form persists after applying the rule once, we may apply the rule again to the resulting expression until the limit can be evaluated.
+
+    Intuitively, when both numerator and denominator approach zero, their ratio is determined by how fast each vanishes -- which is precisely what their derivatives measure.
 
 \item \textbf{Interpreting the Epsilon-Delta Definition}:
   \begin{itemize}
@@ -228,6 +236,9 @@ Since both the numerator and denominator approach 0 as \( x \to 0 \), this is an
 \end{solution}
 \end{example}
 \exampleline
+
+\noindent The strategy for \( \varepsilon \)-\( \delta \) proofs is to work backward: start with the inequality \( |f(x) - L| < \varepsilon \), manipulate it to find a relationship with \( |x - a| \), and then choose \( \delta \) accordingly.\\ \\
+
 \begin{example}
 Prove using the epsilon-delta definition that \( \lim_{x \to 3} (2x + 5) = 11 \).
 
@@ -268,7 +279,8 @@ To prove this limit using the epsilon-delta definition, we need to show that for
 
 \subsubsection*{Single-Variable Derivatives}\index{Derivatives}
 
-Calculus is fundamentally the theory of change, providing tools to understand and quantify how quantities evolve in relation to one another. In single-variable calculus, derivatives play a central role in this theory, allowing us to determine the rate at which a function changes at any given point. The derivative of a function represents the slope of the tangent line to the function’s graph, encapsulating the concept of instantaneous change, or how the function behaves at an exact point in time or space. Derivatives have widespread applications across various fields, enabling us to calculate velocity and acceleration in physics, model growth rates in biology, and analyze marginal changes in economics, among others. \\ \\ As we progress in our study of calculus, we aim to extend this powerful framework by adding more variables, moving from single-variable functions to functions of several variables. This generalization will enable us to explore more complex systems where multiple factors interact, paving the way for multivariable calculus. Hence, this book is titled \textit{Theories of Generalized Change}, as we will develop the tools to analyze and model change not just in one direction or along one axis, but across multiple dimensions and variables, broadening the scope and applicability of calculus. \\ \\ To start with, derivatives are grounded in the concept of the \textbf{Instantaneous Rate of Change} (IROC), which refines the \textbf{Average Rate of Change} (AROC) by focusing on how a function behaves “at a single point.” While AROC provides the rate of change over a finite interval, IROC captures the behavior as this interval shrinks to zero, giving us a precise measure of change at an infinitesimal level. This approach of taking limits is foundational in calculus and will serve as the basis for more advanced studies in differentiation and integration.
+Calculus is fundamentally the theory of change, providing tools to understand and quantify how quantities evolve in relation to one another. In single-variable calculus, derivatives play a central role in this theory, allowing us to determine the rate at which a function changes at any given point. The derivative of a function represents the slope of the tangent line to the function’s graph, encapsulating the concept of instantaneous change, or how the function behaves at an exact point in time or space. Derivatives have widespread applications across various fields, enabling us to calculate velocity and acceleration in physics, model growth rates in biology, and analyze marginal changes in economics, among others. \\ \\ As we progress in our study of calculus, we aim to extend this powerful framework by adding more variables, moving from single-variable functions to functions of several variables. This generalization will enable us to explore more complex systems where multiple factors interact, paving the way for multivariable calculus.\\ \\
+\noindent Hence, this book is titled \textit{Theories of Generalized Change}, as we will develop the tools to analyze and model change not just in one direction or along one axis, but across multiple dimensions and variables, broadening the scope and applicability of calculus. \\ \\ To start with, derivatives are grounded in the concept of the \textbf{Instantaneous Rate of Change} (IROC), which refines the \textbf{Average Rate of Change} (AROC) by focusing on how a function behaves “at a single point.” While AROC provides the rate of change over a finite interval, IROC captures the behavior as this interval shrinks to zero, giving us a precise measure of change at an infinitesimal level. This approach of taking limits is foundational in calculus and will serve as the basis for more advanced studies in differentiation and integration.
 
 
 \begin{itemize}
@@ -359,7 +371,7 @@ node[midway,below=6pt] {\scriptsize \textbf{Tangent Line}};
  %%%
 \end{scope}
 \end{tikzpicture}
-\caption{\textit{A tangent line threadinga point along a curve \(f(x)\).}}
+\caption{\textit{A tangent line threading a point along a curve \(f(x)\).}}
 \end{center}
 \end{figure}
 
@@ -529,9 +541,9 @@ Riemann sums allow for different choices of points within each subinterval to ap
 \]
 where \( x_i = a + i \Delta x \) represents the left endpoint of each subinterval.
 
-\item \textbf{Right Endpoint Approximation}: The function is evaluated at the right endpoint of each subinterval \( x_{i+1} \). This sum tends to overestimate for increasing functions and underestimate for decreasing functions:
+\item \textbf{Right Endpoint Approximation}: The function is evaluated at the right endpoint of each subinterval. This sum tends to overestimate for increasing functions and underestimate for decreasing functions:
 \[
-\sum_{i=1}^{n} f(x_{i+1}) \, \Delta x
+\sum_{i=1}^{n} f(x_i) \, \Delta x
 \]
 where \( x_i = a + i \Delta x \) represents the right endpoint of each subinterval.
 
@@ -574,6 +586,7 @@ where \( \Delta x = \frac{b - a}{n} \) and \( x_0, x_1, \dots, x_n \) are equall
 \[
 \int_a^b f(x) \, dx \approx \frac{\Delta x}{3} \left[ f(x_0) + 4\sum_{\text{odd } i} f(x_i) + 2\sum_{\text{even } i} f(x_i) + f(x_n) \right]
 \]
+Simpson’s Rule achieves higher accuracy than the Trapezoidal Rule because it fits a parabola through each group of three consecutive points, exactly integrating polynomials up to degree three.
 \end{itemize}
 Simpson’s Rule provides excellent accuracy for a modest number of intervals, especially for polynomials and smooth functions.
 
@@ -677,7 +690,7 @@ This technique is useful when integrating products of functions. It is derived f
 
 
 \item \textbf{DI Method (Tabular Method)}: \index{Tabular Method}
-To evaluate integrals using the DI method, construct a table with three columns: Sign, $D$, and $I$. Differentiate the function that simplifies upon differentiation (usually $u$) and integrate the function that does not change much upon integration (usually $dv$). This method is particularly useful in solving Partial Differential Equations (PDEs) because it systematically reduces the complexity of integrals involving products of functions, making it easier to handle boundary conditions and find solutions. \\ \\ The objective is to continue differentiating in the $D$ column until reaching 0. For each row, you multiply diagonally from the $D$ term to the $I$ term, following the specified sign. You can choose to stop early and integrate the last row separately if a pattern allows. Once the $D$ column reaches zero, any further terms contribute nothing to the integral. We have color coded and marked with asterisks the terms in the table to add together.
+To evaluate integrals using the DI method, construct a table with three columns: Sign, $D$, and $I$. Differentiate the function that simplifies upon differentiation (usually $u$) and integrate the function that does not change much upon integration (usually $dv$). This method is particularly useful when one factor eventually differentiates to zero, such as when integrating a polynomial multiplied by an exponential or trigonometric function. \\ \\ The objective is to continue differentiating in the $D$ column until reaching 0. For each row, you multiply diagonally from the $D$ term to the $I$ term, following the specified sign. You can choose to stop early and integrate the last row separately if a pattern allows. Once the $D$ column reaches zero, any further terms contribute nothing to the integral. We have color coded and marked with asterisks the terms in the table to add together.
 
 \vspace{1em}
 \begin{center}
@@ -822,6 +835,8 @@ Reduction formulas provide a recursive way to evaluate integrals of certain func
     \end{itemize}
 \end{itemize}
 
+\noindent Having reviewed integration techniques, we now turn to Taylor series -- an important tool for approximating functions as polynomials. In multivariable calculus, Taylor expansions generalize to functions of several variables and are essential for understanding local behavior near a point.\\ \\
+
 \subsubsection*{Taylor Series} \index{Taylor Series}
 
 Taylor Series provide a way to approximate functions using polynomials, which can make complex functions easier to work with in calculus, physics, engineering, and beyond. This series expansion allows us to approximate functions locally around a point by using the derivatives of the function at that point. 
@@ -933,13 +948,13 @@ To find the Taylor series, we calculate the derivatives of \( f(x) \) at \( x=0 
 
 \subsection*{Important Theorems and Results in Calculus} 
 
-\noindent Understanding key theorems in calculus is crucial for solving ordinary differential equations (ODEs), as these results often provide the foundation for methods of integration, approximation, and analysis. They help in determining the behavior of solutions, establishing existence and uniqueness, and transforming complex problems into more manageable forms. Here are some of the most significant theorems:
+\noindent Understanding key theorems in calculus is crucial not only in single-variable calculus but also as we extend these ideas to multiple dimensions, as these results often provide the foundation for methods of integration, approximation, and analysis. They help in determining the behavior of solutions, establishing existence and uniqueness, and transforming complex problems into more manageable forms. Here are some of the most significant theorems:
 
 \begin{itemize}
 
 \item \textbf{Mean Value Theorem (MVT)}:  \index{Mean Value Theorem}
 If \( f(x) \) is continuous on \( [a,b] \) and differentiable on \( (a,b) \), then there exists a point \( c \) in \( (a,b) \) such that:
-$$f'(c) = \frac{f(b) - f(a)}{b - a}$$
+\[f'(c) = \frac{f(b) - f(a)}{b - a}\]
 This theorem asserts that for a smooth curve between \( a \) and \( b \), there is at least one point where the tangent (instantaneous rate of change) is parallel to the secant line connecting \( (a, f(a)) \) and \( (b, f(b)) \).
 
 \item \textbf{Rolle's Theorem}:  \index{Rolle's Theorem}
@@ -956,29 +971,29 @@ This theorem ensures that a continuous function over a closed interval has both 
 
 \item \textbf{L'Hôpital's Rule}:  \index{L'Hôpital's Rule}
 If \( \lim_{x \to a} \frac{f(x)}{g(x)} \) results in the indeterminate form \( \frac{0}{0} \) or \( \frac{\infty}{\infty} \), then:
-$$\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}$$
+\[\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}\]
 provided the limit on the right exists or is infinite. This rule is essential for evaluating limits that yield indeterminate forms, often encountered in calculus and differential equations.
 
 \item \textbf{First Fundamental Theorem of Calculus (FTOC I)}: \index{Fundamental Theorem of Calculus}
 If \( f \) is continuous on \( [a, b] \) and \( F \) is an antiderivative of \( f \) on \( [a, b] \), then:
-$$\int_a^b f(x) \, dx = F(b) - F(a)$$
+\[\int_a^b f(x) \, dx = F(b) - F(a)\]
 This theorem links the process of differentiation and integration, showing that the definite integral of a function over an interval can be computed using any of its antiderivatives.
 
 \item \textbf{Second Fundamental Theorem of Calculus (FTOC II)}: \index{Fundamental Theorem of Calculus}
 If \( f \) is continuous on an interval containing \( a \), then for any \( x \) in that interval:
-$$\frac{d}{dx} \int_a^x f(t) \, dt = f(x)$$
+\[\frac{d}{dx} \int_a^x f(t) \, dt = f(x)\]
 This theorem states that the derivative of the integral function (accumulated area) is the original function, demonstrating how integration can "undo" differentiation.
 
 \item \textbf{Leibniz Rule for Differentiation under the Integral Sign}: \index{Leibniz Rule}
-If \( f(x, t) \) is continuous on \( x \) and \( t \), and \( \partial f / \partial t \) exists and is continuous, then:
-$$\frac{d}{dx} \int_{a(x)}^{b(x)} f(x, t) \, dt = f(x, b(x)) \cdot \frac{db}{dx} - f(x, a(x)) \cdot \frac{da}{dx} + \int_{a(x)}^{b(x)} \frac{\partial}{\partial x} f(x, t) \, dt$$
+If \( f(x, t) \) is continuous on \( x \) and \( t \), and \( \partial f / \partial x \) exists and is continuous, then:
+\[\frac{d}{dx} \int_{a(x)}^{b(x)} f(x, t) \, dt = f(x, b(x)) \cdot \frac{db}{dx} - f(x, a(x)) \cdot \frac{da}{dx} + \int_{a(x)}^{b(x)} \frac{\partial}{\partial x} f(x, t) \, dt\]
 This rule is crucial in scenarios where integration limits depend on \( x \), enabling differentiation within the integral sign.
 
 \item \textbf{Taylor’s Theorem} \index{Taylor's Theorem}
 For a function \( f(x) \) that is \( n+1 \)-times differentiable at \( a \), Taylor’s Theorem gives an approximation for \( f(x) \) near \( a \):
-$$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + R_n(x)$$
+\[f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + R_n(x)\]
 where \( R_n(x) \) is the remainder term. In the limit as \( n \to \infty \), if \( R_n(x) \to 0 \), we obtain the Taylor Series:
-$$f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!} (x-a)^k$$
+\[f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!} (x-a)^k\]
 Taylor's Theorem is fundamental in approximating functions locally using polynomials and is widely applied in numerical analysis and differential equations.
 
 
@@ -1036,6 +1051,8 @@ f'(c) = \frac{f(4) - f(1)}{4 - 1}
 \noindent Transitioning from two-dimensional to three-dimensional coordinate systems marks a significant leap in our capacity to represent and analyze objects and interactions spatially. This shift extends our geometric understanding, equipping us with a powerful framework for calculating points, distances, and angles within three-dimensional space—a foundational requirement for advanced calculus, physics, engineering, and numerous other fields.
 
 \subsection*{Rectangular Coordinates in Two Dimensions} \index{Rectangular Coordinates}
+
+Before jumping to three dimensions, let us briefly recall the two-dimensional Cartesian system. Every formula we derive in 3D will reduce to its 2D counterpart when we set the third coordinate to zero, so this review is deliberately brief.
 
 In two dimensions, every point on a plane is specified by a coordinate pair, \( (x, y) \), where \( x \) and \( y \) represent distances along two mutually perpendicular axes: the \( x \)-axis (horizontal) and \( y \)-axis (vertical). This two-dimensional system is essential for understanding how we map points in a flat plane and serves as a stepping stone for more complex spatial reasoning. In a 2D Cartesian system, an ordered pair \( (x, y) \) not only specifies location but also allows us to measure distances, areas, and angular relationships on a flat plane.
 
@@ -1108,13 +1125,13 @@ domain=0:1,
 \label{fig:3d_cartesian}
 \end{figure}
 
-\noindent The intersection of these planes at the origin divides space into eight distinct regions, called octants. We locate any point \( (x, y, z) \) by moving \( x \) units along the \( x \)-axis, \( y \) units along the \( y \)-axis, and \( z \) units along the \( z \)-axis. This spatial representation is fundamental in fields like navigation, robotics, and physics, where understanding three dimensions is critical to applications ranging from satellite positioning to structural analysis.
+\noindent We locate any point \( (x, y, z) \) by moving \( x \) units along the \( x \)-axis, \( y \) units along the \( y \)-axis, and \( z \) units along the \( z \)-axis. This spatial representation is fundamental in fields like navigation, robotics, and physics, where understanding three dimensions is critical to applications ranging from satellite positioning to structural analysis.
 %https://commons.wikimedia.org/wiki/File:Octant_numbers.svg
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth]{chapters/chp1_pics/octant.png}
 \caption{\textit{The eight octants of a three-dimensional Cartesian plot.}}
-\label{fig:steinmetz}
+\label{fig:octants}
 \end{figure}
 
 \subsection*{Toward Higher Dimensions: Imagining Four-Dimensional Space}
@@ -1156,12 +1173,14 @@ a = x_2 - x_1, \quad b = y_2 - y_1, \quad \text{and} \quad c = z_2 - z_1.
 d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}.
 \]
 
-\noindent This formula allows us to calculate the straight-line distance between any two points in three-dimensional space by considering the differences along each of the three axes. Notice, that because of the square terms, the distance will always be positive or zero. Since we saw that for the Pythagorean theorem all we had to do to increase the dimensionality was include one more square term,  let's do that $n$-many times to go to any $n$th dimension we desire. Thus we obtain for any $n$-dimension we have
+\noindent This formula allows us to calculate the straight-line distance between any two points in three-dimensional space by considering the differences along each of the three axes. Notice that because of the square terms, the distance will always be positive or zero. Since we saw that for the Pythagorean theorem all we had to do to increase the dimensionality was include one more square term,  let's do that $n$-many times to go to any $n$th dimension we desire. Thus we obtain for any $n$-dimension we have
 \[
-d = \left(\sum_{j=1}^{n} \left(y_j - x_j\right)^2 \right)^{1/2} = \left((y_1 - x_1)^2 + \cdots + (y_n - x_n)^2\right)^{1/2}
+d = \left(\sum_{j=1}^{n} \left(b_j - a_j\right)^2 \right)^{1/2} = \left((b_1 - a_1)^2 + \cdots + (b_n - a_n)^2\right)^{1/2}.
 \]
 
 \subsubsection*{Midpoint Formula}
+Just as the distance formula extends naturally to three dimensions, so does the midpoint formula -- averaging the coordinates of two endpoints gives the point exactly halfway between them.
+
 Similarly, the midpoint formula in three dimensions is derived from averaging the coordinates of the endpoints. For points \( P_1(x_1, y_1, z_1) \) and \( P_2(x_2, y_2, z_2) \), the midpoint \( M \) of the line segment joining \( P_1 \) and \( P_2 \) is given by:
 \[
 M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}, \frac{z_1 + z_2}{2} \right).
@@ -1214,6 +1233,8 @@ Thus, the drone must travel approximately \( 7.35 \) units to reach its target.
 
 \subsection*{Introduction to Polar Coordinates}  \index{Polar Coordinates}
 
+Having established how to measure distances and locate points in Cartesian coordinates, we now ask: is there a more natural way to describe positions when the geometry involves circles or angles?
+
 Polar coordinates provide an alternative way to describe points in a plane using a distance and an angle relative to a central point, typically the origin. The term “polar” is derived from the Latin word \textit{polus}, meaning “axis” or “pivot point,” indicating how this coordinate system revolves around a single fixed point as its central reference. In polar coordinates, each point is represented by an ordered pair \( (r, \theta) \), where:
 \begin{itemize}
     \item \( r \): The radial distance from the origin (the straight-line distance from the point to the central origin).
@@ -1234,6 +1255,7 @@ The conversion between rectangular and polar coordinates relies on the Pythagore
     \[
     \theta = \tan^{-1} \left( \frac{y}{x} \right)
     \]
+    (Note: since \( \arctan \) only returns angles in \( (-\pi/2, \pi/2) \), you must check the quadrant of \( (x, y) \) and adjust \( \theta \) accordingly.)
 \end{itemize}
 
 To convert back from polar to rectangular coordinates:
@@ -1361,7 +1383,7 @@ The cylindrical coordinate system is an extension of polar coordinates, adding a
 
 \noindent Cylindrical coordinates are widely used in fields like physics and engineering where problems often exhibit cylindrical or rotational symmetry. For instance, in analyzing magnetic fields around a wire, fluid flow in pipes, or any phenomenon with a circular base extending along a vertical dimension, cylindrical coordinates provide a natural and efficient way to describe the system.
 
-\subsubsection*{Converting Between Cylindrical and Rectangular Coordinates:}
+\subsubsection*{Converting Between Cylindrical and Rectangular Coordinates}
 To switch between cylindrical and rectangular coordinates, we use trigonometric relationships similar to those in polar coordinates, with the \( z \)-coordinate remaining consistent between both systems.
 
 \begin{itemize}
@@ -1375,6 +1397,8 @@ To switch between cylindrical and rectangular coordinates, we use trigonometric 
     \[
     r = \sqrt{x^2 + y^2}, \quad \theta = \tan^{-1} \left( \frac{y}{x} \right), \quad z = z
     \]
+    (with appropriate quadrant adjustment, since \( \arctan \) only returns values in \( (-\pi/2, \pi/2) \))
+
     Here, \( r \) is calculated as the distance from the point to the \( z \)-axis (similar to the Pythagorean distance in polar coordinates), and \( \theta \) is the angle around the \( z \)-axis. The \( z \)-coordinate remains the same in both representations.
 \end{itemize}
 
@@ -1382,6 +1406,8 @@ To switch between cylindrical and rectangular coordinates, we use trigonometric 
 
 
 \subsection*{Spherical Coordinates} \index{Spherical Coordinates}
+
+Spherical coordinates extend the idea of polar coordinates into three dimensions by specifying a point's distance from the origin, its angle in the \( xy \)-plane (like polar coordinates), and its angle measured down from the positive \( z \)-axis. Think of locating a star in the sky: you need to know how far away it is, which compass direction to look, and how high above the horizon to tilt.
 
 Spherical coordinates are ideal for problems with radial symmetry, such as those involving spheres or radial fields. Each point in spherical coordinates is represented by \( (\rho, \theta, \phi) \):
 \begin{itemize}
@@ -1414,10 +1440,10 @@ Spherical coordinates are ideal for problems with radial symmetry, such as those
     \draw[-stealth,color=red] (O) -- (P) node[above right] {$\rho$};
     \draw[dashed, color=red] (O) -- (Pxy);
     \draw[dashed, color=red] (P) -- (Pxy);
-    \tdplotdrawarc{(O)}{0.2}{0}{\phivec}{anchor=north}{$\phi$}
+    \tdplotdrawarc{(O)}{0.2}{0}{\phivec}{anchor=north}{$\theta$}
     \tdplotsetthetaplanecoords{\phivec}
     \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.5}{0}%
-        {\thetavec}{anchor=south west}{$\theta$}
+        {\thetavec}{anchor=south west}{$\phi$}
 
 
 \end{tikzpicture}
@@ -1434,7 +1460,9 @@ Spherical coordinates are ideal for problems with radial symmetry, such as those
     \label{fig:softball_swing}
 \end{figure}
 
-\subsubsection{Converting Between Spherical and Rectangular Coordinates:}
+\subsubsection*{Converting Between Spherical and Rectangular Coordinates}
+To see why these formulas hold, note that the distance from the point to the \( z \)-axis is \( r = \rho \sin\phi \) (by projecting \( \rho \) onto the \( xy \)-plane). From there, \( x = r\cos\theta = \rho\sin\phi\cos\theta \) and \( y = r\sin\theta = \rho\sin\phi\sin\theta \). Meanwhile, \( z = \rho\cos\phi \) comes from the vertical projection.
+
 \begin{itemize}
     \item To convert from spherical \( (\rho, \theta, \phi) \) to rectangular \( (x, y, z) \):
     \[
@@ -1532,6 +1560,9 @@ Given the actions:
 
 \end{solution}
 \end{example}
+
+\noindent \textbf{Common Mistake:} Students frequently confuse ``angle above the horizontal'' with \( \phi \). Remember that \( \phi \) is measured from the positive \( z \)-axis \textit{downward}, so an elevation of \( \alpha \) above the horizontal corresponds to \( \phi = 90^\circ - \alpha \).
+
 \exampleline
 
 \subsection*{Choice of Coordinates}
@@ -1551,6 +1582,7 @@ The choice of coordinate system is essential in simplifying calculations and pro
     Spherical coordinates extend the idea of radial symmetry into three dimensions and are best suited for objects and fields with a spherical or radial symmetry, such as planets, stars, and electric fields radiating from a point charge.
 \end{itemize}
 
+\noindent As a rule of thumb: use rectangular coordinates when boundaries are flat planes, cylindrical when the problem has rotational symmetry around an axis, and spherical when there is symmetry around a central point.
 
 
 
@@ -1558,8 +1590,6 @@ The choice of coordinate system is essential in simplifying calculations and pro
 
 
 \lecture{Vectors} \index{Vectors}
-
-\noindent In progressing from two-dimensional space to three-dimensional space, vectors become an essential concept for describing both position and direction. Vectors allow us to represent not only points but also the direction and magnitude of movement or force in space, forming the basis for advanced topics in calculus.
 
 \subsection*{Definition of Vectors}
 
@@ -1616,7 +1646,7 @@ The choice of coordinate system is essential in simplifying calculations and pro
 |\mathbf{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2}.
 \]
 
-\noindent For example, if \( \mathbf{v} = (3, -4, 12) \), then:
+\noindent For example, if \( \mathbf{v} = \langle 3, -4, 12 \rangle \), then:
 \[
 |\mathbf{v}| = \sqrt{3^2 + (-4)^2 + 12^2} = \sqrt{9 + 16 + 144} = \sqrt{169} = 13.
 \]
@@ -1633,13 +1663,13 @@ The choice of coordinate system is essential in simplifying calculations and pro
 \[
 \mathbf{v} = v_x \mathbf{i} + v_y \mathbf{j} + v_z \mathbf{k}.
 \]
-\noindent Expressing vectors in this form allows us to separate and analyze their individual components along each axis, which simplifies many operations in vector algebra and physics. To create a unit vector \( \mathbf{u} \) that points in the same direction as a given vector \( \mathbf{v} \), we divide \( \mathbf{v} \) by its magnitude \( |\mathbf{v}| \). For a vector \( \mathbf{v} = (v_x, v_y, v_z) \), the unit vector \( \mathbf{u} \) in the direction of \( \mathbf{v} \) is:
+\noindent Expressing vectors in this form allows us to separate and analyze their individual components along each axis, which simplifies many operations in vector algebra and physics. To create a unit vector \( \mathbf{u} \) that points in the same direction as a given vector \( \mathbf{v} \), we divide \( \mathbf{v} \) by its magnitude \( |\mathbf{v}| \). For a vector \( \mathbf{v} = \langle v_x, v_y, v_z \rangle \), the unit vector \( \mathbf{u} \) in the direction of \( \mathbf{v} \) is:
 \[
 \mathbf{u} = \frac{\mathbf{v}}{|\mathbf{v}|} = \left\langle \frac{v_x}{|\mathbf{v}|}, \frac{v_y}{|\mathbf{v}|}, \frac{v_z}{|\mathbf{v}|} \right\rangle.
 \]
 
 
-\noindent This process of scaling a vector to make it a unit vector is called \textit{normalization}. Normalization allows us to create a standardized version of any vector that preserves its direction while adjusting its magnitude to exactly 1. We will see normal vectors all over this entire study of multi-variable Calculus--more to be addressed about this soon. \\ \\ The concept of unit vectors is valuable in many applications because they give us a standardized way to indicate direction independently of magnitude. For instance, if we only care about the direction an object is moving (such as ``due north”) and not its speed, we can use a unit vector to represent that direction without indicating scale. \\ \\ \textbf{Direction cosines} \index{Direction Cosines} are another way to describe a vector’s direction, using trigonometric relationships to find the angles the vector makes with each coordinate axis. For a vector \( \mathbf{v} = \langle v_x, v_y, v_z \rangle \), direction cosines are the cosines of the angles \( \alpha \), \( \beta \), and \( \gamma \) that \( \mathbf{v} \) makes with the \( x \)-, \( y \)-, and \( z \)-axes, respectively. They are calculated by dividing each component of the vector by its magnitude, which corresponds to taking the cosine of each directional angle:
+\noindent This process of scaling a vector to make it a unit vector is called \textit{normalization}. Normalization allows us to create a standardized version of any vector that preserves its direction while adjusting its magnitude to exactly 1. We will see normal vectors all over this entire study of multivariable calculus--more to be addressed about this soon. \\ \\ The concept of unit vectors is valuable in many applications because they give us a standardized way to indicate direction independently of magnitude. For instance, if we only care about the direction an object is moving (such as ``due north”) and not its speed, we can use a unit vector to represent that direction without indicating scale. \\ \\ \textbf{Direction cosines} \index{Direction Cosines} are another way to describe a vector’s direction, using trigonometric relationships to find the angles the vector makes with each coordinate axis. For a vector \( \mathbf{v} = \langle v_x, v_y, v_z \rangle \), direction cosines are the cosines of the angles \( \alpha \), \( \beta \), and \( \gamma \) that \( \mathbf{v} \) makes with the \( x \)-, \( y \)-, and \( z \)-axes, respectively. They are calculated by dividing each component of the vector by its magnitude, which corresponds to taking the cosine of each directional angle:
 \[
 \cos \alpha = \frac{v_x}{|\mathbf{v}|}, \quad \cos \beta = \frac{v_y}{|\mathbf{v}|}, \quad \cos \gamma = \frac{v_z}{|\mathbf{v}|}.
 \]
@@ -1678,11 +1708,11 @@ The choice of coordinate system is essential in simplifying calculations and pro
 
 \subsubsection*{Normal Vectors}
 
-\noindent \noindent While direction cosines help us understand how a vector is oriented relative to our coordinate axes, we often need to describe vectors that are perpendicular to other vectors or surfaces. This leads us to the concept of normal vectors. \\
+\noindent While direction cosines help us understand how a vector is oriented relative to our coordinate axes, we often need to describe vectors that are perpendicular to other vectors or surfaces. This leads us to the concept of normal vectors. \\
 
 \noindent A \textit{normal vector} (or simply a \textit{normal}) is a vector $\mathbf{n}$ that is perpendicular to something else, like a line or a surface. Normal vectors are especially useful because many problems in physics and geometry involve perpendicular directions. For example, when light hits a mirror, we need to know the direction perpendicular to the mirror's surface to determine how the light will reflect. \\
 
-\noindent For a line in two dimensions, if we know a vector along the line, we can find a normal vector by simply swapping its $x$ and $y$ components and making one of them negative. For example, if a vector along a line is \( \mathbf{v} = \langle 3, 4 \rangle \), then \( \mathbf{n} = \langle -4, 3 \rangle \) is a normal vector to that line. We can verify this is true because perpendicular vectors have components that, when multiplied and summed, equal zero: \( 3(-4) + 4(3) = -12 + 12 = 0 \). \\
+\noindent For a line in two dimensions, if we know a vector along the line, we can find a normal vector by simply swapping its $x$ and $y$ components and making one of them negative. For example, if a vector along a line is \( \mathbf{v} = \langle 3, 4 \rangle \), then \( \mathbf{n} = \langle -4, 3 \rangle \) is a normal vector to that line. We can verify this is true because perpendicular vectors have components that, when multiplied and summed, equal zero: \( 3(-4) + 4(3) = -12 + 12 = 0 \). (We will formalize this perpendicularity test when we introduce the dot product later in this lecture.) \\
 
 \noindent  In polar coordinates, we can find normal vectors in a similar way. For instance, at any point on the circle where \( r = 1 \), a vector pointing outward from the circle (normal to the circle) has components \( \langle \cos\theta, \sin\theta \rangle \). You can visualize this by imagining the normal vector as pointing straight out from the circle at each point, like spokes on a wheel. \\
 
@@ -1702,14 +1732,14 @@ The choice of coordinate system is essential in simplifying calculations and pro
         \centering
         \begin{tikzpicture}[scale=1]
             % Cartesian axes
-            \draw[thick,->] (-2,0) -- (4,0) node[right] {$x$};
-            \draw[thick,->] (0,-2) -- (0,4) node[above] {$y$};
-            
+            \draw[thick,->] (-5,0) -- (4,0) node[right] {$x$};
+            \draw[thick,->] (0,-2) -- (0,5) node[above] {$y$};
+
             % Original vector
-            \draw[thick,->,blue] (0,0) -- (3,2) node[anchor=west] {$\mathbf{v}$};
-            
+            \draw[thick,->,blue] (0,0) -- (3,4) node[anchor=west] {$\mathbf{v}$};
+
             % Normal vector (perpendicular)
-            \draw[thick,->,red] (0,0) -- (-2,3) node[anchor=south] {$\mathbf{n}$};
+            \draw[thick,->,red] (0,0) -- (-4,3) node[anchor=east] {$\mathbf{n}$};
            
             
         \end{tikzpicture}
@@ -1921,7 +1951,7 @@ To solve this problem, we’ll use vector addition, scalar multiplication, unit 
 
     \item Find the Unit Vector in the Direction of the Combined Force: The unit vector \( \mathbf{u} \) in the direction of \( \mathbf{F} \) is calculated by dividing each component by \( |\mathbf{F}| \):
     \[
-    \mathbf{u} = \frac{\mathbf{F}}{|\mathbf{F}|} = \left\langle \frac{70}{173.6}, \frac{75}{173.6}, \frac{140}{173.6} \right\rangle \approx \langle 0.403, 0.432, 0.806 \rangle
+    \mathbf{u} = \frac{\mathbf{F}}{|\mathbf{F}|} = \left\langle \frac{70}{173.6}, \frac{75}{173.6}, \frac{140}{173.6} \right\rangle \approx \langle 0.403, 0.432, 0.807 \rangle
     \]
 
     \item Determine the Vector \( \mathbf{G} \) to Triple the Combined Force: To triple the resultant force, we need a new vector \( \mathbf{G} \) such that the total force becomes \( 3\mathbf{F} \). This means:
@@ -1941,7 +1971,7 @@ To solve this problem, we’ll use vector addition, scalar multiplication, unit 
 
 \end{enumerate}
 
-\noindent Thus, the combined force vector of the two cables is \( \langle 70, 75, 140 \rangle \) newtons, with a unit direction vector \( \langle 0.403, 0.432, 0.806 \rangle \). To triple this force, a third vector \( \mathbf{G} = \langle 140, 150, 280 \rangle \) would be added. Finally, a fourth force vector, cable three, \( \mathbf{F_3} = \langle -70, -75, -140 \rangle \) would stabilize the system by perfectly counterbalancing the combined force.
+\noindent Thus, the combined force vector of the two cables is \( \langle 70, 75, 140 \rangle \) newtons, with a unit direction vector \( \langle 0.403, 0.432, 0.807 \rangle \). To triple this force, a third vector \( \mathbf{G} = \langle 140, 150, 280 \rangle \) would be added. Finally, a fourth force vector, cable three, \( \mathbf{F_3} = \langle -70, -75, -140 \rangle \) would stabilize the system by perfectly counterbalancing the combined force.
 
 \end{solution}
 \end{example}
@@ -1955,6 +1985,8 @@ To solve this problem, we’ll use vector addition, scalar multiplication, unit 
 
 
 \subsection*{Dot Product} \index{Dot Product}
+
+\noindent The dot product answers the question: how much does one vector go in the direction of another? It measures the ``overlap'' between two vectors -- positive when they point in similar directions, zero when perpendicular, and negative when they oppose each other.
 
 The \textit{dot product} (or scalar product) of two vectors \( \mathbf{u} = \langle u_x, u_y, u_z \rangle \) and \( \mathbf{v} = \langle v_x, v_y, v_z \rangle \) measures how much one vector “projects” onto another. This projection quantifies how much of one vector’s length is aligned in the direction of the other. Mathematically, the dot product is defined as:
 \[
@@ -1978,13 +2010,13 @@ This alternate form shows that the dot product depends on the magnitudes of \( \
         \draw[ultra thick,->,red] (0,0) -- (2,3) node[anchor=south east] at (1.4,2) {$\mathbf{v}$};
         
         % Projection line from v onto u
-        \draw[dashed] (2,3) -- (3,1);
-        
+        \draw[dashed] (2,3) -- (2.7,0.9);
+
         % Angle theta
-        \draw[thick,->] (1,.36) arc[start angle=0,end angle=43,radius=1] node[midway, right] {$\theta$};
-        
+        \draw[thick,->] (1,.36) arc[start angle=18.4,end angle=56.3,radius=1] node[midway, right] {$\theta$};
+
         % Label for |v| cos theta projection
-        \node[anchor=north west] at (3.1,1.6) {$|\mathbf{v}| \cos \theta$};
+        \node[anchor=north west] at (1.35,0.45) {$|\mathbf{v}| \cos \theta$};
     \end{tikzpicture}
     \caption{\textit{The dot product as the projection of \( \mathbf{v} \) onto \( \mathbf{u} \), scaled by \( \cos \theta \).}}
     \label{fig:dot_product_projection}
@@ -2020,12 +2052,16 @@ Adding these results, we get:
 
 The dot product \( -1 \) indicates that \( \mathbf{a} \) and \( \mathbf{b} \) are not aligned, as a positive result would imply some degree of alignment in the same direction. The negative value suggests that \( \mathbf{a} \) and \( \mathbf{b} \) point in somewhat opposite directions along their components.
 
+Using the formula \( \cos\theta = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}||\mathbf{b}|} \), we find \( \cos\theta = \frac{-1}{5\sqrt{6}} \), so \( \theta = \arccos\left(\frac{-1}{5\sqrt{6}}\right) \approx 94.7^\circ \). This confirms that the angle between the vectors is slightly greater than \( 90^\circ \), consistent with the negative dot product.
+
 \end{solution}
 \end{example}
 \exampleline
 
 
 \subsection*{Cross Product} \index{Cross Product}
+
+\noindent While the dot product measures how aligned two vectors are, we often need a vector that is perpendicular to two given vectors. The cross product provides exactly this: given two vectors, it produces a third vector that is orthogonal to both.
 
 The \textit{cross product} (or vector product) of two vectors \( \mathbf{u} = \langle u_x, u_y, u_z \rangle \) and \( \mathbf{v} = \langle v_x, v_y, v_z \rangle \) gives a new vector that is perpendicular, or \textit{normal} to both \( \mathbf{u} \) and \( \mathbf{v} \). The cross product is defined such that the resulting vector points in a direction determined by the \textit{right-hand rule}: if you point your right hand’s index finger along \( \mathbf{u} \) and your middle finger along \( \mathbf{v} \), then your thumb points in the direction of \( \mathbf{u} \times \mathbf{v} \). The magnitude of this vector corresponds to the area of the parallelogram spanned by \( \mathbf{u} \) and \( \mathbf{v} \), given by:
 \[
@@ -2202,6 +2238,8 @@ Here, the torque vector \( \boldsymbol{\tau} \) is perpendicular to the plane fo
 V = |\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})|.
 \]
 
+\noindent The quantity \( \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) \) is called the \textit{scalar triple product}. It can also be computed as the determinant of the \( 3 \times 3 \) matrix whose rows are the three vectors.
+
 \noindent \textbf{Why this formula works:}
 \begin{itemize}
     \item The cross product \( \mathbf{v} \times \mathbf{w} \) gives a vector perpendicular to the parallelogram formed by \( \mathbf{v} \) and \( \mathbf{w} \), with a magnitude equal to the area of this parallelogram.
@@ -2337,7 +2375,7 @@ Suppose we have two products represented by feature vectors:
 \[
 \mathbf{p} = \langle 8, 2, 15 \rangle \quad \text{and} \quad \mathbf{q} = \langle 5, 3, 12 \rangle,
 \]
-where each vector component represents the popularity, weight (in kg), and price (in dollars) of each product, respectively. In machine learning, we often use vector operations like the dot product and cross product to analyze relationships between data points (in this case, the products). Let’s calculate:
+where each vector component represents the popularity, weight (in kg), and price (in dollars) of each product, respectively. In machine learning, the dot product is commonly used to measure similarity between feature vectors. While the cross product is primarily a geometric tool for three dimensions, let us practice computing both operations:
 \begin{enumerate}
     \item The dot product \( \mathbf{p} \cdot \mathbf{q} \) to measure the similarity between the products in terms of their features.
     \item The cross product \( \mathbf{p} \times \mathbf{q} \) to analyze how the products differ across the feature space.
@@ -2454,7 +2492,7 @@ else:
 
 \noindent To describe a line in three-dimensional space, we need:
 \begin{itemize}
-    \item A specific \textbf{point} through which the line passes, denoted \( \mathbf{P_0} = (x_0, y_0, z_0) \).
+    \item A specific \textbf{point} through which the line passes, denoted \( P_0 = (x_0, y_0, z_0) \).
     \item A \textbf{direction vector} that defines the orientation of the line, represented by \( \mathbf{d} = \langle a, b, c \rangle \).
 \end{itemize}
 
@@ -2540,7 +2578,7 @@ This form describes points on the segment:
 
     \end{tikzpicture}
 
-    \caption{\textit{The line segment connecting points \( \mathbf{P_1} \) and \( \mathbf{P_2} \) in three-dimensional space, represented by \( \mathbf{r}(t) = (1 - t) \mathbf{P_1} + t \mathbf{P_2} \) for \( 0 \leq t \leq 1 \). Here, \( \mathbf{P_1} \) and \( \mathbf{P_2} \) represent the positions of the endpoints, while \( \mathbf{P_1} \) and \( \mathbf{P_2} \) denote their position vectors.}}
+    \caption{\textit{The line segment connecting points \( \mathbf{P_1} \) and \( \mathbf{P_2} \) in three-dimensional space, represented by \( \mathbf{r}(t) = (1 - t) \mathbf{P_1} + t \mathbf{P_2} \) for \( 0 \leq t \leq 1 \). Here, \( \mathbf{P_1} \) and \( \mathbf{P_2} \) denote the position vectors of the endpoints of the segment.}}
     \label{fig:line_segment}
 \end{figure}
 
@@ -2687,7 +2725,7 @@ Suppose we want to find the equation of a line that passes through a point \( \m
 
 
 
-\noindent The normal vector provides this by pointing perpendicularly to the plane, creating a stable orientation despite the plane extending infinitely in two directions. With these components, the equation of the plane can be written as:
+\noindent The normal vector provides this by pointing perpendicularly to the plane, creating a stable orientation despite the plane extending infinitely in two directions. For any point \( P = (x, y, z) \) on the plane, the vector from \( P_0 \) to \( P \), namely \( \langle x - x_0, y - y_0, z - z_0 \rangle \), must lie in the plane and therefore be perpendicular to \( \mathbf{n} \). Setting their dot product to zero gives:
 \[
 A(x - x_0) + B(y - y_0) + C(z - z_0) = 0.
 \]
@@ -2702,7 +2740,7 @@ where \( D = Ax_0 + By_0 + Cz_0 \). This form represents all points \( (x, y, z)
 \begin{example}
 Suppose we want to find the equation of a plane that passes through the point \( P_0 = (2, -1, 3) \) and is oriented in space by a normal vector \( \mathbf{n} = \langle 4, 5, -2 \rangle \).
 
-\begin{solution}\\
+\begin{solution}
 \noindent To define the equation of the plane, we use the general form:
 \[
 A(x - x_0) + B(y - y_0) + C(z - z_0) = 0,
@@ -2790,7 +2828,7 @@ where \( P_0 = (x_0, y_0, z_0) \) is a point on the plane and \( \mathbf{n} = \l
 	%Perpendicular Vector
 	\draw[-latex, thick] (x5) -- ($(x5)!0.07!(-8,0,24)$) node[pos=0.5, shift={(-0.2,-0.1)}] {$\vb{n}$};
 	%Point on Plane	
-	\draw[draw=black, fill=black] (x6) circle (1pt) node[above right] {${P_o}$};
+	\draw[draw=black, fill=black] (x6) circle (1pt) node[above right] {${P_0}$};
 	
 	%Z-axis Section
 	\draw[draw=black, fill=black] (x7) circle (0.5pt);
@@ -2994,6 +3032,8 @@ This expression gives us a clear and direct way to find \( \theta \).
     \item If \( \cos \theta = \pm 1 \), then \( \theta = 0^\circ \) or \( \theta = 180^\circ \), meaning the planes are \textbf{parallel}.
 \end{itemize}
 
+\noindent Note that this formula can yield obtuse angles depending on the orientation of the normal vectors. To find the acute angle between two planes, use \( |\mathbf{n}_1 \cdot \mathbf{n}_2| \) in the numerator.
+
 \subsubsection*{Angle Between a Line and a Plane}
 
 \noindent For a line intersecting a plane, the angle \( \phi \) measures how “steeply” the line intersects the plane. Intuitively, we define this angle using the direction vector \( \mathbf{d} \) of the line and the normal vector \( \mathbf{n} \) of the plane. To find this angle, we consider the following:
@@ -3004,8 +3044,9 @@ This expression gives us a clear and direct way to find \( \theta \).
 
 \noindent Therefore, using the relationship for \( \cos \theta \) with the dot product, we find:
 \[
-\sin \phi = \frac{\mathbf{d} \cdot \mathbf{n}}{|\mathbf{d}| |\mathbf{n}|} =  \cos \theta.
+\sin \phi = \frac{|\mathbf{d} \cdot \mathbf{n}|}{|\mathbf{d}| |\mathbf{n}|} =  \cos \theta.
 \]
+We take the absolute value because the angle between a line and a plane is always between \( 0 \) and \( 90^\circ \), regardless of the direction assigned to the line.
 
 \noindent This formula allows us to calculate \( \phi \) based on the alignment of the line’s direction vector with the plane’s normal vector. Special cases occur as follows:
 \begin{itemize}
@@ -3158,7 +3199,7 @@ A line \( L \) is the intersection of these two planes. Find:
 
 \subsection*{Projections of Vectors} \index{Vector Projection}
 
-\noindent When studying vectors in three-dimensional space, it’s often useful to decompose a vector along another vector or within a plane. This breakdown allows us to understand how one vector aligns with another direction or lies within a given surface. A \textit{projection} is the component of a vector along a specified direction. Given a vector \( \mathbf{a} \), the \textit{projection of \( \mathbf{a} \) onto \( \mathbf{b} \)} gives us the part of \( \mathbf{a} \) that aligns with \( \mathbf{b} \). The projection of \( \mathbf{a} \) onto \( \mathbf{b} \), written as \( \text{proj}_{\mathbf{b}} \mathbf{a} \), is calculated by:
+\noindent When studying vectors in three-dimensional space, it’s often useful to decompose a vector along another vector or within a plane. This breakdown allows us to understand how one vector aligns with another direction or lies within a given surface. For instance, when computing the work done by a force, we project the force vector onto the direction of motion. Similarly, decomposing vectors into components parallel and perpendicular to a surface is fundamental in physics and engineering. A \textit{projection} is the component of a vector along a specified direction. Given a vector \( \mathbf{a} \), the \textit{projection of \( \mathbf{a} \) onto \( \mathbf{b} \)} gives us the part of \( \mathbf{a} \) that aligns with \( \mathbf{b} \). The projection of \( \mathbf{a} \) onto \( \mathbf{b} \), written as \( \text{proj}_{\mathbf{b}} \mathbf{a} \), is calculated by:
 \[
 \text{proj}_{\mathbf{b}} \mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{b}|^2} \mathbf{b}.
 \]
@@ -3226,7 +3267,7 @@ This formula tells us how much of \( \mathbf{a} \) points in the direction of \(
 
 
 
-\subsubsection{Projection of a Vector onto a Plane.} If we have a plane defined by a \textit{normal vector} \( \mathbf{n} \), we can project any vector \( \mathbf{a} \) onto the plane to find its component that lies within the plane. This is done by subtracting the projection of \( \mathbf{a} \) onto \( \mathbf{n} \):
+\subsubsection*{Projection of a Vector onto a Plane} If we have a plane defined by a \textit{normal vector} \( \mathbf{n} \), we can project any vector \( \mathbf{a} \) onto the plane to find its component that lies within the plane. This is done by subtracting the projection of \( \mathbf{a} \) onto \( \mathbf{n} \):
 \[
 \mathbf{a}_{\parallel \text{plane}} = \mathbf{a} - \text{proj}_{\mathbf{n}} \mathbf{a}.
 \]
@@ -3541,7 +3582,7 @@ Calculate the shortest distance from the point \( \mathbf{x} = (1, -1, -3) \) to
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{chapters/chp1_pics/Conic_Sections.svg.png}
-\caption{\textit{Conic sections derived from a single-napped cone. The hyperbola includes an additional section, as the intersecting plane extends through the origin to cut both nappes of the cone when there are two present.}}
+\caption{\textit{Conic sections derived from a double-napped cone. The hyperbola includes an additional section, as the intersecting plane extends through the origin to cut both nappes of the cone when there are two present.}}
 
     \label{fig:conic_sections}
 \end{figure}
@@ -3558,10 +3599,7 @@ Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0,
 \]
 where \( A, B, C, D, E, F, G, H, I, J \) are constants. By adjusting these constants, we can produce a variety of surfaces, such as ellipsoids, hyperboloids, and paraboloids. Each surface is a natural extension of the conic sections, generalized to three-dimensional space. One of the most fascinating aspects of quadric surfaces is the diversity of shapes they produce. Why do we get surfaces as different as spheres, hyperboloids, and paraboloids from a single quadratic equation? Are these shapes related to one another? The answer lies in the interplay between the coefficients in the general equation and the symmetry of the surface.
 
-\noindent To understand this, let us focus on the terms in the quadratic equation:
-\[
-Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0.
-\]
+\noindent To understand the diversity of shapes, let us focus on the roles of the different terms in this equation:
 
 \begin{itemize}
     \item \textbf{Symmetry and Dominance of Quadratic Terms:} The coefficients \( A, B, \) and \( C \) determine the relative ``stretching" or ``shrinking" along the \( x \)-, \( y \)-, and \( z \)-axes. For example, if \( A, B, \) and \( C \) are all positive, the surface is ``elliptical" in nature, producing shapes like spheres or ellipsoids. If one of these coefficients is negative, the surface takes on a "hyperbolic" character.
@@ -3660,7 +3698,7 @@ an ellipse in the \( xz \)-plane. Thus, the ellipsoid can be thought of as a ``s
 \[
 \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1.
 \]
-\noindent Here, the negative term (\( -\frac{z^2}{c^2} \)) causes the surface to open outward, creating a ``saddle-like" shape. Setting \( z = 0 \) reduces the equation to:
+\noindent Here, the negative term (\( -\frac{z^2}{c^2} \)) causes the surface to open outward, creating a smooth, connected surface that narrows at its waist, resembling a cooling tower. Setting \( z = 0 \) reduces the equation to:
 \[
 \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1,
 \]
@@ -3668,7 +3706,7 @@ an ellipse in the \( xy \)-plane. However, as \( z \) increases or decreases, th
 
 \paragraph{Two-Sheeted Hyperboloid:} The equation for a two-sheeted hyperboloid is:
 \[
-\frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = -1.
+\frac{z^2}{c^2} - \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1.
 \]
 \noindent This equation is similar to that of the one-sheeted hyperboloid, but here the minus sign on the right-hand side creates two disconnected surfaces, or ``sheets," opening in opposite directions. Setting \( z = 0 \) results in no real solutions, which explains the gap between the two sheets.
 
@@ -3764,13 +3802,13 @@ where \( r \) is the radius. While this equation might appear two-dimensional, i
 \]
 \noindent Setting \( z = k \), where \( k \neq 0 \), reduces the equation to:
 \[
-\frac{x^2}{a^2} + \frac{y^2}{b^2} = k^2,
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{k^2}{c^2},
 \]
-an ellipse in the \( xy \)-plane. At \( z = 0 \), the equation reduces to a single point (the vertex of the cone). 
+an ellipse in the \( xy \)-plane. At \( z = 0 \), the equation reduces to a single point (the vertex of the cone). The cone is the degenerate boundary case between the hyperboloid of one sheet and the hyperboloid of two sheets. As \( |z| \) increases, the cross-sections grow linearly in size, unlike the paraboloid where they grow proportionally to \( \sqrt{|z|} \).
 
 
 \subsubsection*{Visualization}
-The below visual are what these quadric surfaces look like:
+The figures below show what these quadric surfaces look like:
 
 
 
@@ -3989,6 +4027,8 @@ x = 3 \cos t, \quad y = 3 \sin t, \quad z = 9 \cos t + 3 \sin t, \quad t \in [0,
     \item \textbf{Dot Product:} A scalar product of two vectors, given by \(\mathbf{u} \cdot \mathbf{v} = u_x v_x + u_y v_y + u_z v_z\).
     \item \textbf{Cross Product:} A vector perpendicular to two vectors, calculated using the determinant of a \(3 \times 3\) matrix.
     \item \textbf{Parallelepiped:} A six-faced figure formed by three vectors, where its volume is given by the scalar triple product \(|\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})|\).
+    \item \textbf{Quadric Surface:} A surface in three-dimensional space defined by a second-degree polynomial equation in \( x \), \( y \), and \( z \).
+    \item \textbf{Trace:} The curve of intersection of a surface with a plane, used to analyze the shape of quadric surfaces.
 \end{itemize}
 
 \subsection*{Key Formulas}
@@ -4038,7 +4078,7 @@ v_x & v_y & v_z
 
 \paragraph{Parametric Line:} \index{Parametric Line}
 \[
-\mathbf{r}(t) = \mathbf{P}_0t + \mathbf{P}_1(1-t), \quad t \in [0,1]
+\mathbf{r}(t) = (1-t)\mathbf{P}_0 + t\mathbf{P}_1, \quad t \in [0,1]
 \]
 or alternatively:
 \[
@@ -4086,22 +4126,37 @@ z &= \rho \cos \phi
 \]
 \end{itemize}
 
+\paragraph{Vector Projection:}
+\[
+\text{proj}_{\mathbf{v}}\mathbf{u} = \frac{\mathbf{u}\cdot\mathbf{v}}{|\mathbf{v}|^2}\mathbf{v}, \quad \text{comp}_{\mathbf{v}}\mathbf{u} = \frac{\mathbf{u}\cdot\mathbf{v}}{|\mathbf{v}|}
+\]
+
 \paragraph{Plane Equation:}
+Point-normal form: $A(x-x_0)+B(y-y_0)+C(z-z_0)=0$\\
+General form: $Ax + By + Cz = D$\\
+Normal vector: $\mathbf{n} = \langle A,B,C\rangle$
+
+\paragraph{Distance from Point to Plane:}
 \[
-Ax + By + Cz + D = 0
+d = \frac{|Ax_0 + By_0 + Cz_0 - D|}{\sqrt{A^2+B^2+C^2}}
 \]
 
-\paragraph{Line Equation (Parametric Form):}
+\paragraph{Angle Between Two Planes:}
 \[
-\mathbf{r}(t) = \mathbf{v} + t \mathbf{d}
+\cos\theta = \frac{|\mathbf{n}_1\cdot\mathbf{n}_2|}{|\mathbf{n}_1||\mathbf{n}_2|}
 \]
 
-\paragraph{Quadratic Surfaces:}
+\paragraph{Line of Intersection of Two Planes:}
+Direction: $\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2$. Point: set one variable $= 0$, solve $2\times 2$ system.
+
+\paragraph{Quadric Surfaces:}
 \begin{itemize}
     \item \textbf{Ellipsoid:} \(\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1\)
     \item \textbf{Hyperboloid of One Sheet:} \(\frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1\)
     \item \textbf{Hyperboloid of Two Sheets:} \(-\frac{x^2}{a^2} - \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1\)
     \item \textbf{Elliptic Paraboloid:} \(\frac{x^2}{a^2} + \frac{y^2}{b^2} = z\)
+    \item \textbf{Hyperbolic Paraboloid:} \( \frac{x^2}{a^2} - \frac{y^2}{b^2} = z \)
+    \item \textbf{Elliptic Cone:} \( \frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2} \)
 \end{itemize}
 \end{multicols}
 
@@ -4141,7 +4196,7 @@ Ax + By + Cz + D = 0
     \item Convert the cylindrical coordinates \( (r, \theta, z) = \left(3, \dfrac{\pi}{6}, 4\right) \) to spherical coordinates.
     \item Find the rectangular coordinates of the point \( (r, \theta, z) = \left(1, \dfrac{\pi}{2}, -2\right) \).
     \item Determine the distance from the origin to the point \( (x, y, z) = (a, b, c) \) in rectangular coordinates.
-    \item Convert the point \( (x, y, z) = (0, 0, 0) \) to spherical coordinates.
+    \item Explain why the origin cannot be uniquely represented in spherical coordinates, and state the convention typically used.
 
     % Vectors (19 Questions)
     \item Compute \( |\mathbf{v}| \) for \( \mathbf{v} = \langle 3, -4, 5 \rangle \).
@@ -4149,13 +4204,13 @@ Ax + By + Cz + D = 0
     \item Calculate \( \mathbf{u} \cdot \mathbf{v} \) for \( \mathbf{u} = \langle 1, 2, 3 \rangle \) and \( \mathbf{v} = \langle 4, 0, -1 \rangle \).
     \item Determine \( \mathbf{u} \times \mathbf{v} \) for \( \mathbf{u} = \langle 1, 0, -1 \rangle \) and \( \mathbf{v} = \langle 0, 2, 3 \rangle \).
     \item Find the angle between \( \mathbf{u} = \langle 1, 2, 3 \rangle \) and \( \mathbf{v} = \langle 3, 2, 1 \rangle \).
-    \item Show that \( \mathbf{u} = \langle 2, -1, 0 \rangle \) and \( \mathbf{v} = \langle 4, -2, 0 \rangle \) are \textit{linearly dependent} (meaning that one cannot be written as a constant multiple of the other).
+    \item Show that \( \mathbf{u} = \langle 2, -1, 0 \rangle \) and \( \mathbf{v} = \langle 4, -2, 0 \rangle \) are \textit{linearly dependent} (meaning that one can be written as a constant multiple of the other).
     \item Compute the area of the parallelogram spanned by \( \mathbf{u} = \langle 1, 0, 1 \rangle \) and \( \mathbf{v} = \langle 0, 2, 1 \rangle \).
     \item Find a vector orthogonal to both \( \mathbf{u} = \langle 1, -1, 0 \rangle \) and \( \mathbf{v} = \langle 2, 1, -1 \rangle \).
     \item Determine if the vectors \( \mathbf{a} = \langle 3, -1, 2 \rangle \), \( \mathbf{b} = \langle 4, 0, -2 \rangle \), and \( \mathbf{c} = \langle 1, 5, -1 \rangle \) are linearly independent.
     \item Find the projection of \( \mathbf{u} = \langle 4, -2, 1 \rangle \) onto \( \mathbf{v} = \langle 1, 0, 3 \rangle \).
     \item Calculate the scalar triple product \( \mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) \) for \( \mathbf{a} = \langle 1, 2, 3 \rangle \), \( \mathbf{b} = \langle 4, 5, 6 \rangle \), and \( \mathbf{c} = \langle 7, 8, 9 \rangle \).
-    \item Find the volume of the parallelepiped formed by the vectors \( \mathbf{u} = \langle 1, 0, 0 \rangle \), \( \mathbf{v} = \langle 0, 1, 0 \rangle \), and \( \mathbf{w} = \langle 0, 0, 1 \rangle \).
+    \item Find the volume of the parallelepiped formed by the vectors \( \mathbf{u} = \langle 1, 2, 0 \rangle \), \( \mathbf{v} = \langle 0, 1, 3 \rangle \), and \( \mathbf{w} = \langle 2, 0, 1 \rangle \).
     \item Determine the component of \( \mathbf{a} = \langle 5, 2, -3 \rangle \) along \( \mathbf{b} = \langle 1, -1, 2 \rangle \).
     \item Compute the magnitude of the vector \( \mathbf{w} = \mathbf{u} \times \mathbf{v} \) where \( \mathbf{u} = \langle 2, 3, 4 \rangle \) and \( \mathbf{v} = \langle -1, 0, 1 \rangle \).
     \item Find the angle between the vectors \( \mathbf{a} = \langle 2, -1, 3 \rangle \) and \( \mathbf{b} = \langle 1, 4, -2 \rangle \).
@@ -4165,7 +4220,7 @@ Ax + By + Cz + D = 0
     \item Determine if the vectors \( \mathbf{u} = \langle 2, 4, 6 \rangle \) and \( \mathbf{v} = \langle -1, -2, -3 \rangle \) are orthogonal.
     \item Compute the cross product \( \mathbf{u} \times \mathbf{v} \) for \( \mathbf{u} = \langle 0, 1, 2 \rangle \) and \( \mathbf{v} = \langle 3, 4, 5 \rangle \).
     \item Find the unit vector perpendicular to the plane defined by \( \mathbf{u} = \langle 1, 2, 3 \rangle \) and \( \mathbf{v} = \langle 4, 5, 6 \rangle \).
-\item Determine whether the vectors \( \mathbf{a} = \langle 1, 2, 3 \rangle \), \( \mathbf{b} = \langle 2, 4, 6 \rangle \), and \( \mathbf{c} = \langle 3, 6, 9 \rangle \) are linearly independent or dependent. Linear independence means that none of the vectors can be written as a combination of the others, ie $v_1 \neq k_1 v_2 + k_2 v_3$. If at least one vector can be expressed as a combination of the others, the vectors are linearly dependent.
+\item Determine whether the vectors \( \mathbf{a} = \langle 1, 0, 2 \rangle \), \( \mathbf{b} = \langle 0, 1, 1 \rangle \), and \( \mathbf{c} = \langle 1, 1, 3 \rangle \) are linearly independent or dependent. Note that \( \mathbf{c} = \mathbf{a} + \mathbf{b} \). Linear independence means that none of the vectors can be written as a combination of the others, ie $v_1 \neq k_1 v_2 + k_2 v_3$. If at least one vector can be expressed as a combination of the others, the vectors are linearly dependent.
     \item Calculate the dot product \( \mathbf{u} \cdot \mathbf{v} \) for \( \mathbf{u} = \langle 5, -2, 4 \rangle \) and \( \mathbf{v} = \langle -1, 3, 2 \rangle \).
     \item Find the angle between the vectors \( \mathbf{u} = \langle 7, 0, -5 \rangle \) and \( \mathbf{v} = \langle 4, -3, 2 \rangle \).
     \item Show that the vectors \( \mathbf{u} = \langle 1, 3, -2 \rangle \) and \( \mathbf{v} = \langle 4, -1, 5 \rangle \) are not parallel.
@@ -4178,7 +4233,7 @@ Ax + By + Cz + D = 0
     \item Compute the point of intersection of the line \( \mathbf{r}(t) = \langle 1 + t, 2 - t, 3t \rangle \) with the plane \( x - y + z = 5 \).
     \item Check if the lines \( \mathbf{r}_1(t) = \langle t, 2t, 3t \rangle \) and \( \mathbf{r}_2(s) = \langle 1 + s, 2, 3s \rangle \) are parallel, intersecting, or skew.
     \item Given \( \Pi_1: x + 2y + 3z = 7 \), \( \Pi_2: -2x - y - z = 2 \), and \( \mathbf{r}(t) = \langle 2t, 1 - t, 1 + t \rangle \), determine if \( \mathbf{r}(t) \) intersects both planes. If so, calculate the length of \( \mathbf{r}(t) \) from \( \Pi_1 \) to \( \Pi_2 \).
-    \item Find the shortest distance between the line \( \mathbf{r}(t) = \langle t, t, t \rangle \) and the point \( (1, 1, 1) \).
+    \item Find the shortest distance between the line \( \mathbf{r}(t) = \langle t, t, t \rangle \) and the point \( (1, 0, 2) \).
     \item Determine the equation of the line of intersection of the planes \( x + y + z = 1 \) and \( 2x - y + 3z = 4 \).
     \item Find the distance between the parallel planes \( x + 2y + 2z = 5 \) and \( x + 2y + 2z = -3 \).
     \item Find the parametric equations of the line perpendicular to the plane \( 3x - 2y + z = 7 \) and passing through the point \( (2, -1, 4) \).
@@ -4189,19 +4244,19 @@ Ax + By + Cz + D = 0
     \item Determine whether the lines \( \mathbf{r}_1(t) = \langle 1 + t, 2 - t, 3 + 2t \rangle \) and \( \mathbf{r}_2(s) = \langle 4 - s, -1 + s, 5 + s \rangle \) intersect.
     \item Compute the equation of the tangent plane to the surface \( x^2 + 2y^2 + 3z^2 = 6 \) at the point \( (1, 1, 1) \).
     \item Find the line segment of shortest length connecting the lines \( \mathbf{r}_1(t) = \langle t, 2t, 3t \rangle \) and \( \mathbf{r}_2(s) = \langle 1 + s, 2 + s, 3 + s \rangle \).
-    \item Determine the parametric equations for the space curve defined by \( x = t \), \( y = \sin(t) \), and \( z = \cos(t) \).
+    \item The curve defined by \( x = t \), \( y = \sin t \), \( z = \cos t \) lies on a specific quadric surface. Identify which surface and prove your claim.
     \item Find the intersection of the hyperboloid \( x^2 - y^2 - z^2 = 4 \) with the plane \( y = 1 \).
     \item Calculate the surface area of the cylinder \( x^2 + y^2 = 9 \) between \( z = 0 \) and \( z = 5 \).
     \item Find the equation of the ellipsoid with semi-axes of lengths 3, 4, and 5 along the \( x \)-, \( y \)-, and \( z \)-axes, respectively.
     \item Derive the Cartesian equation of the paraboloid obtained by rotating the parabola \( z = x^2 \) about the \( z \)-axis.
-   \item As we have seen, the parametric equation of a line can be represented as $\mathbf{r}(t) = \mathbf{P}_0t + \mathbf{P}_1(1-t), \quad t \in [0,1]$. If we wanted to change $t$ to go between $0$ and $a \in \mathbb{R}^{+}$, how would our parametric equation change?
+   \item As we have seen, the parametric equation of a line can be represented as $\mathbf{r}(t) = (1-t)\mathbf{P}_0 + t\mathbf{P}_1, \quad t \in [0,1]$. If we wanted to change $t$ to go between $0$ and $a \in \mathbb{R}^{+}$, how would our parametric equation change?
 
     % Quadric Surfaces (5 Questions)
     \item Classify the surface given by \( x^2 + y^2 - z^2 = 1 \).
     \item Write the parametric equations for the intersection of the cylinder \( x^2 + y^2 = 4 \) with the plane \( z = x + y \).
     \item Verify if the surface \( x^2 + y^2 - 4z = 0 \) is an elliptic paraboloid.
     \item Compute the volume enclosed by the sphere \( x^2 + y^2 + z^2 = 4 \) and the plane \( z = 1 \).
-    \item Find the equation of the surface generated by rotating \( x = y^2 \) about the \( z \)-axis.
+    \item Find the equation of the surface generated by rotating the parabola \( z = x^2 \) (in the \( xz \)-plane) about the \( z \)-axis.
 
 \end{enumerate}
 

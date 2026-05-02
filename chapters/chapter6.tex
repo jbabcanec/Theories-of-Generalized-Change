@@ -3,11 +3,10 @@
 
 \section*{Introduction}
 
-In our mathematical journey thus far, we have explored the foundations of calculus, mastered the techniques of integration and differentiation, and ventured into the multidimensional realms of vector calculus. Now, we stand at the threshold of differential equations, where these fundamental concepts converge to describe the mathematical language of change itself. Differential equations represent not just static relationships between variables, but the dynamic evolution of systems over time and space—a natural progression in our pursuit of mathematical generalization.\\
-
-\noindent The tools we have cultivated throughout our studies—from basic derivatives to complex integration techniques—now serve as essential instruments for understanding how quantities evolve under various conditions. Our facility with derivatives transforms into the ability to decode equations that describe rates of change, while our integration skills become crucial in finding solutions that tell us how systems behave over time. The analytical methods we developed for solving algebraic equations evolve into sophisticated techniques for unraveling both ordinary and partial differential equations.\\
-
-\noindent This chapter introduces the fundamental concepts and methods that bridge the gap between static mathematical descriptions and dynamic processes. From first-order ordinary differential equations that model simple growth and decay, to partial differential equations that describe heat flow and wave propagation, we will explore how these powerful mathematical tools help us understand and predict complex phenomena. As we progress, we will see how differential equations provide a unified framework for describing diverse physical systems, from the simple harmonic motion of a pendulum to the intricate patterns of fluid dynamics. The journey ahead promises to be both challenging and enlightening, as we develop the ability to analyze and describe the fundamental laws that govern change in our universe.
+Up to this point, we have studied \textit{what things are}---the values of functions, the shapes of surfaces, the directions of vector fields. Now we ask a fundamentally different question: \textit{how do things change?} If we know the rate at which a population grows, can we predict its size at any future time? If we know how heat flows from hot to cold, can we predict the temperature distribution in a rod? If we know the forces on a vibrating string, can we predict its shape? These are the questions that differential equations answer.\\ \\
+\noindent A differential equation is an equation involving an unknown function and its derivatives. The function is what we seek; the derivatives encode the physical law governing the system. Newton's second law \( F = ma \) is a differential equation (acceleration is the second derivative of position). Fourier's law of heat conduction is a differential equation. The wave equation, the diffusion equation, the Schr\"odinger equation---all differential equations. They are the mathematical language of physics and engineering.\\ \\
+\noindent This chapter covers both \textbf{ordinary differential equations} (ODEs), where the unknown function depends on a single variable, and \textbf{partial differential equations} (PDEs), where it depends on several. For ODEs, we develop a toolkit of methods: separation of variables, integrating factors, the characteristic equation for linear equations with constant coefficients, undetermined coefficients, variation of parameters, and Laplace transforms. For PDEs, we introduce separation of variables, Fourier series, the method of characteristics, and Green's functions.\\ \\
+\noindent The progression is deliberate: first-order ODEs are the simplest, requiring just one integration. Higher-order ODEs with constant coefficients reduce to algebra via the characteristic equation. Laplace transforms convert differential equations into algebraic equations wholesale. PDEs, which involve partial derivatives with respect to multiple independent variables, demand more sophisticated machinery but yield the equations that describe heat, waves, and potential theory---the phenomena we have been building toward since Chapter 1.
 
 
 
@@ -25,7 +24,7 @@ In our mathematical journey thus far, we have explored the foundations of calcul
     \centering
     \includegraphics[width=0.55\textwidth]{chapters/chp6_pics/Elmer-pump-heatequation.png}
 \caption{\textit{Visualizing the application of differential equations in finite element analysis (FEA), where partial differential equations (PDEs) model stress, strain, and deformation across complex geometries.}}
-    \label{fig:factory}
+    \label{fig:fea_heat_equation}
 \end{figure}
 
 \subsection*{The Nature of Differential Equations}
@@ -40,12 +39,7 @@ we're expressing a relationship between an unknown function $y(x)$ and its deriv
 \[
 F(x, y, y', y'', ..., y^{(n)}) = 0
 \]
-where $F$ is some function, $y$ is our unknown function, and $y^{(k)}$ represents the $k$th derivative of $y$. The order of a differential equation is the highest derivative that appears in it. For instance, $\frac{dy}{dx} = x^2$ is first-order, $\frac{d^2y}{dx^2} + \frac{dy}{dx} = \sin(x)$ is second-order, and $\frac{d^3y}{dx^3} - x\frac{dy}{dx} = e^x$ is third-order. For instance:
-\begin{itemize}
-    \item $\frac{dy}{dx} = x^2$ is first-order
-    \item $\frac{d^2y}{dx^2} + \frac{dy}{dx} = \sin(x)$ is second-order
-    \item $\frac{d^3y}{dx^3} - x\frac{dy}{dx} = e^x$ is third-order
-\end{itemize}
+where $F$ is some function, $y$ is our unknown function, and $y^{(k)}$ represents the $k$th derivative of $y$. The order of a differential equation is the highest derivative that appears in it. For instance, $\frac{dy}{dx} = x^2$ is first-order, $\frac{d^2y}{dx^2} + \frac{dy}{dx} = \sin(x)$ is second-order, and $\frac{d^3y}{dx^3} - x\frac{dy}{dx} = e^x$ is third-order.
 
 \noindent For differential equations with partial derivatives, we deal with functions of multiple variables, so the general form becomes:
 \[
@@ -100,7 +94,7 @@ Let's think about how temperature changes:
 \[
 \frac{dT}{dt} = -k(T - 20)
 \]
-\noindent This is actually know as Newton's Law of Cooling. we may find the constant $k$ using our initial conditions which will be discussed later.
+\noindent This is actually known as Newton's Law of Cooling. We may find the constant $k$ using our initial conditions which will be discussed later.
 \end{enumerate}
 
 \end{solution}
@@ -416,7 +410,7 @@ This transformation allows us to integrate both sides independently:
 \int \frac{1}{g(y)}dy = \int f(x)dx + C
 \]
 
-\noindent The resulting equation implicitly defines $y$ as a function of $x$. In fortunate cases, we can solve explicitly for $y$, though often the solution remains in implicit form. This method's elegance lies in its reduction of a differential equation to algebraic manipulation and integration. This method obviously extends for cases of higher order derivatives which will be addressed in the next chapter.\\
+\noindent The resulting equation implicitly defines $y$ as a function of $x$. In fortunate cases, we can solve explicitly for $y$, though often the solution remains in implicit form. This method's elegance lies in its reduction of a differential equation to algebraic manipulation and integration. This method obviously extends for cases of higher order derivatives which will be addressed later in this chapter.\\
 
 \noindent Several theoretical considerations deserve attention:
 \begin{enumerate}
@@ -785,17 +779,17 @@ Let's solve this systematically:
    \item We can verify our solution by checking that $\frac{\partial \psi}{\partial x} = M(x,y)$ and $\frac{\partial \psi}{\partial y} = N(x,y)$
    \item The solution represents a family of level curves of $\psi(x,y)$
    \item The integrating constants $C_1$ and $C_2$ from each method combine into a single constant $C$ in the final solution
-\item The equation \(x^2y + xy^2 = C\) can be rewritten to form a quadratic in \(y\):
+\item The equation \(x^2y + xy^2 = C\) can be rewritten to form a quadratic in \(y\). Dividing by \(x\):
 \[
 y^2 + xy - \frac{C}{x} = 0.
 \]
 Using the quadratic formula, we solve for \(y\):
 \[
-y = \frac{-x \pm \sqrt{x^3 + 4C}}{2x}.
+y = \frac{-x \pm \sqrt{x^2 + \frac{4C}{x}}}{2}.
 \]
 Thus, the explicit solutions for \(y\) are:
 \[
-y = \frac{-x + \sqrt{x^3 + 4C}}{2x} \quad \text{and} \quad y = \frac{-x - \sqrt{x^3 + 4C}}{2x}.
+y = \frac{-x + \sqrt{x^2 + \frac{4C}{x}}}{2} \quad \text{and} \quad y = \frac{-x - \sqrt{x^2 + \frac{4C}{x}}}{2}.
 \]
 
 
@@ -830,7 +824,7 @@ v = y^{1-n}
 \noindent Substituting this into our expression for $\frac{dv}{dx}$:
 \begin{align*}
 \frac{dv}{dx} &= (1-n)y^{-n}(-P(x)y + Q(x)y^n) \\
-&= (1-n)[-P(x)y^{1-n} + Q(x)y^{2n-n}] \\
+&= (1-n)[-P(x)y^{1-n} + Q(x)y^{n-n}] \\
 &= (1-n)[-P(x)v + Q(x)]
 \end{align*}
 
@@ -868,6 +862,21 @@ y = \left\{e^{-(1-n)\int P(x)dx}\left[\int (1-n)Q(x)e^{(1-n)\int P(x)dx}dx + C\r
 \end{enumerate}
 
 \noindent The Bernoulli equation serves as a bridge between linear and nonlinear theory. While it's nonlinear in its original form, its amenability to transformation into a linear equation makes it one of the few nonlinear equations for which we can write down a general solution formula. This makes it an excellent introduction to the study of nonlinear differential equations.
+
+\exampleline
+\begin{example}
+Solve the Bernoulli equation \( y' + y = y^2 \).
+
+\begin{solution}
+Here \( P(x) = 1 \), \( Q(x) = 1 \), and \( n = 2 \). We substitute \( v = y^{1-n} = y^{-1} = 1/y \), so \( v' = -y^{-2}y' \). Dividing the original equation by \( y^2 \):
+\[ y^{-2}y' + y^{-1} = 1 \quad \Rightarrow \quad -v' + v = 1 \quad \Rightarrow \quad v' - v = -1. \]
+This is a linear first-order equation with integrating factor \( \mu = e^{-x} \):
+\[ \frac{d}{dx}(ve^{-x}) = -e^{-x} \quad \Rightarrow \quad ve^{-x} = e^{-x} + C \quad \Rightarrow \quad v = 1 + Ce^x. \]
+Substituting back \( v = 1/y \):
+\[ y = \frac{1}{1 + Ce^x}. \]
+\end{solution}
+\end{example}
+\exampleline
 
 \subsection*{A Word on Existence and Uniqueness} \index{Existence and Uniqueness Theorems}
 
@@ -1436,6 +1445,8 @@ Let's solve this systematically:
 \end{example}
 \exampleline
 
+\newpage
+\lecture{Higher-Order Ordinary Differential Equations II} \index{Higher-Order ODEs}
 
 \subsubsection*{Variation of Parameters} \index{Variation of Parameters}
 
@@ -1686,7 +1697,7 @@ y'' \;+\; y \;=\; \tan(x).
 
 \newpage
 
-\lecture{Higher-Order Ordinary Differential Equations II} \index{Higher-Order ODEs}
+\lecture{Higher-Order Ordinary Differential Equations III} \index{Higher-Order ODEs}
 
 And now after spending lots of time and effort learning very specific techniques, we will now introduce a method that will blast half of those out of the water. Transform methods are exceptionally powerful tools in solving ordinary differential equations (ODEs). Laplace Transforms convert differential equations into algebraic equations, simplifying the solution process. \\
 
@@ -1799,42 +1810,31 @@ Transforms time-domain convolution to s-domain multiplication.
 \noindent
 The following comprehensive table presents common transform pairs essential for solving both initial value problems and boundary value problems. When solving differential equations, we first transform the equation using these pairs, solve the resulting algebraic equation in the $s$-domain, and then use these same pairs in reverse to find our time-domain solution.
 
-\begin{center}
-\begin{longtable}{|c|c||c|c|}
-\caption{\textit{Comprehensive Table of Laplace Transform Pairs: These pairs enable both forward transformation for problem-solving and inverse transformation for solution recovery.}}
+{
+\renewcommand{\arraystretch}{2}
+\begin{table}[H]
+\centering
+\caption{\textit{Common Laplace Transform Pairs.}}
 \label{table:laplace_transforms}
-\\\hline
-\rule{0pt}{3ex} \(f(t)\) & \(\mathcal{L}\{f(t)\}\) & \(f(t)\) & \(\mathcal{L}\{f(t)\}\) \\[2ex]
+\begin{tabular}{|c|c||c|c|}
 \hline
-\rule{0pt}{3ex} \(1\) & \(\frac{1}{s}\) & \(t\sin(at)\) & \(\frac{2a}{(s^2+a^2)^2}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(t\) & \(\frac{1}{s^2}\) & \(t\cos(at)\) & \(\frac{s^2-a^2}{(s^2+a^2)^2}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(t^n\) & \(\frac{n!}{s^{n+1}}\) & \(t^ne^{at}\) & \(\frac{n!}{(s-a)^{n+1}}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(e^{at}\) & \(\frac{1}{s-a}\) & \(\frac{t^n}{n!}\) & \(\frac{1}{s^{n+1}}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(\sin(at)\) & \(\frac{a}{s^2+a^2}\) & \(t^n\cos(at)\) & \(\frac{n!s}{(s^2+a^2)^{n+1}}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(\cos(at)\) & \(\frac{s}{s^2+a^2}\) & \(t^n\sin(at)\) & \(\frac{n!a}{(s^2+a^2)^{n+1}}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(\sinh(at)\) & \(\frac{a}{s^2-a^2}\) & \(\frac{\sin(at)}{t}\) & \(\tan^{-1}(\frac{a}{s})\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(\cosh(at)\) & \(\frac{s}{s^2-a^2}\) & \(J_0(at)\) & \(\frac{1}{\sqrt{s^2+a^2}}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(e^{at}\sin(bt)\) & \(\frac{b}{(s-a)^2+b^2}\) & \(u(t-c)\) & \(\frac{e^{-cs}}{s}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(e^{at}\cos(bt)\) & \(\frac{s-a}{(s-a)^2+b^2}\) & \(\delta(t-c)\) & \(e^{-cs}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(e^{at}f(t)\) & \(F(s-a)\) & \(u(t-a)\) & \(\frac{e^{-as}}{s}\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(te^{at}\) & \(\frac{1}{(s-a)^2}\) & \(\int_{0}^t f(\tau)g(t - \tau) d\tau\) & \(F(s)G(s)\) \\[2ex]
-\hline
-\rule{0pt}{3ex} \(e^{-at^2}\) & \(\frac{\sqrt{\pi}}{2\sqrt{a}}e^{\frac{s^2}{4a}}\text{erfc}(\frac{s}{2\sqrt{a}})\) & \(t^n u(t)\) & \(\frac{n!}{s^{n+1}}\) \\[2ex]
-\hline
+\(f(t)\) & \(\mathcal{L}\{f(t)\}\) & \(f(t)\) & \(\mathcal{L}\{f(t)\}\) \\ \hline
+\(1\) & \(\dfrac{1}{s}\) & \(t\sin(at)\) & \(\dfrac{2as}{(s^2+a^2)^2}\) \\ \hline
+\(t\) & \(\dfrac{1}{s^2}\) & \(t\cos(at)\) & \(\dfrac{s^2-a^2}{(s^2+a^2)^2}\) \\ \hline
+\(t^n\) & \(\dfrac{n!}{s^{n+1}}\) & \(t^ne^{at}\) & \(\dfrac{n!}{(s-a)^{n+1}}\) \\ \hline
+\(e^{at}\) & \(\dfrac{1}{s-a}\) & \(e^{at}\sin(bt)\) & \(\dfrac{b}{(s-a)^2+b^2}\) \\ \hline
+\(\sin(at)\) & \(\dfrac{a}{s^2+a^2}\) & \(e^{at}\cos(bt)\) & \(\dfrac{s-a}{(s-a)^2+b^2}\) \\ \hline
+\(\cos(at)\) & \(\dfrac{s}{s^2+a^2}\) & \(u(t-c)\) & \(\dfrac{e^{-cs}}{s}\) \\ \hline
+\(\sinh(at)\) & \(\dfrac{a}{s^2-a^2}\) & \(\delta(t-c)\) & \(e^{-cs}\) \\ \hline
+\(\cosh(at)\) & \(\dfrac{s}{s^2-a^2}\) & \(e^{at}f(t)\) & \(F(s-a)\) \\ \hline
+\(te^{at}\) & \(\dfrac{1}{(s-a)^2}\) & \(\displaystyle\int_{0}^t\! f(\tau)g(t\!-\!\tau)\,d\tau\) & \(F(s)G(s)\) \\ \hline
+\(\dfrac{\sin(at)}{t}\) & \(\tan^{-1}\!\left(\dfrac{a}{s}\right)\) & \(J_0(at)\) & \(\dfrac{1}{\sqrt{s^2+a^2}}\) \\ \hline
+\end{tabular}
 
-\end{longtable}
-\end{center}
+\medskip
+\textit{General property:} $\mathcal{L}\{t^n f(t)\} = (-1)^n \dfrac{d^n}{ds^n} F(s)$
+\end{table}
+}
 \subsubsection*{Steps for Solving ODEs Using Laplace Transforms}
 
 To solve a linear ODE using Laplace transforms, we follow a systematic approach that transforms our problem into algebraic form and back:
@@ -1974,30 +1974,29 @@ y'' + 4y = \sin(2t),
    \[
    \mathcal{L}^{-1}\left\{
       \frac{1}{(s^2 + a^2)^2}
-   \right\} 
-   = \frac{1}{2a^3}\bigl(a\sin(at) - t\cos(at)\bigr).
+   \right\}
+   = \frac{\sin(at) - at\cos(at)}{2a^3}.
    \]
    Here, $a=2$, so
    \[
    \mathcal{L}^{-1}\left\{
       \frac{1}{(s^2 + 4)^2}
-   \right\} 
-   = \frac{1}{2\cdot 2^3} 
-     \bigl(2\sin(2t) - t\cos(2t)\bigr)
-   = \frac{1}{16}\bigl(2\sin(2t) - t\cos(2t)\bigr).
+   \right\}
+   = \frac{\sin(2t) - 2t\cos(2t)}{2\cdot 8}
+   = \frac{\sin(2t) - 2t\cos(2t)}{16}.
    \]
    Since $Y(s) = 2 \cdot \frac{1}{(s^2 + 4)^2}$, we multiply the above by 2:
    \[
    y(t) = 2 \times
-   \frac{1}{16}\bigl(2\sin(2t) - t\cos(2t)\bigr)
-   = \frac{1}{4}\sin(2t) - \frac{t}{8}\cos(2t).
+   \frac{\sin(2t) - 2t\cos(2t)}{16}
+   = \frac{1}{8}\sin(2t) - \frac{t}{4}\cos(2t).
    \]
 
 \item \textbf{State the final solution:}
 
    \[
-   y(t) = \frac{1}{4}\,\sin(2t) 
-   \;-\; \frac{t}{8}\,\cos(2t).
+   y(t) = \frac{1}{8}\,\sin(2t)
+   \;-\; \frac{t}{4}\,\cos(2t).
    \]
 
 \end{enumerate}
@@ -2754,6 +2753,25 @@ where $c$ is a constant related to the drum's tension and material. We also know
 
 \end{enumerate}
 
+\exampleline
+\begin{example}
+Solve the wave equation
+\[ u_{tt} = c^2 u_{xx}, \quad 0 < x < L, \quad t > 0 \]
+with boundary conditions \( u(0,t) = u(L,t) = 0 \) and initial conditions \( u(x,0) = \sin(\pi x / L) \), \( u_t(x,0) = 0 \).
+
+\begin{solution}
+Separation of variables with \( u(x,t) = X(x)T(t) \) gives:
+\[ \frac{T''}{c^2 T} = \frac{X''}{X} = -\lambda. \]
+The spatial equation \( X'' + \lambda X = 0 \) with \( X(0) = X(L) = 0 \) yields eigenvalues \( \lambda_n = (n\pi/L)^2 \) and eigenfunctions \( X_n = \sin(n\pi x/L) \).\\ \\
+\noindent The time equation \( T'' + c^2\lambda_n T = 0 \) has solutions \( T_n(t) = A_n \cos(cn\pi t/L) + B_n \sin(cn\pi t/L) \).\\ \\
+\noindent The condition \( u_t(x,0) = 0 \) forces \( B_n = 0 \) for all \( n \). The initial condition \( u(x,0) = \sin(\pi x/L) \) matches the \( n=1 \) eigenfunction exactly, so \( A_1 = 1 \) and \( A_n = 0 \) for \( n \geq 2 \).\\ \\
+\noindent The solution is:
+\[ u(x,t) = \cos\left(\frac{c\pi t}{L}\right) \sin\left(\frac{\pi x}{L}\right). \]
+This represents a standing wave: the string vibrates in place with frequency \( c\pi/L \), maintaining the shape of its initial displacement.
+\end{solution}
+\end{example}
+\exampleline
+
 \subsection*{Fourier Series Methods} \index{Partial Differential Equations!Fourier Series}
 
 \noindent Our separation of variables method led us to represent functions as infinite sums of sine functions. This naturally connects to a more general idea called Fourier series, where we can write any well-behaved function as an infinite sum of sines and cosines. On an interval $[-L,L]$, this takes the form:
@@ -2831,17 +2849,17 @@ This could represent, for example, the deflection of a rectangular membrane unde
 
 \item Substituting into Poisson's equation:
    \[
-   \sum_{m=1}^{\infty}\sum_{n=1}^{\infty} \left[-\left(\frac{m\pi}{L}\right)^2 - \left(\frac{n\pi}{H}\right)^2\right]c_{mn}\sin\left(\frac{m\pi x}{L}\right)\sin\left(\frac{n\pi y}{H}\right) = f_{mn}\sin\left(\frac{m\pi x}{L}\right)\sin\left(\frac{n\pi y}{H}\right)
+   \sum_{m=1}^{\infty}\sum_{n=1}^{\infty} \left[-\left(\frac{m\pi}{L}\right)^2 - \left(\frac{n\pi}{H}\right)^2\right]c_{mn}\sin\left(\frac{m\pi x}{L}\right)\sin\left(\frac{n\pi y}{H}\right) = \sum_{m=1}^{\infty}\sum_{n=1}^{\infty} f_{mn}\sin\left(\frac{m\pi x}{L}\right)\sin\left(\frac{n\pi y}{H}\right)
    \]
 
 \item Comparing coefficients:
    \[
-   c_{mn} = \frac{f_{mn}}{\left(\frac{m\pi}{L}\right)^2 + \left(\frac{n\pi}{H}\right)^2}
+   c_{mn} = \frac{f_{mn}}{-\left(\frac{m\pi}{L}\right)^2 - \left(\frac{n\pi}{H}\right)^2}
    \]
 
 \item Computing $f_{mn}$:
    \[
-   f_{mn} = \frac{16}{mn\pi^2} \quad \text{for odd } m,n
+   f_{mn} = \frac{-16}{mn\pi^2} \quad \text{for odd } m,n
    \]
    and zero otherwise.
 
@@ -2867,51 +2885,60 @@ This could represent, for example, the deflection of a rectangular membrane unde
 
 \lecture{Methods of Solving Partial Differential Equations II} \index{Partial Differential Equations!Methods}
 
-\noindent After exploring separation of variables and Fourier methods, we confront a fundamental question: what happens when our PDEs resist these powerful but specialized techniques? What if our equation doesn't neatly separate, or our domain isn't amenable to Fourier analysis? Nature, after all, rarely confines itself to rectangular domains and simple boundary conditions. We need more general tools, and this leads us to one of the most elegant and geometrically insightful approaches: the method of characteristics. \\
-
-\noindent Consider a simple wave propagating through space. How does information travel? If we drop a stone in a pond, we see ripples moving outward along definite paths. If we shout in a still room, sound waves travel along straight lines until they hit walls. These intuitive observations suggest a profound mathematical truth: the solutions to many PDEs naturally organize themselves along special curves in space and time. These curves—our characteristics—aren't just mathematical constructs; they represent the actual paths along which information propagates.
+\noindent First-order PDEs are solved by a beautifully geometric method: we find special curves---\textit{characteristics}---along which the PDE becomes an ordinary differential equation. That single idea is the whole story, and once you see it, the technique feels almost inevitable. \\
 
 \subsection*{Method of Characteristics} \index{Partial Differential Equations!Method of Characteristics}
 
-\noindent The method of characteristics is a technique for solving first-order partial differential equations by reducing them to a system of ordinary differential equations along special curves where the solution behaves in a particularly simple way. Consider a first-order PDE of the form:
+\subsubsection*{Motivation: The Transport Equation}
 
+\noindent Before we state the general method, let's see it in action on the simplest possible first-order PDE---the \textbf{transport equation}:
 \[
-a(x,y) \frac{\partial u}{\partial x} + b(x,y) \frac{\partial u}{\partial y} = c(x,y,u).
+u_t + c\, u_x = 0, \qquad u(x,0) = f(x).
+\]
+What does this equation say? The rate of change of \( u \) in time, plus \( c \) times its rate of change in space, equals zero. Physically, this describes a quantity (a wave profile, a concentration, a temperature pulse) moving to the right at constant speed \( c \) without changing shape. \\
+
+\noindent The solution is \( u(x,t) = f(x - ct) \)---the initial profile simply translates to the right at speed \( c \). Let's verify:
+\[
+u_t = -c\,f'(x - ct), \qquad u_x = f'(x - ct), \qquad \Longrightarrow \quad u_t + c\,u_x = -c\,f' + c\,f' = 0. \;\checkmark
 \]
 
-\noindent This equation presents a fundamental challenge: the function \( u(x,y) \) depends on two independent variables in a manner that does not readily permit direct integration. However, if we can identify curves in the domain along which the PDE transforms into an ordinary differential equation, solving for \( u \) becomes significantly more tractable. These curves, called \textit{characteristics}, are paths along which information propagates and where the solution can be determined explicitly. \\
+\noindent But how would we \textit{discover} this solution systematically? Here's the key observation: along the lines \( x - ct = \text{constant} \) in the \((x,t)\)-plane, the PDE tells us that \( \dfrac{du}{dt} = 0 \)---the solution is constant! These lines are called the \textbf{characteristics} of the equation. Along each characteristic, we don't need to solve a PDE at all; we just carry the initial value forward unchanged. That's the entire idea behind the method of characteristics: \textit{find curves along which the PDE reduces to an ODE, then solve the ODE}.
 
-\noindent To derive the characteristic equations, consider a curve parameterized by \( t \), given by \( (x(t), y(t)) \), along which the solution can be expressed as \( u = u(x(t), y(t)) \). Applying the chain rule, the total derivative of \( u \) along this curve satisfies:
+\subsubsection*{The General Method}
 
+\noindent Now let's set up the method for a general first-order PDE of the form
 \[
-\frac{du}{dt} = \frac{\partial u}{\partial x} \frac{dx}{dt} + \frac{\partial u}{\partial y} \frac{dy}{dt}.
+a(x,y)\,\frac{\partial u}{\partial x} + b(x,y)\,\frac{\partial u}{\partial y} = c(x,y,u).
 \]
+The method has four steps.
 
-\noindent The original PDE suggests choosing the characteristic curves such that:
+\begin{enumerate}
+    \item \textbf{Write the characteristic equations in ratio form.} \\
+    The characteristic equations are:
+    \[
+    \frac{dx}{a} = \frac{dy}{b} = \frac{du}{c}.
+    \]
+    This compact notation encodes three things at once: how \( x \), \( y \), and \( u \) evolve together along the characteristic curves. (If any denominator is zero, interpret the corresponding numerator as zero as well---that component is simply constant.)
 
-\[
-\frac{dx}{dt} = a(x,y), \quad \frac{dy}{dt} = b(x,y).
-\]
+    \item \textbf{Find the characteristic curves.} \\
+    From the first two ratios, solve the ODE:
+    \[
+    \frac{dy}{dx} = \frac{b}{a}.
+    \]
+    The solution gives a family of curves \( \varphi(x,y) = C_1 \) in the \(xy\)-plane. These are the \textit{characteristics}---the paths along which information propagates.
 
-\noindent Substituting these into the total derivative expression, we obtain:
+    \item \textbf{Solve for \( u \) along the characteristics.} \\
+    Using the first and third ratios (or the second and third), solve the ODE:
+    \[
+    \frac{du}{dx} = \frac{c}{a} \qquad \text{(or equivalently } \frac{du}{dy} = \frac{c}{b}\text{)}.
+    \]
+    This is now an ordinary differential equation for \( u \) in terms of one variable. Along the characteristic curves, the original PDE has been completely reduced to this ODE.
 
-\[
-\frac{du}{dt} = a(x,y) \frac{\partial u}{\partial x} + b(x,y) \frac{\partial u}{\partial y} = c(x,y,u).
-\]
+    \item \textbf{Write the general solution and apply conditions.} \\
+    The general solution is \( u \) expressed in terms of an \textit{arbitrary function} of \( \varphi(x,y) \). If initial or boundary conditions are given, use them to determine the arbitrary function.
+\end{enumerate}
 
-\noindent This leads to the system of characteristic equations:
-
-\[
-\frac{dx}{dt} = a(x,y), \quad \frac{dy}{dt} = b(x,y), \quad \frac{du}{dt} = c(x,y,u).
-\]
-
-\noindent These equations provide a direct method for solving the PDE: first, determine the characteristic curves by solving the system for \( x(t) \) and \( y(t) \), then solve for \( u(t) \) along these curves. Geometrically, characteristics represent trajectories in the \((x,y)\)-plane along which the function \( u \) evolves according to an ordinary differential equation. This transformation is powerful because it allows the PDE to be solved implicitly by integrating along these curves. Instead of solving for \( u(x,y) \) explicitly, we solve the system:
-
-\[
-\frac{dx}{a(x,y)} = \frac{dy}{b(x,y)} = \frac{du}{c(x,y,u)}.
-\]
-
-\noindent Once these equations are integrated, the solution is reconstructed implicitly in terms of the characteristic variables. The method of characteristics thus reveals an underlying structure within the PDE that makes it solvable by standard techniques for ODEs, providing insight into how solutions propagate in the domain. 
+\noindent The key insight, worth repeating: \textit{along the characteristic curves, the PDE reduces to an ODE. That's the entire idea.} Everything else is just bookkeeping.
 
 \begin{figure}[htbp]
 \centering
@@ -3004,67 +3031,11 @@ a(x,y) \frac{\partial u}{\partial x} + b(x,y) \frac{\partial u}{\partial y} = c(
 \end{tikzpicture}
 \end{minipage}
 
-\caption{\textit{Geometric visualization of the method of characteristics. Left: Characteristic curves in the xy-plane showing the paths along which information propagates. Right: Evolution of the solution u along different characteristics, with matching colors indicating correspondence between paths and solutions. Each characteristic curve $\mathcal{C}_i$ determines the evolution of its corresponding solution $u_i(t)$.}}
+\caption{\textit{Geometric visualization of the method of characteristics. Left: Characteristic curves in the \(xy\)-plane showing the paths along which information propagates---each curve \(\mathcal{C}_i\) represents a different characteristic. Right: The solution \(u\) evolving along these characteristics. The PDE reduces to an ODE along each curve, so solving the PDE amounts to solving an ODE along each path.}}
 \label{fig:characteristics}
 \end{figure}
 
-\noindent The geometric elegance of the method of characteristics comes alive through the visualizations in Figure \ref{fig:characteristics}. In the left panel, characteristic curves serve as ``information highways"—paths along which our solution propagates through space. The blue curves $\mathcal{C}_1$, $\mathcal{C}_2$, and $\mathcal{C}_3$ trace these pathways, with arrows indicating the evolution parameter $t$. \\
-
-\noindent The right panel reveals how solutions evolve along these predetermined routes, with red curves $u_1(t)$, $u_2(t)$, and $u_3(t)$ showing the solution values changing along different characteristics. Together, these visualizations transform our abstract PDE into a concrete geometric process: characteristic curves show where information flows, while evolution profiles reveal how solution values change along these paths. \\
-
-\noindent To apply the method of characteristics in practice, follow these steps systematically. The goal is to reduce the given first-order PDE to a set of ordinary differential equations and then solve for the solution along characteristic curves.
-\begin{enumerate}
-    \item \textbf{Identify the given PDE and express it in standard form.} \\
-    Given a first-order PDE of the form:
-    \[
-    a(x,y) \frac{\partial u}{\partial x} + b(x,y) \frac{\partial u}{\partial y} = c(x,y,u),
-    \]
-    verify that it is written explicitly in terms of its characteristic coefficients \( a(x,y) \), \( b(x,y) \), and \( c(x,y,u) \). If necessary, rearrange terms to ensure that the PDE is properly structured.
-
-    \item \textbf{Set up the characteristic equations.} \\
-    The core idea of the method is to transform the PDE into a system of ordinary differential equations along characteristic curves. The characteristic equations are derived from the total derivative of \( u \) along these curves:
-    \[
-    \frac{dx}{dt} = a(x,y), \quad \frac{dy}{dt} = b(x,y), \quad \frac{du}{dt} = c(x,y,u).
-    \]
-    These equations describe the evolution of \( x \), \( y \), and \( u \) as functions of a parameter \( t \) along the characteristic curves.
-
-    \item \textbf{Set up invariants along the characteristic curves.} \\
-    For nonlinear PDEs, it is often useful to identify invariants—quantities that remain constant along each characteristic curve. To do this, look for functions \( I(x,y,u) \) such that:
-    \[
-    \frac{d}{dt} I(x(t), y(t), u(t)) = 0.
-    \]
-    These invariants are typically obtained by taking appropriate ratios or combinations of the characteristic equations, and they can greatly simplify the integration process by reducing the number of independent variables.
-
-    \item \textbf{Solve for the characteristic curves.} \\
-    Solve the first two equations:
-    \[
-    \frac{dx}{dt} = a(x,y), \quad \frac{dy}{dt} = b(x,y).
-    \]
-    This system provides the characteristic curves, which represent the paths along which information propagates in the domain. Depending on the complexity of \( a(x,y) \) and \( b(x,y) \), these equations may be solved explicitly or implicitly. The solution to this system typically provides a family of characteristic curves parameterized by constants.
-
-    \item \textbf{Solve for \( u \) along the characteristic curves.} \\
-    Using the solution \( x(t) \) and \( y(t) \) from the previous step, solve the third characteristic equation:
-    \[
-    \frac{du}{dt} = c(x,y,u).
-    \]
-    With \( x \) and \( y \) now parameterized by \( t \), this equation reduces to a standard ordinary differential equation for \( u(t) \), which can often be solved directly using standard integration techniques.
-
-    \item \textbf{Determine the general solution.} \\
-    The solution \( u(t) \) obtained from the previous step provides an expression for \( u \) in terms of \( t \). However, since \( x \) and \( y \) are also functions of \( t \), the solution must be rewritten in terms of the original variables \( x \) and \( y \). This often involves expressing the solution implicitly or, when possible, solving explicitly for \( u(x,y) \).
-
-    \item \textbf{Apply initial or boundary conditions.} \\
-    If an initial or boundary condition is provided, such as:
-    \[
-    u(x_0, y_0) = u_0,
-    \]
-    use this information to determine any remaining constants of integration from the characteristic equations. The initial conditions typically define a curve in the \((x,y)\)-plane, and the characteristic curves must be matched to these initial values.
-
-    \item \textbf{Express the final solution in terms of \( x \) and \( y \).} \\
-    Once the characteristic system is fully solved, the final solution to the PDE should be written in terms of \( x \) and \( y \). In many cases, the solution is obtained implicitly as an equation relating \( x \), \( y \), and \( u \). If explicit inversion is possible, solve for \( u(x,y) \).
-\end{enumerate}
-
-
-\noindent The method of characteristics is particularly useful for solving transport equations, wave equations, and Hamilton-Jacobi equations. It provides deep insight into how solutions propagate along characteristic curves, revealing important structural properties of the underlying PDE.
+\noindent Figure~\ref{fig:characteristics} shows a generic illustration of the method. Characteristic curves (left) represent paths in the \( xy \)-plane along which the PDE reduces to an ODE; the right panel shows how the solution evolves along each curve. The whole method boils down to this picture---find the curves, solve along them.
 
 \exampleline
 \begin{example}
@@ -3074,152 +3045,109 @@ x \frac{\partial u}{\partial x} + y \frac{\partial u}{\partial y} = u
 \]
 
 \begin{solution}
+Here \( a = x \), \( b = y \), and \( c = u \).
+
 \begin{enumerate}
-    \item \textbf{Formulate the characteristic equations.} \\
-    The PDE is given in the form:
+    \item \textbf{Write the characteristic equations.} \\
     \[
-    a(x,y) \frac{\partial u}{\partial x} + b(x,y) \frac{\partial u}{\partial y} = c(x,y,u),
-    \]
-    where \( a(x,y) = x \), \( b(x,y) = y \), and \( c(x,y,u) = u \). The characteristic equations are:
-    \[
-    \frac{dx}{dt} = x, \quad \frac{dy}{dt} = y, \quad \frac{du}{dt} = u.
-    \]
-    
-    \item \textbf{Solve for the characteristic curves.} \\
-    The first two equations,
-    \[
-    \frac{dx}{dt} = x, \quad \frac{dy}{dt} = y,
-    \]
-    are separable and solve to:
-    \[
-    x = C_1 e^t, \quad y = C_2 e^t.
-    \]
-    These describe exponential growth along characteristic curves.
-
-    \item \textbf{Solve for \( u \) along characteristics.} \\
-    The third equation,
-    \[
-    \frac{du}{dt} = u,
-    \]
-    has the general solution:
-    \[
-    u = C_3 e^t.
+    \frac{dx}{x} = \frac{dy}{y} = \frac{du}{u}.
     \]
 
-    \item \textbf{Eliminate the parameter \( t \).} \\
-    Since \( x = C_1 e^t \) and \( y = C_2 e^t \), we take the ratio:
+    \item \textbf{Find the characteristic curves.} \\
+    From the first two ratios:
     \[
-    \frac{x}{C_1} = e^t, \quad \frac{y}{C_2} = e^t.
+    \frac{dy}{dx} = \frac{y}{x}.
     \]
-    Setting them equal gives:
+    This is a separable ODE. Separating and integrating:
     \[
-    \frac{x}{C_1} = \frac{y}{C_2},
+    \frac{dy}{y} = \frac{dx}{x} \quad \Longrightarrow \quad \ln|y| = \ln|x| + \text{const} \quad \Longrightarrow \quad y = C_1 x.
     \]
-    which simplifies to the characteristic equation:
-    \[
-    \frac{x}{y} = \frac{C_1}{C_2} = C.
-    \]
-    This means \( x/y \) is constant along characteristics.
+    So the characteristics are straight lines through the origin, parameterized by the constant \( C_1 = y/x \).
 
-    \item \textbf{Express the solution in terms of \( x \) and \( y \).} \\
-    Since \( u = C_3 e^t \) and we found \( e^t = x/C_1 \), we substitute:
+    \item \textbf{Solve for \( u \) along the characteristics.} \\
+    From the first and third ratios:
     \[
-    u = C_3 \frac{x}{C_1}.
+    \frac{du}{dx} = \frac{u}{x}.
     \]
-    Since \( C_1 \) and \( C_2 \) are related by \( C = C_1/C_2 \), the general solution can be written in terms of an arbitrary function:
+    Again separable:
     \[
-    u(x,y) = F\left( \frac{x}{y} \right) x.
+    \frac{du}{u} = \frac{dx}{x} \quad \Longrightarrow \quad \ln|u| = \ln|x| + \text{const} \quad \Longrightarrow \quad u = Dx.
     \]
-    Thus, the general solution is any function of \( x/y \) multiplied by \( x \).
+    So \( u \) grows linearly with \( x \) along each characteristic.
 
-    \item \textbf{Verification.} \\
-    Differentiating:
+    \item \textbf{Write the general solution.} \\
+    Along the characteristic \( y = C_1 x \), we have \( C_1 = y/x \), and the constant \( D \) can depend on which characteristic we are on---that is, \( D \) is a function of \( C_1 \). Therefore:
     \[
-    \frac{\partial u}{\partial x} = F\left( \frac{x}{y} \right) + x F' \left( \frac{x}{y} \right) \frac{1}{y}, \quad
-    \frac{\partial u}{\partial y} = x F' \left( \frac{x}{y} \right) \frac{-x}{y^2}.
+    \boxed{u(x,y) = x\, F\!\left(\frac{y}{x}\right)}
     \]
-    Substituting into the original PDE:
-    \[
-    x \left( F + \frac{x}{y} F' \right) + y \left( - \frac{x^2}{y^2} F' \right) = x F + x \frac{x}{y} F' - x \frac{x}{y} F' = xF.
-    \]
-    Since this matches \( u = xF(x/y) \), the solution is verified.
+    where \( F \) is an arbitrary function.
 \end{enumerate}
+
+\noindent \textbf{Verification.} Let's check directly. With \( u = xF(y/x) \), let \( w = y/x \). Then:
+    \[
+    \frac{\partial u}{\partial x} = F(w) + x F'(w) \cdot \frac{-y}{x^2} = F(w) - \frac{y}{x} F'(w), \qquad
+    \frac{\partial u}{\partial y} = x F'(w) \cdot \frac{1}{x} = F'(w).
+    \]
+    Substituting into the PDE:
+    \[
+    x \left( F - \frac{y}{x} F' \right) + y \, F' = xF - yF' + yF' = xF = u. \;\checkmark
+    \]
 \end{solution}
 \end{example}
 \exampleline
 \begin{example}
-Solve the nonlinear first-order PDE:
+Solve the PDE with initial condition:
 \[
-u\frac{\partial u}{\partial x} + (x+u)\frac{\partial u}{\partial y} = x
+\frac{\partial u}{\partial x} + 2\frac{\partial u}{\partial y} = 0, \qquad u(x,0) = \sin(x).
 \]
 
 \begin{solution}
+Here \( a = 1 \), \( b = 2 \), and \( c = 0 \).
+
 \begin{enumerate}
-\item \textbf{Formulate the characteristic equations.} \\
-The PDE is given in the form:
-\[
-a(x,y,u)\frac{\partial u}{\partial x} + b(x,y,u)\frac{\partial u}{\partial y} = c(x,y,u),
-\]
-where \(a(x,y,u) = u\), \(b(x,y,u) = x+u\), and \(c(x,y,u) = x\). The characteristic equations are:
-\[
-\frac{dx}{ds} = u, \quad \frac{dy}{ds} = x+u, \quad \frac{du}{ds} = x
-\]
+    \item \textbf{Write the characteristic equations.} \\
+    \[
+    \frac{dx}{1} = \frac{dy}{2} = \frac{du}{0}.
+    \]
 
-\item \textbf{Solve for \(x\) and \(u\).} \\
-From the first and third equations:
-\[
-\frac{dx}{ds} = u, \quad \frac{du}{ds} = x
-\]
-Differentiating the first equation with respect to \(s\):
-\[
-\frac{d^2x}{ds^2} = \frac{du}{ds} = x
-\]
-This yields the second-order ODE:
-\[
-\frac{d^2x}{ds^2} = x
-\]
-with general solution:
-\[
-x(s) = Ae^s + Be^{-s}
-\]
-where \(A\) and \(B\) are constants. Consequently:
-\[
-u(s) = \frac{dx}{ds} = Ae^s - Be^{-s}
-\]
+    \item \textbf{Find the characteristic curves.} \\
+    From the first two ratios:
+    \[
+    \frac{dy}{dx} = \frac{2}{1} = 2 \quad \Longrightarrow \quad y = 2x + C_1.
+    \]
+    So the characteristics are parallel lines with slope 2. The quantity \( \varphi(x,y) = y - 2x \) is constant along each characteristic.
 
-\item \textbf{Identify the first invariant.} \\
-Observe that:
-\begin{align*}
-x^2 - u^2 &= (Ae^s + Be^{-s})^2 - (Ae^s - Be^{-s})^2 \\
-&= 4AB
-\end{align*}
-Therefore, \(I_1 = x^2 - u^2\) is constant along characteristics.
+    \item \textbf{Solve for \( u \) along the characteristics.} \\
+    From the first and third ratios:
+    \[
+    \frac{du}{dx} = \frac{0}{1} = 0.
+    \]
+    So \( u \) is \textit{constant} along each characteristic. This makes sense: with \( c = 0 \), the PDE says that \( u \) doesn't change as we move along the characteristic curves.
 
-\item \textbf{Solve for \(y\).} \\
-From \(\frac{dy}{ds} = x+u\):
-\[
-\frac{dy}{ds} = (Ae^s + Be^{-s}) + (Ae^s - Be^{-s}) = 2Ae^s
-\]
-Integrating:
-\[
-y(s) = 2Ae^s + C
-\]
-where \(C\) is constant.
-
-\item \textbf{Identify the second invariant.} \\
-Note that \(x + u = 2Ae^s\), therefore:
-\[
-I_2 = y - (x + u)
-\]
-is also constant along characteristics.
-
-\item \textbf{Express the general solution.} \\
-Since both \(I_1\) and \(I_2\) are constant along characteristics, the general solution has the implicit form:
-\[
-\Phi(x^2 - u^2, y - x - u) = 0
-\]
-where \(\Phi\) is an arbitrary function of two variables.
+    \item \textbf{Write the general solution and apply the initial condition.} \\
+    Since \( u \) is constant along each characteristic, and each characteristic is labeled by \( y - 2x = C_1 \), the general solution is:
+    \[
+    u(x,y) = F(y - 2x)
+    \]
+    for an arbitrary function \( F \). Now apply the initial condition \( u(x,0) = \sin(x) \):
+    \[
+    F(0 - 2x) = \sin(x) \quad \Longrightarrow \quad F(-2x) = \sin(x).
+    \]
+    Let \( s = -2x \), so \( x = -s/2 \), and therefore \( F(s) = \sin(-s/2) = -\sin(s/2) \). Substituting back:
+    \[
+    u(x,y) = F(y - 2x) = -\sin\!\left(\frac{y - 2x}{2}\right) = \boxed{\sin\!\left(\frac{2x - y}{2}\right)}.
+    \]
 \end{enumerate}
+
+\noindent \textbf{Verification.} Compute the partial derivatives:
+\[
+u_x = \cos\!\left(\frac{2x - y}{2}\right) \cdot \frac{2}{2} = \cos\!\left(\frac{2x - y}{2}\right), \qquad u_y = \cos\!\left(\frac{2x - y}{2}\right) \cdot \frac{-1}{2}.
+\]
+Then:
+\[
+u_x + 2u_y = \cos\!\left(\frac{2x-y}{2}\right) + 2 \cdot \left(-\tfrac{1}{2}\right)\cos\!\left(\frac{2x-y}{2}\right) = \cos - \cos = 0. \;\checkmark
+\]
+And at \( y = 0 \): \( u(x,0) = \sin\!\left(\frac{2x}{2}\right) = \sin(x). \;\checkmark \)
 \end{solution}
 \end{example}
 \exampleline
@@ -3572,7 +3500,7 @@ K(x,t;x',0) = \sqrt{\frac{m}{2\pi i\hbar t}}e^{i\frac{m(x-x')^2}{2\hbar t}}
 \begin{itemize}
    \item The magnitude \(|K|\) spreads out like \(1/\sqrt{t}\), reflecting quantum uncertainty
    \item The phase factor oscillates more rapidly for larger \(|x-x'|\)
-   \item The solution conserves probability: \(\int |K|^2dx = 1\)
+   \item The propagator preserves the total probability: if $\int |\psi(x,0)|^2 dx = 1$, then $\int |\psi(x,t)|^2 dx = 1$ for all $t > 0$.
    \item The classical limit (\(\hbar \to 0\)) concentrates the propagation along classical paths
 \end{itemize}
 
@@ -3614,7 +3542,7 @@ K(x,t;x',0) = \sqrt{\frac{m}{2\pi i\hbar t}}e^{i\frac{m(x-x')^2}{2\hbar t}}
     
     \item \textbf{Laplace Transform:} An integral transform that converts differential equations to algebraic equations.
 
-    \item \textbf{Characteristic Equations:} System of ordinary differential equations derived from a PDE that describe curves along which the solution propagates.
+    \item \textbf{Characteristic Equations (PDE):} System of ordinary differential equations derived from a PDE that describe curves along which the solution propagates.
     
     \item \textbf{Green's Function:} A fundamental solution to an inhomogeneous differential equation for a point source (delta function) input, used to construct solutions for arbitrary forcing functions.
     
@@ -3624,11 +3552,31 @@ K(x,t;x',0) = \sqrt{\frac{m}{2\pi i\hbar t}}e^{i\frac{m(x-x')^2}{2\hbar t}}
     
     \item \textbf{Characteristic Curves:} Paths in the domain along which information propagates in the solution of a PDE.
     
-    \item \textbf{Delta Function:} A generalized function $\delta$(x) that equals infinity at $x = 0$, zero elsewhere, with unit integral.
+    \item \textbf{Delta Function:} A generalized function satisfying $\delta(x) = 0$ for $x \neq 0$ and $\int_{-\infty}^{\infty} \delta(x) \, dx = 1$.
     
     \item \textbf{Forcing Function:} The inhomogeneous term in a differential equation representing external influences or sources.
-    
+
+    \item \textbf{Variation of Parameters:} A method for finding particular solutions to non-homogeneous linear ODEs using the Wronskian of the homogeneous solutions.
+
+    \item \textbf{Method of Undetermined Coefficients:} A method for finding particular solutions by guessing the form of the solution based on the forcing function.
+
+    \item \textbf{Bernoulli Equation:} A first-order ODE of the form \( y' + P(x)y = Q(x)y^n \), solved by the substitution \( v = y^{1-n} \).
+
+    \item \textbf{Exact Equation:} A first-order ODE of the form \( M(x,y)\,dx + N(x,y)\,dy = 0 \) where \( \partial M/\partial y = \partial N/\partial x \), implying the existence of a potential function.
+
+    \item \textbf{Superposition Principle:} For linear equations, the sum of any two solutions to the homogeneous equation is also a solution.
+
     \item \textbf{Self-Adjoint Operator:} A differential operator $L$ whose Green's function exhibits symmetry: $G(x,\xi) = G(\xi,x)$.
+
+    \item \textbf{Partial Differential Equation (PDE):} An equation involving partial derivatives of an unknown function of two or more independent variables.
+
+    \item \textbf{General Solution:} The most general form of the solution to a differential equation, containing arbitrary constants (ODE) or arbitrary functions (PDE).
+
+    \item \textbf{Separation of Variables:} A technique for solving PDEs by assuming the solution can be written as a product of functions, each depending on only one variable.
+
+    \item \textbf{Fourier Series:} A representation of a function as an infinite sum of sine and cosine terms, used to satisfy boundary conditions in PDE solutions.
+
+    \item \textbf{Elliptic/Parabolic/Hyperbolic:} Classification of second-order linear PDEs based on the discriminant of the coefficient matrix, determining the qualitative behavior of solutions.
 \end{itemize}
 
 \subsection*{Key Formulas}
@@ -3791,11 +3739,43 @@ u(\mathbf{x}) = \int_{\Omega} G(\mathbf{x},\boldsymbol{\xi})f(\boldsymbol{\xi})d
 i\hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\Delta \psi + V\psi
 \]
 
+\paragraph{Exact Equation Condition:}
+\[
+\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+\]
+
+\paragraph{Fourier Sine Series Coefficients:}
+\[
+b_n = \frac{2}{L} \int_0^L f(x) \sin\left(\frac{n\pi x}{L}\right) dx
+\]
+
+\paragraph{Heat Equation Solution (Separation of Variables):}
+\[
+u(x,t) = \sum_{n=1}^{\infty} b_n \sin\left(\frac{n\pi x}{L}\right) e^{-\alpha (n\pi/L)^2 t}
+\]
+
+\paragraph{PDE Classification:}
+For $Au_{xx} + 2Bu_{xy} + Cu_{yy} + \cdots = 0$:
+\begin{itemize}
+    \item $B^2 - AC < 0$: Elliptic (e.g.\ Laplace)
+    \item $B^2 - AC = 0$: Parabolic (e.g.\ Heat)
+    \item $B^2 - AC > 0$: Hyperbolic (e.g.\ Wave)
+\end{itemize}
+
+\paragraph{Initial/Boundary Conditions:}
+\begin{align*}
+\text{IVP:}\; &y(t_0) = y_0,\; y'(t_0) = y_1\\
+\text{BVP:}\; &y(a) = \alpha,\; y(b) = \beta
+\end{align*}
+
+\paragraph{Homogeneous Equations:}
+If $M(x,y)\,dx + N(x,y)\,dy = 0$ where $M,N$ are homogeneous of same degree, substitute $v = y/x$, $y = vx$, $dy = v\,dx + x\,dv$.
+
 \end{multicols}
 
 \bigskip 
 
-\noindent For tables for Laplace trasnforms or Green's functions please see earlier in the chapter or Appendix E.
+\noindent For tables for Laplace transforms or Green's functions please see earlier in the chapter or Appendix E.
 \newpage
 
 \practice{}
@@ -3894,16 +3874,16 @@ i\hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\Delta \psi + V\psi
     \frac{dy}{dx} = \frac{2x}{1+y^2}.
     \]
 
-    \item Verify that 
+    \item Verify that
     \[
     y(x)=e^x-1
     \]
     is a solution of 
     \[
-    \frac{dy}{dx} - y = e^x.
+    \frac{dy}{dx} - y = 1.
     \]
 
-    \item Determine if the ODE 
+    \item Determine if the ODE
     \[
     \bigl(y\cos(x)-\sin(x)\bigr)\,dx + \cos(x)\,dy = 0
     \]
@@ -3929,9 +3909,9 @@ i\hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\Delta \psi + V\psi
     \frac{dy}{dx} + \frac{2}{x}y = \sin(x), \quad x>0.
     \]
 
-    \item Solve the ODE
+    \item Solve the Bernoulli equation
     \[
-    \frac{dy}{dx} = \frac{y-x}{y+x}.
+    y' - \frac{1}{x}y = xy^3.
     \]
 
     \item Solve the ODE
@@ -4041,15 +4021,9 @@ i\hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\Delta \psi + V\psi
     y''' + 3y'' + 3y' + y = e^{-x}.
     \]
 
-  \item Use variation of parameters to find a particular solution of
-    \[
-    y'' + 2y' + y = x.
-    \]
-    
-  \item Use variation of parameters to find a particular solution of
-    \[
-    y'' - 2y' + y = xe^x.
-    \]
+  \item Solve Problem 36 again using Laplace transforms. Compare your answer.
+
+  \item Use Laplace transforms to solve $y'' - 3y' + 2y = e^{3t}$, $y(0) = 0$, $y'(0) = 0$.
 
   \item Find a particular solution of
     \[
@@ -4062,17 +4036,16 @@ i\hbar\frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\Delta \psi + V\psi
     y'' + y = \sec^2 x.
     \]
         
-  \item Solve the non-homogeneous integro-differential equation
+  \item Use Laplace transforms to solve
     \[
-    y''(t) + y(t) = \int_0^t y(s)\,ds
+    y'(t) + \int_0^t y(s) \, ds = 1, \quad y(0) = 0.
     \]
-given $\quad y(0)=0,\quad y'(0)=1.$
     
   \item Solve the ODE with discontinuous forcing using Laplace transforms:
     \[
     y'' + 2y' + 5y = u(t-3)
     \]
-    given $\quad y(0)=0,\quad y'(0)=1.$, where \(u(t-3)\) is the Heaviside step function
+    given $\quad y(0)=0,\quad y'(0)=1$, where \(u(t-3)\) is the Heaviside step function
     
   \item Solve the ODE with impulsive forcing using Laplace transforms:
     \[
@@ -4217,11 +4190,7 @@ given $\quad y(0)=0,\quad y'(0)=0.$
     \]
     using the method of characteristics.
 
-  \item Solve the integro-differential PDE
-    \[
-    u_t=u_{xx}+\int_0^x u(\xi,t)\,d\xi
-    \]
-   given $\quad 0<x<L,\;t>0 $ with \(u(0,t)=u(L,t)=0\) and initial condition \(u(x,0)=f(x)\) via separation of variables.
+  \item Solve the heat equation $u_t = u_{xx}$ on $0 < x < 1$ with $u(0,t) = 0$, $u(1,t) = 0$, and $u(x,0) = x(1-x)$ using separation of variables. Compute the first three nonzero terms of the Fourier series solution.
 
   \item Solve the heat equation with Neumann boundary conditions:
     \[

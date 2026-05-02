@@ -1,13 +1,10 @@
 
 \chapter{Complex Variables}
 \section*{Introduction}
-Our journey through calculus has taken us from single-variable functions to multivariable calculus in $\mathbb{R}^2$ and $\mathbb{R}^3$. Now, we turn to complex variables—not an esoteric detour but a natural extension of multidimensional calculus. The complex plane provides a fresh perspective on two-dimensional space, reshaping our understanding of functions, derivatives, and integrals.\\
-
-\noindent The complex plane is isomorphic to $\mathbb{R}^2$ -- a fancy way of saying there is a one-to-one correspondence preserving mathematical operations. Writing $z = x + iy$ simply recasts $(x,y)$ in a new framework. Yet, with complex multiplication and division, stunning geometric patterns emerge—multiplying by $i$ corresponds to a 90-degree rotation, blending algebra and geometry in ways real analysis only hints at.\\
-
-\noindent Concepts from vector calculus, such as line integrals and Green’s theorem, reappear in unexpected ways. Complex line integrals, though syntactically similar to real ones, exhibit striking properties—paths can often be deformed without altering the integral, mirroring conservative vector fields. The complex derivative, when it exists, ensures not just differentiability but analyticity, a property far stronger than in real analysis.\\
-
-\noindent This journey promises both challenges and insights. Though the ideas may seem abstract at first, they build naturally on your knowledge, unifying and transforming familiar calculus concepts. Complex analysis reveals profound symmetries and patterns, making it a cornerstone of modern mathematics.
+Our journey through calculus has taken us from single-variable functions to multivariable calculus in \( \mathbb{R}^2 \) and \( \mathbb{R}^3 \), culminating in the great theorems of vector calculus. Now, we turn to complex variables---not an esoteric detour but a natural extension of the ideas we have been building. The complex plane provides a fresh perspective on two-dimensional space, one that reveals hidden structure and symmetry that real analysis alone cannot see.\\ \\
+\noindent At first glance, the complex plane looks identical to \( \mathbb{R}^2 \): a point \( z = x + iy \) is just the ordered pair \( (x, y) \) written in a different notation. But complex multiplication changes everything. Multiplying by \( i \) rotates a vector 90 degrees; multiplying by \( e^{i\theta} \) rotates by \( \theta \). Algebra and geometry become one. Functions of a complex variable don’t just map points to points---they warp, rotate, and scale regions of the plane in structured, conformal ways that preserve angles and local shape.\\ \\
+\noindent Concepts from vector calculus reappear in unexpected and more powerful forms. Complex line integrals mirror the real ones we studied in Chapter 5, but they obey far stronger rules: in a simply connected domain, the integral of a holomorphic function around any closed loop is zero---not because the field is conservative, but because complex differentiability is so much stronger than real differentiability. The \textbf{Cauchy-Riemann equations}, which govern when a complex derivative exists, turn out to be exactly the conditions for a vector field to be simultaneously irrotational and incompressible---connecting us back to the divergence and curl of Chapter 5.\\ \\
+\noindent The chapter builds to a spectacular payoff: the \textbf{Residue Theorem}, which lets us evaluate difficult real integrals---integrals that resist every technique we learned in Calculus I and II---by detouring through the complex plane. This is one of the most beautiful and practically useful results in all of mathematics. Lectures 5 and 6, which develop contour integration and residues, go beyond the standard Calculus III curriculum and are included as enrichment for students who want to see where these ideas lead.
 
 
 
@@ -154,9 +151,9 @@ i(a + bi) = ai + bi^2 = ai + b(-1) = -b + ai
 
 \noindent A fundamental concept in complex analysis is that an equation of the form $|z - z_0| = r$ describes a circle in the complex plane centered at $z_0$ with radius $r$. To understand why, let $z = x + yi$ and $z_0 = a + bi$. Then:
 \begin{align*}
-|z - z_0| &= r \
-|(x + yi) - (a + bi)| &= r \
-|(x-a) + (y-b)i| &= r \
+|z - z_0| &= r \\
+|(x + yi) - (a + bi)| &= r \\
+|(x-a) + (y-b)i| &= r \\
 \sqrt{(x-a)^2 + (y-b)^2} &= r
 \end{align*}
 \noindent This geometric interpretation makes the modulus an essential tool for describing regions in the complex plane. For instance, $|z| < r$ describes the interior of a circle centered at the origin with radius $r$, while $|z-z_1| < |z-z_2|$ describes all points closer to $z_1$ than to $z_2$.
@@ -274,7 +271,7 @@ Let's solve this systematically by interpreting the geometric meaning and then f
 
 \item Therefore, the two solutions are:
    \[
-   z = \sqrt{3}i \text{ and } z = (2-\sqrt{3})i
+   z = (1+\sqrt{3})i \text{ and } z = (1-\sqrt{3})i
    \]
 
 \item Verify these points by checking that each is equidistant from $1+i$ and $-1+i$, forming an isosceles triangle with these points as the base vertices.
@@ -292,7 +289,7 @@ z = r(\cos\theta + i\sin\theta)
 where:
 \begin{itemize}
    \item $r = |z| = \sqrt{a^2 + b^2}$ is the \textbf{modulus}
-   \item $\theta = \arg(z) = \arctan(\frac{b}{a})$ (with appropriate quadrant adjustments) is the \textbf{argument}
+   \item $\theta = \arg(z) = \arctan(\frac{b}{a})$ (with appropriate quadrant adjustment; equivalently, $\theta = \operatorname{atan2}(b, a)$) is the \textbf{argument}
 \end{itemize}
 
 \noindent The connection between exponentials and trigonometric functions emerges naturally from the Taylor series expansions. Consider the series for $e^x$:
@@ -636,7 +633,7 @@ Let's solve this step by step using the polar representation of complex numbers.
   w_2 &= 2e^{5i\pi/3} = 2(\cos(5\pi/3) + i\sin(5\pi/3)) = 1 - i\sqrt{3}
   \end{align*}
 
-\item The principal cube root is the one with argument in $[-\pi/3, \pi/3)$. Here, that's $w_1 = -2$.
+\item The real cube root is $w_1 = -2$. Note that the principal root (with smallest non-negative argument) is $w_0 = 1 + i\sqrt{3}$ with argument $\pi/3$.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -882,7 +879,7 @@ i(x + yi) &= ix - y \\
 \noindent The domain of a complex function requires careful consideration. While real functions might be restricted by operations like division by zero or taking square roots of negative numbers, complex functions often have broader domains. However, certain functions exhibit multi-valued behavior in the complex plane, necessitating special handling. For instance:
 
 \begin{itemize}
-\item $\sqrt{z}$ is defined for all complex numbers except $z = 0$, though it requires a branch cut to make it single-valued.
+\item $\sqrt{z}$ is defined for all complex numbers, though $z = 0$ is a branch point where the choice of branch doesn't matter (since $\sqrt{0} = 0$ is unambiguous). A branch cut is still required to make $\sqrt{z}$ single-valued elsewhere.
 \item $\ln(z)$ is defined for all nonzero complex numbers, but since logarithms of complex numbers involve arguments that can wrap around $2\pi$, a branch cut is needed to maintain consistency.
 \item $\frac{1}{z}$ is defined for all complex numbers except $z = 0$, with no need for a branch cut since it does not exhibit multi-valued behavior.
 \end{itemize}
@@ -926,7 +923,7 @@ a quadratic leap compared to a simple pole’s gentler rise. \\
 
 \noindent This interplay of order shapes the function’s behavior near singularities. Picture $R(z) = \frac{z}{(z + i)^3 (z - i)}$: it has a triple pole at $z = -i$ and a simple pole at $z = i$. Near $z = -i + 0.01$:
 \[
-R(-i + 0.01) \approx \frac{-i + 0.01}{(0.01)^3 (0.01 - i)} \approx \frac{-i}{0.0001 \cdot (-i)} = \frac{1}{0.0001} = 10000,
+R(-i + 0.01) \approx \frac{-i + 0.01}{(0.01)^3 (0.01 - 2i)} \approx \frac{-i}{10^{-6} \cdot (-2i)} = \frac{1}{2 \times 10^{-6}} = 500{,}000,
 \]
 \noindent dominated by the triple pole’s cubic surge. The following diagram captures this landscape:
 
@@ -1274,7 +1271,7 @@ Write $i = e^{i\pi/2}$:
 \[
 \ln(i) = \ln 1 + i \left( \frac{\pi}{2} + 2\pi k \right) = i \frac{\pi}{2} (1 + 4k), \quad k \in \mathbb{Z},
 \]
-giving values like $i\pi/2$, $i 5\pi/2$, $i (-\pi/2)$, each on a distinct sheet of the Riemann surface. The principal branch ($-\pi < \Arg(z) \leq \pi$) selects:
+giving values like $i\pi/2$, $i 5\pi/2$, $i (-3\pi/2)$, each on a distinct sheet of the Riemann surface. The principal branch ($-\pi < \Arg(z) \leq \pi$) selects:
 \[
 \Log(i) = i \frac{\pi}{2},
 \]
@@ -1702,9 +1699,9 @@ By choosing \(\delta\) sufficiently small (ensuring, for example, that \(|z-z_0|
 
 \noindent \textbf{Connectedness:}  The complex plane \(\mathbb{C}\) is a prime example of a connected space—it is not only connected but also path-connected. This means that for any two points \(z_1, z_2 \in \mathbb{C}\), there exists a continuous path \(\gamma: [0,1] \to \mathbb{C}\) such that \(\gamma(0)=z_1\) and \(\gamma(1)=z_2\). In practical terms, this property implies that the complex plane cannot be split into two disjoint nonempty open subsets.  \\
 
-\noindent Connectedness has profound implications in analysis. One of the key theorems states that if a function \(f: D \to \mathbb{C}\) is continuous on a connected domain \(D\), then the image \(f(D)\) is also connected. This result is critical because it ensures that continuous functions cannot “break apart” the domain into separate pieces. As a consequence, if a continuous function takes two distinct values on a connected set, it must take every value in between (this is an extension of the intermediate value property to connected sets in \(\mathbb{C}\)). \\
+\noindent Connectedness has profound implications in analysis. One of the key theorems states that if a function \(f: D \to \mathbb{C}\) is continuous on a connected domain \(D\), then the image \(f(D)\) is also connected. This result is critical because it ensures that continuous functions cannot “break apart” the domain into separate pieces. As a consequence, if a continuous function takes two distinct values on a connected set, its image is connected -- the topological generalization of the Intermediate Value Theorem. \\
 
-\noindent The equivalence of connectedness and path-connectedness in \(\mathbb{C}\) (a feature of all metric spaces like \(\mathbb{R}^2\)) further simplifies many arguments. When dealing with limits and continuity, knowing that any two points are joined by some continuous path allows us to analyze function behavior along various paths and conclude that the limit (or image) must be the same regardless of the chosen path.
+\noindent The equivalence of connectedness and path-connectedness for open subsets of \(\mathbb{C}\) further simplifies many arguments. When dealing with limits and continuity, knowing that any two points are joined by some continuous path allows us to analyze function behavior along various paths and conclude that the limit (or image) must be the same regardless of the chosen path.
 
 
 \begin{example}
@@ -2455,7 +2452,7 @@ This result shows that every holomorphic function is automatically infinitely di
 
 \exampleline
 \begin{example}
-Find the power series expansion of the function \(f(z) = \frac{1}{z(1 - z)}\) centered at \(z_0 = 0\), and determine its radius of convergence.
+Find the Laurent series expansion of the function \(f(z) = \frac{1}{z(1 - z)}\) centered at \(z_0 = 0\), and determine its radius of convergence.
 \begin{solution}
 We rewrite \(f(z)\) in a form suitable for expansion. Note that
 \[
@@ -2478,7 +2475,7 @@ f(z) = \frac{1}{z(1 - z)} = \frac{1}{z} \cdot \frac{1}{1 - z}.
   f(z) = \sum_{m = -1}^{\infty} z^m.
   \]
 
-  \item Thus, the power series expansion of \(f(z)\) about \(z_0 = 0\) is
+  \item Thus, the Laurent series expansion of \(f(z)\) about \(z_0 = 0\) is
   \[
   f(z) = \frac{1}{z} + 1 + z + z^2 + \cdots,
   \]
@@ -2588,6 +2585,8 @@ but this approximation has a very special geometric interpretation: the complex 
 \newpage
 
 \lecture{Elementary Complex Integration} \index{Complex Integration}
+
+\noindent \textit{Note: This lecture and the next cover material that goes beyond a standard Calculus III course. They are included for students who wish to see how the theory of complex functions culminates in powerful computational tools. Instructors may treat these lectures as optional enrichment.}\\ \\
 
 \noindent Complex integration extends the familiar concept of integration from calculus to the complex plane, allowing us to evaluate integrals along paths rather than just intervals. In Chapter 5, Lecture 2, we studied line integrals in the context of vector fields in $\mathbb{R}^n$; complex integration builds upon these concepts but adds powerful new structures unique to complex analysis. This seemingly straightforward extension leads to surprisingly powerful results that form the cornerstone of complex analysis. In this lecture, we will develop the theory of complex integration, explore its geometric meaning, and establish key properties that will serve as the foundation for the elegant theorems to follow.
 
@@ -3477,7 +3476,7 @@ we obtain
 \[
 \oint_\gamma \overline{z}^2\,dz = \frac{i}{2}(2\pi)=\pi i\neq 0.
 \]
-Therefore, by Morera's Theorem, \( f(z)=\overline{z}^2 \) is not holomorphic in any domain that contains the origin.
+Therefore, by Morera's Theorem, \( f(z)=\overline{z}^2 \) is not holomorphic in any domain containing the disk $|z-1| \leq 1/2$. Since the same argument applies with a circle centered at any point, $\bar{z}^2$ is not holomorphic on any open subset of $\mathbb{C}$.
 \end{solution}
 \end{example}
 \exampleline
@@ -4039,9 +4038,7 @@ I=2\pi i \cdot 1 = 2\pi i
     
     \item \textbf{Evaluation of Real Integrals Using Complex Methods:}
     \begin{align*}
-        \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \, dx &= 2\pi i \sum_{\text{Im}(z_k) > 0} \text{Res}\left(\frac{P(z)}{Q(z)}, z_k\right) \\
-        \int_{0}^{\infty} f(x) \, dx &= \int_{0}^{\infty} f(x) \, dx + i \int_{0}^{\infty} f(ix) \, dx \\
-        &= 2\pi i \sum_{\text{Re}(z_k) > 0, \text{Im}(z_k) > 0} \text{Res}(f(z), z_k)
+        \int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \, dx &= 2\pi i \sum_{\text{Im}(z_k) > 0} \text{Res}\left(\frac{P(z)}{Q(z)}, z_k\right)
     \end{align*}
     where $z_k$ are the poles in the specified regions.
 \end{itemize}
@@ -4052,9 +4049,8 @@ I=2\pi i \cdot 1 = 2\pi i
 \begin{align*}
     \cos^2\theta &= \frac{1 + \cos 2\theta}{2} = \frac{1}{2} + \frac{z^2 + z^{-2}}{4} \\
     \sin^2\theta &= \frac{1 - \cos 2\theta}{2} = \frac{1}{2} - \frac{z^2 + z^{-2}}{4} \\
-    \cos^n\theta &= \frac{1}{2^n}\sum_{k=0}^{n} \binom{n}{k} \cos((n-2k)\theta) \\
-    \sin^n\theta &= \frac{1}{2^n}\sum_{k=0}^{\lfloor n/2 \rfloor} (-1)^k \binom{n}{k} \sin((n-2k)\theta)
 \end{align*}
+For $\sin^n\theta$ and $\cos^n\theta$, expand using $(e^{i\theta} - e^{-i\theta})/(2i)$ and $(e^{i\theta} + e^{-i\theta})/2$ respectively, then apply the binomial theorem.
 
 \noindent After substituting $z = e^{i\theta}$, a rational function of trigonometric functions transforms into a rational function of $z$, allowing us to apply residue theory effectively.
 
@@ -4165,6 +4161,12 @@ I &= \frac{1}{i} \cdot 2\pi i \cdot \text{Res}(f, z_1) \\
     \item \textbf{Conformal Mapping:} A transformation that locally preserves angles.
     
     \item \textbf{Simply Connected Domain:} A domain where every simple closed curve can be continuously shrunk to a point within the domain.
+
+    \item \textbf{Contour Integral:} An integral of a complex-valued function along a curve (contour) in the complex plane.
+
+    \item \textbf{Laurent Series:} A representation of a complex function as a series with both positive and negative powers of \( (z - z_0) \), valid in an annular region.
+
+    \item \textbf{Winding Number:} The number of times a closed curve winds around a point, computed as \( \frac{1}{2\pi i}\oint_\gamma \frac{dz}{z-a} \).
 \end{itemize}
 
 \subsection*{Key Formulas}
@@ -4216,6 +4218,7 @@ r = |z| = \sqrt{a^2 + b^2}
 \[
 \theta = \arg(z) = \arctan\left(\frac{b}{a}\right)
 \]
+(with quadrant adjustment; see the \texttt{atan2} function)
 
 \paragraph{Euler's Formula:}
 \[
@@ -4358,7 +4361,7 @@ a_n = \frac{1}{2\pi i} \oint_{\gamma} \frac{f(z)}{(z - z_0)^{n+1}} \, dz
 \[
 \oint_{\gamma} f(z) \, dz = 2\pi i \sum_{k=1}^{n} \text{Res}(f, z_k)
 \]
-where $z_k$ are the poles of $f$ inside $\gamma$.
+where $z_k$ are the isolated singularities of $f$ inside $\gamma$.
 
 \paragraph{Residue Computation (Simple Pole):}
 \[
@@ -4389,6 +4392,17 @@ n(\gamma, a) = \frac{1}{2\pi i} \oint_{\gamma} \frac{dz}{z-a}
 \end{cases}
 \]
 
+\paragraph{Singularity Classification:}
+At an isolated singularity $z_0$ of $f$:
+\begin{itemize}
+    \item \textbf{Removable:} Laurent series has no negative powers ($a_{-n} = 0$ for all $n \geq 1$)
+    \item \textbf{Pole of order $m$:} $a_{-m} \neq 0$ but $a_{-n} = 0$ for $n > m$
+    \item \textbf{Essential:} infinitely many negative powers
+\end{itemize}
+
+\paragraph{Liouville's Theorem:}
+If $f$ is entire (holomorphic on all of $\mathbb{C}$) and bounded, then $f$ is constant.
+
 \end{multicols}
 
 \newpage
@@ -4399,7 +4413,7 @@ n(\gamma, a) = \frac{1}{2\pi i} \oint_{\gamma} \frac{dz}{z-a}
 \begin{multicols}{2}
 
 \begin{enumerate}
-\item Compute the modulus and complex conjugate of the number \( 3-4i \). Verify that 
+\item Compute the modulus and complex conjugate of the number \( 3-4i \). Verify that
 \[
 (3-4i)(3+4i)=|3-4i|^2.
 \]
@@ -4429,7 +4443,7 @@ and then express your answer in rectangular form.
 
 \item Find all cube roots of \( 8i \). Express your answers both in polar form and in the form \( a+bi \).
 
-\item Solve the equation 
+\item Solve the equation
 \[
 z^2+4=0
 \]
@@ -4437,7 +4451,7 @@ using polar representation, and write the solutions in \( a+bi \) form.
 
 \item Describe the geometric transformation on the complex plane corresponding to multiplication by \(-i\). Choose a nonzero complex number to illustrate how its position changes.
 
-\item Find all complex numbers \( z \) satisfying 
+\item Find all complex numbers \( z \) satisfying
 \[
 |z-(1+2i)|=3.
 \]
@@ -4447,25 +4461,25 @@ Describe the geometric locus of these points in the Argand plane.
 
 \item Verify that for \( z=5-2i \), the product \( z\overline{z} \) equals \( |z|^2 \) by direct computation.
 
-\item Determine the locus of points \( z \) in the complex plane that satisfy 
+\item Determine the locus of points \( z \) in the complex plane that satisfy
 \[
 |z-2|=|z+2|.
 \]
 Explain the geometric significance of this locus.
 
-\item Factorize the polynomial 
+\item Factorize the polynomial
 \[
 z^3-8
 \]
 completely over \(\mathbb{C}\), and find all its roots.
 
-\item Solve the equation 
+\item Solve the equation
 \[
 z^4+16=0
 \]
 by expressing the solutions in polar form and then converting them to rectangular form.
 
-\item Solve the quadratic equation 
+\item Solve the quadratic equation
 \[
 z^2+(3-2i)z+(5-i)=0
 \]
@@ -4475,17 +4489,17 @@ using the quadratic formula for complex coefficients, and express the solutions 
 \item
 For \( f(z)=z^2 \) with \( z=x+iy \), write \( f(z)=u(x,y)+iv(x,y) \) by expanding \((x+iy)^2\). Identify \( u(x,y) \) and \( v(x,y) \). Then, show that if \( z \) lies on the real axis, its image under \( f \) is also real.
 
-\item
+\item 
 Express \( f(z)=\frac{1}{z} \) in terms of \( x \) and \( y \) for \( z=x+iy \) (by rationalizing the denominator) and identify the real function \( u(x,y) \) and the imaginary function \( v(x,y) \). Also, state the set of points where \( f(z) \) is undefined.
 
-\item
+\item 
 For \( f(z)=e^z \), write \( f(z)=e^x(\cos y + i\sin y) \) when \( z=x+iy \). Describe the image of the vertical line \( x=0 \) (i.e. \( z=iy \)) in the \( w \)-plane.
 
-\item
+\item 
 Determine the natural domain of \( f(z)=\ln(z) \) in the complex plane and explain how and why a branch cut (e.g. along the negative real axis) is introduced to obtain a single-valued principal branch.
 
-\item
-Starting from the definition 
+\item 
+Starting from the definition
 \[
 \sin(z)=\frac{e^{iz}-e^{-iz}}{2i},
 \]
@@ -4495,35 +4509,35 @@ derive the form
 \]
 for \( z=x+iy \).
 
-\item
+\item 
 Solve \( e^{z}=-2 \) for \( z \) by writing \( z=x+iy \) and expressing the answer in the form \( x+iy \). List all solutions.
 
-\item
+\item 
 Let \( f(z)=z^3 \). Show that if \( z \) lies on the unit circle (i.e. \( |z|=1 \)), then \( f(z) \) also lies on the unit circle and its argument is tripled. Verify this with \( z=e^{i\pi/3} \).
 
-\item
+\item 
 Consider \( f(z)=\frac{z^2+1}{z-i} \). Determine its domain in \( \mathbb{C} \) and identify any singularities. Specify the type and order (if applicable) of each singularity.
 
-\item
+\item 
 Define \( f(z)=\sqrt{z} \) using the principal branch with a branch cut along the negative real axis. Compute \( f(4e^{i\pi}) \) and express your answer in the form \( a+bi \).
 
 \item 
 For \( f(z)=\ln(z) \), compute all values of \( \ln(-1-i) \) in terms of its modulus and argument. Then, specify the principal value using the conventional range \( (-\pi,\pi] \) for the argument.
 
-\item
+\item 
 Determine the image of the horizontal line \( y=1 \) (i.e. \( z=x+i \)) under the mapping \( f(z)=e^z \). Describe the geometric nature of the resulting curve in the \( w \)-plane.
 
-\item
+\item 
 Solve the equation \( \cos(z)=0 \) for all \( z\in\mathbb{C} \). (Hint: Use the definition \( \cos(z)=\frac{e^{iz}+e^{-iz}}{2} \) and set up an exponential equation.)
 
-\item
+\item 
 For \( f(z)=z+\frac{1}{z} \), determine the condition(s) on \( z \) so that \( f(z) \) is a real number. Express your answer in terms of the real and imaginary parts of \( z \).
 
 \item 
 Consider \( f(z)=\frac{z-1}{z+1} \). Prove that \( f \) maps the imaginary axis (i.e. \( z=iy \) with \( y\in\mathbb{R} \)) into the unit circle.
 
-\item
-Let \( f(z)=e^{z^2} \). Express \( f(z) \) in terms of \( x \) and \( y \) for \( z=x+iy \). 
+\item 
+Let \( f(z)=e^{z^2} \). Express \( f(z) \) in terms of \( x \) and \( y \) for \( z=x+iy \).
 
   \item Evaluate the following limits:
     \begin{enumerate}
@@ -4549,7 +4563,7 @@ Let \( f(z)=e^{z^2} \). Express \( f(z) \) in terms of \( x \) and \( y \) for \
     \lim_{z\to 0} z^n = 0\,.
     \]
 
-\item Using polar form, prove that \( \displaystyle \lim_{r\to 0} r\,e^{2i\theta}=0 \) (the limit is independent of \(\theta\)).
+\item Evaluate $\lim_{z \to 0} \frac{\sin z}{z}$ and explain why the result is the same as the real-variable limit.
 
 \item Let \( f(z)=\frac{z^2-\overline{z}^2}{\,z-\overline{z}} \) (with \(z\notin\mathbb{R}\)). Evaluate \( \displaystyle \lim_{z\to 2+i} f(z) \).
 
@@ -4565,7 +4579,7 @@ Let \( f(z)=e^{z^2} \). Express \( f(z) \) in terms of \( x \) and \( y \) for \
     \]
     does not exist by showing that the value depends on the direction (i.e. on \(\theta\)) along which \(z\) approaches \(0\).
 
-  \item
+  \item 
     \begin{enumerate}
       \item Evaluate \( \displaystyle \lim_{|z|\to\infty} \frac{1}{z}\) in the extended complex plane.
       \item Determine whether the limit
@@ -4581,7 +4595,7 @@ Let \( f(z)=e^{z^2} \). Express \( f(z) \) in terms of \( x \) and \( y \) for \
     \]
     (Hint: Express \(z = x+iy\) so that \(z-\overline{z}=2iy\), then simplify using the series for \(e^z\).)
 
-  \item  Write down the epsilon–delta definition of the limit
+  \item Write down the epsilon–delta definition of the limit
     \[
     \lim_{z\to z_0} f(z) = L
     \]
@@ -4668,7 +4682,7 @@ Let \( f(z)=e^{z^2} \). Express \( f(z) \) in terms of \( x \) and \( y \) for \
 
   \item Prove that if \(f'(z)=0\) for all \(z\) in a connected domain, then \(f\) is constant. (Hint: Use the uniqueness of antiderivatives.)
 
-\item Express the function 
+\item Express the function
 \[
 f(z)=z^2
 \]
@@ -4679,7 +4693,7 @@ u_r=\frac{1}{r}\,v_\theta \quad \text{and} \quad v_r=-\frac{1}{r}\,u_\theta,
 and verify that these hold for \(f(z)\).
 
   \item
-    Show that 
+    Show that
     \[
     u(x,y)=\frac{1}{2}\ln(x^2+y^2)
     \]
@@ -4690,7 +4704,7 @@ and verify that these hold for \(f(z)\).
     for all \((x,y)\neq(0,0)\).
 
   \item
-    Prove that 
+    Prove that
     \[
     u(x,y)=e^x\cos y
     \]
@@ -4700,7 +4714,7 @@ and verify that these hold for \(f(z)\).
     \]
 
   \item
-    Verify that the real part of \(z^3\), namely 
+    Verify that the real part of \(z^3\), namely
     \[
     u(x,y)=x^3-3xy^2,
     \]
@@ -4710,14 +4724,14 @@ and verify that these hold for \(f(z)\).
     \]
 
   \item
-    Find the power series expansion of 
+    Find the power series expansion of
     \[
     f(z)=\frac{1}{1-z}
     \]
     about \(z=0\) and determine its radius of convergence.
 
-  \item
-    Expand 
+  \item 
+    Expand
     \[
     f(z)=\Log(1+z)
     \]
@@ -4795,17 +4809,17 @@ and verify that these hold for \(f(z)\).
   \oint_{\gamma}\frac{dz}{z}=2\pi i\,n.
   \]
 
-  \item Let \( f(z)=e^z \). Prove that for any closed, piecewise smooth curve \(\gamma\) in \(\mathbb{C}\), 
+  \item Let \( f(z)=e^z \). Prove that for any closed, piecewise smooth curve \(\gamma\) in \(\mathbb{C}\),
   \[
   \oint_{\gamma} e^z\,dz=0.
   \]
   
-  \item Let \(\gamma\) be the unit circle \(z=e^{it}\) with \(t\in[0,2\pi]\) (oriented counterclockwise). Show that 
+  \item Let \(\gamma\) be the unit circle \(z=e^{it}\) with \(t\in[0,2\pi]\) (oriented counterclockwise). Show that
   \[
   \oint_{\gamma} \frac{dz}{z}=2\pi i.
   \]
   
-  \item Use Cauchy's Integral Formula to evaluate 
+  \item Use Cauchy's Integral Formula to evaluate
   \[
   \oint_{|z|=3}\frac{e^z}{\,z-2}\,dz.
   \]
@@ -4815,61 +4829,70 @@ and verify that these hold for \(f(z)\).
   f^{(2)}(0)=\frac{2!}{2\pi i}\oint_{|z|=R}\frac{\sin z}{z^3}\,dz.
   \]
   
-  \item Evaluate 
+  \item Evaluate
   \[
   \oint_{|z|=2}\frac{dz}{\,z-1},
   \]
   and explain why the answer depends on the fact that \(z=1\) lies inside the contour.
   
-  \item Let \(\gamma\) be the circle centered at \(z=1\) of radius \(r>0\). Compute 
+  \item Let \(\gamma\) be the circle centered at \(z=1\) of radius \(r>0\). Compute
   \[
   \oint_{\gamma}\frac{dz}{(z-1)^2},
   \]
   and explain how the order of the pole affects the result.
   
-  \item Evaluate 
+  \item Evaluate
   \[
   \oint_{|z|=2}\frac{dz}{z(z-1)},
   \]
   indicating which singularities are enclosed by the contour.
   
-  \item Find the Laurent series expansion of 
+  \item Find the Laurent series expansion of
   \[
   f(z)=\frac{1}{z(z-2)}
   \]
   valid in the annulus \(0<|z|<2\) and classify the singularity at \(z=0\).
   
-  \item Compute the residue of 
+  \item Compute the residue of
   \[
   f(z)=\frac{e^{1/z}}{1+z}
   \]
   at \(z=0\) by finding the coefficient \(a_{-1}\) in its Laurent expansion.
   
-  \item Find the Laurent series for 
+  \item Find the Laurent series for
   \[
   f(z)=\frac{z^2+1}{z(z-1)(z-2)}
   \]
   about \(z=0\) for \(0<|z|<1\) and determine the type of singularity at \(z=0\).
   
-  \item Use the Residue Theorem to evaluate 
+  \item Use the Residue Theorem to evaluate
   \[
   \oint_{|z|=3}\frac{e^z}{z^2+1}\,dz.
   \]
   
-  \item Evaluate the real integral 
+  \item Evaluate the real integral
   \[
   \int_{-\infty}^{\infty}\frac{dx}{x^2+1}
   \]
   by interpreting it as a contour integral and applying residue theory.
   
-  \item Prove Liouville's Theorem: Show that if \(f(z)\) is entire and there exists an \(M>0\) such that \(|f(z)|\le M\) for all \(z\in\mathbb{C}\), then \(f(z)\) is constant.  
+  \item Prove Liouville's Theorem: Show that if \(f(z)\) is entire and there exists an \(M>0\) such that \(|f(z)|\le M\) for all \(z\in\mathbb{C}\), then \(f(z)\) is constant.
       \textbf{Hint:} Consider the power series expansion of \(f\) and use Cauchy's estimates.
   
-  \item Evaluate 
+  \item Evaluate
   \[
   \oint_{|z-i|=R}\frac{e^{z^2}}{(z-i)^3}\,dz,
   \]
   where \(R>0\) is sufficiently small so that the circle is contained in a region where \(e^{z^2}\) is holomorphic. Express your answer in terms of \(f^{(2)}(i)\) for \(f(z)=e^{z^2}\) and then compute \(f^{(2)}(i)\).
+
+\item Evaluate $\displaystyle\int_{-\infty}^{\infty} \frac{dx}{x^2 + 1}$ by closing the contour in the upper half-plane. Identify the pole, compute its residue, and apply the Residue Theorem.
+
+\item Classify the singularity of each function at the given point:
+\begin{enumerate}
+\item $f(z) = \frac{\sin z}{z}$ at $z = 0$
+\item $f(z) = \frac{1}{(z-1)^3}$ at $z = 1$
+\item $f(z) = e^{1/z}$ at $z = 0$
+\end{enumerate}
 
 \end{enumerate}
 

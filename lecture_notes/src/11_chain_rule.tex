@@ -1,0 +1,205 @@
+\documentclass[11pt]{article}
+\usepackage{worksheet_style}
+
+% ---- Toggle: uncomment for filled version ----
+%\worksheetfilledtrue
+\begin{document}
+\worksheetheader{11}{The Chain Rule for Multivariable Functions}
+
+\begin{background}
+In Calc I, the chain rule handled compositions like $f(g(x))$. Now our functions have multiple intermediate variables, each depending on one or more parameters. The multivariate chain rule keeps track of all the paths from input to output---and in matrix form, it becomes the Jacobian.
+\end{background}
+
+%=============================================================
+\wsection{Chain Rule: One Parameter (Case 1)}
+
+\begin{thmbox}{Chain Rule -- Case 1: $z = f(x,y)$, \; $x=x(t)$, \; $y=y(t)$}
+If $z = f(x,y)$ where $x$ and $y$ are both functions of a single parameter $t$:
+\[\frac{dz}{dt} = \wbml{\frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}}\]
+
+-- Each intermediate variable contributes one term: (partial w.r.t.\ that variable) $\times$ (derivative of that variable w.r.t.\ $t$)
+\end{thmbox}
+
+\begin{center}
+\begin{tikzpicture}[
+  every node/.style={font=\small},
+  level 1/.style={sibling distance=26mm, level distance=12mm},
+  level 2/.style={sibling distance=18mm, level distance=12mm},
+  edge from parent/.style={draw,thick,-}
+]
+  \node[circle,draw,fill=bclight] {$z$}
+    child {node[circle,draw,fill=bclight] {$x$}
+      child {node[circle,draw,fill=bclight] {$t$}}
+      edge from parent node[left=1pt] {$\dfrac{\partial z}{\partial x}$}
+    }
+    child {node[circle,draw,fill=bclight] {$y$}
+      child {node[circle,draw,fill=bclight] {$t$}}
+      edge from parent node[right=1pt] {$\dfrac{\partial z}{\partial y}$}
+    };
+  \node[font=\scriptsize] at (-1.1,-2.3) {$\dfrac{dx}{dt}$};
+  \node[font=\scriptsize] at ( 1.1,-2.3) {$\dfrac{dy}{dt}$};
+\end{tikzpicture}\\
+{\small \textbf{Tree diagram for Case 1.} $z$ depends on $x$ and $y$; each of $x, y$ depends on $t$. To find $\frac{dz}{dt}$, walk every path from $z$ down to $t$, multiply the derivatives along each path, and sum over all paths.}
+\end{center}
+
+\begin{example}[$z = x^2 y$ with $x = t^2$, $y = \sin t$]
+Find $\dfrac{dz}{dt}$.
+
+\wbbox{
+\textbf{1. Compute partials and derivatives:}
+
+$\frac{\partial z}{\partial x} = 2xy = 2t^2\sin t$, \quad $\frac{dx}{dt} = 2t$
+
+$\frac{\partial z}{\partial y} = x^2 = t^4$, \quad $\frac{dy}{dt} = \cos t$
+
+\textbf{2. Apply chain rule:}
+
+$\frac{dz}{dt} = (2t^2\sin t)(2t) + (t^4)(\cos t)$
+
+\textbf{3. Result:} $\frac{dz}{dt} = \boxed{4t^3\sin t + t^4\cos t}$
+}{4cm}
+\end{example}
+
+%=============================================================
+\wsection{Chain Rule: Multiple Parameters (Case 2)}
+
+\begin{thmbox}{Chain Rule -- Case 2: $z = f(x,y)$, \; $x=x(u,v)$, \; $y=y(u,v)$}
+\[\frac{\partial z}{\partial u} = \wbml{\frac{\partial f}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial u}}\]
+\[\frac{\partial z}{\partial v} = \wbml{\frac{\partial f}{\partial x}\frac{\partial x}{\partial v} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial v}}\]
+\end{thmbox}
+
+\begin{formulabox}{Matrix Form of the Chain Rule}
+\[\begin{pmatrix} \frac{\partial z}{\partial u} \\[6pt] \frac{\partial z}{\partial v} \end{pmatrix} = \begin{pmatrix} \frac{\partial x}{\partial u} & \frac{\partial y}{\partial u} \\[6pt] \frac{\partial x}{\partial v} & \frac{\partial y}{\partial v} \end{pmatrix} \begin{pmatrix} \frac{\partial z}{\partial x} \\[6pt] \frac{\partial z}{\partial y} \end{pmatrix}\]
+-- The chain rule in matrix form is the Jacobian matrix
+\end{formulabox}
+
+\begin{example}[$z = \ln(xy)$ with $x = e^u$, $y = \cos v$]
+Find $\dfrac{\partial z}{\partial u}$ and $\dfrac{\partial z}{\partial v}$.
+
+\wbbox{
+\textbf{1. Partials of $z$:}
+
+$\frac{\partial z}{\partial x} = \frac{1}{x}$, \quad $\frac{\partial z}{\partial y} = \frac{1}{y}$
+
+\textbf{2. Partials of $x, y$:}
+
+$\frac{\partial x}{\partial u} = e^u$, \; $\frac{\partial y}{\partial u} = 0$, \; $\frac{\partial x}{\partial v} = 0$, \; $\frac{\partial y}{\partial v} = -\sin v$
+
+\textbf{3. Apply chain rule:}
+
+$\frac{\partial z}{\partial u} = \frac{1}{x}\cdot e^u + \frac{1}{y}\cdot 0 = \frac{e^u}{e^u} = \boxed{1}$
+
+$\frac{\partial z}{\partial v} = \frac{1}{x}\cdot 0 + \frac{1}{y}\cdot(-\sin v) = \frac{-\sin v}{\cos v} = \boxed{-\tan v}$
+}{5cm}
+\end{example}
+
+%=============================================================
+\wsection{Implicit Differentiation}
+
+\begin{formulabox}{Implicit Differentiation via Partial Derivatives}
+If $F(x,y) = 0$ defines $y$ implicitly as a function of $x$:
+\[\frac{dy}{dx} = \wbml{-\frac{F_x}{F_y}} \quad (\text{provided } F_y \neq 0)\]
+
+If $F(x,y,z) = 0$ defines $z$ implicitly as a function of $x$ and $y$:
+\[\frac{\partial z}{\partial x} = \wbm{-\frac{F_x}{F_z}}, \qquad \frac{\partial z}{\partial y} = \wbm{-\frac{F_y}{F_z}}\]
+\end{formulabox}
+
+-- \textit{Why it works:} Differentiate $F(x, y(x)) = 0$ with respect to $x$ using the chain rule: $F_x + F_y \frac{dy}{dx} = 0$, then solve
+
+\begin{example}[Implicit Differentiation: $x^3 + y^3 = 6xy$]
+Find $\dfrac{dy}{dx}$.
+
+\wbbox{
+\textbf{1. Set up:} Let $F(x,y) = x^3 + y^3 - 6xy$
+
+\textbf{2. Compute partials:}
+
+$F_x = 3x^2 - 6y$, \quad $F_y = 3y^2 - 6x$
+
+\textbf{3. Apply formula:}
+
+$\frac{dy}{dx} = -\frac{3x^2-6y}{3y^2-6x} = \boxed{\frac{2y-x^2}{y^2-2x}}$
+}{3.5cm}
+\end{example}
+
+%=============================================================
+\wsection{Total Differentials}
+
+\begin{defbox}{Total Differential}
+The \textbf{total differential} of $f(x,y)$:
+\[df = \wbml{f_x\,dx + f_y\,dy}\]
+
+-- This is the best linear approximation: $\Delta f \approx df$ for small $dx = \Delta x$, $dy = \Delta y$
+
+For $f(x,y,z)$: $df = f_x\,dx + f_y\,dy + f_z\,dz$
+\end{defbox}
+
+\begin{example}[Temperature Estimation with Differentials]
+The temperature in a room is modeled by $T(x,y) = 100 - x^2 - 2y^2$ (degrees). A sensor moves from $(1, 2)$ to $(1.05, 2.1)$. Estimate the change in temperature.
+
+\wbbox{
+\textbf{1. Compute partials at $(1,2)$:}
+
+$T_x = -2x = -2$, \quad $T_y = -4y = -8$
+
+\textbf{2. Apply differential:}
+
+$dT = T_x\,dx + T_y\,dy = (-2)(0.05) + (-8)(0.1) = -0.1 - 0.8$
+
+\textbf{3. Result:} $dT = \boxed{-0.9\text{ degrees}}$ \quad (temperature drops by $\approx 0.9^\circ$)
+}{3.5cm}
+\end{example}
+
+%=============================================================
+\begin{practice}
+
+\prob
+If $z = x^2 + y^2$, $x = t$, $y = e^t$, find $\dfrac{dz}{dt}$.
+
+\wans{$\dfrac{dz}{dt} = $ \wbml{$2x\cdot 1 + 2y\cdot e^t = 2t + 2e^{2t}$}}
+
+\vspace{2cm}
+
+\prob
+Let $w = xy + yz + xz$, \; $x = u+v$, \; $y = u-v$, \; $z = uv$. Find $\dfrac{\partial w}{\partial u}$.
+
+\wbbox{
+$w_x = y+z$, $w_y = x+z$, $w_z = x+y$. \; $x_u = 1$, $y_u = 1$, $z_u = v$.
+
+$\frac{\partial w}{\partial u} = (y+z)(1) + (x+z)(1) + (x+y)(v)$
+
+$= (u-v+uv) + (u+v+uv) + v(2u) = 2u + 2uv + 2uv = \boxed{2u(1+2v)}$
+}{4cm}
+
+\prob
+Find $\dfrac{dy}{dx}$ for the circle $x^2 + y^2 = 25$ using implicit differentiation with partials.
+
+\wbbox{
+$F(x,y) = x^2+y^2-25$. \; $F_x = 2x$, $F_y = 2y$.
+
+$\frac{dy}{dx} = -\frac{2x}{2y} = \boxed{-\frac{x}{y}}$
+}{2cm}
+
+\prob
+Use differentials to approximate $\sqrt{(3.02)^2 + (3.97)^2}$.
+
+\wbbox{
+$f(x,y) = \sqrt{x^2+y^2}$. At $(3,4)$: $f = 5$, $f_x = x/f = 3/5$, $f_y = y/f = 4/5$.
+
+$df = \frac{3}{5}(0.02) + \frac{4}{5}(-0.03) = 0.012 - 0.024 = -0.012$
+
+$\sqrt{(3.02)^2 + (3.97)^2} \approx 5 - 0.012 = \boxed{4.988}$
+}{3.5cm}
+
+\prob
+If $z = f(x-y, xy)$ where $f$ is differentiable, express $x\dfrac{\partial z}{\partial x} + y\dfrac{\partial z}{\partial y}$ in terms of $f_1$ and $f_2$ (partials of $f$ w.r.t.\ its first and second arguments).
+
+\wbbox{
+Let $u = x-y$, $v = xy$. Then $z_x = f_1\cdot 1 + f_2 \cdot y$ and $z_y = f_1\cdot(-1) + f_2\cdot x$.
+
+$xz_x + yz_y = x(f_1+yf_2) + y(-f_1+xf_2) = (x-y)f_1 + 2xyf_2 = \boxed{uf_1 + 2vf_2}$
+}{4.5cm}
+
+\end{practice}
+
+\end{document}

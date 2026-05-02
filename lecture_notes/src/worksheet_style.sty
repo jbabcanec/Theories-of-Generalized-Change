@@ -1,0 +1,352 @@
+% MATH241 Worksheet Style - Fall 2026
+% Standardized format for all Calculus III worksheets
+% Prof. Babcanec - Theories of Generalized Change
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{worksheet_style}[2026/04/01 MATH241 Worksheet Style]
+
+% ---- No paragraph indents ----
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+
+% ---- Core Packages ----
+\RequirePackage[margin=0.85in, top=0.75in, bottom=0.75in]{geometry}
+\RequirePackage{amsmath, amssymb, amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{esint} % closed surface integral \oiint - load before physics
+\RequirePackage{physics}
+\RequirePackage{bm}
+\RequirePackage{enumitem}
+\RequirePackage{multicol}
+\RequirePackage{tcolorbox}
+\RequirePackage{tikz, pgfplots}
+\RequirePackage{tikz-3dplot}
+\RequirePackage{hyperref}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage{xcolor}
+\RequirePackage[prefix=]{xcolor-material}
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+\RequirePackage{cancel}
+\RequirePackage{etoolbox}
+
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween, colormaps, colorbrewer, patchplots}
+\usetikzlibrary{arrows, arrows.meta, calc, patterns, patterns.meta,
+  decorations.markings, decorations.pathreplacing, decorations.pathmorphing,
+  intersections, matrix, 3d, positioning, perspective}
+
+\tcbuselibrary{skins, breakable}
+
+% ---- Color Palette ----
+\definecolor{bcblue}{HTML}{1B4F72}
+\definecolor{bcgold}{HTML}{D4A017}
+\definecolor{bclight}{HTML}{EBF5FB}
+\definecolor{bcwarm}{HTML}{FEF9E7}
+\definecolor{bcgreen}{HTML}{1E8449}
+\definecolor{bcred}{HTML}{922B21}
+\definecolor{bcgray}{HTML}{5D6D7E}
+\definecolor{bclightgray}{HTML}{F2F3F4}
+
+% ---- Toggle: Filled vs Blank ----
+% Set \worksheetfilledtrue for filled version, leave unset for blank
+\newif\ifworksheetfilled
+\worksheetfilledfalse % default: blank
+
+% ---- Blank/Filled Command ----
+% \wb{content} - shows content if filled, shows blank line if blank
+\newcommand{\wb}[1]{%
+  \ifworksheetfilled
+    {\color{bcblue}\bfseries #1}%
+  \else
+    \underline{\hspace{0.97\linewidth}}%
+  \fi
+}
+
+% \wbi{content}{width} - inline blank with custom width
+\newcommand{\wbi}[2]{%
+  \ifworksheetfilled
+    {\color{bcblue}\bfseries #1}%
+  \else
+    \underline{\hspace{#2}}%
+  \fi
+}
+
+% \wbm{content} - math mode blank (for equations)
+\newcommand{\wbm}[1]{%
+  \ifworksheetfilled
+    {\color{bcblue} #1}%
+  \else
+    \underline{\hspace{3cm}}%
+  \fi
+}
+
+% \wans{content} - answer line: shows "Answer: content" in filled, nothing in blank
+\newcommand{\wans}[1]{%
+  \ifworksheetfilled
+    \par\noindent Answer: {\color{bcblue} #1}%
+  \fi
+}
+
+% \wbml{content} - math mode blank, long
+\newcommand{\wbml}[1]{%
+  \ifworksheetfilled
+    {\color{bcblue} #1}%
+  \else
+    \underline{\hspace{6cm}}%
+  \fi
+}
+
+% \wbs{content}{width} - math mode blank with specified width
+\newcommand{\wbs}[2]{%
+  \ifworksheetfilled
+    {\color{bcblue} #1}%
+  \else
+    \underline{\hspace{#2}}%
+  \fi
+}
+
+% \wbbox{content}{height} - large work area (for solutions)
+\newcommand{\wbbox}[2]{%
+  \ifworksheetfilled
+    #1%
+  \else
+    \vspace{#2}%
+  \fi
+}
+
+% ---- Header/Footer ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\small\color{bcgray} MATH 241: Calculus III \;$\mid$\; \textit{Theories of Generalized Change} \;$\mid$\; \thepage}
+
+% ---- Lecture Header Command ----
+\newcommand{\worksheetheader}[2]{%
+  \begin{center}
+    {\Large\bfseries\color{bcblue} MATH 241: Calculus III}\\[4pt]
+    {\large\color{bcgray} Fall 2026}\\[8pt]
+    \rule{\textwidth}{1.5pt}\\[8pt]
+    {\LARGE\bfseries Lecture #1: #2}\\[8pt]
+    \rule{\textwidth}{1.5pt}
+  \end{center}
+  \vspace{6pt}
+}
+
+% ---- Learning Objectives Box ----
+\newcommand{\objectives}[1]{%
+  \begin{tcolorbox}[
+    colback=bclight,
+    colframe=bcblue,
+    coltitle=white,
+    title={\bfseries\sffamily Learning Objectives},
+    fonttitle=\large,
+    boxrule=1pt,
+    arc=3pt,
+    left=8pt, right=8pt, top=4pt, bottom=4pt
+  ]
+  #1
+  \end{tcolorbox}
+  \vspace{4pt}
+}
+
+% ---- Section Styles ----
+\newcounter{wsection}
+\newcommand{\wsection}[1]{%
+  \stepcounter{wsection}
+  \vspace{10pt}
+  \noindent{\Large\bfseries\color{bcblue}\sffamily \thewsection. \; #1}
+  \vspace{2pt}
+  \par\noindent\rule{\textwidth}{0.5pt}
+  \vspace{4pt}
+}
+
+\newcommand{\wsubsection}[1]{%
+  \vspace{6pt}
+  \noindent{\large\bfseries\color{bcgray}\sffamily #1}
+  \vspace{2pt}
+}
+
+% ---- Warm-Up Box ----
+\newenvironment{warmup}{%
+  \begin{tcolorbox}[
+    colback=bcwarm,
+    colframe=bcgold,
+    coltitle=white,
+    colbacktitle=bcgold,
+    title={\bfseries\sffamily Warm-Up},
+    fonttitle=\large,
+    boxrule=1pt,
+    arc=3pt,
+    left=8pt, right=8pt, top=4pt, bottom=4pt,
+    breakable
+  ]
+}{%
+  \end{tcolorbox}
+  \vspace{4pt}
+}
+
+% ---- Definition Box ----
+\newcounter{defcount}
+\newenvironment{defbox}[1]{%
+  \stepcounter{defcount}
+  \begin{tcolorbox}[
+    colback=bclight,
+    colframe=bcblue,
+    coltitle=white,
+    colbacktitle=bcblue,
+    title={\bfseries\sffamily Definition \thedefcount: #1},
+    boxrule=0.8pt,
+    arc=2pt,
+    left=6pt, right=6pt, top=4pt, bottom=4pt,
+    breakable
+  ]
+}{%
+  \end{tcolorbox}
+  \vspace{3pt}
+}
+
+% ---- Theorem/Property Box ----
+\newcounter{thmcount}
+\newenvironment{thmbox}[1]{%
+  \stepcounter{thmcount}
+  \begin{tcolorbox}[
+    colback=white,
+    colframe=bcblue,
+    coltitle=white,
+    colbacktitle=bcblue!80!black,
+    title={\bfseries\sffamily Theorem \thethmcount: #1},
+    boxrule=0.8pt,
+    arc=2pt,
+    left=6pt, right=6pt, top=4pt, bottom=4pt,
+    breakable
+  ]
+}{%
+  \end{tcolorbox}
+  \vspace{3pt}
+}
+
+% ---- Key Formula Box ----
+\newenvironment{formulabox}[1]{%
+  \begin{tcolorbox}[
+    colback=bclightgray,
+    colframe=bcgray,
+    coltitle=black,
+    colbacktitle=bclightgray,
+    title={\bfseries\sffamily #1},
+    boxrule=0.5pt,
+    arc=2pt,
+    left=6pt, right=6pt, top=3pt, bottom=3pt
+  ]
+}{%
+  \end{tcolorbox}
+  \vspace{2pt}
+}
+
+% ---- Guided Example Environment ----
+\newcounter{excount}
+\newenvironment{example}[1][]{%
+  \stepcounter{excount}
+  \vspace{4pt}
+  \noindent\begin{tcolorbox}[
+    colback=white,
+    colframe=bcgreen!70!black,
+    coltitle=white,
+    colbacktitle=bcgreen!80!black,
+    title={\bfseries\sffamily Example \theexcount\ifx&#1&\else: #1\fi},
+    boxrule=0.8pt,
+    arc=2pt,
+    left=6pt, right=6pt, top=4pt, bottom=4pt,
+    breakable
+  ]
+}{%
+  \end{tcolorbox}
+  \vspace{3pt}
+}
+
+% ---- Practice Problem Environment ----
+\newcounter{probcount}
+\newenvironment{practice}{%
+  \bigskip
+  \noindent{\Large\bfseries\color{bcblue}\sffamily Practice Problems}
+  \par\noindent\rule{\textwidth}{0.5pt}
+  \vspace{4pt}
+  \setcounter{probcount}{0}
+}{%
+}
+
+\newcommand{\prob}[1][]{%
+  \stepcounter{probcount}%
+  \par\vspace{8pt}%
+  \noindent\rule{\textwidth}{0.3pt}%
+  \par\vspace{4pt}%
+  \noindent\textbf{Problem \theprobcount.}\ifx&#1&\else\;{\small\color{bcgray}[#1]}\fi\;%
+}
+
+% Difficulty stars
+\newcommand{\dstar}{{\color{bcgold}$\bigstar$}}
+\newcommand{\difficulty}[1]{\hfill\foreach \n in {1,...,#1}{\dstar}}
+
+% ---- Background / Motivation Box (read aloud, not written on board) ----
+\newenvironment{background}{%
+  \begin{tcolorbox}[
+    colback=bcwarm!60!white,
+    colframe=bcgold!60!black,
+    boxrule=0.5pt,
+    arc=3pt,
+    left=10pt, right=10pt, top=6pt, bottom=6pt,
+    fontupper=\small,
+    before upper={\noindent\textcolor{bcgold!70!black}{\bfseries\sffamily Background \& Motivation}\par\smallskip}
+  ]
+}{%
+  \end{tcolorbox}
+  \vspace{4pt}
+}
+
+% ---- Summary Box ----
+\newenvironment{summary}{%
+  \vspace{6pt}
+  \begin{tcolorbox}[
+    colback=bclight,
+    colframe=bcblue,
+    coltitle=white,
+    colbacktitle=bcblue,
+    title={\bfseries\sffamily Key Takeaways},
+    boxrule=1pt,
+    arc=3pt,
+    left=8pt, right=8pt, top=4pt, bottom=4pt
+  ]
+}{%
+  \end{tcolorbox}
+}
+
+% ---- Margin Note ----
+\newcommand{\sidenote}[1]{\marginpar{\footnotesize\color{bcgray}\textit{#1}}}
+
+% ---- Common Math Shortcuts ----
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\uvec}[1]{\hat{\mathbf{#1}}}
+\newcommand{\ihat}{\uvec{i}}
+\newcommand{\jhat}{\uvec{j}}
+\newcommand{\khat}{\uvec{k}}
+\newcommand{\rhat}{\uvec{r}}
+\newcommand{\That}{\uvec{T}}
+\newcommand{\Nhat}{\uvec{N}}
+\newcommand{\Bhat}{\uvec{B}}
+\renewcommand{\vec}[1]{\left\langle #1 \right\rangle}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\comp}{\operatorname{comp}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\range}{\operatorname{range}}
+\providecommand{\curl}{\operatorname{curl}}% avoid conflict with esint
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\ds}{\displaystyle}
+
+% ---- Foreach loop for stars ----
+\RequirePackage{pgffor}
+
+\endinput

@@ -3,8 +3,10 @@
 
 \section*{Introduction}
 
-
-In our study of multivariable calculus, we now embark on an essential journey into the realm of multiple integrals. Building upon the concepts of single-variable integration and partial derivatives, we delve into methods for calculating areas, volumes, and other quantities that arise in higher-dimensional spaces. While integration in one dimension involves summing over intervals, multiple integration generalizes this concept to two and three dimensions. This allows us to analyze diverse real-world phenomena, from calculating the mass of an irregularly shaped object with varying density to determining the volume of regions bounded by complex surfaces. But all of this is not as scary as it sounds--we are just adding bits of things up in a smart way, that's all. \\ \\ We begin by exploring double integrals, starting with rectangular regions and expanding to general regions, incorporating techniques such as switching the order of integration and converting to polar coordinates. These tools provide a framework for solving problems in physics, engineering, and beyond. The power of double integrals becomes evident when applied to compute areas, volumes, and surface areas, or to study distributions such as mass and center of mass. From there, we extend to triple integrals, which enable us to work in three-dimensional regions, using cylindrical and spherical coordinate systems to simplify calculations in symmetric or otherwise complex geometries. These integrals offer insight into phenomena ranging from gravitational fields to fluid dynamics. Finally, we generalize further by introducing the concept of variable transformation with Jacobian determinants, a powerful technique for tackling integrals over irregular regions. \\ \\ This chapter equips us with the tools to move seamlessly between dimensions, solving problems that are integral to both theoretical mathematics and practical applications. By mastering multiple integration, we take a significant step forward in understanding the underlying structures of the physical world and the mathematical framework that models it.
+In single-variable calculus, integration lets us accumulate a quantity along a line segment---the area under a curve, the total distance traveled, the mass of a wire. But the real world is two- and three-dimensional: how much rain fell on a field? What is the mass of a planet with varying density? How much heat flows through a curved surface? To answer questions like these, we need to integrate over flat regions, curved surfaces, and solid bodies. That is what multiple integrals do.\\ \\
+\noindent The core idea is not as intimidating as it sounds---we are just adding up small pieces, exactly as before, but now in higher dimensions. A double integral sums over a region in the plane; a triple integral sums over a solid in space. The mechanics are an extension of single-variable integration: we evaluate iterated integrals by integrating one variable at a time, peeling away dimensions layer by layer.\\ \\
+\noindent What makes this chapter genuinely powerful is the interplay between geometry and coordinate systems. Many integrals that are nightmarish in Cartesian coordinates become routine in polar, cylindrical, or spherical coordinates---the right choice of coordinates can turn pages of algebra into a few clean lines. We formalize this idea through the \textbf{Jacobian determinant}, which tells us exactly how area and volume elements transform when we switch coordinate systems. This machinery unifies every coordinate change we perform, from the familiar \( r\,dr\,d\theta \) of polar coordinates to exotic transformations tailored to specific geometries.\\ \\
+\noindent Along the way, we apply multiple integrals to compute areas, volumes, surface areas, centers of mass, moments of inertia, and average values---the workhorses of physics and engineering. By the end of this chapter, you will be able to set up and evaluate integrals over virtually any region in two or three dimensions.
 
 
 \newpage 
@@ -46,7 +48,7 @@ Just as we built the single integral from the concept of adding up infinitesimal
     -- plot[variable=\y,domain=3:2]  (1,\y,{f(1,\y)})
     -- cycle;
 \end{tikzpicture}
-\caption{\textit{The integral extends naturally to higher dimensions. Above we see the volume under the surface: the multi-variate analog to the area under a curve.}}
+\caption{\textit{The integral extends naturally to higher dimensions. Above we see the volume under the surface: the multivariate analog to the area under a curve.}}
 \end{figure}
 
 
@@ -71,7 +73,7 @@ Let's construct this systematically. First, we'll partition our rectangular regi
 \end{itemize}
 
 \noindent This creates a grid of \(nm\) small rectangles, which we'll call \(R_{ij}\). Each has area \(\Delta A = \Delta x \Delta y\). Just as we chose a sample point in each subinterval for single integrals, here we choose a sample point \((x_{ij}^*, y_{ij}^*)\) in each small rectangle. \\ \\
-Now we can build our approximation. Above each small rectangle \(R_{ij}\), we have a approximately rectangular solid with:
+Now we can build our approximation. Above each small rectangle \(R_{ij}\), we have an approximately rectangular solid with:
 \begin{itemize}
     \item Base area: \(\Delta A = \Delta x \Delta y\)
     \item Height: \(f(x_{ij}^*, y_{ij}^*)\)
@@ -89,7 +91,7 @@ S_{n,m} = \sum_{i=1}^n \sum_{j=1}^m f(x_{ij}^*, y_{ij}^*) \Delta A
 \]
 
 \noindent This limit, when it exists, gives us the precise value of the double integral. For continuous functions (and even some discontinuous ones), this limit exists and is independent of how we choose our sample points \((x_{ij}^*, y_{ij}^*)\)—a remarkable fact that parallels the single-variable case. \\ \\
-This construction gives us more than just a definition; it provides a concrete way to visualize what a double integral actually computes. We're literally adding up infinitely many infinitesimally small volumes, just as a single integral adds up infinitely many infinitesimally thin rectangles. The below figure is the 3D representation of the Riemann sums under a surface:
+This construction gives us more than just a definition; it provides a concrete way to visualize what a double integral actually computes. We're literally adding up infinitely many infinitesimally small volumes, just as a single integral adds up infinitely many infinitesimally thin rectangles. The figure below is the 3D representation of the Riemann sums under a surface:
 
 \begin{figure}[H]
 \centering
@@ -162,7 +164,7 @@ This construction gives us more than just a definition; it provides a concrete w
 %curvefm0,curvebm0,curvebm4,curvefm4}
 %  \node at (\Name) {\Name};  
 \end{tikzpicture} 
-\caption{\textit{The Riemann Sum approximation of the volume under a curve. When taking the limit of these rectangular prisms to be infinitesimally small, we approximate the double integral.}}
+\caption{\textit{The Riemann Sum approximation of the volume under a surface. When taking the limit of these rectangular prisms to be infinitesimally small, we approximate the double integral.}}
 \end{figure}
 \noindent It is important to also note, that just as we have the idea of \textbf{negative area} in single variable calculus when the curve dips below the $x$-axis, we also have the analogous \textbf{negative volume} when our surface dips below the $xy$-plane.
 
@@ -218,7 +220,7 @@ Let's construct this approximation systematically:
     \end{align*}
 \end{enumerate}
 
-\noindent Therefore, our Riemann sum approximation is \(\frac{25}{4}\) or approximately 6.25 square units. This is a rough approximation; the actual value of the double integral would be obtained by taking the limit as \(n,m \to \infty\). \\ \\
+\noindent Therefore, our Riemann sum approximation is \(\frac{25}{4}\) or approximately 6.25 cubic units. This is a rough approximation; the actual value of the double integral would be obtained by taking the limit as \(n,m \to \infty\). \\ \\
 Note: This example illustrates how even a coarse partition (2×2) involves significant computation. The true power of double integrals emerges when we develop more sophisticated techniques (like Fubini's Theorem) to evaluate them exactly rather than approximating with Riemann sums.
 \end{solution}
 \end{example}
@@ -302,18 +304,18 @@ Either way, when we add up all the slices, we must get the same volume.
         % Blue shaded region between blue vertical poles
         \addplot3[blue, fill=blue, opacity=0.2] coordinates {
             (0.3, 0.3, 0)
-            (0.3, 0.3, 4.913931)
-            (0.7, 0.3, 4.818731)
+            (0.3, 0.3, 4.835270)
+            (0.7, 0.3, 4.559898)
             (0.7, 0.3, 0)
             (0.3, 0.3, 0)
         };
         
         % Blue vertical lines from (a, c) and (b, c) to the function
-        \addplot3[blue, thick] coordinates {(0.3, 0.3, 0) (0.3, 0.3, 4.913931)};
-        \addplot3[blue, thick] coordinates {(0.7, 0.3, 0) (0.7, 0.3, 4.818731)};
+        \addplot3[blue, thick] coordinates {(0.3, 0.3, 0) (0.3, 0.3, 4.835270)};
+        \addplot3[blue, thick] coordinates {(0.7, 0.3, 0) (0.7, 0.3, 4.559898)};
         
         % Connect the blue lines along y = c at the function
-        \addplot3[blue, thick] coordinates {(0.3, 0.3, 4.913931) (0.7, 0.3, 4.818731)};
+        \addplot3[blue, thick] coordinates {(0.3, 0.3, 4.835270) (0.7, 0.3, 4.559898)};
         
         % Dotted lines from footprint to the y-axis
         \addplot3[gray, dashed] coordinates {(0.3, 0, 0) (0.3, 0.3, 0)};
@@ -484,9 +486,9 @@ f(-y) = \frac{-y}{x^2 + (-y)^2} = -\frac{y}{x^2 + y^2} = -f(y)
 \int_1^2 \frac{y}{x^2 + y^2} \,dx
 \]
 
-\noindent This requires substitution $u = x^2 + y^2$ with $du = 2x\,dx$, leading to:
+\noindent For fixed \( y \neq 0 \), we use the standard arctangent formula:
 \[
-y\int \frac{dx}{x^2 + y^2} = \frac{y}{|y|}\arctan\left(\frac{x}{y}\right) \quad\text{for }y \neq 0
+\int \frac{y}{x^2 + y^2} \, dx = \arctan\!\left(\frac{x}{y}\right)
 \]
 
 \noindent Evaluating from $x = 1$ to $x = 2$ and then integrating with respect to $y$ becomes quite involved:
@@ -498,9 +500,11 @@ y\int \frac{dx}{x^2 + y^2} = \frac{y}{|y|}\arctan\left(\frac{x}{y}\right) \quad\
 \begin{tikzpicture}
 \begin{axis}[
     width=12cm,
-    view={60}{15},  % <-- changed elevation to 75 for a more top-down look
-    domain=-0.5:0.5,
-    y domain=-0.5:0.5,
+    view={60}{15},  % <-- elevation of 15 for a slight overhead perspective
+    domain=1:2,
+    y domain=-1:1,
+    xmin=1, xmax=2,
+    ymin=-1, ymax=1,
     samples=40,
     samples y=40,
     xlabel={$x$},
@@ -517,7 +521,7 @@ y\int \frac{dx}{x^2 + y^2} = \frac{y}{|y|}\arctan\left(\frac{x}{y}\right) \quad\
 {y/(x^2 + y^2)};
 \end{axis}
 \end{tikzpicture}
-\caption{\textit{A plot of the function $f(x,y) = \frac{y}{x^2 + y^2}$. Notice that the function is odd, and thus integrating across symmetric bounds produces volume equal to 0.}}
+\caption{\textit{A plot of the function $f(x,y) = \frac{y}{x^2 + y^2}$. Notice that the function is odd in $y$, and thus integrating across symmetric bounds produces volume equal to 0.}}
 \end{figure}
 \end{solution}
 \end{example}
@@ -570,7 +574,7 @@ where \( H(x, y) = \int G(x, y) \, dx \), \( P(x) = \int p(x) \, dx \), and \( q
 Find the indefinite double integral for:
 \begin{enumerate}
    \item \(\displaystyle \iint xy^2 \,dx\,dy\)
-   \item \(\displaystyle \iint (x^2 + 3xy) \,dx^2\)
+   \item \(\displaystyle \iint (x^2 + 3xy) \,dx\,dx\) \quad (i.e., integrate twice with respect to \(x\))
 \end{enumerate}
 
 \begin{solution}
@@ -745,7 +749,7 @@ Let's develop a systematic approach for analyzing these general regions and dete
     \item Are these intersections continuous functions of position?
 \end{enumerate}
 
-\noindent If the answer to the first question is ``yes," the region can be described as Type I. If the answer to the second question is ``yes," it can be described as Type II. Often, both answers are ``yes," giving makes things a bit complicated: we will need to either switch coordinates or divide up into sections of Type I and Type II regions and break up the integral and then proceed. Additionally, we can switch from Type I to several Type II cases and vice versa if it is advantageous. We will cover these cases in a bit.
+\noindent If the answer to the first question is ``yes," the region can be described as Type I. If the answer to the second question is ``yes," it can be described as Type II. Some regions can be described as both Type I and Type II, giving us flexibility. However, some regions---such as annular regions---cannot be described as either type, since vertical and horizontal lines may cross the boundary more than twice. In such cases, we must split the region into simpler pieces or switch coordinate systems.
 
 
 \begin{figure}[H]
@@ -958,7 +962,7 @@ plot[domain=6.28:0] (\x, {2 + cos(\x r)}) -- cycle;
 \begin{align*}
 E_{\text{avg}}
 &= \frac{\iint_R E(x,y) \, dA}{\iint_R \, dA} \\
-&= \frac{\iint_R x^2 y \, dA}{\text{Area of } R}.
+&= \frac{\iint_R \frac{1}{80} x^2 y \, dA}{\text{Area of } R}.
 \end{align*}
 
 \noindent From the bounds, we have $0 \le x \le 2\pi$ and $\sin(x) \le y \le 2 + \cos(x)$. Thus,
@@ -1017,10 +1021,10 @@ E_{\text{avg}}
 \begin{align*}
 E_{\text{avg}}
 &= \frac{\frac{1}{160}
-\Bigl( \frac{32\pi^3}{3} + 16\pi + \pi \Bigr)}{4\pi} \approx 0.189 = 18.9 \%.
+\Bigl( \frac{32\pi^3}{3} + 16\pi + \pi \Bigr)}{4\pi} \approx 0.191 = 19.1 \%.
 \end{align*}
 
-\noindent This is the average efficiency across the entire solar panel surface. Note, that unlike have a surface intersecting the $xy$-plane producing negative volume, the bounds of the region that go to negative quadrants do not effect the volume.
+\noindent This is the average efficiency across the entire solar panel surface. Note that unlike having a surface that intersects the $xy$-plane producing negative volume, the bounds of the region that go to negative quadrants do not affect the volume.
 \end{solution}
 \end{example}
 \exampleline
@@ -1121,6 +1125,31 @@ Therefore:
 \end{example}
 
 
+\subsubsection*{Reversing the Order of Integration}
+
+\noindent A powerful technique is to switch the order of integration when one order leads to a difficult or impossible antiderivative but the other does not.
+
+\exampleline
+\begin{example}
+Evaluate
+\[
+\int_0^1 \int_x^1 \sin(y^2) \, dy \, dx.
+\]
+
+\begin{solution}
+The inner integral \( \int_x^1 \sin(y^2) \, dy \) has no elementary antiderivative, so we reverse the order. The original region is: \( 0 \leq x \leq 1 \), \( x \leq y \leq 1 \). Sketching this, we see it is the triangle above the line \( y = x \) and below \( y = 1 \), for \( 0 \leq x \leq 1 \). Rewriting with \( y \) as the outer variable: for each \( y \) from 0 to 1, \( x \) ranges from 0 to \( y \). Thus:
+\[
+\int_0^1 \int_0^y \sin(y^2) \, dx \, dy = \int_0^1 y \sin(y^2) \, dy.
+\]
+Now the inner integral is trivial (just \( x \) evaluated from 0 to \( y \)), and the remaining integral is a standard substitution with \( u = y^2 \):
+\[
+\int_0^1 y \sin(y^2) \, dy = \frac{1}{2}\bigl[-\cos(y^2)\bigr]_0^1 = \frac{1 - \cos 1}{2} \approx 0.2298.
+\]
+\end{solution}
+\end{example}
+\exampleline
+
+
 \subsection*{Double Integrals in Polar Coordinates} \index{Polar Coordinates} \index{Polar Regions}
 
 \noindent Many regions in the plane possess a natural circular or radial symmetry that makes them awkward to describe in rectangular coordinates. A circle, for instance, has a simple equation $r = a$ in polar coordinates but requires the more complex equation $x^2 + y^2 = a^2$ in rectangular coordinates. For such regions, polar coordinates often provide both simpler descriptions and easier integrations.
@@ -1155,7 +1184,7 @@ y &= r\sin\theta
     \draw[red, thick] (20:1.7) arc (20:40:1.7);
     
     % Fill area element
-    \fill[blue!20] (0,0) -- (20:1.7) arc (20:40:1.7) -- (40:1.2) arc (40:20:1.2) -- cycle;
+    \fill[blue!20] (20:1.2) -- (20:1.7) arc (20:40:1.7) -- (40:1.2) arc (40:20:1.2) -- cycle;
     
     % Labels with manually adjustable positions
     \draw[<->] (42:1.2) -- (42:1.7) node[midway, xshift=-0.2cm, yshift=.3cm] {$dr$};
@@ -1179,7 +1208,8 @@ y &= r\sin\theta
 dA = r\,dr\,d\theta
 \]
 
-\noindent This explains why the factor of $r$ appears—as we move farther from the origin (larger $r$), the same angle $d\theta$ sweeps out a longer arc, creating a larger area element. The actual area element becomes exact as $dr$ and $d\theta$ become infinitesimally small. If we also think about the units this also makes sense: Area requires a squared length, and thus $r$ and $dr$ provide the length. $d\theta$ is unitless since it's an angle. \\
+\noindent This explains why the factor of $r$ appears—as we move farther from the origin (larger $r$), the same angle $d\theta$ sweeps out a longer arc, creating a larger area element. The actual area element becomes exact as $dr$ and $d\theta$ become infinitesimally small. If we also think about the units this also makes sense: Area requires a squared length, and thus $r$ and $dr$ provide the length. $d\theta$ is unitless since it's an angle. \\ \\
+\noindent \textbf{Common Mistake:} The most frequent error in polar integration is writing \( dA = dr \, d\theta \) instead of \( dA = r \, dr \, d\theta \). Every polar double integral must include the extra factor of \( r \). Forgetting it will give an answer with wrong units and wrong magnitude.\\ \\
 
 \noindent Therefore once considering the surface function $f(x,y)$ for the height and transforming it to polar: $f(x,y) = f(r\cos\theta,r\sin\theta) = g(r,\theta)$, a double integral in polar coordinates takes the general form:
 \[
@@ -1293,12 +1323,7 @@ dA = r\,dr\,d\theta
 \end{tikzpicture}
 \end{center}
 
-\noindent Also note that when converting to polar coordinates to integrate, some expressions become particularly simple in polar coordinates:
-\begin{itemize}
-   \item $x^2 + y^2 = r^2$
-   \item $\tan^{-1}(\frac{y}{x}) = \theta$
-   \item $\sqrt{x^2 + y^2} = r$
-\end{itemize}
+
 
 
 \exampleline
@@ -1773,8 +1798,8 @@ where $R = R_1 \cup R_2$ and $R_1 \cap R_2 = \emptyset$ \\
 \node at (0,1) {$R_2$};
 
 % Label curves
-\node[right] at (2,0.5) {$y = 4-x^2$};
-\node[right] at (2,3.5) {$y = x^2$};
+\node[right] at (2,0.5) {$y = x^2$};
+\node[right] at (2,3.5) {$y = 4-x^2$};
 \end{tikzpicture}
 \end{center}
 \caption{\textit{An otherwise Type I region that is converted into Type II by adjusting the equations and finding the appropriate intersection point.}}
@@ -1782,8 +1807,8 @@ where $R = R_1 \cup R_2$ and $R_1 \cap R_2 = \emptyset$ \\
 
 \noindent Here, we might split at $y = 2$ into:
 \begin{itemize}
-    \item $R_1$: Region where $2 \leq y \leq 4-x^2$, $-\sqrt{4-y} \leq x \leq \sqrt{4-y}$
-    \item $R_2$: Region where $x^2 \leq y \leq 2$, $-\sqrt{y} \leq x \leq \sqrt{y}$
+    \item $R_1$: Region where $2 \leq y \leq 4$, $-\sqrt{4-y} \leq x \leq \sqrt{4-y}$
+    \item $R_2$: Region where $0 \leq y \leq 2$, $-\sqrt{y} \leq x \leq \sqrt{y}$
 \end{itemize}
 
 \noindent When working with complex regions, we often encounter situations that require more sophisticated splitting strategies:
@@ -1914,27 +1939,39 @@ Evaluating the inner integral:
 = \frac{5}{16}(16) + \frac{125}{768}(16) + \frac{5}{8}(4) = \frac{485}{48} \approx 10.104
 \]
 
-\item For $R_2$, we translate to the center of the quarter circle at (2,0). Using polar coordinates with this shift:
+\item For $R_2$, we translate to the center of the quarter circle at $(2,0)$. Using \emph{shifted} polar coordinates centered at $(2,0)$:
 \[
-x = r\cos\theta, \quad y = r\sin\theta
+x = 2 + r\cos\theta, \quad y = r\sin\theta
 \]
-Therefore, $x^2 + y^2 + 1 = r^2 + 1$. The integral becomes:
+\textbf{Note:} Because the polar coordinates are centered at $(2,0)$ and not at the origin, we must substitute carefully into the integrand:
 \[
-\iint_{R_2} f(x,y)\,dA = \int_0^{\pi/2} \int_0^{2.5} (r^2 + 1)r\,dr\,d\theta
+x^2 + y^2 + 1 = (2+r\cos\theta)^2 + r^2\sin^2\theta + 1 = r^2 + 4r\cos\theta + 5.
 \]
+The integral becomes:
 \[
-= \int_0^{\pi/2} \left[\frac{r^4}{4} + \frac{r^2}{2}\right]_0^{2.5}\,d\theta
-\]
-\[
-= \int_0^{\pi/2} \left(\frac{(2.5)^4}{4} + \frac{(2.5)^2}{2}\right)\,d\theta
+\iint_{R_2} f(x,y)\,dA = \int_0^{\pi/2} \int_0^{2.5} (r^2 + 4r\cos\theta + 5)\,r\,dr\,d\theta
 \]
 \[
-\left(\frac{(2.5)^4}{4} + \frac{(2.5)^2}{2}\right)\left[\theta\right]_0^{\pi/2} \approx 20.2485
+= \int_0^{\pi/2} \int_0^{2.5} (r^3 + 4r^2\cos\theta + 5r)\,dr\,d\theta
+\]
+\[
+= \int_0^{\pi/2} \left[\frac{r^4}{4} + \frac{4r^3}{3}\cos\theta + \frac{5r^2}{2}\right]_0^{2.5}\,d\theta
+\]
+\[
+= \int_0^{\pi/2} \left(\frac{(2.5)^4}{4} + \frac{4(2.5)^3}{3}\cos\theta + \frac{5(2.5)^2}{2}\right)\,d\theta
+= \int_0^{\pi/2} \left(9.766 + 20.833\cos\theta + 15.625\right)\,d\theta
+\]
+\[
+= \int_0^{\pi/2} \left(25.391 + 20.833\cos\theta\right)\,d\theta
+= \left[25.391\,\theta + 20.833\sin\theta\right]_0^{\pi/2}
+\]
+\[
+= 25.391 \cdot \frac{\pi}{2} + 20.833 \cdot 1 \approx 39.87 + 20.83 = 60.70
 \]
 
 \item The total volume is therefore:
 \[
-V \approx 30.3525
+V \approx 10.104 + 60.70 = 70.80
 \]
 \end{enumerate}
 \end{enumerate}
@@ -1948,6 +1985,8 @@ V \approx 30.3525
 
 \lecture{Applications of Double Integrals}
 
+\noindent In the previous two lectures, we developed the machinery for computing double integrals over rectangular and general regions. We now ask: what physical quantities can these integrals represent? It turns out that mass, balance, rotational resistance, and surface geometry are all naturally expressed as double integrals with the right integrand.\\ \\
+
 \noindent Having established our foundation with area and volume calculations, we now venture into how double integrals illuminate the physical properties of objects in the real world. These applications reveal the deep connection between calculus and physics, showing how mathematical tools can predict and explain the behavior of physical systems.
 
 \subsection*{Mass and Density} \index{Mass and Density}
@@ -1959,13 +1998,15 @@ V \approx 30.3525
 M = \iint_R \rho(x,y)\,dA
 \]
 
-\noindent This integral emerges naturally from the physical principle of additivity of mass—the total mass is the sum of the masses of all small pieces. Each infinitesimal piece has area $dA$ and density $\rho(x,y)$, giving it a mass of $\rho(x,y)\,dA$. The double integral then sums these contributions over the entire region (thus bringing us to the required $M = \rho V_R$ for our units). \\
+\noindent This integral emerges naturally from the physical principle of additivity of mass—the total mass is the sum of the masses of all small pieces. Each infinitesimal piece has area $dA$ and density $\rho(x,y)$, giving it a mass of $\rho(x,y)\,dA$. The double integral then sums these contributions over the entire region (thus bringing us to the required $M = \rho A_R$ for our units). \\
 
 \noindent Consider, for instance, a sheet of metal that has been treated with a protective coating. The coating might be applied more thickly around the edges, creating a density function that increases as we move away from the center. Or think about a decorative stained glass window, where different colored pieces have different densities. In these cases, the density function captures the physical reality of how mass is distributed across the object.
 
 \subsection*{Center of Mass and Balance} \index{Center of Mass}
 
 \noindent Now that we understand how to represent mass distribution using double integrals, we can tackle an important related problem: finding where an object will balance. Given a flat plate with varying density, where should we place a support to keep it perfectly level? This question leads us to the concept of center of mass. \\
+
+\noindent The center of mass is the balance point of a plate: the location where you could support it on a pin and it would not tip. To find it, we use the principle that the total torque about the balance point must be zero. For a small piece of mass \( dm = \rho(x,y) \, dA \) at position \( (x, y) \), its torque about the \( y \)-axis is \( x \, dm \). Setting the total torque to zero and dividing by the total mass gives:\\ \\
 
 \noindent The center of mass of an object tells us where it effectively balances, a concept crucial in everything from architectural design to spacecraft engineering. For a flat object with density $\rho(x,y)$, we call the coordinates of its center of mass $(\bar{x}, \bar{y})$, given by:
 \begin{align*}
@@ -2023,7 +2064,7 @@ M = \iint_R \rho(x,y)\,dA
 
 \end{figure}
 
-\noindent The practical implications are profound. When aerospace engineers design control surfaces for aircraft, they must carefully consider the center of mass. A poorly balanced aileron or rudder could lead to control issues or mechanical failure. Similarly, architects designing large suspended sculptures must understand exactly where each piece will balance. The center of mass calculations tell them where to place support structures and how to distribute the weight of the artwork. Therefore study this hard so you don't wind up killing someone.
+\noindent The practical implications are profound. When aerospace engineers design control surfaces for aircraft, they must carefully consider the center of mass. A poorly balanced aileron or rudder could lead to control issues or mechanical failure. Similarly, architects designing large suspended sculptures must understand exactly where each piece will balance. The center of mass calculations tell them where to place support structures and how to distribute the weight of the artwork. These calculations have real consequences---an incorrectly balanced control surface can lead to structural failure, which is why engineers rigorously verify center-of-mass computations.
 
 \exampleline
 \begin{example}
@@ -2187,6 +2228,8 @@ I_y &= \iint_R r^3\cos^2\theta\,\rho(r,\theta)\,dr\,d\theta \\
 I_z &= \iint_R r^3\rho(r,\theta)\,dr\,d\theta
 \end{align*}
 
+\noindent (The factor \( r^3 \) arises because \( y^2 = r^2\sin^2\theta \) contributes \( r^2 \) and the area element \( dA = r \, dr \, d\theta \) contributes another \( r \).)
+
 \noindent The squared terms in these formulas reflect a deep physical principle: mass farther from the axis of rotation contributes more to rotational inertia. This is why figure skaters pull their arms in to spin faster—they're reducing their moment of inertia about the vertical axis. It's also why flywheels in engines are designed with most of their mass at the outer edge, maximizing their ability to store rotational energy.
 
 %https://commons.wikimedia.org/wiki/File:2011_WFSC_3d_223_Tom%C3%A1%C5%A1_Verner.JPG
@@ -2312,7 +2355,7 @@ A robotic arm at a manufacturing plant rotates components on a flat mounting pla
    \theta = \omega_0t + \frac{1}{2}\alpha t^2 = 2\pi(3) + \frac{1}{2}\left(-\frac{2\pi}{3}\right)(3)^2
    \]
    \[
-   = 6\pi - \frac{9\pi}{2} = \frac{3\pi}{2} \text{ rad} = 270^{\text{o}}
+   = 6\pi - 3\pi = 3\pi \text{ rad} = 540^\circ
    \]
 \end{enumerate}
 \end{solution}
@@ -2322,7 +2365,7 @@ A robotic arm at a manufacturing plant rotates components on a flat mounting pla
 
 \subsection*{Average Values over Two-Dimensional Regions} \index{Average Value} \index{Average Distribution}
 
-\noindent We took a sneak peak of this concept when we looked at average efficiency in the previous lecture -- When analyzing quantities that vary over a region, we often need to find their average values. Just as the average of discrete values is found by summing and dividing by the count, the average value of a continuous function $f(x,y)$ over a region $R$ is found by integrating and dividing by the region's area:
+\noindent We took a sneak peek of this concept when we looked at average efficiency in the previous lecture -- When analyzing quantities that vary over a region, we often need to find their average values. Just as the average of discrete values is found by summing and dividing by the count, the average value of a continuous function $f(x,y)$ over a region $R$ is found by integrating and dividing by the region's area:
 \[
 f_{avg} = \frac{\iint_R f(x,y)\,dA}{\iint_R dA}
 \]
@@ -2485,11 +2528,13 @@ Let's solve this step by step:
 
 \lecture{Triple Integrals}
 
-\noindent Having explored integration over regions in the plane, we now extend our understanding to higher dimensions. Recall that double integrals allowed us to find areas under surfaces by integrating a function $f(x,y)$ over a region $R$, producing outputs in units of ``function $\times$ area". For instance, when integrating a constant height function $f(x,y) = h$ over a region $R$, we obtained volume: $V = h\iint_R dA$. \\
+\noindent Imagine you need to find the total mass of an irregularly shaped rock whose density varies throughout, or the total charge inside a thundercloud. These are naturally three-dimensional problems that require integrating a function over a solid region -- and that is exactly what triple integrals do.\\ \\
 
-\noindent Triple integrals follow this pattern but work in three dimensions. When we integrate a function $f(x,y,z)$ over a solid region $E$ in space, our output will have units of "function × volume". At first glance, this might suggest we are limited to producing quantities measured in spatial units to the fourth power—a type of hypervolume. However, just as we saw with density functions producing mass ($\text{g/cm}^3 \times \text{cm}^3 = \text{g}$), the integrand can carry rates that combine with volume in various ways. \\
+\noindent Having explored integration over regions in the plane, we now extend our understanding to higher dimensions. Recall that double integrals allowed us to find areas under surfaces by integrating a function $f(x,y)$ over a region $R$, producing outputs in units of ``function $\times$ area''. For instance, when integrating a constant height function $f(x,y) = h$ over a region $R$, we obtained volume: $V = h\iint_R dA$. \\
 
-\noindent Consider, for example, the second moment of inertia tensor in engineering, which has units of $\text{kg}\cdot\text{m}^2$. When analyzing rotating bodies, we might integrate $\rho(x,y,z)(y^2 + z^2)$ to find the moment of inertia about the $x$-axis. Here, the density ($\text{kg}/\text{m}^3$) combines with squared distance terms ($\text{m}^2$) and volume ($\text{m}^3$) to produce the correct units. Or in dynamics, when studying jerk (the rate of change of acceleration), we might integrate a function with units $\text{m}/\text{s}^3$ over a volume to find total change in momentum rate. The power of triple integrals lies in this flexibility to handle various physical quantities through appropriate choice of integrand, practical implications of which will be explored in more detailed in the coming lectures in this chapter. The good news for us in this introduction is that we will use almost identical machinery to what we used with double integrals -- there is not many more layers of complexity to add when generalizing double integrals to triple and beyond.
+\noindent Triple integrals follow this pattern but work in three dimensions. When we integrate a function $f(x,y,z)$ over a solid region $E$ in space, our output will have units of ``function $\times$ volume''. At first glance, this might suggest we are limited to producing quantities measured in spatial units to the fourth power—a type of hypervolume. However, just as we saw with density functions producing mass ($\text{g/cm}^3 \times \text{cm}^3 = \text{g}$), the integrand can carry rates that combine with volume in various ways. \\
+
+\noindent Consider, for example, the second moment of inertia tensor in engineering, which has units of $\text{kg}\cdot\text{m}^2$. When analyzing rotating bodies, we might integrate $\rho(x,y,z)(y^2 + z^2)$ to find the moment of inertia about the $x$-axis. Here, the density ($\text{kg}/\text{m}^3$) combines with squared distance terms ($\text{m}^2$) and volume ($\text{m}^3$) to produce the correct units. Or in dynamics, when studying jerk (the rate of change of acceleration), we might integrate a function with units $\text{m}/\text{s}^3$ over a volume to find total change in momentum rate. The power of triple integrals lies in this flexibility to handle various physical quantities through appropriate choice of integrand, practical implications of which will be explored in more detail in the coming lectures in this chapter. The good news for us in this introduction is that we will use almost identical machinery to what we used with double integrals -- there are not many more layers of complexity to add when generalizing double integrals to triple and beyond.
 
 
 \subsection*{Definition and Computation}
@@ -2604,14 +2649,14 @@ and similarly for any other permutation of the variables. The choice of order, w
     
     % Labels
     \node at (0,0.3,0.3) {$R$};
-    \node at (1.5,0.1,0.5) {$x = h_2$};
+    \node at (1.5,0.1,0.5) {$x = h_2(y,z)$};
     \node at (-0.2,0.6,0.5) {$x = h_1(y,z)$};
 
 \end{tikzpicture}
 \caption{\textit{A Type II region bounded by surfaces viewed from the $yz$-plane.}}
 \end{figure}
  \index{Triple Integral Regions!Type III Regions} 
-\noindent \textbf{Type III Regions:}These regions are viewed by looking perpendicular to the $xz$-plane, bounded by surfaces $y = k_1(x,z)$ and $y = k_2(x,z)$ over a region $R$ in the $xz$-plane:
+\noindent \textbf{Type III Regions:} These regions are viewed by looking perpendicular to the $xz$-plane, bounded by surfaces $y = k_1(x,z)$ and $y = k_2(x,z)$ over a region $R$ in the $xz$-plane:
 \[
 \iiint_E f(x,y,z)\,dV = \iint_R\int_{k_1(x,z)}^{k_2(x,z)} f(x,y,z)\,dy\,dA
 \]
@@ -3043,24 +3088,24 @@ z &= \rho\cos\phi
 	\tdplotdrawarc[tdplot_rotated_coords]{(O)}{\rvec+\drvec}{\thetavec+\dthetavec}{90}{}{}
 	%
 	\tdplotdrawarc[tdplot_main_coords]{(O)}{\rvec}{\phivec}{\phivec+\dphivec}{}{}
-	\node[rotate=13] at (3,4.45,0) {$\rho \sin(\theta) d \phi$};
+	\node[rotate=13] at (3,4.45,0) {$\rho \sin(\phi) \, d\theta$};
 	\tdplotdrawarc[tdplot_main_coords]{(O)}{\rvec+\drvec}{\phivec}{\phivec+\dphivec}{}{}
 \end{pgfonlayer}
 
 
 %Angles
 \begin{pgfonlayer}{foreground}
-	%Phi, dPhi
-	\tdplotdrawarc[-stealth]{(O)}{0.9}{0}{\phivec}{anchor=north}{$\phi$}
+	%Theta, dTheta (azimuthal angle in xy-plane)
+	\tdplotdrawarc[-stealth]{(O)}{0.9}{0}{\phivec}{anchor=north}{$\theta$}
 	\tdplotdrawarc[-stealth]{(O)}{1.5}{\phivec}{\phivec + \dphivec}{}{}
-	\node at (1.4,1.9,0) {$d \phi$};
-	
+	\node at (1.4,1.9,0) {$d \theta$};
+
 	\tdplotsetthetaplanecoords{\phivec}
-	
-	%Theta, dTheta
+
+	%Phi, dPhi (polar angle from z-axis)
 	\tdplotdrawarc[tdplot_rotated_coords, -stealth]{(0,0,0)}{1.2}{0}{\thetavec}{}{}
-	\node at (0,0.3,1.3) {$\theta$};
-	\tdplotdrawarc[tdplot_rotated_coords, -stealth]{(0,0,0)}{2.}{\thetavec}{\thetavec + \dthetavec}{anchor=south west}{$d \theta$}
+	\node at (0,0.3,1.3) {$\phi$};
+	\tdplotdrawarc[tdplot_rotated_coords, -stealth]{(0,0,0)}{2.}{\thetavec}{\thetavec + \dthetavec}{anchor=south west}{$d \phi$}
 \end{pgfonlayer}
 
 %Differential Volume
@@ -3086,7 +3131,7 @@ z &= \rho\cos\phi
 \end{pgfonlayer}
 \begin{pgfonlayer}{foreground}
 	\tdplotsetthetaplanecoords{\phivec}
-	\tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec}{\thetavec}{\dthetavec + \thetavec}{below left}{$\rho d \theta$}
+	\tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec}{\thetavec}{\dthetavec + \thetavec}{below left}{$\rho \, d\phi$}
 	\tdplotdrawarc[tdplot_rotated_coords, thick]{(O)}{\rvec + \drvec}{\thetavec}{\dthetavec + \thetavec}{}{}
 	%
 	\tdplotsetthetaplanecoords{\phivec + \dphivec}
@@ -3116,7 +3161,7 @@ z &= \rho\cos\phi
 
 
 \end{tikzpicture}
-\caption{\textit{Representation of a volume element in spherical coordinates \((\rho, \phi, \theta)\), where \(\rho\) is the radial distance, \(\phi\) is the azimuthal angle in the \(xy\)-plane, and \(\theta\) is the polar angle from the \(z\)-axis. The volume element is defined by \(\rho^2 \sin\theta \, d\rho \, d\phi \, d\theta\), illustrating the differential components \(d\rho\), \(\rho \, d\theta\), and \(\rho \sin\theta \, d\phi\).}}
+\caption{\textit{Representation of a volume element in spherical coordinates \((\rho, \theta, \phi)\), where \(\rho\) is the radial distance, \(\theta\) is the azimuthal angle in the \(xy\)-plane, and \(\phi\) is the polar angle from the \(z\)-axis. The volume element is defined by \(\rho^2 \sin\phi \, d\rho \, d\theta \, d\phi\), illustrating the differential components \(d\rho\), \(\rho \, d\phi\), and \(\rho \sin\phi \, d\theta\).}}
 \end{figure}
 
 \noindent Typical bounds in spherical coordinates follow these patterns:
@@ -3125,6 +3170,8 @@ z &= \rho\cos\phi
 0 &\leq \theta \leq 2\pi & \text{(full revolution)} \\
 0 &\leq \phi \leq \pi & \text{(full sphere)}
 \end{align*}
+
+\noindent \textbf{Common Mistakes:} (1) The polar angle \( \phi \) ranges from \( 0 \) to \( \pi \) (not \( 2\pi \)) -- it sweeps from the north pole to the south pole. For a hemisphere with \( z \geq 0 \), use \( 0 \leq \phi \leq \pi/2 \). (2) Always include the full Jacobian factor \( \rho^2 \sin\phi \) in the volume element -- do not forget the \( \sin\phi \).\\ \\
 
 \noindent The choice between cylindrical and spherical coordinates often depends on the region's geometry and the integrand's form. Cylindrical coordinates excel for regions with circular cross-sections parallel to the $xy$-plane, while spherical coordinates are natural for regions bounded by spheres or cones centered at the origin. Both systems can dramatically simplify integrals that would be challenging in rectangular coordinates, particularly when the integrand involves terms like $\sqrt{x^2 + y^2}$ or $\sqrt{x^2 + y^2 + z^2}$.
 
@@ -3335,7 +3382,7 @@ we need a way to adjust our area and volume elements in multiple dimensions. Thi
 
 \subsection*{The Jacobian Determinant} \index{Jacobian}
 
-\noindent Recall from Chapter 3, Lecture 7 and 8 we briefly mentioned matrices and their determinants. Think of moving vectors around in space - we might stretch them, rotate them, or both. When we do these operations, each component ($x$ and $y$) of our vector changes in a way that depends on both original components. A matrix organizes these relationships. For instance, a 2×2 matrix $A$ has the form: \index{Matrices} \index{Transformations}
+\noindent Recall from Chapter 3, Lectures 7 and 8 we briefly mentioned matrices and their determinants. Think of moving vectors around in space - we might stretch them, rotate them, or both. When we do these operations, each component ($x$ and $y$) of our vector changes in a way that depends on both original components. A matrix organizes these relationships. For instance, a $2 \times 2$ matrix $A$ has the form: \index{Matrices} \index{Transformations}
 \[
 A = \begin{bmatrix}
 a_{11} & a_{12} \\
@@ -3343,12 +3390,12 @@ a_{21} & a_{22}
 \end{bmatrix}
 \]
 
-\noindent Associated with every square matrix is a number called its determinant. For a 2×2 matrix, this determinant is:
+\noindent Associated with every square matrix is a number called its determinant. For a $2 \times 2$ matrix, this determinant is:
 \[
 \det(A) = a_{11}a_{22} - a_{12}a_{21}
 \]
 
-\noindent For a 3×3 matrix, we can compute the determinant by expanding along any row or column. For example, expanding along the first row:
+\noindent For a $3 \times 3$ matrix, we can compute the determinant by expanding along any row or column. For example, expanding along the first row:
 \[
 \det\begin{bmatrix}
 a_{11} & a_{12} & a_{13} \\
@@ -3384,7 +3431,7 @@ a_{31} & a_{32}
 
   \begin{scope}[xshift=8cm]
     \draw[->] (-3,0) -- (3,0) node[below] {$x_1$};
-    \draw[->] (0,-3) -- (0,3) node[right] {$x_1$};
+    \draw[->] (0,-3) -- (0,3) node[right] {$x_2$};
     \draw[fill=red!30] (0,0) rectangle (2,2) node (x1) {};
     \draw[fill=green!30] (0,0) rectangle (2,-2) node (x2) {};
     \node[below left,font=\large] at (3,3) {$X$};
@@ -3484,6 +3531,7 @@ J = \begin{bmatrix}
 
 
 \exampleline \index{Toroidal Coordinates}
+\noindent \textbf{Advanced Example:}
 \begin{example}
 Compute the Jacobian determinant for toroidal coordinates, where the transformation is given by:
 \begin{align*}
@@ -3505,37 +3553,28 @@ J = \begin{bmatrix}
 \end{bmatrix}
 \]
 
-\noindent Computing each partial derivative:
+\noindent Let \( D = \cosh\tau - \cos\sigma \) for brevity. Computing each partial derivative by the quotient rule:
 \begin{align*}
-\frac{\partial x}{\partial \tau} &= \frac{R \cosh \tau (\cosh \tau - \cos \sigma) - R \sinh \tau \sinh \tau}{(\cosh \tau - \cos \sigma)^2} \cos \phi  = \frac{R}{\cosh \tau - \cos \sigma} \cos \phi \\
-\frac{\partial x}{\partial \sigma} &= \frac{R \sinh \tau \sin \sigma}{(\cosh \tau - \cos \sigma)^2} \cos \phi \\
-\frac{\partial x}{\partial \phi} &= -\frac{R \sinh \tau}{\cosh \tau - \cos \sigma} \sin \phi \\
-\frac{\partial y}{\partial \tau} &= \frac{R}{\cosh \tau - \cos \sigma} \sin \phi \\
-\frac{\partial y}{\partial \sigma} &= \frac{R \sinh \tau \sin \sigma}{(\cosh \tau - \cos \sigma)^2} \sin \phi \\
-\frac{\partial y}{\partial \phi} &= \frac{R \sinh \tau}{\cosh \tau - \cos \sigma} \cos \phi \\
-\frac{\partial z}{\partial \tau} &= \frac{R \sin \sigma \sinh \tau}{(\cosh \tau - \cos \sigma)^2} \\
-\frac{\partial z}{\partial \sigma} &= \frac{R \cos \sigma (\cosh \tau - \cos \sigma) + R \sin \sigma \sin \sigma}{(\cosh \tau - \cos \sigma)^2} = \frac{R (\cosh \tau)}{(\cosh \tau - \cos \sigma)^2} \\
-\frac{\partial z}{\partial \phi} &= 0
+\frac{\partial x}{\partial \tau} &= \frac{R(1 - \cosh\tau\cos\sigma)}{D^2}\cos\phi, \quad
+\frac{\partial x}{\partial \sigma} = \frac{-R\sinh\tau\sin\sigma}{D^2}\cos\phi, \\
+\frac{\partial x}{\partial \phi} &= -\frac{R\sinh\tau}{D}\sin\phi, \\[1ex]
+\frac{\partial y}{\partial \tau} &= \frac{R(1 - \cosh\tau\cos\sigma)}{D^2}\sin\phi, \quad
+\frac{\partial y}{\partial \sigma} = \frac{-R\sinh\tau\sin\sigma}{D^2}\sin\phi, \\
+\frac{\partial y}{\partial \phi} &= \frac{R\sinh\tau}{D}\cos\phi, \\[1ex]
+\frac{\partial z}{\partial \tau} &= \frac{-R\sin\sigma\sinh\tau}{D^2}, \quad
+\frac{\partial z}{\partial \sigma} = \frac{R(\cosh\tau\cos\sigma - 1)}{D^2}, \quad
+\frac{\partial z}{\partial \phi} = 0.
 \end{align*}
 
-\noindent Therefore, the Jacobian matrix is:
-\[
-J = \begin{bmatrix}
-\frac{R}{\cosh \tau - \cos \sigma} \cos \phi & \frac{R \sinh \tau \sin \sigma}{(\cosh \tau - \cos \sigma)^2} \cos \phi & -\frac{R \sinh \tau}{\cosh \tau - \cos \sigma} \sin \phi \\
-\frac{R}{\cosh \tau - \cos \sigma} \sin \phi & \frac{R \sinh \tau \sin \sigma}{(\cosh \tau - \cos \sigma)^2} \sin \phi & \frac{R \sinh \tau}{\cosh \tau - \cos \sigma} \cos \phi \\
-\frac{R \sin \sigma \sinh \tau}{(\cosh \tau - \cos \sigma)^2} & \frac{R \cosh \tau}{(\cosh \tau - \cos \sigma)^2} & 0
-\end{bmatrix}
-\]
-
-\noindent To compute the determinant \(|J|\), we can factor out \(\frac{R}{(\cosh \tau - \cos \sigma)^2}\) from the first two rows and the first two columns, simplifying the calculation:
+\noindent After expanding the cofactors along the third column (which has a zero entry) and factoring, the determinant simplifies to:
 
 \[
-|J| = \frac{R^2 \sinh \tau}{(\cosh \tau - \cos \sigma)^3}
+|J| = \frac{R^3 \sinh \tau}{(\cosh \tau - \cos \sigma)^3}
 \]
 
 \noindent Therefore, the volume element in toroidal coordinates is:
 \[
-dV = \frac{R^2 \sinh \tau}{(\cosh \tau - \cos \sigma)^3} \, d\tau \, d\sigma \, d\phi
+dV = \frac{R^3 \sinh \tau}{(\cosh \tau - \cos \sigma)^3} \, d\tau \, d\sigma \, d\phi
 \]
 \end{solution}
 \end{example}
@@ -3768,7 +3807,7 @@ An astronomer is studying the density of a spiral galaxy. The density at any poi
 where \((x,y)\) represents the position in kiloparsecs from the galactic center. Find the total mass contained within the elliptical region bounded by \(\frac{x^2}{4} + y^2 = 1\) using appropriate changes of variables.
 
 \begin{solution}
-\noindent Let's first understand our region of integration. We have an ellipse defined by \(\frac{x^2}{4} + y^2 = 1\). To simplify the integration, we'll transform this ellipse into a unit circle through a change of variables. Ellipse to circle transformations are not too hard. we just need to make the coefficient on $x^2$ to be $1$ and transform $y$ to $v$.\\
+\noindent Let's first understand our region of integration. We have an ellipse defined by \(\frac{x^2}{4} + y^2 = 1\). To simplify the integration, we'll transform this ellipse into a unit circle through a change of variables. Ellipse to circle transformations are not too hard. We just need to make the coefficient on $x^2$ to be $1$ and transform $y$ to $v$.\\
 
 \noindent Consider the linear transformation:
 \begin{align*}
@@ -3985,7 +4024,7 @@ I_{yz} &= \iiint_E yz\rho(x,y,z)\,dV \\
 I_{xz} &= \iiint_E xz\rho(x,y,z)\,dV
 \end{align*}
 \index{Tensors}
-\noindent When an object rotates, its resistance to changes in rotational motion depends not just on its total mass but on how that mass is distributed. This distribution is characterized by moments and products of inertia that we can arrange in a special $3 \times 3$ grid called the inertia tensor:
+\noindent This distribution is characterized by moments and products of inertia that we can arrange in a special $3 \times 3$ grid called the inertia tensor:
 \[
 \begin{bmatrix}
 I_{xx} & -I_{xy} & -I_{xz} \\
@@ -4039,7 +4078,7 @@ I_{xx} & -I_{xy} & -I_{xz} \\
 
 \noindent These matrix operations work as follows: \\
 
-\noindent \textbf{Matrix-Vector Multiplication:} \index{Matrix Operations} When multiplying a 3×3 matrix by a 3×1 vector:
+\noindent \textbf{Matrix-Vector Multiplication:} \index{Matrix Operations} When multiplying a $3 \times 3$ matrix by a $3 \times 1$ vector:
 \[
 \begin{bmatrix}
 a & b & c \\
@@ -4069,7 +4108,7 @@ g & h & i
 = ax^2 + (b+d)xy + (c+g)xz + (e)y^2 + (f+h)yz + (i)z^2
 \]
 
-\noindent This explains why the kinetic energy expression $E = \frac{1}{2}\boldsymbol{\omega}^T\mathbf{I}\boldsymbol{\omega}$ produces a scalar value - it's a vector-matrix-vector product that combines all the moments and products of inertia with the angular velocity components. The $T$ over $\boldsymbol{\omega}$ represents the \textit{transpose} which switches the component indices, ie, $x_{ij}$ becomes $x_{ji}$. Note that this can also change the structure, especially seen in the kinetic energy expression where the dimensions of $\boldsymbol{\omega}$ are $3 \times 1$ where $\boldsymbol{\omega}^T$ has dimensions $1 \times 3$ which are not the same and have different structural meanings.
+\noindent This explains why the kinetic energy expression $E = \frac{1}{2}\boldsymbol{\omega}^T\mathbf{I}\boldsymbol{\omega}$ produces a scalar value - it's a vector-matrix-vector product that combines all the moments and products of inertia with the angular velocity components. The $T$ over $\boldsymbol{\omega}$ represents the \textit{transpose} which switches the component indices, i.e., $x_{ij}$ becomes $x_{ji}$. Note that this can also change the structure, especially seen in the kinetic energy expression where the dimensions of $\boldsymbol{\omega}$ are $3 \times 1$ where $\boldsymbol{\omega}^T$ has dimensions $1 \times 3$ which are not the same and have different structural meanings.
 
 %https://commons.wikimedia.org/wiki/File:Matrix_multiplication_qtl1.svg
 \begin{figure}[H]
@@ -4090,23 +4129,16 @@ F_y &= \iiint_E F_y(x,y,z)\,dV, \\
 F_z &= \iiint_E F_z(x,y,z)\,dV.
 \end{align*}
 
-\noindent When calculating work, the approach differs as work involves the displacement of the object under the force field. For a displacement along a path $C$, the work done by the force field is given by the line integral:
-\[
-W = \int_C \mathbf{F} \cdot d\mathbf{r},
-\]
-where $d\mathbf{r} = (dx, dy, dz)$ represents an infinitesimal displacement vector along the path. Expanding the dot product, we have:
-\[
-\mathbf{F} \cdot d\mathbf{r} = F_x\,dx + F_y\,dy + F_z\,dz.
-\]
-
-\noindent This expression calculates the infinitesimal work done by each component of the force along its respective displacement direction. In scenarios where the force is distributed over a volume and each point in the volume moves with a velocity field $\mathbf{v}(x,y,z)$, the \textit{power density} (rate of doing work per unit volume) can be expressed as:
+\noindent Work---the energy transferred by a force acting over a displacement---is most naturally computed along a specific path using a \textit{line integral}, which we will develop fully in Chapter 5. For now, we focus on what triple integrals \textit{can} tell us: the \textbf{total instantaneous power} exerted on a distributed body.\\ \\
+\noindent When a force field \( \mathbf{F}(x,y,z) \) acts on a body whose points move with velocity field \( \mathbf{v}(x,y,z) \), the \textit{power density} (rate of doing work per unit volume) at each point is:
 \[
 P(x,y,z) = \mathbf{F}(x,y,z) \cdot \mathbf{v}(x,y,z).
 \]
-The total work done over a period of time can then be obtained by integrating the power density over the entire volume:
+The total instantaneous power delivered to the body is then:
 \[
-W = \iiint_E \mathbf{F}(x,y,z) \cdot \mathbf{v}(x,y,z) \, dV.
+\mathcal{P}_{\text{total}} = \iiint_E \mathbf{F}(x,y,z) \cdot \mathbf{v}(x,y,z) \, dV.
 \]
+\noindent To find the actual \textit{work} (energy) delivered over a time interval, one would integrate the total power over time: \( W = \int_0^T \mathcal{P}_{\text{total}}(t) \, dt \). We will see more direct approaches to computing work in Chapter 5.
 
 \noindent This framework is essential in physics and engineering applications. For example, when calculating the work done by an electric field $\mathbf{E}$ on a charge distribution $\rho(x,y,z)$ moving with velocity $\mathbf{v}(x,y,z)$, the integral takes the form:
 \[
@@ -4296,24 +4328,23 @@ Find:
    \[
    \int_0^3 r^2\,dr = 9
    \quad\text{and}\quad
-   \int_0^3 r^2 e^{-\tfrac{r^2}{9}}\,dr \approx 10.69.
+   \int_0^3 r^2 e^{-\tfrac{r^2}{9}}\,dr \approx 5.12.
    \]
    Hence,
    \[
-   1500 \cdot 10.69 + 500 \cdot 9 
-   = 1500 \cdot 10.69 + 4500 
-   = 16035 + 4500 
-   = 20535.
+   1500 \cdot 5.12 + 500 \cdot 9
+   = 7680 + 4500
+   = 12180.
    \]
    Multiplying by $4\pi$ gives:
    \[
-   20535 \cdot 4\pi = 82140\pi.
+   12180 \cdot 4\pi = 48720\pi.
    \]
    So
    \[
    T_{\mathrm{avg}} 
-   = \frac{82140\pi}{36\pi} 
-   \approx 2282\;\text{°C}.
+   = \frac{48720\pi}{36\pi} 
+   \approx 1353\;\text{°C}.
    \]
 
    \item The density-weighted average temperature is
@@ -4328,7 +4359,7 @@ Find:
    \]
    The resulting integrals involve products of exponentials in $r$ and $\cos\phi$, so we evaluate them numerically using programming or Wolfram Alpha. One finds
    \[
-   T_{\mathrm{avg}} \approx 2220\;\text{°C}.
+   T_{\mathrm{avg}} \approx 1280\;\text{°C}.
    \]
 \end{enumerate}
 \vspace{0.5em}
@@ -4371,103 +4402,115 @@ The density-weighted average is lower because the hotter central regions (larger
 \item \textbf{Center of Mass:} The point \((\bar{x}, \bar{y}, \bar{z})\) where an object's mass can be considered concentrated for certain calculations.
 
 \item \textbf{Inertia Tensor:} A \(3\times3\) matrix describing how mass is distributed in a rotating object.
+
+\item \textbf{Iterated Integral:} A multiple integral evaluated as a sequence of single integrals, integrating one variable at a time while treating the others as constants.
+
+\item \textbf{Polar Coordinates:} A coordinate system \( (r, \theta) \) where \( r \) is the distance from the origin and \( \theta \) is the angle from the positive \( x \)-axis. The area element is \( dA = r \, dr \, d\theta \).
+
+\item \textbf{Cylindrical Coordinates:} A coordinate system \( (r, \theta, z) \) extending polar coordinates by adding a height \( z \). The volume element is \( dV = r \, dr \, d\theta \, dz \).
+
+\item \textbf{Spherical Coordinates:} A coordinate system \( (\rho, \theta, \phi) \) where \( \rho \) is the distance from the origin, \( \theta \) is the azimuthal angle, and \( \phi \) is the polar angle from the \( z \)-axis. The volume element is \( dV = \rho^2 \sin\phi \, d\rho \, d\theta \, d\phi \).
+
+\item \textbf{Change of Variables:} A technique for simplifying integrals by substituting new coordinate variables, requiring multiplication by the absolute value of the Jacobian determinant.
+
+\item \textbf{Surface Area:} The area of a surface \( z = f(x,y) \) over a region \( R \), computed as \( \iint_R \sqrt{1 + f_x^2 + f_y^2} \, dA \).
 \end{itemize}
 
 \subsection*{Key Formulas}
 \begin{multicols}{2}
 
-\paragraph{Double Integrals}
-\begin{align*}
-\text{Volume} &= \iint_R f(x,y)\,dA \\[1ex]
-\text{Mass} &= \iint_R \rho(x,y)\,dA \\[1ex]
-\text{Average} &= \frac{\iint_R f(x,y)\,dA}{\iint_R dA}
-\end{align*}
+\paragraph{Fubini's Theorem (Rectangular)}
+\[
+\iint_R f\,dA = \int_a^b\!\int_c^d f(x,y)\,dy\,dx = \int_c^d\!\int_a^b f(x,y)\,dx\,dy
+\]
 
-\paragraph{Center of Mass (2D)}
-\begin{align*}
-\bar{x} &= \frac{1}{M}\iint_R x\rho(x,y)\,dA \\[1ex]
-\bar{y} &= \frac{1}{M}\iint_R y\rho(x,y)\,dA
-\end{align*}
+\paragraph{Type I Region (vertical slicing)}
+\[
+\iint_R f\,dA = \int_a^b\!\int_{g_1(x)}^{g_2(x)} f(x,y)\,dy\,dx
+\]
+
+\paragraph{Type II Region (horizontal slicing)}
+\[
+\iint_R f\,dA = \int_c^d\!\int_{h_1(y)}^{h_2(y)} f(x,y)\,dx\,dy
+\]
 
 \paragraph{Polar Coordinates}
 \begin{align*}
-x &= r\cos\theta \\
-y &= r\sin\theta \\
+x &= r\cos\theta, \quad y = r\sin\theta \\
 dA &= r\,dr\,d\theta
 \end{align*}
+\[
+\iint_R f\,dA = \int_\alpha^\beta\!\int_{r_1(\theta)}^{r_2(\theta)} f(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta
+\]
+
+\paragraph{Area and Volume}
+\[
+\text{Area} = \iint_R 1\,dA \qquad \text{Volume} = \iiint_E 1\,dV
+\]
+
+\paragraph{Surface Area ($z = g(x,y)$)}
+\[
+A = \iint_R \sqrt{1 + g_x^2 + g_y^2}\,dA
+\]
+
+\paragraph{Mass, Moments, Center of Mass (2D)}
+\begin{align*}
+M &= \iint_R \rho\,dA \\
+M_x &= \iint_R y\,\rho\,dA, \quad M_y = \iint_R x\,\rho\,dA \\
+\bar{x} &= M_y/M, \quad \bar{y} = M_x/M
+\end{align*}
+
+\paragraph{2D Moments of Inertia}
+\begin{align*}
+I_x &= \iint_R y^2\rho\,dA, \quad I_y = \iint_R x^2\rho\,dA \\
+I_0 &= I_x + I_y = \iint_R (x^2+y^2)\rho\,dA
+\end{align*}
+
+\paragraph{Average Value}
+\[
+f_{\text{avg}} = \frac{\iint_R f\,dA}{\iint_R dA} \qquad \text{(similarly for triple integrals)}
+\]
 
 \paragraph{Triple Integrals}
 \begin{align*}
-\text{Mass} &= \iiint_E \rho(x,y,z)\,dV \\[1ex]
-\text{Average} &= \frac{\iiint_E f(x,y,z)\,dV}{\iiint_E dV}
-\end{align*}
-
-\paragraph{Center of Mass (3D)}
-\begin{align*}
-\bar{x} &= \frac{1}{M}\iiint_E x\rho(x,y,z)\,dV \\[1ex]
-\bar{y} &= \frac{1}{M}\iiint_E y\rho(x,y,z)\,dV \\[1ex]
-\bar{z} &= \frac{1}{M}\iiint_E z\rho(x,y,z)\,dV
+M &= \iiint_E \rho\,dV \\
+\bar{x} &= \frac{1}{M}\iiint_E x\rho\,dV, \;\;\text{etc.}
 \end{align*}
 
 \paragraph{Cylindrical Coordinates}
 \begin{align*}
-x &= r\cos\theta \\
-y &= r\sin\theta \\
-z &= z \\
+x &= r\cos\theta, \quad y = r\sin\theta, \quad z = z \\
 dV &= r\,dr\,d\theta\,dz
 \end{align*}
 
 \paragraph{Spherical Coordinates}
 \begin{align*}
-x &= \rho\sin\phi\cos\theta \\
-y &= \rho\sin\phi\sin\theta \\
+x &= \rho\sin\phi\cos\theta, \quad y = \rho\sin\phi\sin\theta \\
 z &= \rho\cos\phi \\
-dV &= \rho^2\sin\phi\,d\rho\,d\theta\,d\phi
+dV &= \rho^2\sin\phi\,d\rho\,d\phi\,d\theta
 \end{align*}
 
-\paragraph{Moments of Inertia}
+\paragraph{3D Moments of Inertia}
 \begin{align*}
-I_x &= \iiint_E (y^2 + z^2)\rho\,dV \\[1ex]
-I_y &= \iiint_E (x^2 + z^2)\rho\,dV \\[1ex]
-I_z &= \iiint_E (x^2 + y^2)\rho\,dV
+I_x &= \iiint_E (y^2+z^2)\rho\,dV \\
+I_y &= \iiint_E (x^2+z^2)\rho\,dV \\
+I_z &= \iiint_E (x^2+y^2)\rho\,dV
 \end{align*}
 
-\paragraph{Products of Inertia}
-\begin{align*}
-I_{xy} &= \iiint_E xy\rho\,dV \\[1ex]
-I_{yz} &= \iiint_E yz\rho\,dV \\[1ex]
-I_{xz} &= \iiint_E xz\rho\,dV
-\end{align*}
-
-\paragraph{Jacobian Determinant (2D)}
+\paragraph{Jacobian and Change of Variables}
 \[
-|J| = \det\begin{bmatrix}
-\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\[1ex]
-\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
-\end{bmatrix}
+|J| = \left|\frac{\partial(x,y)}{\partial(u,v)}\right| = \left|\det\begin{bmatrix} x_u & x_v \\ y_u & y_v \end{bmatrix}\right|
 \]
-
-\paragraph{Jacobian Determinant (3D)}
 \[
-|J| = \det\begin{bmatrix}
-\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\[1ex]
-\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\[1ex]
-\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
-\end{bmatrix}
+\iint_R f(x,y)\,dA = \iint_{R'} f(x(u,v),y(u,v))\,|J|\,du\,dv
 \]
+Triple integral version: $dV = |J|\,du\,dv\,dw$ with $3\times 3$ determinant.
 
-\paragraph{Change of Variables Formula}
+\paragraph{Common Jacobians}
 \begin{align*}
-\iint_R f(x,y)\,dx\,dy &= \iint_{R'} f(u,v)|J|\,du\,dv \\[1ex]
-\iiint_E f\,dx\,dy\,dz &= \iiint_{E'} f|J|\,du\,dv\,dw
-\end{align*}
-
-\paragraph{Force and Work}
-\begin{align*}
-F_x &= \iiint_E F_x(x,y,z)\,dV \\[1ex]
-F_y &= \iiint_E F_y(x,y,z)\,dV \\[1ex]
-F_z &= \iiint_E F_z(x,y,z)\,dV \\[1ex]
-W &= \iiint_E \mathbf{F} \cdot \mathbf{v}\,dV
+\text{Polar:}\quad |J| &= r \\
+\text{Cylindrical:}\quad |J| &= r \\
+\text{Spherical:}\quad |J| &= \rho^2\sin\phi
 \end{align*}
 
 \end{multicols}
@@ -4495,7 +4538,7 @@ W &= \iiint_E \mathbf{F} \cdot \mathbf{v}\,dV
 
 \item The force on an electrical conductor depends on position according to \(F(x,y) = Be^{-x^2-y^2}\) newtons per square meter, where \(B\) is magnetic field strength. Find the total force on a rectangular conductor \([-1,1] \times [-1,1]\) when \(B = 2\).
 
-\item For \(\displaystyle\iint_R f(x,y)\,dA = 4\) where \(R = [0,1] \times [0,1]\), and \(\displaystyle\iint_R xf(x,y)\,dA = 3\), find \(\displaystyle\iint_R x^2f(x,y)\,dA\).
+\item If \( f(x,y) = ax + b \) on \( R = [0,1] \times [0,1] \) with \( \iint_R f \, dA = 4 \) and \( \iint_R x f \, dA = 3 \), find \( a \) and \( b \), then compute \( \iint_R x^2 f \, dA \).
 
 \item Evaluate \(\displaystyle\iint_R \frac{1}{(1+x^2)(1+y^2)}\,dA\) where \(R = [0,1] \times [0,1]\).
 
@@ -4516,14 +4559,14 @@ Consider the function \(f(x,y) = x - y\) over the rectangular region \(\,[0,1]\t
    \item Evaluate the integral and interpret the result in terms of \emph{negative} and \emph{positive} volume, given that \(x-y\) dips below the \(xy\)-plane in some parts of \(R\).
 \end{enumerate}
 
-\item 
+\item
 Evaluate using Fubini’s Theorem:
 \[
 \iint_{R} \bigl(3 + 2x\bigr)\, dA,
 \]
 where \(R = [1,2]\times[0,1]\). Show both orders of integration explicitly and confirm they produce the same numerical result.
 
-\item 
+\item
 Let \(f(x,y)= e^x \sin(y)\). Compute
 \[
 \iint_{[0,\pi]\times[-1,1]} e^x \sin(y)\,dA
@@ -4557,6 +4600,8 @@ Show that
 \]
 by leveraging symmetry arguments rather than brute-force integration. Hint: For fixed \(x\), consider the integrand’s behavior as \(y\) varies symmetrically around \(0\).
 
+(Note: the integrand has a removable singularity at the origin since \( |xy/(x^2+y^2)| \leq 1/2 \), so the integral converges.)
+
 \item 
 Recall that the average value of \(f(x,y)\) over \(R\) is  
 \[
@@ -4586,13 +4631,14 @@ F(x,y) + g(x) + h(y).
         \iint_R f(x,y)\,dA = \frac{(b-a)(d-c)}{4}  \\
         \big[f(a,c) + f(a,d) + f(b,c) + f(b,d)\big]
     \end{multline*}
-    if and only if \(f(x,y)\) is bilinear (linear in each variable and of the form $f(x,y) = ax + by + cxy + d$).
+    if and only if \(f(x,y)\) is bilinear (linear in each variable and of the form $f(x,y) = \alpha x + \beta y + \gamma xy + \delta$).
 
-\item Prove that if \(f(x,y)\) and \(g(x,y)\) are continuous on \([a,b] \times [c,d]\), then:
+\item Prove the Cauchy-Schwarz inequality for double integrals: if \(f\) and \(g\) are continuous on \(R\), then
     \begin{multline*}
-\left(\iint_R f(x,y)\,dA\right)\left(\iint_R g(x,y)\,dA\right) \leq  \\
-(b-a)(d-c)\iint_R f(x,y)g(x,y)\,dA
+\left(\iint_R f \, g \, dA\right)^{\!2} \\
+\leq \left(\iint_R f^2 \, dA\right)\!\left(\iint_R g^2 \, dA\right).
     \end{multline*}
+    \textit{Hint:} Consider \(\iint_R (f + tg)^2 \, dA \geq 0\) for all \(t \in \mathbb{R}\) and examine the discriminant.
 
 \item For a quantum particle in a box \([0,a] \times [0,b]\), the probability density is:
 \[
@@ -4637,7 +4683,7 @@ using:
 Confirm both give the same result.
 \end{enumerate}
 
-\item A region $R$ in the plane is bounded by $y=-2$, $y=2$, and $x = (y+1)^2$. Compute
+\item A region $R$ in the plane is bounded by $x=0$, $y=-2$, $y=2$, and $x = (y+1)^2$. Compute
 \[
 \iint_R \bigl(4 - x - y\bigr)\, dA
 \]
@@ -4645,11 +4691,11 @@ using a Type II setup. First, identify $h_1(y)$ and $h_2(y)$, then integrate.
 
 \item Use polar coordinates to evaluate the double integral
 \[
-\iint_R \bigl(r^2\bigr)\, dA
+\iint_R \bigl(x^2 + y^2\bigr)\, dA
 \]
 where $R$ is the disk of radius $3$ centered at the origin. Clearly indicate the $r$ and $\theta$ bounds.
 
-\item Set up (but do not evaluate) the double integral for 
+\item Set up (but do not evaluate) the double integral for
 \[
 \iint_R (x^2 + y^2) \, dA
 \]
@@ -4696,7 +4742,7 @@ so that each subregion can be integrated in the form $\int_a^b \int_{g_1(x)}^{g_
 \item Convert that same region $R$ to a Type I or II region in Cartesian coordinates (this will look complicated). Briefly argue why polar is more convenient for actual integration.
 \end{enumerate}
 
-\item The region $R$ is bounded by $x=0$, $y=0$, $x^2 + y^2 = 4$, and $y= 4 - x$. This region is part circular arc, part straight line, part coordinate axes.  
+\item The region $R$ is bounded by $x=0$, $y=0$, $x^2 + y^2 = 4$, and $y= 2 - x$. This region is part circular arc, part straight line, part coordinate axes.  
 \begin{enumerate}
 \item Sketch $R$ carefully. Identify obvious subregions if needed (e.g.\ one part might be simpler in polar, another part simpler in Cartesian).  
 \item Propose a setup for 
@@ -4765,6 +4811,10 @@ No advanced derivation needed; just set up and solve the integral quickly.
    \item Substitute the appropriate partial derivatives and set up (but do not necessarily evaluate) the integral explicitly.
 \end{enumerate}
 
+\item Find the surface area of the part of the cone \( z = \sqrt{x^2 + y^2} \) that lies below the plane \( z = 3 \). (Hint: convert to polar coordinates after computing the partial derivatives.)
+
+\item Compute the surface area of the hemisphere \( z = \sqrt{4 - x^2 - y^2} \) over the disk \( x^2 + y^2 \leq 4 \). Compare your answer to the geometric formula \( 2\pi r^2 \).
+
 \item 
 A solid region in the first octant is bounded below by the plane \(z=0\), on one side by \(x=0\), on another side by \(y=0\), and on top by the plane \(x + y + z = 6\). Write a triple integral for
 \[
@@ -4784,7 +4834,7 @@ for the region \(E\) bounded by the parabolic cylinder \(z = x^2\), the planes \
 \iiint_E \bigl(x^2 + yz\bigr)\,dV
 \].
 
-\item The solid \(E\) is in cylindrical coordinates: 
+\item The solid \(E\) is in cylindrical coordinates:
 \[
 0 \;\le\; r \;\le\; 3, 
 \quad 0 \;\le\; \theta \;\le\; \pi, 
@@ -4867,7 +4917,7 @@ where $R$ is the square with vertices $(0,0)$, $(2,0)$, $(2,2)$, $(0,2)$. Make s
 \]
 where $E$ is the solid cylinder $x^2 + y^2 \le 4$ with $0 \le z \le 5$. Use cylindrical coordinates ($x=r\cos\theta,y=r\sin\theta,z=z$) to change variables. Include the Jacobian factor and the correct bounds for $r,\theta,z$, but do not evaluate.
 
-\item Consider the integral $\iint_R (x+y)\,dx\,dy$ where $R$ is the parallelogram with vertices at $(0,0)$, $(2,0)$, $(1+a,2+a)$, and $(3+a,2+a)$ for $a>0$ Use a linear transformation to convert this to an integral over a rectangle.
+\item Consider the integral $\iint_R (x+y)\,dx\,dy$ where $R$ is the parallelogram with vertices at $(0,0)$, $(2,0)$, $(1+a,2+a)$, and $(3+a,2+a)$ for $a>0$. Use a linear transformation to convert this to an integral over a rectangle.
 
 \item Transform the integral
 \[
@@ -4879,7 +4929,7 @@ where $E$ is the region $\{(x,y,z) \mid x^2 + y^2 + z^2 \le 9\}$, using spherica
 \[
 \iiint_E 4xyz \,dx\,dy\,dz
 \]
-where $E$ is bounded by the surfaces $u=x-y$, $v=y-2z$, $w=x+z=3$ (plus planes to close the region), propose a linear transformation 
+where $E$ is bounded by the surfaces $u=x-y$, $v=y-2z$, $w=x+z$, and the region is bounded by $0 \leq u \leq 2$, $0 \leq v \leq 1$, $0 \leq w \leq 3$, propose a linear transformation 
 \[
 (u,v,w) \;\mapsto\; (x,y,z)
 \]

@@ -3,11 +3,9 @@
 
 \section*{Introduction}
 
-In our mathematical journey thus far, we have built a foundation with vectors, developed sophistication with partial derivatives, and mastered the art of multiple integration. Now, we stand at the threshold of vector calculus, where these powerful tools converge to unveil the deeper structures of multidimensional mathematics. Vector calculus represents the natural evolution of our studies, allowing us to analyze not just quantities that vary over space, but also the flow, circulation, and flux of vector fields that pervade the physical world. This but another step into the idea of generalization we have been encouraging in our studies so thus far.\\
-
-\noindent The concepts we explored in earlier chapters—vector operations, partial derivatives, and multiple integrals—now serve as building blocks for understanding more complex phenomena. Our facility with multiple integrals transforms into the ability to evaluate line and surface integrals, enabling us to calculate work done along paths and flux through surfaces. The geometric intuition we developed for vectors becomes essential as we visualize and analyze vector fields, from simple gradient fields to the intricate patterns of electromagnetic forces. \\
-
-\noindent This chapter introduces fundamental theorems that bridge different dimensions of integration—Green's Theorem, Stokes' Theorem, and the Divergence Theorem. These powerful results establish profound connections between different types of integrals, helping us understand how local properties of vector fields relate to their global behavior. As we progress, we will see how the seemingly abstract concepts from previous chapters find concrete expression in the language of vector calculus, providing a gateway to more advanced mathematics and its applications in science and engineering. The journey ahead promises to be both challenging and illuminating, as we develop the ability to analyze and describe the fundamental patterns that shape our physical world.
+Every river has a current. Every atmosphere has wind. Every charged body is immersed in an electromagnetic field. At every point in space, there is a vector---a direction and a magnitude---telling a particle which way to go and how hard it will be pushed. These are \textit{vector fields}, and they are everywhere. This chapter develops the calculus to work with them.\\ \\
+\noindent We begin with \textit{line integrals}, which compute work done by a force along a curved path, and \textit{surface integrals}, which measure the flux of a field through a surface. Then comes the crown jewel: three theorems---\textbf{Green's}, \textbf{Stokes'}, and the \textbf{Divergence Theorem}---that reveal these integrals are not independent at all. Each says the same profound thing at a different dimensional level: \textit{what happens on the boundary is completely determined by what happens inside.}\\ \\
+\noindent This is the culmination of everything we have built---limits, derivatives, integrals, vectors, multiple integrals---woven into a single framework. The Fundamental Theorem of Calculus said differentiation and integration are inverse operations on an interval. Green's, Stokes', and the Divergence Theorem say the same thing for curves, surfaces, and volumes. These results are the foundation of Maxwell's equations, the Navier-Stokes equations, and the conservation laws that govern every physical theory. They are, in the truest sense, where calculus grows up.
 
 \newpage 
 
@@ -24,7 +22,7 @@ In our mathematical journey thus far, we have built a foundation with vectors, d
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth]{chapters/chp5_pics/magnet.png}
-\caption{\textit{A magnet pulling iron filings is a physical representation of a vector field. each point around the magnet has a magnitude of force and direction emenating from the magnet}}
+\caption{\textit{A magnet pulling iron filings is a physical representation of a vector field. Each point around the magnet has a magnitude of force and direction emanating from the magnet}}
 \label{fig:magnet}
 \end{figure}
 
@@ -162,7 +160,7 @@ $x$ & $y$ & Vector Tail at & $P(x,y) = -y$ & $Q(x,y) = x$ \\
 \end{tikzpicture}
 \end{center}
 
-\noindent Notice how even with just these four points, we can begin to see the rotational pattern emerging in the field. Together the arrows suggest a counterclockwise circulation around the origin. Here's an example of a complete field generated systemtically for $\mathbf{F}(x,y) = -y\mathbf{i} + x\mathbf{j}$:
+\noindent Notice how even with just these four points, we can begin to see the rotational pattern emerging in the field. Together the arrows suggest a counterclockwise circulation around the origin. Here's an example of a complete field generated systematically for $\mathbf{F}(x,y) = -y\mathbf{i} + x\mathbf{j}$:
 
 \begin{figure}[H]
 \centering
@@ -559,10 +557,10 @@ $(x,y)$ & $\sqrt{(x^2-y^2)^2 + (2xy)^2}$ & $P(x,y)$ & $Q(x,y)$ & Direction \\
 $(1,0)$ & 1 & 1 & 0 & Right \\
 $(1,1)$ & 2 & 0 & 1 & Up \\
 $(0,1)$ & 1 & -1 & 0 & Left \\
-$(-1,1)$ & 2 & 0 & 1 & Up \\
-$(-1,0)$ & 1 & -1 & 0 & Left \\
-$(-1,-1)$ & 2 & 0 & -1 & Down \\
-$(0,-1)$ & 1 & 1 & 0 & Right \\
+$(-1,1)$ & 2 & 0 & -1 & Down \\
+$(-1,0)$ & 1 & 1 & 0 & Right \\
+$(-1,-1)$ & 2 & 0 & 1 & Up \\
+$(0,-1)$ & 1 & -1 & 0 & Left \\
 $(1,-1)$ & 2 & 0 & -1 & Down \\
 \hline
 \end{tabular}
@@ -656,7 +654,7 @@ P(x,y,z) = \frac{\partial f}{\partial x}, \quad Q(x,y,z) = \frac{\partial f}{\pa
 \begin{itemize}
    \item \textbf{Conservative Fields:}
        \begin{itemize}
-           \item Gravitational fields in a uniform gravitational field
+           \item Gravitational fields
            \item Electrostatic fields
            \item Pressure gradients in static fluids
        \end{itemize}
@@ -681,7 +679,7 @@ P(x,y,z) = \frac{\partial f}{\partial x}, \quad Q(x,y,z) = \frac{\partial f}{\pa
 \frac{\partial^2 f}{\partial y\partial x} = \frac{\partial^2 f}{\partial x\partial y}
 \]
 
-\noindent In three dimensions, a vector field $\mathbf{F}(x,y,z) = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}$ is conservative if and only if:
+\noindent In three dimensions, a vector field $\mathbf{F}(x,y,z) = P\mathbf{i} + Q\mathbf{j} + R\mathbf{k}$ defined on a simply connected domain is conservative if and only if:
 \[
 \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}, \quad
 \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}, \quad
@@ -899,7 +897,7 @@ L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\
     \begin{itemize}
         \item Mass = $\int_C \rho(x,y)\,ds$ where $\rho$ is linear density
         \item Cost = $\int_C c(x,y)\,ds$ where $c$ is cost per unit length
-        \item Work = $\int_C F(x,y)\,ds$ where $F$ is scalar force magnitude
+        \item Average value of $f$ along $C$ = $\frac{1}{L}\int_C f(x,y)\,ds$ where $L$ is the arc length
     \end{itemize}
 \end{enumerate}
 
@@ -913,7 +911,7 @@ L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\
 \end{enumerate}
 
 
-\noindent You may encounter an alternative notation for line integrals, particularly in complex analysis and physics: the contour integral. Written as $\oint_C f(x,y)\,ds$, this notation emphasizes that we're integrating along a specific path or contour in the plane. The circle in the integral symbol traditionally suggests a closed path—one that returns to its starting point—though the notation is now commonly used for open paths as well. While we'll primarily use $\int_C$ notation in our development of vector calculus, recognizing the contour notation is crucial as it appears frequently in applications, especially when dealing with conservative fields and path independence. \\
+\noindent You may encounter an alternative notation for line integrals, particularly in complex analysis and physics: the contour integral. Written as $\oint_C f(x,y)\,ds$, this notation emphasizes that we're integrating along a specific path or contour in the plane. The circle in the integral symbol traditionally suggests a closed path—one that returns to its starting point. While we'll primarily use $\int_C$ notation in our development of vector calculus, recognizing the contour notation is crucial as it appears frequently in applications, especially when dealing with conservative fields and path independence. \\
 
 \exampleline
 \begin{example}
@@ -1003,10 +1001,13 @@ Let's evaluate each integral systematically:
         \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
         \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
         \draw[blue, thick] (-1,-1) -- (0,0) -- (1,0) -- (0,1);
-        \fill (-1,-1) circle (2pt) node[below left] {$C_1$};
-        \fill (0,0) circle (2pt) node[below right] {$C_2$};
-        \fill (1,0) circle (2pt) node[right] {};
-        \fill (0.5,0.7) circle (0pt) node[right] {$C_3$};
+        \fill (-1,-1) circle (2pt);
+        \fill (0,0) circle (2pt);
+        \fill (1,0) circle (2pt);
+        \fill (0,1) circle (2pt);
+        \node[left] at (-0.5,-0.5) {$C_1$};
+        \node[below] at (0.5,0) {$C_2$};
+        \node[right] at (0.5,0.5) {$C_3$};
         \node[below] at (0,-1.8) {Piecewise Contour};
     \end{scope}
 \end{tikzpicture}
@@ -1121,7 +1122,7 @@ Consider the scalar function $f(x,y) = x^2 + y$.
 \begin{enumerate}
 \item Compute $\int_C f(x,y)\,ds$ where $C$ is the path from $(0,0)$ to $(1,1)$ consisting of:
 \begin{itemize}
-\item A quarter circle of radius 1 from $(0,0)$ to $(1,1)$
+\item A quarter circle of radius 1 from $(0,0)$ to $(1,0)$
 \item A vertical line segment from $(1,0)$ to $(1,1)$
 \end{itemize}
 
@@ -1158,7 +1159,7 @@ Consider the scalar function $f(x,y) = x^2 + y$.
     \node[blue] at (0.3,0.9) {$C_1$};
     \node[red] at (1.2,0.5) {$C_2$};
 \end{tikzpicture}
-\caption{\textit{The piecewise path consisting of a quarter circle ($C_1$) centered at $(1,1)$ followed by a vertical line segment ($C_2$).}}
+\caption{\textit{The piecewise path consisting of a quarter circle ($C_1$) centered at $(1,0)$ followed by a vertical line segment ($C_2$).}}
 \label{fig:piecewise_path}
 \end{figure}
 
@@ -1220,7 +1221,7 @@ The total integral is the sum $\frac{3\pi}{4} - 1 + \frac{3}{2} \approx 2.8562.$
 \item $ds = \sqrt{1 + 4t^2}\,dt$
 \end{itemize}
 
-The integral kind of sucks:
+The integral does not have a simple closed form:
 \[
 \int_C f(x,y)\,ds = \int_0^1 2t^2\sqrt{1 + 4t^2}\,dt
 \]
@@ -1235,7 +1236,13 @@ We get
 
 \subsection*{Line Integrals of Vector Fields}
 
-\noindent A natural avenue to go down would be combining line integrals with vector fields and study their interactions. While scalar line integrals measure accumulation of a scalar quantity along a path (like computing mass from density), vector field line integrals measure how much a vector field ``works with" or ``works against" our motion along a path. This notion arises naturally in physics when computing work done by a force field. \\
+\noindent We now come to one of the most important distinctions in this chapter. There are \textbf{two fundamentally different types of line integrals}:
+\begin{itemize}
+\item \textbf{Scalar line integrals} \( \int_C f \, ds \): accumulate a quantity along a path. Think ``total mass of a wire with density \( f \).'' The result is always non-negative (for \( f \geq 0 \)) and does \textit{not} depend on which direction you traverse the curve.
+\item \textbf{Vector line integrals} \( \int_C \mathbf{F} \cdot d\mathbf{r} \): measure how much a vector field pushes \textit{along} a path. Think ``work done by a force.'' The result \textit{is} direction-dependent---reversing the path flips the sign.
+\end{itemize}
+\noindent We spent the previous section on the scalar version. Now we tackle vector line integrals, which are where the real action is.\\ \\
+\noindent While scalar line integrals measure accumulation of a scalar quantity along a path, vector field line integrals measure how much a vector field ``works with'' or ``works against'' our motion along a path. This notion arises naturally in physics when computing work done by a force field. \\
 
 \noindent Consider a particle moving through a force field $\mathbf{F}(x,y) = P(x,y)\mathbf{i} + Q(x,y)\mathbf{j}$. At each point, the force vector has both magnitude and direction. The work done by this force depends on:
 \begin{itemize}
@@ -1244,8 +1251,6 @@ We get
     \item The distance traveled
 \end{itemize}
 
-\begin{figure}[H]
-\centering
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
@@ -1265,7 +1270,7 @@ We get
             colormap/viridis,
             colorbar,
             colorbar style = {
-                ylabel = {Vector Magnitude}
+                ylabel = {Distance from Origin}
             }
         ]
             \addplot3[
@@ -1282,7 +1287,7 @@ We get
                 domain y = -4:4,
                 samples y = 21,
             ] {0};
-        
+
             % Line integral path
             \addplot[
                 red, very thick,
@@ -1300,11 +1305,10 @@ We get
                 domain = 0:360,
                 samples = 100
             ] ({2*cos(x)}, {2*sin(x)});
-        
+
             \node[above right, red] at (1.5,1.5) {$C$};
         \end{axis}
         \end{tikzpicture}
-    \end{figure}
 \caption{\textit{At each point along the path, the contribution to the line integral depends on how much the vector field aligns with the direction of travel.}}
 \label{fig:vector_field_integral}
 \end{figure}
@@ -1342,7 +1346,7 @@ We get
     \begin{itemize}
         \item Work done by force fields
         \item Circulation in fluid flows
-        \item Magnetic flux through surfaces
+        \item Circulation of magnetic fields (Ampere's law)
     \end{itemize}
 \end{enumerate}
 
@@ -1449,7 +1453,7 @@ Therefore:
 \int_{-C} \mathbf{F}\cdot d\mathbf{r} = -\int_C \mathbf{F}\cdot d\mathbf{r} = -4\pi
 \]
 \end{enumerate}
-This negative result also makes sense mathematicall because of the integral property $\int_a^b f = -\int_b^a f$.
+This negative result also makes sense mathematically because of the integral property $\int_a^b f = -\int_b^a f$.
 \end{solution}
 \end{example}
 
@@ -1612,7 +1616,7 @@ The total line integral is:
         
         % Draw two different paths
         \draw[blue, thick, ->] (-1,-1) -- (1,1);
-        \draw[red, thick, ->] plot[smooth] coordinates {(-1,-1) (0,0) (1,1)};
+        \draw[red, thick, ->] plot[smooth] coordinates {(-1,-1) (-0.5,0.5) (1,1)};
         
         % Add points and labels
         \fill (-1,-1) circle (1.5pt) node[below left] {$A$};
@@ -1636,11 +1640,11 @@ The total line integral is:
 \noindent This powerful result has several profound implications:
 
 \begin{enumerate}
-\item \textbf{Path Independence:} A vector field $\mathbf{F}$ is path-independent if and only if it's conservative, meaning the line integral depends only on the endpoints $A$ and $B$, not on the path taken between them. This is because we're simply measuring the total change in the potential function $f$. Remember to check for the conservation by comparing all combinations of the partial derivatives. For a vector field in $n$ dimensions with components $F_1, F_2, ..., F_n$:
+\item \textbf{Path Independence:} On a simply connected domain, a vector field $\mathbf{F}$ is path-independent if and only if it's conservative, meaning the line integral depends only on the endpoints $A$ and $B$, not on the path taken between them. This is because we're simply measuring the total change in the potential function $f$. Remember to check for the conservation by comparing all combinations of the partial derivatives. For a vector field in $n$ dimensions with components $F_1, F_2, ..., F_n$:
 \[
 \frac{\partial F_i}{\partial x_j} = \frac{\partial F_j}{\partial x_i} \quad \text{for all } i,j \in \{1,...,n\}, \, i \neq j
 \]
-For example, in three dimensions ($n=3$ dimenions), this gives us:
+For example, in three dimensions ($n=3$ dimensions), this gives us:
 \[
 \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}, \quad
 \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}, \quad
@@ -1660,7 +1664,7 @@ For example, in three dimensions ($n=3$ dimenions), this gives us:
 
 \noindent This connection between conservative vector fields and potential functions provides both computational simplification and deep physical insight. When we can identify a potential function, complicated line integral calculations reduce to simple evaluation at endpoints. \\
 
-\noindent Let's take some examples of these bad boys now:
+\noindent Let's take some examples of these concepts now:
 
 \exampleline
 \begin{example}
@@ -1801,6 +1805,21 @@ Evaluate $\oint_C \mathbf{F}_3\cdot d\mathbf{r}$ along any circle centered at th
 \end{example}
 \exampleline
 
+\exampleline
+\begin{example}
+Show that \( \mathbf{F}(x,y,z) = \langle yz, \, xz, \, xy \rangle \) is conservative and find a potential function.
+
+\begin{solution}
+We check: \( \partial P/\partial y = z = \partial Q/\partial x \), \( \partial P/\partial z = y = \partial R/\partial x \), \( \partial Q/\partial z = x = \partial R/\partial y \). All conditions are satisfied, so \( \mathbf{F} \) is conservative.\\ \\
+\noindent To find \( f \), integrate \( P = yz \) with respect to \( x \):
+\[ f(x,y,z) = xyz + g(y,z). \]
+Differentiate with respect to \( y \): \( f_y = xz + g_y(y,z) \). Setting this equal to \( Q = xz \) gives \( g_y = 0 \), so \( g(y,z) = h(z) \).\\ \\
+\noindent Differentiate with respect to \( z \): \( f_z = xy + h'(z) \). Setting this equal to \( R = xy \) gives \( h'(z) = 0 \), so \( h(z) = C \).\\ \\
+\noindent Therefore \( f(x,y,z) = xyz + C \).
+\end{solution}
+\end{example}
+\exampleline
+
 
 \newpage
 
@@ -1810,7 +1829,7 @@ Evaluate $\oint_C \mathbf{F}_3\cdot d\mathbf{r}$ along any circle centered at th
 
 \noindent The path to understanding Green's Theorem will leverage several powerful tools from our mathematical arsenal. The Mean Value Theorem will help us analyze vector field behavior over small intervals, while Taylor's Theorem will allow us to approximate vector components with increasing accuracy. These classical results, combined with careful limiting arguments, will reveal how local vector field properties accumulate to create global patterns of circulation and flux, which refers to the flow of the vector field through a surface. \\
 
-\noindent Our journey begins with an intuitive understanding through fluid flow, moves through rigorous mathematical development, and culminates in a theorem that bridges boundary behavior with interior properties. Just as the Fundamental Theorem of Calculus shows how differentiation and integration are inverse processes, Green's Theorem will demonstrate how boundary circulation captures the cumulative effect of interior rotation. This lecture represents an important leap in mathematical formalism for advanced theorem's that you may not have encountered before. Don't get caught up too much in the detail, but stop to appreciate it how we lay out the architecture. 
+\noindent Our journey begins with an intuitive understanding through fluid flow, moves through rigorous mathematical development, and culminates in a theorem that bridges boundary behavior with interior properties. Just as the Fundamental Theorem of Calculus shows how differentiation and integration are inverse processes, Green's Theorem will demonstrate how boundary circulation captures the cumulative effect of interior rotation. This lecture represents an important leap in mathematical formalism for advanced theorems that you may not have encountered before. Don't get caught up too much in the detail, but stop to appreciate how we lay out the architecture. 
 
 
 \subsection*{Motivation and Mathematical Foundation}
@@ -1863,7 +1882,7 @@ Evaluate $\oint_C \mathbf{F}_3\cdot d\mathbf{r}$ along any circle centered at th
     \node[left] at (1,1.75) {$C_4$};
 \end{tikzpicture}
 
-\caption{\textit{A region $D$ bounded by a curve $C = C_1 + C_2 + C_3 + C_4$. We can begin to heuristically see the relationship between the line integral and the volume double integral.}}
+\caption{\textit{A region $D$ bounded by a curve $C = C_1 + C_2 + C_3 + C_4$. We can begin to heuristically see the relationship between the line integral and the double integral.}}
 \label{fig:green}
 \end{figure}
 
@@ -1990,8 +2009,19 @@ On the right-hand side, the Riemann sum transitions to the double integral over 
 \[
 \oint_{\partial D} \mathbf{F} \cdot d\mathbf{r} = \oint_{\partial D} P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\,dA.
 \]
+\noindent Here \( \partial D \) is traversed counterclockwise (positive orientation), and \( D \) must be simply connected.\\ \\
 
-\noindent This theorem stands as a fundamental bridge between different types of integration, much like how the Fundamental Theorem of Calculus I connects derivatives and integrals in single-variable calculus. What's even crazier about this theorem is that it solves so many physics problems without addressing and assuming a lot of physical assumptions. As Richard Dawkins once put it, the potentcy of a law is the strength of what it proves divided by what it assumes. \\
+\noindent Green's Theorem also has a \textit{flux form}. If \( \mathbf{F} = P\mathbf{i} + Q\mathbf{j} \), then:
+\[
+\oint_{\partial D} (P \, dy - Q \, dx) = \iint_D \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}\right) dA = \iint_D \operatorname{div} \mathbf{F} \, dA.
+\]
+The circulation form generalizes to Stokes' Theorem; the flux form generalizes to the Divergence Theorem.\\ \\
+\noindent A useful consequence of Green's Theorem is the \textbf{area formula}:
+\[
+A = \frac{1}{2}\oint_C (x \, dy - y \, dx),
+\]
+which computes the area of the region enclosed by a simple closed curve \( C \).\\ \\
+\noindent This theorem stands as a fundamental bridge between different types of integration, much like how the Fundamental Theorem of Calculus I connects derivatives and integrals in single-variable calculus. What makes this theorem even more remarkable is that it solves so many physics problems with surprisingly few physical assumptions. As the saying goes, the potency of a law is the strength of what it proves divided by what it assumes. \\
 
 \noindent We can now substitute line integrals for double integrals wherever it proves advantageous—a frequent and powerful simplification! Do you see anything interesting about the integrand? Anything that connects to Chapter 1 vector concepts? We will soon make an important generalization of Green's Theorem, but as an exercise, try to see if you can adjust this formula for any dimension $n$. \\
 
@@ -2165,7 +2195,7 @@ In computational fluid dynamics, understanding vorticity patterns often requires
 \end{figure}
 
 \begin{solution}
-\noindent Rather than tackle this double integral directly, we can exploit the structure of Green's Theorem to transform our volumetric computation into a boundary analysis:
+\noindent Rather than tackle this double integral directly, we can exploit the structure of Green's Theorem to transform our area computation into a boundary analysis:
 
 \begin{enumerate}
 \item \textbf{Recognition of Pattern}\\
@@ -2314,7 +2344,7 @@ we're saying that the error in our linear approximation shrinks quadratically as
 
 \noindent Vector fields appear throughout mathematics and physics—they might represent fluid flow, gravitational forces, or electric fields. While we can visualize these fields through arrows showing direction and magnitude at each point, we often need more sophisticated tools to analyze their behavior. Two fundamental concepts help us understand how vector fields behave locally: curl, which measures rotation, and divergence, which measures expansion or contraction. These operators provide powerful tools for analyzing fluid flow, electromagnetic fields, and many other physical phenomena. \\
 
-\noindent Way back in Chapter 1, we encountered the cross product of vectors—a operation that produced a vector perpendicular to two given vectors, with magnitude related to the parallelogram they formed. This geometric interpretation of the cross product will now take on new life as we use it to measure rotation in vector fields. Similarly, the dot product, which measured how much vectors pointed in the same direction, will help us quantify how much vector fields expand or contract. \\
+\noindent Way back in Chapter 1, we encountered the cross product of vectors—an operation that produced a vector perpendicular to two given vectors, with magnitude related to the parallelogram they formed. This geometric interpretation of the cross product will now take on new life as we use it to measure rotation in vector fields. Similarly, the dot product, which measured how much vectors pointed in the same direction, will help us quantify how much vector fields expand or contract. \\
 
 \noindent The beauty of these concepts lies in how they bridge local and global behaviors. Just as derivatives in single-variable calculus measure instantaneous rates of change, curl and divergence measure instantaneous rotation and expansion in vector fields. And just as integration gives us global information about functions, theorems involving curl and divergence connect local and global properties of vector fields. We will also see an important generalization of Green's Theorem which we touched upon briefly after our proof.
 
@@ -2322,7 +2352,7 @@ we're saying that the error in our linear approximation shrinks quadratically as
 
 \noindent Imagine stirring a cup of coffee. As your spoon moves through the liquid, it creates a swirling motion—the coffee rotates around points in the fluid. This everyday observation leads us to a profound question in vector calculus: How can we mathematically measure the ``amount of rotation" at any point in a vector field? \\
 
-\noindent In the previous lecture, we approached rotation from a global perspective through Green's Theorem, relating the total rotation within a region to the behavior of the field along its boundary. Now we'll zoom in and examine rotation at individual points, stripping away the accumulation of rotational effects to understand the fundamental local behavior. Just as derivatives in single-variable calculus helped us understand rates of change at a point, we'll develop tools to understand rotation at a point. This local perspective will prove invaluable especially in fluid dynamics to electromagnetic theory, for which we will take a few examples. \\
+\noindent In the previous lecture, we approached rotation from a global perspective through Green's Theorem, relating the total rotation within a region to the behavior of the field along its boundary. Now we'll zoom in and examine rotation at individual points, stripping away the accumulation of rotational effects to understand the fundamental local behavior. Just as derivatives in single-variable calculus helped us understand rates of change at a point, we'll develop tools to understand rotation at a point. This local perspective will prove invaluable especially from fluid dynamics to electromagnetic theory, for which we will take a few examples. \\
 
 \noindent To approach this systematically, let's start with perhaps the simplest rotating system: a rigid disk spinning with angular velocity $\omega$. From basic physics, we know that a point at radius $r$ from the center moves with speed $v = \omega r$. This linear relationship between speed and radius creates a vector field of velocities:
 
@@ -2465,7 +2495,7 @@ because the integrals of $\sin\theta$ and $\cos\theta$ over $[0, 2\pi]$ are zero
 
 \noindent Next, consider the first-order terms involving $\frac{\partial P}{\partial x}$, $\frac{\partial P}{\partial y}$, $\frac{\partial Q}{\partial x}$, and $\frac{\partial Q}{\partial y}$:
 \[
-\int_0^{2\pi} \left(\frac{\partial P}{\partial x} r^2 \cos\theta (-\sin\theta) + \frac{\partial P}{\partial y} r^2 \sin^2\theta - \frac{\partial Q}{\partial x} r^2 \cos^2\theta - \frac{\partial Q}{\partial y} r^2 \cos\theta \sin\theta\right) d\theta.
+\int_0^{2\pi} \left(-\frac{\partial P}{\partial x} r^2 \cos\theta \sin\theta - \frac{\partial P}{\partial y} r^2 \sin^2\theta + \frac{\partial Q}{\partial x} r^2 \cos^2\theta + \frac{\partial Q}{\partial y} r^2 \cos\theta \sin\theta\right) d\theta.
 \]
 
 \noindent The terms proportional to $\cos\theta \sin\theta$ also vanish because:
@@ -2483,34 +2513,22 @@ because the integrals of $\sin\theta$ and $\cos\theta$ over $[0, 2\pi]$ are zero
 \]
 
 
-\noindent Dividing by $\pi r^2$ and taking the limit as $r \to 0$:, we obtain:
+\noindent Dividing by $\pi r^2$ and taking the limit as $r \to 0$, we obtain:
 \[
 \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}.
 \]
 
-\noindent This result can be generalized to three dimensions by considering a vector field $\mathbf{F} = P \mathbf{i} + Q \mathbf{j} + R \mathbf{k}$ and a small, oriented closed loop in space. Using a similar limiting process, we find that the rotational tendency is captured by the \textit{curl} of $\mathbf{F}$:
-\[
-\text{curl} \, \mathbf{F} = \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) \mathbf{i} + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) \mathbf{j} + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \mathbf{k} = \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
-P & Q & R
-\end{vmatrix} = \nabla \times \mathbf{F}
-\]
-
-\noindent Conveniently, the cross product provides an elegant closed form for the curl. In three dimensions, for a vector field 
-\[
-\mathbf{F}(x,y,z) = P(x,y,z)\,\mathbf{i} + Q(x,y,z)\,\mathbf{j} + R(x,y,z)\,\mathbf{k},
-\]
-the curl is defined as
+\noindent This result can be generalized to three dimensions. In 2D the single number $Q_x - P_y$ was enough to describe rotation because there is only one plane to rotate in. But in 3D, rotation at a point has \textit{two} pieces of information: \textbf{which axis} the field is spinning around, and \textbf{how fast}. The natural way to encode both is a single vector. That vector is the \textit{curl} of $\mathbf{F}$: its \textbf{direction} is the axis of fastest spinning (determined by the right-hand rule), and its \textbf{magnitude} is the rate of that rotation. The three components of the curl measure the rotation in each of the three coordinate planes ($yz$, $xz$, $xy$), which is exactly how many independent planes exist in $\mathbb{R}^3$. \\ \\
+\noindent For a vector field $\mathbf{F}(x,y,z) = P\,\mathbf{i} + Q\,\mathbf{j} + R\,\mathbf{k}$, the curl is computed via the symbolic determinant:
 \[
 \nabla \times \mathbf{F} =
 \begin{vmatrix}
 \mathbf{i} & \mathbf{j} & \mathbf{k} \\
 \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
-P & Q & R 
+P & Q & R
 \end{vmatrix}
-= \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right)\mathbf{i} 
-+ \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right)\mathbf{j} 
+= \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right)\mathbf{i}
++ \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right)\mathbf{j}
 + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)\mathbf{k}.
 \]
 For two-dimensional vector fields, where the field is given by 
@@ -2524,6 +2542,48 @@ It is common in the plane to refer to the scalar
 \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}
 \]
 as the curl, with a positive value indicating counterclockwise rotation and a negative value indicating clockwise rotation.
+
+\subsubsection*{Beyond Three Dimensions: Why Curl is a Vector Only in $\mathbb{R}^3$}
+
+\noindent Each component of the curl measures rotation in a particular coordinate plane. In $\mathbb{R}^3$ there are $\binom{3}{2} = 3$ coordinate planes ($xy$, $xz$, $yz$), and the dimension is also $3$. This numerical coincidence lets us package the three rotation measurements as a vector. In any other dimension, the number of planes differs from the dimension, and the ``curl'' can no longer be a vector:
+
+\begin{center}
+\begin{tabular}{c|c|c|l}
+\toprule
+$n$ & Planes $\binom{n}{2}$ & \textbf{Curl is a\ldots} & \textbf{Notes} \\
+\midrule
+2 & 1 & scalar & The $Q_x - P_y$ from Green's Theorem \\
+3 & 3 & vector & The familiar $\nabla \times \mathbf{F}$ \\
+4 & 6 & $4\times 4$ antisymmetric matrix & Called a \textit{2-form} in differential geometry \\
+$n$ & $\frac{n(n-1)}{2}$ & $n\times n$ antisymmetric matrix & Entries $C_{ij} = \partial_i F_j - \partial_j F_i$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Only when $n = 3$ does $\binom{n}{2} = n$. This is why the curl---and the cross product $\mathbf{a} \times \mathbf{b}$---are specific to three dimensions. \\
+
+\noindent \textbf{A payoff from physics.} In Einstein's special relativity, spacetime is four-dimensional. The electromagnetic potential $A_\mu = (\phi, A_x, A_y, A_z)$ has a 4D ``curl''---the antisymmetric matrix $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$---called the \textbf{electromagnetic field tensor}:
+\[
+F_{\mu\nu} = \begin{pmatrix}
+0 & E_x & E_y & E_z \\
+-E_x & 0 & -B_z & B_y \\
+-E_y & B_z & 0 & -B_x \\
+-E_z & -B_y & B_x & 0
+\end{pmatrix}
+\]
+Its six independent entries are the three components of the electric field $\mathbf{E}$ and the three components of the magnetic field $\mathbf{B}$. Electricity and magnetism are not two separate phenomena---they are the six components of a single 4D curl.
+
+\bigskip
+
+\noindent \textbf{Reading curl one component at a time.} Each component of $\nabla\times\mathbf{F}$ measures rotation in the coordinate plane perpendicular to that component's axis. To find the rotation in a particular plane, just ``look down'' that axis at the 2D cross-section:
+
+\begin{itemize}
+    \item \textbf{$\mathbf{k}$-component} ($Q_x - P_y$): measures rotation in the $xy$-plane. This is what we see when we look down the $z$-axis---exactly the 2D curl from Green's Theorem.
+    \item \textbf{$\mathbf{i}$-component} ($R_y - Q_z$): measures rotation in the $yz$-plane. Look down the $x$-axis, and ask whether the field swirls in the $yz$-plane.
+    \item \textbf{$\mathbf{j}$-component} ($P_z - R_x$): measures rotation in the $xz$-plane. Look down the $y$-axis.
+\end{itemize}
+
+\noindent The pattern follows from the cyclic structure of the cross product: $\mathbf{j}\times\mathbf{k} = \mathbf{i}$ tells us the $yz$-plane rotation points along $\mathbf{i}$; $\mathbf{k}\times\mathbf{i} = \mathbf{j}$ tells us $xz$-rotation points along $\mathbf{j}$; and $\mathbf{i}\times\mathbf{j} = \mathbf{k}$ tells us $xy$-rotation points along $\mathbf{k}$. In 3D, the full curl vector is the sum of these three independent rotations, one per coordinate plane. The figures below illustrate this for the $xy$-plane (looking down the $z$-axis), so only the $\mathbf{k}$-component is visible.
 
 %https://tikz.net/curl/     Izaak Neutelings
 \begin{figure}[H]
@@ -2554,8 +2614,8 @@ as the curl, with a positive value indicating counterclockwise rotation and a ne
         }
         
         % Label with mathematical notation
-        \node at (0,-2.3) {$\nabla \times \mathbf{F} > 0$};
-        \node[text width=3cm, align=center, font=\small] at (0,-3.1) 
+        \node at (0,-2.3) {$(\nabla \times \mathbf{F})\cdot\mathbf{k} > 0$};
+        \node[text width=3cm, align=center, font=\small] at (0,-3.1)
             {\textit{Positive curl: Counterclockwise rotation}};
     \end{scope}
     
@@ -2576,13 +2636,13 @@ as the curl, with a positive value indicating counterclockwise rotation and a ne
         }
         
         % Label with mathematical notation
-        \node at (0,-2.3) {$\nabla \times \mathbf{F} < 0$};
-        \node[text width=3cm, align=center, font=\small] at (0,-3.1) 
+        \node at (0,-2.3) {$(\nabla \times \mathbf{F})\cdot\mathbf{k} < 0$};
+        \node[text width=3cm, align=center, font=\small] at (0,-3.1)
             {\textit{Negative curl: Clockwise rotation}};
     \end{scope}
     
 \end{tikzpicture}
-\caption{\textit{Patterns of curl in vector fields. Left: Positive curl (\(\nabla \times \mathbf{F} > 0\)) corresponds to counterclockwise rotation. Right: Negative curl (\(\nabla \times \mathbf{F} < 0\)) corresponds to clockwise rotation. The direction and magnitude of the curl quantify the rotational tendency of the field at a given point. When we say the curl is positive or negative in this case, we are referring to the $\mathbf{k}$ component.}}
+\caption{\textit{Patterns of curl in 2D vector fields. Left: the $\mathbf{k}$-component of $\nabla\times\mathbf{F}$ is positive, corresponding to counterclockwise rotation. Right: negative, corresponding to clockwise. Since curl is a \textbf{vector}, the sign refers to its $\mathbf{k}$-component (the only nonzero component for a 2D field).}}
 \label{fig:curl_patterns}
 \end{figure}
 
@@ -2661,9 +2721,115 @@ as the curl, with a positive value indicating counterclockwise rotation and a ne
             {\textit{Irrotation example $(c)$}};
     \end{scope}
 \end{tikzpicture}
-\caption{\textit{Vector field patterns that have 0 curl. The arrows clearly show no local rotation about the point.}}
+\caption{\textit{Three very different vector field patterns, all with zero curl. The arrows clearly show no local rotation about the center point: a tiny paddlewheel placed there would not spin. (a) Source / radial outflow. (b) Sink / radial inflow. (c) Uniform parallel flow.}}
 \label{fig:zero_curl_patterns}
 \end{figure}
+
+\subsubsection*{The Paddlewheel Test: Understanding Positive and Negative Curl}
+
+\noindent The figures above illustrate the extremes: pure counterclockwise rotation, pure clockwise rotation, and no rotation at all. But the real power of curl lies in detecting rotation in fields that don't \textit{look} like they're spinning. Consider the \textbf{shear flow}:
+\[
+\mathbf{F}(x,y) = y\,\mathbf{i}
+\]
+
+\noindent Every vector points horizontally. Vectors above the $x$-axis point right; vectors below point left. There are no circular streamlines, no obvious ``swirling." Yet the 2D curl is:
+\[
+\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 0 - 1 = -1
+\]
+
+\noindent The curl is \textit{negative}. How can a field with purely horizontal, straight arrows have rotation?
+
+\medskip
+
+\noindent The answer lies in the \textbf{paddlewheel test}. Imagine placing a tiny paddlewheel (like a pinwheel) at a point in the flow. The fluid pushes on each blade of the wheel. If the flow is faster or differently directed on one side of the wheel than the other, the asymmetric forces create a torque, and the wheel spins.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.6]
+    % Draw axes
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+    \draw[->] (0,-2) -- (0,2) node[above] {$y$};
+
+    % Draw the shear field F = <y, 0>
+    \foreach \x in {-2,-1,0,1,2} {
+        \foreach \y in {-1.5,-1,-0.5,0.5,1,1.5} {
+            \draw[-stealth, orange!90!black, thick] (\x,\y) -- +(\y*0.35, 0);
+        }
+    }
+
+    % Draw paddlewheel at origin
+    \draw[thick, red] (0,0) circle (0.35);
+    \draw[thick, red] (-0.35,0) -- (0.35,0);
+    \draw[thick, red] (0,-0.35) -- (0,0.35);
+
+    % Annotation arrows showing force on top vs bottom of wheel
+    \draw[-stealth, blue, very thick] (0.02,0.35) -- (0.45,0.35);
+    \node[blue, font=\small, above] at (0.25,0.38) {push right};
+    \draw[-stealth, blue, very thick] (-0.02,-0.35) -- (-0.45,-0.35);
+    \node[blue, font=\small, below] at (-0.25,-0.38) {push left};
+
+    % Rotation arrow
+    \draw[-stealth, red, thick] (0.55,-0.15) arc (-20:-160:0.3);
+    \node[red, font=\small] at (0.75,-0.35) {CW};
+\end{tikzpicture}
+\caption{\textit{The paddlewheel test for shear flow $\mathbf{F} = \langle y, 0 \rangle$. Vectors above the $x$-axis push the top blade to the right; vectors below push the bottom blade to the left. The imbalance creates clockwise rotation, confirming the negative curl.}}
+\label{fig:paddlewheel_shear}
+\end{figure}
+
+\noindent In the shear flow above:
+\begin{itemize}
+    \item The \textit{top} of the paddlewheel sits at $y > 0$, where the flow pushes rightward.
+    \item The \textit{bottom} sits at $y < 0$, where the flow pushes leftward.
+    \item Together, these asymmetric forces spin the wheel \textbf{clockwise}.
+\end{itemize}
+
+\noindent Clockwise rotation corresponds to \textbf{negative curl}. Counterclockwise rotation corresponds to \textbf{positive curl}. The magnitude of the curl measures how fast the wheel spins. More precisely:
+
+\begin{itemize}
+    \item \textbf{Positive curl} ($\nabla \times \mathbf{F}$ in the $+\mathbf{k}$ direction): the paddlewheel spins counterclockwise (CCW). By the right-hand rule, curling your fingers CCW makes your thumb point out of the page.
+    \item \textbf{Negative curl} ($\nabla \times \mathbf{F}$ in the $-\mathbf{k}$ direction): the paddlewheel spins clockwise (CW). Curling your fingers CW makes your thumb point into the page.
+    \item \textbf{Zero curl}: the paddlewheel does not spin, regardless of how fast the fluid is moving.
+\end{itemize}
+
+\noindent In three dimensions, $\nabla \times \mathbf{F}$ is a full vector: its \textit{direction} is the axis about which the paddlewheel spins fastest (determined by the right-hand rule), and its \textit{magnitude} is the rate of that rotation.
+
+\medskip
+
+\noindent \textbf{A crucial subtlety.} Curl measures \textit{local} rotation at a point, not the global shape of the flow's streamlines. Consider two instructive cases:
+\begin{enumerate}
+    \item A field can have \textbf{straight streamlines but nonzero curl}: the shear flow $\mathbf{F} = \langle y, 0 \rangle$ has perfectly straight, horizontal streamlines, yet curl $= -1$ everywhere. The velocity gradient across the flow creates a torque on the paddlewheel.
+    \item A field can have \textbf{curved streamlines but zero curl}: the vortex field $\mathbf{F} = \frac{\langle -y, x \rangle}{x^2 + y^2}$ (away from the origin) has circular streamlines, yet curl $= 0$. The velocity decreases with distance from the origin in just the right way to prevent any net torque on a paddlewheel---the outer streamlines are slower than the inner ones by exactly the right amount to balance out the curvature.
+\end{enumerate}
+
+\noindent What matters is not whether the streamlines \textit{look} circular, but whether nearby parts of the flow create a torque---an imbalance of forces---on a tiny paddlewheel.
+
+\exampleline
+\begin{example}
+Determine the 2D curl of each velocity field and describe the paddlewheel behavior at the origin.
+
+\begin{enumerate}
+    \item $\mathbf{F} = \langle 0, x \rangle$ \quad (vertical shear)
+    \item $\mathbf{F} = \langle -y, 0 \rangle$ \quad (horizontal shear, reversed)
+    \item $\mathbf{F} = \langle y, x \rangle$
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+    \item $\text{curl}\,\mathbf{F} = Q_x - P_y = 1 - 0 = 1$ (\textbf{positive}, CCW).
+
+    \textit{Paddlewheel picture:} At the origin, the right blade ($x > 0$) feels an upward push, while the left blade ($x < 0$) feels a downward push. This creates counterclockwise rotation. All arrows are purely vertical, yet the field has curl---through \textit{vertical} shear rather than horizontal shear.
+
+    \item $\text{curl}\,\mathbf{F} = Q_x - P_y = 0 - (-1) = 1$ (\textbf{positive}, CCW).
+
+    \textit{Paddlewheel picture:} The top blade ($y > 0$) is pushed leftward, and the bottom blade ($y < 0$) is pushed rightward. This is again counterclockwise. Despite looking very different from (a), both fields have the same curl!
+
+    \item $\text{curl}\,\mathbf{F} = Q_x - P_y = 1 - 1 = 0$ (\textbf{irrotational}).
+
+    \textit{Paddlewheel picture:} The $P = y$ component pushes the top blade right and the bottom left (CW tendency). But the $Q = x$ component pushes the right blade up and the left blade down (CCW tendency). These two effects exactly cancel, so the paddlewheel doesn't spin. In fact, $\mathbf{F} = \nabla(xy)$, confirming the field is conservative.
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
 
 \subsubsection*{Green's Theorem Reformulated}
 \noindent Green's Theorem is intimately related to the curl of a vector field. In two dimensions, for a vector field 
@@ -2906,7 +3072,7 @@ Each component vanishes due to the equality of mixed partial derivatives (Claira
 \label{fig:shrinking_divergence}
 \end{figure}
 
-\noindent Let's pull out another can of math whoop-ass to get our definition of divergence and start with the aforementioned flux integral around a small circle $C_r$ centered at $P_0$:
+\noindent Let's pull out another can of math whoop-ass to get our definition of divergence, starting with the aforementioned flux integral around a small circle $C_r$ centered at $P_0$:
 \[
 \oint_{C_r} \mathbf{F} \cdot \mathbf{n}\,ds
 \]
@@ -3386,7 +3552,7 @@ Let’s practice converting between parametric and scalar representations of sur
 \begin{enumerate}
 \item Convert the parametric surface
 \[
-\mathbf{r}(u,v) = (u\cos v)\mathbf{i} + (u\sin v)\mathbf{j} + v\mathbf{k}
+\mathbf{r}(u,v) = (u\cos v)\mathbf{i} + (u\sin v)\mathbf{j} + u\mathbf{k}
 \]
 where $u \geq 0$ and $0 \leq v \leq 2\pi$, to scalar form.
 
@@ -3411,7 +3577,7 @@ where $-1 < v < 1$ and $u > 0$, to scalar form.
        \begin{align*}
            x &= u \cos v \\
            y &= u \sin v \\
-           z &= v
+           z &= u
        \end{align*}
 
        \item Square and add the $x$ and $y$ equations to eliminate $v$:
@@ -3419,11 +3585,11 @@ where $-1 < v < 1$ and $u > 0$, to scalar form.
        x^2 + y^2 = u^2 (\cos^2 v + \sin^2 v) = u^2
        \]
 
-       \item Since $z = v$, the scalar equation is:
+       \item Since $z = u$, the scalar equation is:
        \[
        x^2 + y^2 = z^2
        \]
-       The domain constraint is $x^2 + y^2 \geq 0$ since $u \geq 0$.
+       The domain constraint is $z \geq 0$ since $u \geq 0$.
    \end{itemize}
 
 \item For the second parametric surface:
@@ -3475,7 +3641,7 @@ where $-1 < v < 1$ and $u > 0$, to scalar form.
        \[
        z = \frac{1}{1 - v^2} \quad \Rightarrow \quad 1 - v^2 = \frac{1}{z} \quad \Rightarrow \quad v^2 = 1 - \frac{1}{z}
        \]
-       Note: Since $-1 < v < 1$ and $u > 0$, we have $z > 1$.
+       Note: Since $-1 < v < 1$ and $u > 0$, we have $z \geq 1$.
 
        \item Substitute $v^2 = 1 - \frac{1}{z}$ into the equation for $y$:
        \[
@@ -3506,7 +3672,7 @@ where $-1 < v < 1$ and $u > 0$, to scalar form.
        
        Domain Constraint:
        \[
-       z > 1
+       z \geq 1
        \]
    \end{itemize}
 \end{enumerate}
@@ -3584,7 +3750,7 @@ Let's explore three fundamental techniques for working with surface representati
        x = 5c^2 + 2z^2 - 10
        \]
 
-       \item Parameterize $x$ in terms of $z$ and $y$ and $z$:
+       \item Parameterize $x$ in terms of $y$ and $z$:
        \[
        \mathbf{r}(y,z) = (5y^2 + 2z^2 - 10)\mathbf{i} + y\mathbf{j} + z\mathbf{k}
        \]
@@ -3596,8 +3762,109 @@ Let's explore three fundamental techniques for working with surface representati
    \end{itemize}
 \end{enumerate}
 
-\noindent Note how each solution leverages different geometric insights: exponential spiral structure in problem 1, circular level curves in problem 2, and parabolic traces in problem 3. The choice of parameterization emerges naturally from each surface's inherent geometric properties.
+\noindent Note how each solution leverages different geometric insights: circular level curves in problem 1 and parabolic traces in problem 2. The choice of parameterization emerges naturally from each surface's inherent geometric properties.
 
+\end{solution}
+\end{example}
+\exampleline
+
+\begin{example}
+Many of the most beautiful and practically important surfaces in mathematics and physics cannot be written as $z = f(x,y)$. Here we construct parametric representations of three such surfaces from their geometric descriptions.
+
+\begin{enumerate}
+\item \textbf{The Torus.} A torus (donut shape) is formed by revolving a circle of radius $a$ around the $z$-axis at distance $R$ from the center of the circle ($R > a$). Find a parametric representation.
+
+\item \textbf{The Helicoid.} A helicoid is the surface swept out by a horizontal line segment that simultaneously rotates about the $z$-axis and translates upward along it at constant rates---think of a spiral staircase or a drill bit. If the segment has length $2$ and the surface rises by $2\pi c$ per full revolution, parameterize the helicoid.
+
+\item \textbf{The Möbius Strip.} Take a strip of paper, give it a half-twist, and glue the ends together. Parameterize this surface.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item \textbf{The Torus.}
+
+We need two parameters: $u \in [0, 2\pi]$ to revolve around the $z$-axis (the ``big" circle through the hole), and $v \in [0, 2\pi]$ to travel around the tube (the ``small" circle of the cross-section).
+
+At angle $v$ around the tube, a point on the circle of radius $a$ sits at distance $R + a\cos v$ from the $z$-axis and at height $a\sin v$. Revolving this point around the $z$-axis by angle $u$ gives:
+\[
+\mathbf{r}(u,v) = (R + a\cos v)\cos u\,\mathbf{i} + (R + a\cos v)\sin u\,\mathbf{j} + a\sin v\,\mathbf{k}
+\]
+
+\textit{Verification:} When $v = 0$, the point is at distance $R + a$ from the $z$-axis (outer equator). When $v = \pi$, the distance is $R - a$ (inner equator). To find the scalar equation, observe that $\sqrt{x^2 + y^2} = R + a\cos v$ and $z = a\sin v$, so:
+\[
+\left(\sqrt{x^2 + y^2} - R\right)^2 + z^2 = a^2\cos^2 v + a^2\sin^2 v = a^2
+\]
+
+\item \textbf{The Helicoid.}
+
+Let $u \in [-1, 1]$ parameterize position along the line segment, and let $v$ be the angle of rotation. At angle $v$, the segment points in the horizontal direction $\langle \cos v, \sin v, 0 \rangle$ and has risen to height $z = cv$. A point at position $u$ along the segment is therefore:
+\[
+\mathbf{r}(u,v) = u\cos v\,\mathbf{i} + u\sin v\,\mathbf{j} + cv\,\mathbf{k}
+\]
+where $u \in [-1, 1]$ and $v \in [0, 2\pi]$ for one full turn (extend $v$ further for additional turns).
+
+This is a \textit{ruled surface}: for each fixed $v$, the map $u \mapsto \mathbf{r}(u,v)$ traces a straight line. Remarkably, the helicoid is also a \textit{minimal surface}---it locally minimizes surface area, just like a soap film spanning a wire frame. It is, in fact, the only ruled minimal surface besides the plane.
+
+\item \textbf{The Möbius Strip.}
+
+Start with a centerline circle of radius $R$ in the $xy$-plane, parameterized by $u \in [0, 2\pi]$. At each point on this circle, attach a short line segment of half-width $w$ that tilts out of the $xy$-plane by angle $u/2$---the half-twist:
+\[
+\mathbf{r}(u,v) = \left(R + v\cos\frac{u}{2}\right)\cos u\,\mathbf{i} + \left(R + v\cos\frac{u}{2}\right)\sin u\,\mathbf{j} + v\sin\frac{u}{2}\,\mathbf{k}
+\]
+where $u \in [0, 2\pi]$ and $v \in [-w, w]$ (e.g., $w = 0.5$).
+
+The key is the $u/2$ in the tilt angles: after one full revolution ($u = 0$ to $u = 2\pi$), the strip has rotated by only $\pi$---a half-twist. The ``top" and ``bottom" edges swap, giving the Möbius strip its famous property of having only \textbf{one side}. This non-orientability means you cannot consistently define an outward normal vector on the entire surface, which has profound consequences: Stokes' Theorem requires an orientable surface, so it cannot be applied to a Möbius strip.
+\end{enumerate}
+\end{solution}
+\end{example}
+\exampleline
+
+\begin{example}
+The choice of parameterization determines how you compute with a surface. The same surface can look very different depending on which parameters you use, and some parameterizations are better suited to particular computations.
+
+\begin{enumerate}
+\item Parameterize the sphere $x^2 + y^2 + z^2 = a^2$ in three different ways: (a) using spherical coordinates, (b) using cylindrical coordinates, and (c) as a graph.
+
+\item Using the spherical parameterization, compute the normal vector $\mathbf{r}_\theta \times \mathbf{r}_\phi$ and verify it points radially.
+\end{enumerate}
+
+\begin{solution}
+\begin{enumerate}
+\item Three parameterizations of the sphere:
+
+\textbf{(a) Spherical coordinates.} Let $\phi \in [0, \pi]$ be the polar angle measured from the positive $z$-axis and $\theta \in [0, 2\pi]$ be the azimuthal angle:
+\[
+\mathbf{r}(\theta, \phi) = a\sin\phi\cos\theta\,\mathbf{i} + a\sin\phi\sin\theta\,\mathbf{j} + a\cos\phi\,\mathbf{k}
+\]
+This covers the entire sphere. At the poles ($\phi = 0$ or $\pi$), all values of $\theta$ map to the same point (the parameterization degenerates), but this causes no difficulty in practice.
+
+\textbf{(b) Cylindrical coordinates.} From the sphere equation, $r = \sqrt{a^2 - z^2}$, so using $\theta \in [0, 2\pi]$ and $z \in [-a, a]$:
+\[
+\mathbf{r}(\theta, z) = \sqrt{a^2 - z^2}\cos\theta\,\mathbf{i} + \sqrt{a^2 - z^2}\sin\theta\,\mathbf{j} + z\,\mathbf{k}
+\]
+This also covers the entire sphere but degenerates at the poles ($z = \pm a$, where $r = 0$). This form is useful when the integrand depends naturally on $z$.
+
+\textbf{(c) As a graph.} For the upper hemisphere, $z = \sqrt{a^2 - x^2 - y^2}$ over the disk $x^2 + y^2 \leq a^2$:
+\[
+\mathbf{r}(x,y) = x\,\mathbf{i} + y\,\mathbf{j} + \sqrt{a^2 - x^2 - y^2}\,\mathbf{k}
+\]
+This covers only a hemisphere and degenerates at the equator where the square root vanishes. Its simplicity makes it ideal for quick computations, but you need two such patches (upper and lower) for the full sphere.
+
+\item Computing the normal from spherical coordinates:
+\begin{align*}
+\mathbf{r}_\theta &= -a\sin\phi\sin\theta\,\mathbf{i} + a\sin\phi\cos\theta\,\mathbf{j} + 0\,\mathbf{k} \\
+\mathbf{r}_\phi &= a\cos\phi\cos\theta\,\mathbf{i} + a\cos\phi\sin\theta\,\mathbf{j} - a\sin\phi\,\mathbf{k}
+\end{align*}
+
+Their cross product:
+\begin{align*}
+\mathbf{r}_\theta \times \mathbf{r}_\phi &= \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ -a\sin\phi\sin\theta & a\sin\phi\cos\theta & 0 \\ a\cos\phi\cos\theta & a\cos\phi\sin\theta & -a\sin\phi \end{vmatrix} \\
+&= -a^2\sin^2\phi\cos\theta\,\mathbf{i} - a^2\sin^2\phi\sin\theta\,\mathbf{j} - a^2\sin\phi\cos\phi\,\mathbf{k} \\
+&= -a\sin\phi\underbrace{\left(a\sin\phi\cos\theta\,\mathbf{i} + a\sin\phi\sin\theta\,\mathbf{j} + a\cos\phi\,\mathbf{k}\right)}_{\mathbf{r}(\theta,\phi)}
+\end{align*}
+
+Since $\sin\phi \geq 0$ for $\phi \in [0,\pi]$, this points \textit{inward} (opposite to $\mathbf{r}$). For the \textbf{outward} normal, reverse the order: $\mathbf{r}_\phi \times \mathbf{r}_\theta = a\sin\phi\,\mathbf{r}$. Its magnitude is $\|\mathbf{r}_\phi \times \mathbf{r}_\theta\| = a^2\sin\phi$, yielding the familiar surface area element $dS = a^2\sin\phi\,d\theta\,d\phi$ for spherical coordinates---which integrates to $4\pi a^2$, the surface area of a sphere.
+\end{enumerate}
 \end{solution}
 \end{example}
 \exampleline
@@ -3962,6 +4229,8 @@ Let's solve this systematically, paying special attention to determining our bou
 
 \subsection*{Surface Integrals of Vector Fields}
 
+\noindent Imagine holding a net in a river. The amount of water flowing through the net depends on how fast the water moves, how much of the flow is perpendicular to the net (versus parallel to it), and the area of the net. If the net faces directly into the current, maximum water passes through; if turned sideways, nothing does. The dot product \( \mathbf{F} \cdot \mathbf{n} \) captures exactly this: it measures the component of flow perpendicular to the surface.\\ \\
+
 \noindent When integrating a vector field over a surface, we need a way to account for both the magnitude of the field and its direction relative to the surface at each point. The dot product with the surface normal provides exactly what we need—it measures the component of the field that passes through the surface, rather than just moving along it.
 
 %https://commons.wikimedia.org/wiki/File:Surface_integral_-_definition.svg
@@ -4127,7 +4396,7 @@ Let's solve this systematically:
 \lecture{Stokes' Theorem} \index{Stokes' Theorem}
 
 \noindent
-After exploring line integrals, surface integrals, and Green's Theorem, we now arrive at one of the most profound results in vector calculus: \textbf{Stokes' Theorem}. Just as Green's Theorem connects a line integral around a closed curve to a double integral over the region it bounds, Stokes' Theorem generalizes this idea to surfaces in three dimensions. It unifies geometric intuition with the behavior of vector fields, revealing how circulation around a boundary curve is related to the curl of a field across the surface.
+Green's Theorem told us that the circulation of a vector field around a closed curve in the plane equals the double integral of the curl over the enclosed region. But what if the curve isn't in a plane? What if it's the rim of a bowl, or the edge of a soap film stretched in three dimensions? \textbf{Stokes' Theorem} answers this: the circulation around \textit{any} closed curve equals the integral of the curl over \textit{any} surface bounded by that curve. It is Green's Theorem set free from the plane.
 
 \begin{figure}[H]
 \centering
@@ -4625,6 +4894,7 @@ where $\Sigma$ is the portion of the plane $x + y + z = 1$ enclosed by the curve
 \end{solution}
 \end{example}
 \exampleline
+\noindent \textbf{Preview:} The following example uses the Divergence Theorem, which we will formally introduce in the next lecture. It is included here to illustrate the pattern of verifying integral theorems by computing both sides independently.\\ \\
 \begin{example}
 Let $\mathbf{F}(x,y,z) = (x^3 + \sin y)\mathbf{i} + (y^3 + xz)\mathbf{j} + (z^3 - xy)\mathbf{k}$ and let $V$ be the region bounded by the hemisphere $x^2 + y^2 + z^2 = a^2$, $z \geq 0$, and the disk $x^2 + y^2 \leq a^2$ in the $xy$-plane. Verify the Divergence Theorem by computing both:
 \begin{enumerate}
@@ -4820,6 +5090,24 @@ A long straight wire carries a current $I$ in the positive $z$-direction, creati
 \end{example}
 \exampleline
 
+\exampleline
+\begin{example}
+Use Stokes' Theorem to evaluate \( \oint_C \mathbf{F} \cdot d\mathbf{r} \) where \( \mathbf{F} = \langle -y, x, z \rangle \) and \( C \) is the circle \( x^2 + y^2 = 1 \) in the plane \( z = 0 \), oriented counterclockwise when viewed from above.
+
+\begin{solution}
+First, compute \( \nabla \times \mathbf{F} \):
+\[
+\nabla \times \mathbf{F} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ -y & x & z \end{vmatrix} = \langle 0 - 0, \; 0 - 0, \; 1 - (-1) \rangle = \langle 0, 0, 2 \rangle.
+\]
+Let \( S \) be the unit disk \( x^2 + y^2 \leq 1 \) in the plane \( z = 0 \), with upward-pointing normal \( \mathbf{n} = \mathbf{k} \) (consistent with the counterclockwise orientation of \( C \) via the right-hand rule). By Stokes' Theorem:
+\[
+\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S} = \iint_S \langle 0, 0, 2 \rangle \cdot \langle 0, 0, 1 \rangle \, dA = 2 \iint_S dA = 2\pi.
+\]
+\noindent The line integral equals \( 2\pi \). We can verify this directly: parameterize \( C \) as \( \mathbf{r}(t) = \langle \cos t, \sin t, 0 \rangle \) for \( 0 \leq t \leq 2\pi \). Then \( \mathbf{F}(\mathbf{r}(t)) = \langle -\sin t, \cos t, 0 \rangle \) and \( \mathbf{r}'(t) = \langle -\sin t, \cos t, 0 \rangle \), so \( \mathbf{F} \cdot \mathbf{r}' = \sin^2 t + \cos^2 t = 1 \), giving \( \int_0^{2\pi} 1 \, dt = 2\pi \). Both sides agree.
+\end{solution}
+\end{example}
+\exampleline
+
 \subsection*{Generalization and Abstraction}
 
 \noindent Time to get a little crazy. Throughout our studies of calculus, we've encountered several seemingly different theorems that share a remarkable pattern:
@@ -4880,7 +5168,7 @@ where the wedge product \(\wedge\) is antisymmetric (\(dx \wedge dy = -dy \wedge
 \]
 This elegant formula encapsulates our earlier theorems:
 \begin{itemize}
-    \item For the Fundamental Theorem of Calculus, \(\Omega\) is an interval \([a,b]\) and \(\omega = f\,dx\).
+    \item For the Fundamental Theorem of Calculus, \(\Omega\) is an interval \([a,b]\) and \(\omega = f\) is a 0-form (a function), and its exterior derivative is \(d\omega = f'(x)\,dx\).
     \item For Green's Theorem, we consider a 1-form \(\omega = P\,dx + Q\,dy\) defined on a region \(D \subset \mathbb{R}^2\); its exterior derivative is the 2-form 
     \[
     d\omega = \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx \wedge dy,
@@ -5034,9 +5322,9 @@ This elegant formula encapsulates our earlier theorems:
     \text{div }\mathbf{F} = \frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta} + \frac{\partial F_z}{\partial z}
     \]
     
-    \item \textbf{Spherical Coordinates} $(r,\phi,\theta)$:
+    \item \textbf{Spherical Coordinates} $(r,\theta,\phi)$:
     \[
-    \text{div }\mathbf{F} = \frac{1}{r^2}\frac{\partial}{\partial r}(r^2F_r) + \frac{1}{r\sin\phi}\frac{\partial}{\partial \phi}(\sin\phi F_\phi) + \frac{1}{r\sin\phi}\frac{\partial F_\theta}{\partial \theta}
+    \text{div }\mathbf{F} = \frac{1}{r^2}\frac{\partial}{\partial r}(r^2F_r) + \frac{1}{r\sin\theta}\frac{\partial}{\partial \theta}(\sin\theta F_\theta) + \frac{1}{r\sin\theta}\frac{\partial F_\phi}{\partial \phi}
     \]
 \end{itemize}
 
@@ -5108,13 +5396,13 @@ For $S_1$ (paraboloid):
 
 For $S_2$ (plane):
 \begin{itemize}
-    \item Since our region $V$ is below this surface, the outward normal is:
+    \item Since our region $V$ is below this surface, the outward normal on the top cap points upward:
     \[
-    \mathbf{n}_2 = -\mathbf{k}
+    \mathbf{n}_2 = \mathbf{k}
     \]
     \item The flux integral is:
     \[
-    \iint_{S_2} \mathbf{F} \cdot \mathbf{n}_2\,dS = -\iint_D z^2x\big|_{z=1}\,dA = -\iint_D x\,dA
+    \iint_{S_2} \mathbf{F} \cdot \mathbf{n}_2\,dS = \iint_D z^2x\big|_{z=1}\,dA = \iint_D x\,dA
     \]
 \end{itemize}
 
@@ -5127,7 +5415,7 @@ Converting both integrals to polar coordinates:
 \end{itemize}
 
 \begin{align*}
-\iint_{S_1} \mathbf{F} \cdot \mathbf{n}_1\,dS &= \int_0^{2\pi}\int_0^1 (-2r^4\cos^3\theta\sin\theta - 2r^7\sin^3\theta + r^5\cos\theta)r\,dr\,d\theta \\
+\iint_{S_1} \mathbf{F} \cdot \mathbf{n}_1\,dS &= \int_0^{2\pi}\int_0^1 (2r^4\cos^3\theta\sin\theta + 2r^5\sin^3\theta - r^5\cos\theta)r\,dr\,d\theta \\
 &= 0 \text{ (odd functions over }[0,2\pi]\text{)}
 \end{align*}
 
@@ -5366,9 +5654,15 @@ We'll solve this problem by applying the Divergence Theorem to the gravitational
 \end{example}
 \exampleline
 
-
-
-
+\subsection*{Choosing the Right Theorem}
+\noindent The three major integral theorems each convert between different types of integrals. Here is a quick guide:\\ \\
+\begin{itemize}
+\item \textbf{Green's Theorem:} Converts a line integral around a closed curve in the plane to a double integral over the enclosed region (or vice versa).
+\item \textbf{Stokes' Theorem:} Converts a line integral around a closed curve in 3D to a surface integral of the curl over any surface bounded by that curve (or vice versa).
+\item \textbf{Divergence Theorem:} Converts a flux integral over a closed surface to a triple integral of the divergence over the enclosed volume (or vice versa).
+\item \textbf{Fundamental Theorem for Line Integrals:} If the field is conservative (\(\mathbf{F} = \nabla f\)), the line integral depends only on the endpoints: \(\int_C \mathbf{F} \cdot d\mathbf{r} = f(\mathbf{B}) - f(\mathbf{A})\).
+\end{itemize}
+\noindent \textbf{Strategy:} If one side of the equation is hard to compute directly, use the theorem to convert it to the other side.
 
 
 \newpage
@@ -5400,64 +5694,130 @@ We'll solve this problem by applying the Divergence Theorem to the gravitational
     \item \textbf{Source:} Point where field lines emerge (positive divergence).
 
     \item \textbf{Sink:} Point where field lines converge (negative divergence).
+
+    \item \textbf{Circulation:} The line integral of a vector field around a closed curve, measuring the tendency of the field to flow along the curve.
+
+    \item \textbf{Simply Connected Domain:} A region with no holes, meaning every closed curve in the region can be continuously shrunk to a point without leaving the region.
+
+    \item \textbf{Closed Surface:} A surface with no boundary that fully encloses a volume, such as a sphere or the surface of a cube.
 \end{itemize}
 
 \subsection*{Key Formulas}
 \begin{multicols}{2}
 
-\paragraph{Curl in 3D}
+\paragraph{Scalar Line Integral}
 \[
-\nabla \times \mathbf{F} = \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
-P & Q & R
-\end{vmatrix}
+\int_C f\,ds = \int_a^b f(\mathbf{r}(t))\,\|\mathbf{r}'(t)\|\,dt
 \]
+Direction does not matter: $\int_C f\,ds = \int_{-C} f\,ds$.
+
+\paragraph{Vector Field Line Integral}
+\[
+\int_C \mathbf{F}\cdot d\mathbf{r} = \int_a^b \mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}'(t)\,dt
+\]
+Also written $\int_C P\,dx + Q\,dy + R\,dz$.\\
+Direction matters: $\int_{-C} = -\int_C$.
+
+\paragraph{Fundamental Theorem for Line Integrals}
+If $\mathbf{F} = \nabla f$ (conservative), $C$ from $A$ to $B$:
+\[
+\int_C \nabla f\cdot d\mathbf{r} = f(B) - f(A)
+\]
+Path-independent; $\oint_C \nabla f\cdot d\mathbf{r} = 0$.
+
+\paragraph{Conservative Field Test}
+On a simply connected domain, $\mathbf{F} = \langle P,Q,R\rangle$ is conservative iff:
+\[
+P_y = Q_x, \quad P_z = R_x, \quad Q_z = R_y
+\]
+In 2D: $P_y = Q_x$ suffices.
+
+\paragraph{Finding the Potential Function}
+Integrate $f_x = P$ w.r.t.\ $x$ ($+g(y,z)$); differentiate and match $f_y = Q$ to find $g$; repeat for $z$.
+
+\paragraph{Green's Theorem}
+$C$ simple closed (CCW), $D$ interior:
+\[
+\oint_C P\,dx + Q\,dy = \iint_D\!\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA
+\]
+Area: $A = \frac{1}{2}\oint_C(x\,dy - y\,dx)$.
+
+\paragraph{Curl (3D)}
+\[
+\nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ \partial_x & \partial_y & \partial_z \\ P & Q & R\end{vmatrix} = \langle R_y\!-\!Q_z,\; P_z\!-\!R_x,\; Q_x\!-\!P_y\rangle
+\]
+2D curl (scalar): $Q_x - P_y$ (the $\mathbf{k}$-component).
 
 \paragraph{Divergence}
 \[
-\nabla \cdot \mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}
+\nabla\cdot\mathbf{F} = P_x + Q_y + R_z
 \]
+$>0$: source, $<0$: sink, $=0$: incompressible.
 
-\paragraph{Green's Theorem}
+\paragraph{Key Identities}
+\begin{align*}
+\nabla\times(\nabla f) &= \mathbf{0} \quad\text{(curl of gradient)}\\
+\nabla\cdot(\nabla\times\mathbf{F}) &= 0 \quad\text{(div of curl)}\\
+\nabla^2 f &= f_{xx}+f_{yy}+f_{zz} \quad\text{(Laplacian)}
+\end{align*}
+
+\paragraph{Product Rules}
+\begin{align*}
+\nabla(fg) &= f\nabla g + g\nabla f\\
+\nabla\cdot(f\mathbf{F}) &= f(\nabla\cdot\mathbf{F}) + \mathbf{F}\cdot\nabla f\\
+\nabla\times(f\mathbf{F}) &= f(\nabla\times\mathbf{F}) + \nabla f\times\mathbf{F}
+\end{align*}
+
+\paragraph{Parametric Surfaces}
+$\mathbf{r}(u,v) = \langle x(u,v),y(u,v),z(u,v)\rangle$\\
+Normal: $\mathbf{n} = \mathbf{r}_u\times\mathbf{r}_v$\\
+$dS = \|\mathbf{r}_u\times\mathbf{r}_v\|\,du\,dv$
+
+\paragraph{Common Surface Elements}
+\begin{align*}
+z = g(x,y)&: \; dS = \sqrt{1+g_x^2+g_y^2}\,dA\\
+\text{Sphere } a&: \; dS = a^2\sin\phi\,d\phi\,d\theta\\
+\text{Cylinder } R&: \; dS = R\,d\theta\,dz
+\end{align*}
+
+\paragraph{Scalar Surface Integral}
 \[
-\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)\,dA
+\iint_S f\,dS = \iint_D f(\mathbf{r}(u,v))\,\|\mathbf{r}_u\times\mathbf{r}_v\|\,du\,dv
+\]
+$f=1$ gives surface area.
+
+\paragraph{Flux (Vector Surface Integral)}
+\[
+\iint_S \mathbf{F}\cdot d\mathbf{S} = \iint_D \mathbf{F}\cdot(\mathbf{r}_u\times\mathbf{r}_v)\,du\,dv
+\]
+For $z = g(x,y)$ with upward normal:
+\[
+\iint_S \mathbf{F}\cdot d\mathbf{S} = \iint_D(-Pg_x - Qg_y + R)\,dA
 \]
 
 \paragraph{Stokes' Theorem}
+$S$ oriented surface, $C$ boundary (right-hand rule):
 \[
-\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\text{curl }\mathbf{F}) \cdot \mathbf{n}\,dS
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_S(\nabla\times\mathbf{F})\cdot\mathbf{n}\,dS
 \]
+Green's Theorem is the special case $S$ flat in $xy$.
 
 \paragraph{Divergence Theorem}
+$S$ closed surface (outward normal), $V$ interior:
 \[
-\oiint_S \mathbf{F} \cdot \mathbf{n}\,dS = \iiint_V \text{div }\mathbf{F}\,dV
-\]
-
-\paragraph{Conservative Field Test}
-For a vector field $\mathbf{F}$ to be conservative:
-\[
-\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}, \quad
-\frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}, \quad
-\frac{\partial Q}{\partial z} = \frac{\partial R}{\partial y}
-\]
-
-\paragraph{Surface Element}
-\[
-dS = \|\mathbf{r}_u \times \mathbf{r}_v\|\,du\,dv
+\oiint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V(\nabla\cdot\mathbf{F})\,dV
 \]
 
 \paragraph{Generalized Stokes' Theorem}
 \[
-\int_\Omega d\omega = \int_{\partial \Omega} \omega
+\int_\Omega d\omega = \int_{\partial\Omega}\omega
 \]
+Unifies FTOC, FTOLI, Green's, Stokes', Divergence.
 
 \paragraph{Maxwell's Equations}
 \begin{align*}
-\nabla \cdot \mathbf{E} &= \frac{\rho}{\epsilon_0} \\
-\nabla \cdot \mathbf{B} &= 0 \\
-\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
-\nabla \times \mathbf{B} &= \mu_0\mathbf{J} + \mu_0\epsilon_0\frac{\partial \mathbf{E}}{\partial t}
+\nabla\cdot\mathbf{E} &= \rho/\epsilon_0 & \nabla\times\mathbf{E} &= -\partial_t\mathbf{B}\\
+\nabla\cdot\mathbf{B} &= 0 & \nabla\times\mathbf{B} &= \mu_0\mathbf{J}+\mu_0\epsilon_0\partial_t\mathbf{E}
 \end{align*}
 
 \end{multicols}
@@ -5475,7 +5835,7 @@ $\nabla f$ & $\displaystyle\frac{\partial f}{\partial r}\mathbf{e}_r + \frac{1}{
 $\nabla \cdot \mathbf{F}$ & $\displaystyle\frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r}\frac{\partial F_\theta}{\partial \theta} + \frac{\partial F_z}{\partial z}$ & $\displaystyle\frac{1}{r^2}\frac{\partial}{\partial r}(r^2F_r) + \frac{1}{r\sin\theta}\frac{\partial}{\partial \theta}(\sin\theta F_\theta) + \frac{1}{r\sin\theta}\frac{\partial F_\phi}{\partial \phi}$ \\[2ex]
 \hline
 \rule{0pt}{6ex}
-$\nabla \times \mathbf{F}$ & $\begin{pmatrix} 
+$\nabla \times \mathbf{F}$ & $\begin{pmatrix}
 \frac{1}{r}\frac{\partial F_z}{\partial \theta} - \frac{\partial F_\theta}{\partial z} \\[1ex]
 \frac{\partial F_r}{\partial z} - \frac{\partial F_z}{\partial r} \\[1ex]
 \frac{1}{r}\frac{\partial}{\partial r}(rF_\theta) - \frac{1}{r}\frac{\partial F_r}{\partial \theta}
@@ -5497,9 +5857,9 @@ $\nabla \times \mathbf{F}$ & $\begin{pmatrix}
 \begin{multicols}{2}
 
 \begin{enumerate}
-%lect 1 
+%lect 1
 % 1
-\item
+\item 
 Consider the 2D vector field
 \[
 \mathbf{F}(x,y) = (x+1)\mathbf{i} + (y-2)\mathbf{j}.
@@ -5510,11 +5870,11 @@ Consider the 2D vector field
 \end{enumerate}
 
 % 2
-\item
+\item 
 Explain the difference between a \emph{scalar field} and a \emph{vector field}. Give one concrete physical example of each (e.g., temperature distribution for a scalar field, velocity flow for a vector field).
 
 % 3
-\item
+\item 
 Given
 \[
 \mathbf{F}(x,y) = -y\mathbf{i} + x\mathbf{j},
@@ -5522,7 +5882,7 @@ Given
 describe in words how you would plot the arrows at the points \((2,0)\), \((1,1)\), and \((-2,-2)\). What does the overall pattern of the field suggest?
 
 % 4
-\item
+\item 
 Consider the vector field
 \[
 \mathbf{F}(x,y) = \bigl(e^x,\, e^y\bigr).
@@ -5533,7 +5893,7 @@ Consider the vector field
 \end{enumerate}
 
 % 5 (old #3)
-\item
+\item \enspace
 A 3D vector field is given by
     \begin{multline*}
 \mathbf{G}(x,y,z) = \frac{x}{x^2 + y^2 + z^2} \,\mathbf{i} + \\
@@ -5541,8 +5901,8 @@ A 3D vector field is given by
     \end{multline*}
 Is \(\mathbf{G}\) continuous everywhere in \(\mathbb{R}^3\)? If not, identify any problematic points.
 
-% 6 
-\item
+% 6
+\item 
 Consider the 3D vector field
 \[
 \mathbf{H}(x,y,z) = x^2\,\mathbf{i} \;+\; y^2\,\mathbf{j} \;+\; z^2\,\mathbf{k}.
@@ -5553,11 +5913,11 @@ Consider the 3D vector field
 \end{enumerate}
 
 % 7
-\item
+\item 
 Explain briefly why engineers or physicists might choose to visualize a vector field with all arrows having the same length (i.e., \emph{normalized}). Give one advantage and one disadvantage of this approach, referencing physical interpretations.
 
-% 8 
-\item
+% 8
+\item \enspace
 Classify the origin for each of the following vector fields:
 \begin{enumerate}
 \item $\mathbf{F}_1(x,y) = x\,\mathbf{i} + y\,\mathbf{j}$
@@ -5567,7 +5927,7 @@ Classify the origin for each of the following vector fields:
 State which is a source, which is a sink, and which is a saddle.
 
 % 9
-\item
+\item \enspace
 Show that the 2D vector field
 \[
 \mathbf{F}(x,y) = y\,\mathbf{i} \;-\; x\,\mathbf{j}
@@ -5577,8 +5937,8 @@ is \emph{not} conservative by using the partial-derivative condition
 In one sentence, relate this to the ``rotational'' or ``circulatory'' pattern you see near the origin.
 
 % 10
-\item
-Let 
+\item \enspace
+Let
 \[
 \mathbf{F}(x,y) = x^3\,\mathbf{i} + 3x^2y\,\mathbf{j}.
 \]
@@ -5588,7 +5948,7 @@ Let
 \end{enumerate}
 
 % 11
-\item
+\item \enspace
 Consider the 3D field
 \[
 \mathbf{F}(x,y,z) = 2xy\,\mathbf{i} + \bigl(x^2 + z^2\bigr)\mathbf{j} + 2yz\,\mathbf{k}.
@@ -5596,7 +5956,7 @@ Consider the 3D field
 Test whether \(\mathbf{F}\) is conservative by checking the equality of appropriate mixed partial derivatives in \(\mathbb{R}^3\).
 
 % 12
-\item
+\item \enspace
 For the 2D field
 \[
 \mathbf{F}(x,y) = \sqrt{x^2 + y^2}\,\mathbf{i}
@@ -5611,7 +5971,7 @@ compute:
 Which (if any) of these partial derivatives are undefined at the origin?
 
 % 13
-\item
+\item \enspace
 Consider the 2D vector field
 \[
 \mathbf{F}(x,y) = \bigl(x^2 + y^2\bigr)\mathbf{i}
@@ -5625,43 +5985,42 @@ Consider the 2D vector field
 
 %lect 2
 
-
-\item
+\item 
 Compute the scalar line integral
 \[
 \int_C (x + y)\,ds
 \]
 where \(C\) is the line segment from \((0,0)\) to \((2,4)\). Parameterize \(C\) as \(\mathbf{r}(t)\), \(0 \le t \le 1\), and set up the integral explicitly.
 
-\item
+\item \enspace
 Evaluate
 \[
 \int_C (x^2 + y)\,ds
 \]
 where \(C\) is the parabola \(y = x^2\) from \((0,0)\) to \((2,4)\). Use the standard parameterization \(\mathbf{r}(t) = \langle t,\;t^2\rangle\).
 
-\item
+\item \enspace
 Show that the line integral
 \[
 \int_C f(x,y)\,ds
 \]
 does not depend on the \emph{direction} of travel for a scalar function \(f\). In other words, if you reverse the parameterization, explain why the sign of the integral does not change.
 
-\item
+\item 
 Compute
 \[
 \int_C \sqrt{x^2 + y^2}\,ds
 \]
 where \(C\) is the quarter circle \(x=r\cos t,\;y=r\sin t\) for \(t \in [0,\tfrac{\pi}{2}]\). Show your parameterization and simplify.
 
-\item
+\item \enspace
 Evaluate
 \[
 \int_C (2x + 3y)\,ds
 \]
 where \(C\) is the piecewise path going first along the \(x\)-axis from \((0,0)\) to \((3,0)\), then vertically to \((3,2)\). Break the integral into two segments and sum the results.
 
-\item
+\item 
 Compute the line integral of the vector field
 \[
 \mathbf{F}(x,y) = \bigl(\,y,\ x\bigr)
@@ -5669,11 +6028,11 @@ Compute the line integral of the vector field
 along the line segment \(C\) from \((0,0)\) to \((2,3)\). Parametrize \(C\) and evaluate
 \(\displaystyle \int_C \mathbf{F}\cdot d\mathbf{r}\).
 
-\item
+\item \enspace
 Let \(\mathbf{F}(x,y) = \bigl(x-y,\ x^2\bigr)\). If \(C\) is the rectangle with corners \((0,0)\), \((2,0)\), \((2,1)\), \((0,1)\) traversed \emph{counterclockwise}, find
 \(\displaystyle \int_C \mathbf{F}\cdot d\mathbf{r}\).
 
-\item
+\item \enspace
 Parameterize and evaluate the line integral
 \[
 \int_C \mathbf{F}\cdot d\mathbf{r}
@@ -5682,19 +6041,19 @@ for
 \(\mathbf{F}(x,y) = \bigl(\ln(1+y^2),\ e^x\bigr)\)
 around the circle \(x^2 + y^2 = 4\) \emph{counterclockwise}. How does reversing to clockwise change the sign?
 
-\item
+\item 
 Explain how to compute
 \(\displaystyle \int_C \mathbf{F}\cdot d\mathbf{r}\)
 if \(C\) is \emph{piecewise} with three smooth segments \(C_1\), \(C_2\), and \(C_3\). Write a formula involving \(\int_{C_1}\), \(\int_{C_2}\), and \(\int_{C_3}\), and give one reason why this strategy is often used in applications.
 
-\item
+\item \enspace
 Show that the line integral
 \[
 \oint_C (3y,\ -2x)\cdot d\mathbf{r}
 \]
 around any closed loop \(C\) depends on the \emph{orientation} of \(C\). If \(C\) is traversed clockwise, how does the result compare to counterclockwise?
 
-\item
+\item 
 Let \(C\) be the curve from \((1,0)\) to \((1,2)\) along the line \(x=1\). Compute
 \[
 \int_C \mathbf{F}\cdot d\mathbf{r}
@@ -5703,10 +6062,10 @@ Let \(C\) be the curve from \((1,0)\) to \((1,2)\) along the line \(x=1\). Compu
 \]
 Explain why reversing the path gives a negative of your result.
 
-\item
+\item 
 Determine whether the 2D field \(\mathbf{F}(x,y) = (y,\ x)\) is \emph{conservative} on \(\mathbb{R}^2\). If it were conservative, there would exist a potential function \(f\). Check the partial derivatives condition to confirm or deny.
 
-\item
+\item \enspace
 On \(\mathbb{R}^2\setminus\{(0,0)\}\), consider
 \[
 \mathbf{F}(x,y) = \bigl(\,-y/(x^2+y^2),\ x/(x^2+y^2)\bigr).
@@ -5715,14 +6074,14 @@ Parametrize the circle \(x^2 + y^2 = r^2\) and compute
 \(\displaystyle \oint_C \mathbf{F}\cdot d\mathbf{r}.\)
 Explain why this field fails to be conservative.
 
-\item
+\item \enspace
 Let \(\mathbf{G}(x,y) = \bigl(x+\sin y,\ \cos x + y\bigr)\). Assume the domain is all of \(\mathbb{R}^2\). Check if \(\mathbf{G}\) is conservative by verifying the mixed partial derivatives. If it is, find a potential function \(g(x,y)\) and use it to compute
 \[
 \int_C \mathbf{G}\cdot d\mathbf{r}
 \]
 along any path from \((0,0)\) to \((2,1)\).
 
-\item
+\item \enspace
 In 3D, let
 \[
 \mathbf{F}(x,y,z) = \bigl(\,yz,\ zx,\ xy\bigr).
@@ -5733,62 +6092,62 @@ Consider the piecewise path that goes:
 \]
 Compute \(\int_{C_1} + \int_{C_2} + \int_{C_3}\) for \(\mathbf{F}\cdot d\mathbf{r}\). Does this field appear to be conservative on \(\mathbb{R}^3\)? Why or why not?
 
-\item
+\item 
 State Green's Theorem in your own words and explain conceptually why the line integral around a closed curve in the plane can be expressed as a double integral over the region it encloses.
 
-\item
+\item \enspace
 Compute the line integral
 \[
 \oint_C (xy)\,dx + (x^2)\,dy
 \]
 where \(C\) is the positively oriented (counterclockwise) boundary of the rectangle with corners \((0,0)\), \((2,0)\), \((2,1)\), and \((0,1)\). First do it directly by parameterizing each edge, then use Green's Theorem to confirm your result.
 
-\item
+\item \enspace
 Let \(\mathbf{F}(x,y) = (P,Q) = \bigl(-y,x\bigr)\). Using Green's Theorem, evaluate
 \[
 \oint_C \mathbf{F}\cdot d\mathbf{r}
 \]
 where \(C\) is the unit circle \(x^2+y^2=1\) oriented counterclockwise. Interpret physically what this integral measures (circulation) and explain why it makes sense.
 
-\item
+\item \enspace
 Use Green's Theorem to transform the double integral
 \[
 \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA
 \]
 into a line integral for the region \(D\) bounded by \(y=x^2\) and \(y=4\). Write down the resulting line integral explicitly (no need to solve) and mention one advantage of switching to the line integral form.
 
-\item
+\item \enspace
 Explain how interior edges cancel when you partition a region \(D\) into many small rectangles and sum up the individual line integrals around each sub-rectangle. Why do only the outer boundary edges survive in the sum?
 
-\item
+\item \enspace
 Compute
 \[
 \oint_C (x^2y^2)\,dx + (xy^3)\,dy
 \]
 around the boundary of the triangle with vertices \((0,0)\), \((2,0)\), \((0,2)\) oriented counterclockwise. Use Green's Theorem to avoid evaluating three separate line integrals.
 
-\item
+\item \enspace
 Let \(\mathbf{F}(x,y) = (y,\ -x)\). Show that
 \[
 \oint_C \mathbf{F}\cdot d\mathbf{r}
 \]
 around any positively oriented, simple closed curve \(C\) is proportional to the area of the region enclosed. (Hint: Use Green’s Theorem and notice \(\partial Q/\partial x - \partial P/\partial y\) is a constant.)
 
-\item
+\item \enspace
 Suppose \(\mathbf{F}(x,y) = (e^y,\ \sin x)\). Use Green’s Theorem to evaluate
 \[
 \oint_C \mathbf{F}\cdot d\mathbf{r}
 \]
 where \(C\) is the ellipse \(\frac{x^2}{4} + \frac{y^2}{9} = 1\), traversed counterclockwise. (Hint: Parametric or direct line-integration is messy, so let Green’s Theorem and a suitable double integral do the work.)
 
-\item
+\item 
 Explain how reversing the orientation of a closed curve \(C\) (from counterclockwise to clockwise) affects the sign of
 \(\displaystyle \oint_C P\,dx + Q\,dy\).
 Relate this to the expression
 \(\displaystyle \iint_D \bigl(\tfrac{\partial Q}{\partial x} - \tfrac{\partial P}{\partial y}\bigr)dA\).
 
-\item
-Consider the domain \(D\) in \(\mathbb{R}^2\setminus\{(0,0)\}\) (the plane without the origin). Let 
+\item \enspace
+Consider the domain \(D\) in \(\mathbb{R}^2\setminus\{(0,0)\}\) (the plane without the origin). Let
 \[
 \mathbf{F}(x,y) = \bigl(P,Q\bigr) = \left(\frac{-y}{x^2+y^2},\ \frac{x}{x^2+y^2}\right).
 \]
@@ -5796,7 +6155,7 @@ Apply Green’s Theorem to the boundary of a circle of radius \(r\) centered at 
 \(\displaystyle \oint_C \mathbf{F}\cdot d\mathbf{r}\)
 for the circle of radius \(r\). 
 
-\item
+\item 
 Given the 2D vector field $\mathbf{F}(x,y) = (P,Q) = (x+2y,\ x-y)$, compute:
 \[
 \nabla \cdot \mathbf{F}, 
@@ -5806,7 +6165,7 @@ Given the 2D vector field $\mathbf{F}(x,y) = (P,Q) = (x+2y,\ x-y)$, compute:
 \]
 Which one indicates expansion/compression, and which indicates rotation?
 
-\item
+\item 
 For $\mathbf{F}(x,y,z) = (x^2,\ 2y,\ -3z)$, compute:
 \[
 \nabla \cdot \mathbf{F}
@@ -5815,16 +6174,16 @@ For $\mathbf{F}(x,y,z) = (x^2,\ 2y,\ -3z)$, compute:
 \]
 Is $\mathbf{F}$ incompressible (i.e.\ divergence-free)? Does it have nonzero curl?
 
-\item
+\item \enspace
 Explain briefly why every conservative vector field $\mathbf{F} = \nabla f$ has $\nabla \times \mathbf{F} = \mathbf{0}$. (Use Clairaut’s theorem on equality of mixed partial derivatives.)
 
-\item
+\item \enspace
 Check whether the 3D field $\mathbf{F}(x,y,z) = \bigl( e^x \sin y,\ e^y \sin z,\ e^z \sin x \bigr)$ is \emph{divergence-free}. (Compute $\nabla \cdot \mathbf{F}$ and see if it’s zero everywhere.)
 
-\item
+\item \enspace
 Let $\mathbf{F}(x,y) = (x^3,\ y^3)$ in $\mathbb{R}^2$.  Show that $\nabla \cdot \mathbf{F} \neq 0$ everywhere except possibly at special points. Give a brief physical interpretation in terms of ``sources'' or ``sinks.'' 
 
-\item
+\item \enspace
 Classify each of these 2D vector fields at the origin as primarily \emph{source, sink, or rotation} by checking $\nabla \cdot \mathbf{F}$ and $\nabla \times \mathbf{F}$ at $(0,0)$:
 \begin{enumerate}
 \item $\mathbf{F}_1 = (x,-y)$
@@ -5832,10 +6191,10 @@ Classify each of these 2D vector fields at the origin as primarily \emph{source,
 \item $\mathbf{F}_3 = (-y,\ x).$
 \end{enumerate}
 
-\item
+\item \enspace
 Use the identity $\nabla \cdot (\nabla \times \mathbf{F}) = 0$ to show that no purely rotational flow in 3D can create or destroy mass. Relate this to a fluid flow perspective (no net outflow in a purely swirling motion).
 
-\item
+\item \enspace
 For the 3D field $\mathbf{F}(x,y,z) = (yz,\ zx,\ xy)$, compute:
 \[
 \nabla \cdot \mathbf{F}, 
@@ -5844,39 +6203,39 @@ For the 3D field $\mathbf{F}(x,y,z) = (yz,\ zx,\ xy)$, compute:
 \]
 Which is zero, and why might this be physically interpreted as “no net creation of fluid but nonzero rotation”?
 
-\item
+\item \enspace
 Consider the velocity field in cylindrical coordinates
 \[
 \mathbf{v}(r,\theta,z) = \bigl(0,\ \alpha r,\ 0\bigr),
 \]
 where $\alpha$ is a constant, and $\mathbf{v}$ is expressed as $(v_r,v_\theta,v_z)$. Compute $\nabla \cdot \mathbf{v}$ and $\nabla \times \mathbf{v}$ in \emph{cylindrical} form. Is this flow incompressible? Does it rotate about the $z$-axis?
 
-\item
+\item \enspace
 In spherical coordinates $(r,\theta,\phi)$, a radial field is given by
 \[
 \mathbf{F}(r,\theta,\phi) = \bigl(f(r),\ 0,\ 0\bigr)
 \]
 (i.e.\ purely in the $\mathbf{e}_r$ direction). Compute $\nabla \cdot \mathbf{F}$ using the divergence expression in spherical coordinates. Under what condition on $f(r)$ is this divergence zero for $r>0$?
 
-\item
+\item \enspace
 Verify the product rule for divergence:
 \[
 \nabla \cdot (f\,\mathbf{F}) \;=\; f\,(\nabla \cdot \mathbf{F}) \;+\; \mathbf{F}\cdot (\nabla f)
 \]
 by expanding both sides in Cartesian coordinates. In physics, explain how this identity shows that the net outflow of $f\mathbf{F}$ splits into two contributions: one from $\mathbf{F}$ alone and one from gradient of $f$.
 
-\item
+\item \enspace
 Show that for any scalar function $f(x,y,z)$,
 \[
 \nabla \times (\nabla f) = \mathbf{0}.
 \]
 Discuss why this implies any gradient field in 3D is irrotational. Give one physical application (e.g., electrostatic potential).
 
-\item
+\item \enspace
 A vector field $\mathbf{F}(x,y,z)$ has $\nabla \cdot \mathbf{F} = 3$ everywhere in $\mathbb{R}^3$. Explain briefly why this means the field behaves like a uniform “source of fluid.” How might you verify this statement by integrating the flux over a sphere of radius $R$?
 
-\item
-Compute 
+\item \enspace
+Compute
 \[
 \nabla \times (\nabla \times \mathbf{F})
 \]
@@ -5885,7 +6244,7 @@ for $\mathbf{F} = (x^2,\ y^2,\ z^2)$, and confirm it matches the identity
 \nabla(\nabla \cdot \mathbf{F}) \;-\; \nabla^2 \mathbf{F}.
 \]
 
-\item
+\item \enspace
 Consider the 2D vector field
 \[
 \mathbf{F}(x,y) = \nabla\left(x^2 + 2y^2\right).
@@ -5896,21 +6255,21 @@ Consider the 2D vector field
 \item Does the result confirm that gradients are always irrotational?
 \end{enumerate}
 
-\item
-Convert the scalar surface 
+\item 
+Convert the scalar surface
 \[
 x^2 + y^2 = 4z^2
 \]
 into a \emph{parametric} form. Indicate any parameter constraints (e.g.\ domain ranges).
 
-\item
+\item \enspace
 Use the \emph{trace method} to parametrize the surface
 \[
 x \;=\; y^2 + 2z^2
 \]
 but only for the region where \(x\leq 4\). Specify the appropriate domain for the parameters you introduce.
 
-\item
+\item \enspace
 Consider the surface
 \[
 \mathbf{r}(u,v) \;=\; (u,\ v,\ \sqrt{u^2+v^2}) .
@@ -5921,10 +6280,10 @@ Consider the surface
 \item Determine \(\|\mathbf{r}_u \times \mathbf{r}_v\|\).
 \end{enumerate}
 
-\item
+\item \enspace
 Find the \emph{surface area} of the portion of the paraboloid \(z=9-x^2-y^2\) above the region \(x^2+y^2 \le 5\). Write the integral \emph{without evaluating}.
 
-\item
+\item \enspace
 A metal cooling fin is shaped like \(z = f(x,y) = x^2 + 4y^2\), restricted to \(-1\le x \le 1,\ -1\le y \le 1\). Its surface temperature at \((x,y,z)\) is 
 \[
 T(x,y,z) \;=\; \sqrt{1 + x^2 + y^2}\,.
@@ -5935,8 +6294,8 @@ Set up (but do not solve) the surface integral
 \]
 to find the \emph{total heat} over the fin. Use the standard formula for surfaces \(z=f(x,y)\).
 
-\item
-Let 
+\item \enspace
+Let
 \(\mathbf{F}(x,y,z) = \bigl( x^2,\ 0,\ yz\bigr)\).
 \begin{enumerate}
 \item Parameterize the part of the plane \(z=2x\) that occupies the square region \(\{\,(x,y) \mid 0\le x\le 2,\ 0\le y\le 1\}\) in the \(xy\)-plane.
@@ -5945,7 +6304,7 @@ Let
 over that portion of the plane. (No need to evaluate fully.)
 \end{enumerate}
 
-\item
+\item \enspace
 A surface in cylindrical coordinates is given by
 \[
 \mathbf{r}(\theta,z) \;=\; \bigl(2\cos\theta,\ 2\sin\theta,\ z\bigr),
@@ -5960,14 +6319,14 @@ Compute the surface integral
 \]
 for the \emph{curved} surface of the cylinder. (This is effectively the lateral area times \(f\).)
 
-\item
+\item \enspace
 Consider the hemisphere \(x^2 + y^2 + z^2 = 9\) with \(z\ge 0\). A density function \(\rho(x,y,z)\) equals \(z\). Write a suitable parameterization using \emph{spherical coordinates} and set up \emph{both}:
 \begin{enumerate}
 \item the integral for total mass \(\iint_S \rho\,dS\);
 \item the integral for the total outward flux of \(\mathbf{F} = (0,0,z)\) through this hemisphere (oriented outward).
 \end{enumerate}
 
-\item
+\item \enspace
 Let \(\mathbf{F}(x,y,z) = (P,Q,R)=(2x,\ 3y,\ -z)\). Suppose \(S\) is the surface of the graph \(z=g(x,y)=x+2y\), above the region \(\Omega=\{0\le x\le1,\ 0\le y\le2\}\). Assume upward orientation.
 \begin{enumerate}
 \item Compute the partial derivatives \(g_x,g_y\) and write down the normal vector
@@ -5979,7 +6338,7 @@ Let \(\mathbf{F}(x,y,z) = (P,Q,R)=(2x,\ 3y,\ -z)\). Suppose \(S\) is the surface
 as a double integral \(\iint_\Omega(\cdots)\,dA\). (No need to solve numerically.)
 \end{enumerate}
 
-\item
+\item \enspace
 A closed surface \(S\) is formed by the cylinder \(x^2+y^2=4\) for \(-1\le z\le2\) \emph{plus} the top disk at \(z=2\) \emph{plus} the bottom disk at \(z=-1\). A fluid velocity field is
 \[
 \mathbf{v}(x,y,z)\;=\; (x,\ y,\ -1).
@@ -5992,24 +6351,24 @@ Use the outward orientation convention:
 \item Indicate how you would sum them for total outward flux.
 \end{enumerate}
 
-\item
+\item \enspace
 Let \(\mathbf{F} = (y^2, z^2, x^2)\). Let \(\Sigma\) be the portion of the paraboloid \(z = x^2 + y^2\) cut off by \(z = 4\). Its boundary \(C\) is thus the circle \(x^2 + y^2 = 4\) at \(z=4\). Use Stokes' Theorem to convert
 \[
 \oint_C \mathbf{F}\cdot d\mathbf{r}
 \]
 into a surface integral of \(\nabla\times\mathbf{F}\) over \(\Sigma\). Set up the integral, but do not compute fully.
 
-\item
+\item \enspace
 A vector field is given by
 \[
-\mathbf{F}(x,y,z) 
+\mathbf{F}(x,y,z)
 = \bigl(\,e^y,\ \ln(1+z^2),\ y^2 z\,\bigr).
 \]
 The surface \(\Sigma\) is the planar patch \(x+2y+3z=6\) in the first octant, bounded by the triangle \(C\). Decide if it’s easier to compute 
 \(\displaystyle \oint_C \mathbf{F}\cdot d\mathbf{r}\)
 directly, or to use \(\iint_\Sigma (\nabla\times \mathbf{F})\cdot d\mathbf{S}\). Briefly justify your choice and outline the steps (no numeric solution needed).
 
-\item
+\item \enspace
 The surface \(\Sigma\) is the part of the cylinder \(x^2 + y^2 = 9\) with \(-2 \le z \le 5\). The vector field is
 \[
 \mathbf{F} = ( -y,\ x,\ 0 ).
@@ -6022,14 +6381,14 @@ The surface \(\Sigma\) is the part of the cylinder \(x^2 + y^2 = 9\) with \(-2 \
 into the surface integral of \(\nabla\times\mathbf{F}\) over \(\Sigma\). (No need to evaluate fully.)
 \end{enumerate}
 
-\item
+\item \enspace
 Suppose \(\mathbf{F} = \nabla f\) for some scalar \(f\). Show that for any smooth, oriented surface \(\Sigma\) with boundary \(C\), we get
 \[
 \oint_C \mathbf{F}\cdot d\mathbf{r} \;=\; 0
 \]
 by appealing to Stokes' Theorem. (Hint: use the fact that \(\nabla\times(\nabla f)=\mathbf{0}\).)
 
-\item
+\item \enspace
 Let \(\mathbf{E}(x,y,z)\) be the electric field, and let \(\mathbf{B}(x,y,z)\) be the magnetic field. A simplified statement of Faraday’s Law (static boundary) says:
 \[
 \oint_C \mathbf{E}\cdot d\mathbf{r}
@@ -6039,7 +6398,7 @@ Let \(\mathbf{E}(x,y,z)\) be the electric field, and let \(\mathbf{B}(x,y,z)\) b
 \]
 Explain briefly how this is an instance of Stokes’ Theorem, identifying \(\mathbf{E}\) with the line-integrated field and \(\nabla\times\mathbf{E}\) with the flux integrand. What is the physical meaning of the negative time derivative on the right side?
 
-\item
+\item \enspace
 Consider the vector field
 \[
 \mathbf{F}(x,y,z) = (P,Q,R) = (xy,\ yz,\ xz).
@@ -6050,7 +6409,7 @@ Let \(V\) be the solid region bounded by the sphere \(x^2 + y^2 + z^2 = 4\). Use
 \]
 into a volume integral, \(\iiint_V \nabla\cdot\mathbf{F}\,dV\). Write the integral \emph{without} evaluating.
 
-\item
+\item \enspace
 A \emph{cone} in the first octant is given by \(0\le z\le \sqrt{x^2+y^2}\), capped by the plane \(z=2\). Let
 \[
 \mathbf{F}(x,y,z) = \bigl(x^2,\ y^2,\ z^2\bigr).
@@ -6060,7 +6419,7 @@ A \emph{cone} in the first octant is given by \(0\le z\le \sqrt{x^2+y^2}\), capp
 \item Write down a formula for \(\iint_{\partial V}\mathbf{F}\cdot d\mathbf{S}\) using the Divergence Theorem.
 \end{enumerate}
 
-\item
+\item \enspace
 For the region \(V\) bounded by the cylinder \(x^2+y^2=1\) and the planes \(z=0\) and \(z=5\), consider
 \[
 \mathbf{F} = \bigl( e^z,\ \, \sin(xy),\ 2z \bigr).
@@ -6071,12 +6430,12 @@ directly over the curved plus top/bottom surfaces, \emph{or} via
 \(\displaystyle \iiint_V \nabla\cdot \mathbf{F}\,dV\).
 Give a short reason and outline the steps.
 
-\item
+\item \enspace
 Let \(\mathbf{F}(x,y,z)= (x^2 + y^2,\ z,\ 3x)\). Suppose \(V\) is the ball \(x^2+y^2+z^2 \le 4\). Use spherical coordinates to write a triple integral for
 \(\displaystyle \iiint_V \nabla\cdot \mathbf{F}\,dV.\)
 No need to simplify fully.
 
-\item
+\item 
 Explain, in words, why the \emph{net} outward flux of an \emph{incompressible} fluid (divergence zero) through any closed surface must be zero. How does this align with the Divergence Theorem statement
 \(\displaystyle \oiint_{\partial V}\mathbf{v}\cdot d\mathbf{S}=0\)
 when \(\nabla\cdot\mathbf{v}=0\)?

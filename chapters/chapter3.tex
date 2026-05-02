@@ -46,7 +46,7 @@ Including the 8\% sales tax, the total cost becomes:
 \text{Cost} = 19 \cdot 1.08 = 20.52.
 \]
 
-This is an example where the domain of the function \( f \) is restricted to natural numbers or zero denoted as $\mathbb{N}_0$, as we can only order whole numbers (or zero) of each item (e.g., 2 Gorditas, not 2.5). Thus, the function maps from $\mathbb{N}_0 \times \mathbb{N}_0 \times \mathbb{N}_0$) (the number of Gorditas, Crunchwraps, and Tacos) to $\mathbb{Q}$, the set of rational numbers representing the total cost:
+This is an example where the domain of the function \( f \) is restricted to natural numbers or zero denoted as $\mathbb{N}_0$, as we can only order whole numbers (or zero) of each item (e.g., 2 Gorditas, not 2.5). Thus, the function maps from $\mathbb{N}_0 \times \mathbb{N}_0 \times \mathbb{N}_0$ (the number of Gorditas, Crunchwraps, and Tacos) to $\mathbb{Q}$, the set of rational numbers representing the total cost:
 \[
 f: \mathbb{N}_0 \times \mathbb{N}_0 \times \mathbb{N}_0 \to \mathbb{Q}.
 \]
@@ -73,7 +73,7 @@ Here are three examples:
     \[
     P = f(V, R) = \frac{V^2}{R},
     \]
-    where \( \rho \) is the density, \( m \) is the mass, and \( V \) is the volume.
+    where \( P \) is the power dissipated, \( V \) is the voltage, and \( R \) is the resistance.
 
     \item \textbf{Kinetic Energy:} Kinetic energy is a function of mass and velocity:
     \[
@@ -106,7 +106,7 @@ Here, \( C \) represents the codomain of \( f \), which is often \( \mathbb{R} \
 \]
 \noindent or just simply
 \[
-\range f = \{z \in \mathbb{R}_{\geq 0}\}.
+\range f = [0, \infty).
 \]
 
 \paragraph{Techniques for Determining the Domain}
@@ -172,7 +172,7 @@ Determine the domain and range of the following functions using proper notation:
         \[
         \dom g = \{(x, y) \in \mathbb{R}^2 \mid x - y > 0 \text{ and } x^2 + y^2 > 4\}.
         \]
-        \item \textbf{Range:} The numerator \( \ln(x - y) \) can take any real value since \( x - y > 0 \), and the denominator \( \sqrt{x^2 + y^2 - 4} \) is strictly positive and increases as \( (x, y) \) moves farther from the circle \( x^2 + y^2 = 4 \). The output \( g(x, y) \) cannot be zero because the numerator \( \ln(x - y) \) cannot simultaneously be zero (i.e., \( x - y = 1 \)) while satisfying the conditions imposed by the square root denominator. Therefore, the range is:
+        \item \textbf{Range:} The numerator \( \ln(x - y) \) can take any real value since \( x - y > 0 \), and the denominator \( \sqrt{x^2 + y^2 - 4} \) is strictly positive and increases as \( (x, y) \) moves farther from the circle \( x^2 + y^2 = 4 \). Therefore, the range is:
         \[
         \range g = \mathbb{R}.
         \]
@@ -204,7 +204,7 @@ Determine the domain and range of the following functions using proper notation:
 \end{itemize}
 
 
-\noindent Let's begin visualize some graphs in three-dimensional space. Below is an example of a surface plot of a function of two variables. As is the case with single-variable mathematics, we can be a bit old-fashioned and use a Table of some values to aid us. In this case, we notice when $x$ and $y$ are equal, we are getting zero, thus indicating some interesting local extrema information.
+\noindent Let's begin to visualize some graphs in three-dimensional space. Below is an example of a surface plot of a function of two variables. As is the case with single-variable mathematics, we can be a bit old-fashioned and use a Table of some values to aid us. In this case, we notice when $x$ and $y$ are equal, we are getting zero, indicating a saddle point at the origin, as we will see later in this chapter.
 
 \begin{figure}[H]
     \centering
@@ -239,8 +239,8 @@ Determine the domain and range of the following functions using proper notation:
              0 &  0 & 0 \\
              1 &  1 & 0 \\
              2 &  2 & 0 \\
-             2 & -2 & 8 \\
-            -2 &  2 & -8 \\
+             2 &  0 & 4 \\
+             0 &  2 & -4 \\
             \bottomrule
         \end{tabular}
     \end{minipage}
@@ -249,7 +249,7 @@ Determine the domain and range of the following functions using proper notation:
 \end{figure}
 
 
-\noindent The next figure demonstrates how plotting cross-sections simplifies understanding complex 3D surfaces. By combining slices with full 3D graphs, we can systematically analyze and interpret the behavior of functions of two variables. \\ \\ Below is a visualization of the function \( z = xy \), including a 3D surface plot and two 2D cross-sectional plots on the planes \( xz \) (at \( y=-1 \)) and \( yz \) (at \( x=0 \)).
+\noindent The next figure demonstrates how plotting cross-sections simplifies understanding complex 3D surfaces. By combining slices with full 3D graphs, we can systematically analyze and interpret the behavior of functions of two variables. \\ \\ Below is a visualization of the function \( z = xy \), including a 3D surface plot and two 2D cross-sectional plots on the planes \( xz \) (at \( y=-1 \)) and \( yz \) (at \( x=1 \)).
 
 \bigskip
 
@@ -371,7 +371,7 @@ Determine the domain and range of the following functions using proper notation:
 \draw[-latex] (0,0,0) -- (0,2,0) node[right] {$y$};
 \draw[-latex] (0,0,0) -- (0,0,1) node[above] {$z$};
 \end{tikzpicture}
-\caption{\textit{A 3D surface featuring with its level curves shown below featuring the Bernoulli lemniscate (the infinity shaped level curve)}}
+\caption{\textit{A 3D surface with its level curves projected below, including the Bernoulli lemniscate (the infinity shaped level curve)}}
 \end{figure}
 
 
@@ -675,7 +675,7 @@ providing a unified framework for analyzing functions of several variables. For 
 \[
 T = f(\mathbf{t}) = f\left(\begin{bmatrix} t_x \\ t_y \\ t_z \end{bmatrix}\right) =  f(t_x,t_y,t_z) = t_x^2 + t_y^2 + t_z^2
 \]
-where \( \mathbf{x} \) represents a point in \( \mathbb{R}^3 \). This column vector-based notation is particularly valuable in advanced topics like gradients, divergence, and vector-valued functions, as it simplifies both expression and computation.
+where \( \mathbf{t} \) represents a point in \( \mathbb{R}^3 \). This column vector-based notation is particularly valuable in advanced topics like gradients, divergence, and vector-valued functions, as it simplifies both expression and computation.
 
 
 
@@ -688,7 +688,7 @@ where \( \mathbf{x} \) represents a point in \( \mathbb{R}^3 \). This column vec
 
 \subsubsection*{Level Surfaces} \index{Level Surfaces}
 
-\noindent Plotting a level surface, will be very similar to our level curves. lets take a look at a hypersphere \(f(x, y, z) = x^2 + y^2 + z^2\). The level surfaces are determined by solving:
+\noindent Plotting a level surface will be very similar to our level curves. Let's take a look at a sphere \(f(x, y, z) = x^2 + y^2 + z^2\). The level surfaces are determined by solving:
 \[
 f(x, y, z) = k \implies x^2 + y^2 + z^2 = k.
 \]
@@ -780,7 +780,7 @@ f(x, y, z) = k \implies x^2 + y^2 + z^2 = k.
             \node[anchor=east, red] at (axis cs: -3.5, -3.5, -3.5) {Sphere \( r = 3 \) ($k=9$)};
         \end{axis}
     \end{tikzpicture}
-    \caption{\textit{Level surfaces of \( f(x, y, z) = x^2 + y^2 + z^2 = k\) for \( k = 1, 4, 9 \), represented as concentric circles}}
+    \caption{\textit{Level surfaces of \( f(x, y, z) = x^2 + y^2 + z^2 = k\) for \( k = 1, 4, 9 \), represented as concentric spheres}}
     \label{fig:level_surfaces_example}
 \end{figure}
 
@@ -863,7 +863,7 @@ f(x, y, z) = k \implies x^2 + y^2 + z^2 = k.
 \end{axis}
 \end{tikzpicture}
     \caption{\textit{Graph of \(z = \frac{x y}{x^2 + y^2} \), where the limit does not exist at $(0,0)$}}
-    \label{fig:surface_sin_x2y2}
+    \label{fig:surface_xy_over_x2y2}
 \end{figure}
 
 
@@ -930,6 +930,8 @@ f(x, y, z) = k \implies x^2 + y^2 + z^2 = k.
         \item Curved paths, such as \( y = x^2 \) or \( y = \sin(x) \).
     \end{itemize}
     If the limit depends on the chosen path, the overall limit does not exist.
+
+\noindent \textbf{Important:} Showing that the limit is the same along all straight-line paths \( y = mx \) is \textit{not} sufficient to prove a limit exists. One must also check nonlinear paths such as \( y = x^2 \). A classic example is \( f(x,y) = \frac{x^2 y}{x^4 + y^2} \), where the limit along every line through the origin is 0, but the limit along \( y = x^2 \) is \( \frac{1}{2} \).\\ \\
 
     \item \textbf{Polar Coordinates:} For limits approaching the origin in two dimensions, converting to polar coordinates can simplify expressions. Substituting \( x = r\cos\theta \) and \( y = r\sin\theta \) reduces a multivariable problem to a single variable \( r \), where \( r \to 0 \). For example:
     \[
@@ -1259,7 +1261,7 @@ Here’s what this means step by step:
       \draw[dotted, thick] (axis cs:0,0,3.892) -- (axis cs:2.354,2.354,3.892);
   \end{axis}
 \end{tikzpicture}
-    \caption{\textit{3D plot with a \(\delta\)-circle, center point \((a, b)\), a transparent surface, \(f(a,b)\), the circle plotted on the surface, and the corresponding points \(L\), \(L + \epsilon\), and \(L - \epsilon\) on the \(z\)-axis connected to their corresponding surface points.}}
+    \caption{\textit{Visualization of the \(\varepsilon\)-\(\delta\) definition for a function of two variables. The blue circle of radius \(\delta\) in the \(xy\)-plane surrounds \((a,b)\). The surface \(z = f(x,y)\) is shown with the corresponding curve on the surface above the \(\delta\)-circle. The values \(L + \varepsilon\) and \(L - \varepsilon\) on the \(z\)-axis mark the acceptable output range: the definition requires that whenever \((x,y)\) lies within the \(\delta\)-circle, the surface height stays between \(L - \varepsilon\) and \(L + \varepsilon\).}}
 \end{figure}
 
 
@@ -1314,23 +1316,14 @@ we need to show that for every \( \epsilon > 0 \), there exists a \( \delta > 0 
 |x y - 0| < \epsilon.
 \]
 
-\noindent \textbf{Proof:} Let \( \epsilon > 0 \) be given. We aim to find \( \delta > 0 \) such that if \( 0 < \sqrt{x^2 + y^2} < \delta \), then \( |x y| < \epsilon \). Note that:
+\noindent \textbf{Proof:} Let \( \epsilon > 0 \) be given. We aim to find \( \delta > 0 \) such that if \( 0 < \sqrt{x^2 + y^2} < \delta \), then \( |x y| < \epsilon \). Note that since \( |x| \leq \sqrt{x^2 + y^2} \) and \( |y| \leq \sqrt{x^2 + y^2} \), we have:
 \[
-|x y| = |x||y| \leq \left( \sqrt{x^2} \right) \left( \sqrt{y^2} \right) = |x||y|.
-\]
-\noindent But since \( |x| < \sqrt{x^2 + y^2} \) and \( |y| < \sqrt{x^2 + y^2} \) for $x,y \neq 0$ we have:
-\[
-|x y| < \left( \sqrt{x^2 + y^2} \right) \left( \sqrt{x^2 + y^2} \right) = x^2 + y^2.
-\]
-
-\noindent Furthermore, since \( x^2 + y^2 = \left( \sqrt{x^2 + y^2} \right)^2 \), it follows that:
-\[
-|x y| < \left( \sqrt{x^2 + y^2} \right)^2.
+|x y| = |x||y| \leq \left( \sqrt{x^2 + y^2} \right) \left( \sqrt{x^2 + y^2} \right) = \left( \sqrt{x^2 + y^2} \right)^2.
 \]
 
 \noindent Now, choose \( \delta = \sqrt{\epsilon} \). Then \( \delta > 0 \) because \( \epsilon > 0 \). Suppose \( 0 < \sqrt{x^2 + y^2} < \delta \). Then:
 \[
-|x y| < \left( \sqrt{x^2 + y^2} \right)^2 < \delta^2 = (\sqrt{\epsilon})^2 = \epsilon.
+|x y| \leq \left( \sqrt{x^2 + y^2} \right)^2 < \delta^2 = (\sqrt{\epsilon})^2 = \epsilon.
 \]
 
 \noindent  Therefore, whenever \( 0 < \sqrt{x^2 + y^2} < \delta \), it follows that \( |x y| < \epsilon \). \\
@@ -1399,7 +1392,7 @@ Several familiar theorems from single-variable calculus extend to multivariable 
 \begin{itemize} \index{Intermediate Value Theorem}
     \item \textbf{Intermediate Value Theorem:} If \( f(x, y) \) is continuous on a connected region \( R \) and takes on two distinct values \( a \) and \( b \), then \( f(x, y) \) takes every value between \( a \) and \( b \) at some point in \( R \). This is particularly useful in multivariable optimization problems or proving the existence of level curves.
     
-    \item \textbf{Mean Value Theorem:} \index{Mean Value Theorem} For multivariable functions, this theorem generalizes to state that if \( f \) is continuous and differentiable on a region \( R \), then there exists a point \( \mathbf{x}_c \in R \) such that the gradient (multi-dimensional derivative) \( \nabla f(\mathbf{x}_c) \) aligns with the direction of the greatest change in \( f \) over \( R \). This result is crucial in applications such as error estimation and optimization.
+    \item \textbf{Mean Value Theorem:} \index{Mean Value Theorem} A multivariable generalization of the MVT states that for a differentiable function \( f \) and points \( \mathbf{a}, \mathbf{b} \) in a convex domain, there exists a point \( \mathbf{c} \) on the line segment from \( \mathbf{a} \) to \( \mathbf{b} \) such that \( f(\mathbf{b}) - f(\mathbf{a}) = \nabla f(\mathbf{c}) \cdot (\mathbf{b} - \mathbf{a}) \).
 
     \item \textbf{Extreme Value Theorem:} \index{Extreme Value Theorem} If \( f(x, y, z) \) is continuous on a closed and bounded region \( R \subseteq \mathbb{R}^3 \), then \( f \) attains both a maximum and minimum value on \( R \). This theorem underpins much of multivariable optimization, particularly when combined with Lagrange multipliers.
 
@@ -1614,8 +1607,8 @@ Thus:
 
   \end{axis}
 \end{tikzpicture}
- \caption{\textit{Derivative of a surface $z = x^2 + y^2$ at a point $(1,1,2)$. The tangent line (red) is notated with proejctions of each component, green indicating $yz$-plane projection of the tangent line, and blue indicating the $xz$-plane projection.}}
- \label{fig:derivative_high_ordere}
+ \caption{\textit{Derivative of a surface $z = x^2 + y^2$ at a point $(1,1,2)$. The tangent line (red) is notated with projections of each component, green indicating $yz$-plane projection of the tangent line, and blue indicating the $xz$-plane projection.}}
+ \label{fig:derivative_high_order}
 \end{figure}
 
 
@@ -1707,7 +1700,7 @@ Compute the partial derivatives of the following functions with respect to all s
         \]
         Simplify:
         \[
-        \frac{\partial h}{\partial y} = \frac{2xy - 2y^2 + x^2 + y^2}{(x - y)^2}.
+        \frac{\partial h}{\partial y} = \frac{x^2 + 2xy - y^2}{(x - y)^2}.
         \]
     \end{itemize}
 \end{enumerate}
@@ -1735,6 +1728,8 @@ f_{xx} = \frac{\partial^2 f}{\partial x^2}, \quad f_{yy} = \frac{\partial^2 f}{\
 \frac{\partial^2 f}{\partial y \partial x} = \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right), \quad \text{or equivalently,} \quad f_{yx} = \frac{\partial}{\partial x} \left( f_y \right).
 \]
 
+\noindent Note: we adopt the convention that \( f_{xy} \) means first differentiate with respect to \( x \), then with respect to \( y \). Some references use the opposite convention; when in doubt, the subscript order \( f_{xy} = (f_x)_y \) is unambiguous.
+
 \noindent This naturally extends to higher dimensions. For a function \( f(x_1, x_2, \ldots, x_n) \), higher-order derivatives can be computed repeatedly by differentiating with respect to different variables. For example, the general \( k \)-th order partial derivative is denoted as:
 \[
 \frac{\partial^k f}{\partial x_{i_1} \partial x_{i_2} \cdots \partial x_{i_k}},
@@ -1758,7 +1753,7 @@ A natural question arises: does the order of differentiation affect the result? 
 \frac{\partial^2 f}{\partial x \partial y} \stackrel{?}{=} \frac{\partial^2 f}{\partial y \partial x}?
 \]
 
-\noindent Surprisingly—or perhaps reassuringly—the answer is that the order generally does *not* matter, provided certain conditions are met. 
+\noindent Surprisingly—or perhaps reassuringly—the answer is that the order generally does \textit{not} matter, provided certain conditions are met. 
 
 
 \subsection*{Clairaut's Theorem on Mixed Partial Derivatives} \index{Clairaut's Theorem}
@@ -1793,21 +1788,25 @@ Consider the function \( f(x, y) \) defined as:
 \[
 f(x, y) = 
 \begin{cases} 
-\frac{xy}{x^2 + y^2}, & \text{if } (x, y) \neq (0, 0), \\
+\frac{xy(x^2 - y^2)}{x^2 + y^2}, & \text{if } (x, y) \neq (0, 0), \\
 0, & \text{if } (x, y) = (0, 0).
 \end{cases}
 \]
 
-\noindent Compute the mixed partial derivatives at \( (0, 0) \):
-\begin{itemize}
-    \item \( \frac{\partial f}{\partial x} = \begin{cases} 
-    \frac{y(x^2 - y^2)}{(x^2 + y^2)^2}, & \text{if } (x, y) \neq (0, 0), \\
-    0, & \text{if } (x, y) = (0, 0).
-    \end{cases} \)
-    \item Taking \( \frac{\partial}{\partial y} \) and \( \frac{\partial}{\partial x} \) in different orders produces inconsistent results, as the second-order partial derivatives involve discontinuities in their behavior near \( (0, 0) \).
-\end{itemize}
+\noindent Compute the mixed partial derivatives at \( (0, 0) \) using the limit definition. First, one can show that:
+\[
+f_x(0, y) = -y, \qquad f_y(x, 0) = x.
+\]
+Then:
+\[
+f_{xy}(0,0) = \lim_{h \to 0} \frac{f_x(0, h) - f_x(0, 0)}{h} = \lim_{h \to 0} \frac{-h - 0}{h} = -1,
+\]
+\[
+f_{yx}(0,0) = \lim_{h \to 0} \frac{f_y(h, 0) - f_y(0, 0)}{h} = \lim_{h \to 0} \frac{h - 0}{h} = 1.
+\]
+Since \( f_{xy}(0,0) = -1 \neq 1 = f_{yx}(0,0) \), the mixed partial derivatives are not equal.
 
-\noindent This failure arises because \( f(x, y) \) is not continuously differentiable at \( (0, 0) \), violating the conditions of Clairaut's Theorem. \\
+\noindent This failure arises because the second-order partial derivatives of \( f \) are not continuous at \( (0, 0) \), violating the conditions of Clairaut's Theorem. \\
 
 \noindent Note: the existence of partial derivatives does not guarantee the continuity of a function. A function can have partial derivatives at a point without being continuous there. However, if all partial derivatives are continuous in a region, the function is said to be \textit{continuously differentiable}, denoted \( C^1 \). This property is critical for advanced topics, such as optimization and differential equations.
 
@@ -1851,7 +1850,7 @@ Verify Clairaut's Theorem for the following functions:
         \]
         \item Compute \( \frac{\partial^2 f}{\partial x \partial y} \):
         \[
-        \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial}{\partial y} (ye^{xy}) = e^{xy} + y^2e^{xy}.
+        \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial}{\partial y} (ye^{xy}) = e^{xy} + xye^{xy} = e^{xy}(1 + xy).
         \]
         \item Compute \( \frac{\partial f}{\partial y} \):
         \[
@@ -1859,9 +1858,9 @@ Verify Clairaut's Theorem for the following functions:
         \]
         \item Compute \( \frac{\partial^2 f}{\partial y \partial x} \):
         \[
-        \frac{\partial^2 f}{\partial y \partial x} = \frac{\partial}{\partial x} (xe^{xy}) = e^{xy} + y^2e^{xy}.
+        \frac{\partial^2 f}{\partial y \partial x} = \frac{\partial}{\partial x} (xe^{xy}) = e^{xy} + xye^{xy} = e^{xy}(1 + xy).
         \]
-        Since \( \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x} = e^{xy} + y^2e^{xy} \), Clairaut's Theorem is verified.
+        Since \( \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x} = e^{xy}(1 + xy) \), Clairaut's Theorem is verified.
     \end{itemize}
 \end{enumerate}
 \end{solution}
@@ -2008,15 +2007,19 @@ Compute the derivatives in the following scenarios using the Chain Rule:
     \begin{itemize}
         \item Compute \( \frac{\partial z}{\partial u} \) using the Chain Rule:
         \[
-        \frac{\partial z}{\partial u} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial u}.
+        \frac{\partial z}{\partial u} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial u}.
         \]
         \item Compute the partial derivatives:
         \[
         \frac{\partial z}{\partial x} = \frac{1}{x}, \quad \frac{\partial x}{\partial u} = e^u.
         \]
-        \item Substitute \( x = e^u \) and \( y = \cos(v) \):
+        Since \( y = \cos(v) \) does not depend on \( u \), \( \frac{\partial y}{\partial u} = 0 \), so the full Chain Rule gives:
         \[
-        \frac{\partial z}{\partial u} = \frac{1}{e^u\cos(v)} \cdot e^u = \frac{1}{\cos(v)}.
+        \frac{\partial z}{\partial u} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial u} + 0 = \frac{1}{x} \cdot e^u.
+        \]
+        \item Substitute \( x = e^u \):
+        \[
+        \frac{\partial z}{\partial u} = \frac{1}{e^u} \cdot e^u = 1.
         \]
         \item Compute \( \frac{\partial z}{\partial v} \):
         \[
@@ -2042,14 +2045,14 @@ Find $\frac{\partial^2}{\partial y\partial x}f$ if $f = g(u(x,y), v(y))$ where $
 \begin{solution}
 \noindent First, compute $\frac{\partial f}{\partial x}$ using the chain rule:
 \[
-\frac{\partial f}{\partial x} = g_u \frac{\partial h}{\partial x} = g_u (-y \sin(xy))
+\frac{\partial f}{\partial x} = g_u \frac{\partial u}{\partial x} = g_u (-y \sin(xy))
 \]
 \noindent where $g_u$ denotes $\frac{\partial g}{\partial u}$. \\
 
 \noindent Now, compute $\frac{\partial}{\partial y}$ of this result using the product rule and chain rule:
 \begin{align*}
 \frac{\partial^2 f}{\partial y \partial x} &= \frac{\partial}{\partial y} [g_u (-y \sin(xy))] \\
-&= \left( g_{uu} \frac{\partial h}{\partial y} + g_{uv} \frac{\partial k}{\partial y} \right) (-y \sin(xy)) + g_u \left( -\sin(xy) - x y \cos(xy) \right) \\
+&= \left( g_{uu} \frac{\partial u}{\partial y} + g_{uv} \frac{\partial v}{\partial y} \right) (-y \sin(xy)) + g_u \left( -\sin(xy) - x y \cos(xy) \right) \\
 &= \left( g_{uu} (-x \sin(xy)) + g_{uv} \left( -\frac{1}{y} \right) \right) (-y \sin(xy)) + g_u \left( -\sin(xy) - x y \cos(xy) \right) \\
 &= g_{uu} x y \sin^2(xy) + g_{uv} \sin(xy) - g_u (\sin(xy) + x y \cos(xy))
 \end{align*}
@@ -2091,7 +2094,7 @@ This expression follows from the Chain Rule, as \( F \) depends on both \( x \) 
 \]
 The result generalizes the single-variable case, where partial derivatives replace ordinary derivatives to account for the multivariable nature of \( F \). For functions of three variables, consider \( F(x, y, z) = 0 \), where \( z \) is implicitly a function of \( x \) and \( y \). Differentiating implicitly, we treat \( z \) as dependent on \( x \) and \( y \):
 \[
-\frac{\partial F}{\partial x} + \frac{\partial F}{\partial y} \frac{\partial y}{\partial x} + \frac{\partial F}{\partial z} \frac{\partial z}{\partial x} = 0.
+\frac{\partial F}{\partial x} + \frac{\partial F}{\partial z} \frac{\partial z}{\partial x} = 0.
 \]
 From here, solving for \( \frac{\partial z}{\partial x} \) gives:
 \[
@@ -2159,7 +2162,7 @@ These expressions demonstrate how implicit differentiation extends to higher dim
 
   \end{axis}
 \end{tikzpicture}
-\caption{\textit{A tangent line to the sphere \(x^2 + y^2 + z^2 = 9\) at the point \((2, 1, \sqrt{5})\). The tangent line is shown in red. The point of tangency is marked in black.}}
+\caption{\textit{A normal line to the sphere \(x^2 + y^2 + z^2 = 9\) at the point \((2, 1, \sqrt{5})\). The normal line is shown in red. The point is marked in black.}}
 
 \end{figure}
 
@@ -2333,7 +2336,7 @@ provided that \( f \) and its partial derivative \( \frac{\partial f}{\partial x
 
 \noindent Ponder for a moment: if we know how \( f \) changes along the \( x \)-, \( y \)-, and \( z \)-axes, can we combine this information to understand how \( f \) changes in an arbitrary direction? This question guides us toward the definition of the directional derivative. \\
 
-\noindent Consider a function \( f \) defined in \( \mathbb{R}^n \) and a unit vector \( \mathbf{u} \) indicating the direction of interest. The directional derivative of \( f \) at a point \( \mathbf{p} = (x_1, x_2, \ldots, x_n) \) in the direction of \( \mathbf{u} \) is denoted \( D_{\mathbf{u}} f(\mathbf{p}) \) and is defined by equiping our increment $h$ in our usualy limit definition of derivative with the direction $\mathbf{u}$:
+\noindent Consider a function \( f \) defined in \( \mathbb{R}^n \) and a unit vector \( \mathbf{u} \) indicating the direction of interest. The directional derivative of \( f \) at a point \( \mathbf{p} = (x_1, x_2, \ldots, x_n) \) in the direction of \( \mathbf{u} \) is denoted \( D_{\mathbf{u}} f(\mathbf{p}) \) and is defined by equipping our increment $h$ in our usual limit definition of derivative with the direction $\mathbf{u}$:
 \[
 D_{\mathbf{u}} f(\mathbf{p}) = \lim_{h \to 0} \frac{f(\mathbf{p} + h \mathbf{u}) - f(\mathbf{p})}{h}.
 \]
@@ -2554,7 +2557,7 @@ Thus, both methods yield \( D_{\mathbf{u}} f(\mathbf{p}) = \frac{15}{\sqrt{2}} \
 
 \begin{enumerate}
     \item \textbf{Understand the Role of the Gradient:}
-    The gradient vector \( \nabla f(x, y) = \langle f_x,f_y,f_z \rangle \) points in the direction of maximum increase of the function \( f(x, y) \). Its magnitude \( |\nabla f| \) reflects the steepness of the ascent at a point.
+    The gradient vector \( \nabla f(x, y) = \langle f_x,f_y \rangle \) points in the direction of maximum increase of the function \( f(x, y) \). Its magnitude \( |\nabla f| \) reflects the steepness of the ascent at a point.
 
     \item \textbf{Define a Step Vector \( \mathbf{r} \) Using a Unit Vector:}
     To ensure consistent step sizes regardless of the gradient's magnitude, define the step vector using a unit vector in the desired direction (ascent or descent):
@@ -2633,42 +2636,42 @@ Consider the level curves of the function \( f(x, y) = 4 - x^2 - y^2 \), represe
     \]
     At \( \mathbf{P}_1 = (0.5, 0.5) \):
     \[
-    \nabla f(0.5, 0.5) = \begin{bmatrix} -1.0 \\ -1.6 \end{bmatrix}.
+    \nabla f(0.5, 0.5) = \begin{bmatrix} -1.0 \\ -1.0 \end{bmatrix}.
     \]
     The negative gradient vector is:
     \[
-    -\nabla f(0.5, 0.5) = \begin{bmatrix} 1.0 \\ 1.6 \end{bmatrix}.
+    -\nabla f(0.5, 0.5) = \begin{bmatrix} 1.0 \\ 1.0 \end{bmatrix}.
     \]
     Compute its magnitude:
     \[
-    |-\nabla f(0.5, 0.5)| = \sqrt{(1.0)^2 + (1.6)^2} = \sqrt{1 + 2.56} = \sqrt{3.56} \approx 1.886.
+    |-\nabla f(0.5, 0.5)| = \sqrt{(1.0)^2 + (1.0)^2} = \sqrt{1 + 1} = \sqrt{2} \approx 1.414.
     \]
     The unit vector pointing toward the center is:
     \[
-    \hat{\mathbf{r}}_1 = \frac{-\nabla f(0.5, 0.5)}{|-\nabla f(0.5, 0.5)|} = \frac{1}{1.886} \begin{bmatrix} 1.0 \\ 1.6 \end{bmatrix} \approx \begin{bmatrix} 0.53 \\ 0.85 \end{bmatrix}.
+    \hat{\mathbf{r}}_1 = \frac{-\nabla f(0.5, 0.5)}{|-\nabla f(0.5, 0.5)|} = \frac{1}{1.414} \begin{bmatrix} 1.0 \\ 1.0 \end{bmatrix} \approx \begin{bmatrix} 0.707 \\ 0.707 \end{bmatrix}.
     \]
-    (Note: For simplicity in plotting, we've approximated \( \hat{\mathbf{r}}_1 \) to \( (-0.6, -0.8) \), maintaining the direction.)
+    (Note: For simplicity in plotting, we've approximated \( \hat{\mathbf{r}}_1 \) to \( (-0.707, -0.707) \), maintaining the direction.)
 
     \item \textbf{Move to the next points:}
     Starting from \( \mathbf{P}_1 = (0.5, 0.5) \), we move two steps along the direction of \( \hat{\mathbf{r}}_1 \) and \( \hat{\mathbf{r}}_2 \).
 
     -First Step (\( \mathbf{P}_1 \) to \( \mathbf{P}_2 \)):
       \[
-      \mathbf{P}_2 = \mathbf{P}_1 + h \hat{\mathbf{r}}_1 = (0.5, 0.5) + 0.3 \cdot (-0.6, -0.8) = (0.5 - 0.18, 0.5 - 0.24) = (0.32, 0.26)
+      \mathbf{P}_2 = \mathbf{P}_1 + h \hat{\mathbf{r}}_1 = (0.5, 0.5) + 0.3 \cdot (-0.707, -0.707) = (0.5 - 0.212, 0.5 - 0.212) = (0.29, 0.29)
       \]
       \[
-      z_2 = 4 - (0.32)^2 - (0.26)^2 = 4 - 0.1024 - 0.0676 = 3.83
+      z_2 = 4 - (0.29)^2 - (0.29)^2 = 4 - 0.0841 - 0.0841 = 3.83
       \]
-      Thus, \( \mathbf{P}_2 = (0.32, 0.26, 3.83) \).
+      Thus, \( \mathbf{P}_2 = (0.29, 0.29, 3.83) \).
 
     -Second Step (\( \mathbf{P}_2 \) to \( \mathbf{P}_3 \)):
       \[
-      \mathbf{P}_3 = \mathbf{P}_2 + h \hat{\mathbf{r}}_2 = (0.32, 0.26) + 0.3 \cdot (-0.6, -0.8) = (0.32 - 0.18, 0.26 - 0.24) = (0.14, 0.02)
+      \mathbf{P}_3 = \mathbf{P}_2 + h \hat{\mathbf{r}}_2 = (0.29, 0.29) + 0.3 \cdot (-0.707, -0.707) = (0.29 - 0.212, 0.29 - 0.212) = (0.08, 0.08)
       \]
       \[
-      z_3 = 4 - (0.14)^2 - (0.02)^2 = 4 - 0.0196 - 0.0004 = 3.98
+      z_3 = 4 - (0.08)^2 - (0.08)^2 = 4 - 0.0064 - 0.0064 = 3.99
       \]
-      Thus, \( \mathbf{P}_3 = (0.14, 0.02, 3.98) \).
+      Thus, \( \mathbf{P}_3 = (0.08, 0.08, 3.99) \).
 
     \item \textbf{Interpretation:}
     Both \( \hat{\mathbf{r}}_1 \) and \( \hat{\mathbf{r}}_2 \) are unit vectors pointing inward, consistent with the symmetry of the concentric level curves. These vectors demonstrate the direction of steepest descent at each step as we move closer to the center of the level curves.
@@ -2707,8 +2710,8 @@ Consider the level curves of the function \( f(x, y) = 4 - x^2 - y^2 \), represe
       color=red,
     ] coordinates {
       (0.5, 0.5, 3.5)    % P1
-      (0.32, 0.26, 3.83) % P2
-      (0.14, 0.02, 3.98) % P3
+      (0.29, 0.29, 3.83) % P2
+      (0.08, 0.08, 3.99) % P3
     };
 
     % Draw gradient descent vectors from P1 to P2 and P2 to P3
@@ -2718,7 +2721,7 @@ Consider the level curves of the function \( f(x, y) = 4 - x^2 - y^2 \), represe
       blue,
     ] coordinates {
       (0.5, 0.5, 3.5)
-      (0.32, 0.26, 3.83)
+      (0.29, 0.29, 3.83)
     };
 
     \addplot3[
@@ -2726,22 +2729,22 @@ Consider the level curves of the function \( f(x, y) = 4 - x^2 - y^2 \), represe
       thick,
       blue,
     ] coordinates {
-      (0.32, 0.26, 3.83)
-      (0.14, 0.02, 3.98)
+      (0.29, 0.29, 3.83)
+      (0.08, 0.08, 3.99)
     };
 
     % Annotate points
     \node[below right, red] at (axis cs:0.5,0.5,3.5) {\( \mathbf{P}_1 \)};
-    \node[below right, red] at (axis cs:0.32,0.26,3.83) {\( \mathbf{P}_2 \)};
-    \node[below left, red] at (axis cs:0.14,0.02,3.98) {\( \mathbf{P}_3 \)};
+    \node[below right, red] at (axis cs:0.29,0.29,3.83) {\( \mathbf{P}_2 \)};
+    \node[below left, red] at (axis cs:0.08,0.08,3.99) {\( \mathbf{P}_3 \)};
 
     % Label for the gradient vectors
-    \node[above right, blue] at (axis cs:0.41,0.38,3.67) {$\mathbf{r}_1$};
-    \node[above right, blue] at (axis cs:0.23,0.14,3.90) {$\mathbf{r}_2$};
+    \node[above right, blue] at (axis cs:0.40,0.40,3.67) {$\mathbf{r}_1$};
+    \node[above right, blue] at (axis cs:0.19,0.19,3.91) {$\mathbf{r}_2$};
 
   \end{axis}
 \end{tikzpicture}
-\caption{\textit{The gradient ascent of the two vectors found in this problem starting at point \( \mathbf{P}_1 = (0.5, 0.5) \).}}
+\caption{\textit{The gradient descent of the two vectors found in this problem starting at point \( \mathbf{P}_1 = (0.5, 0.5) \).}}
 \end{figure}
 
 \end{solution}
@@ -2865,7 +2868,7 @@ plt.figure(figsize=(10, 6))
 plt.plot(iterations, function_values, marker='o', linestyle='-', color='b')
 plt.title('Gradient Descent Optimization Path')
 plt.xlabel('Iteration')
-plt.ylabel('f(x) = x^2)
+plt.ylabel('f(x) = x^2')
 plt.grid(True)
 plt.show()
 \end{lstlisting}
@@ -3015,24 +3018,26 @@ Right: A zoomed-in view of the same surface near $(0,0)$, where it appears nearl
 
 \noindent Focusing only on the linear part gives:
 \[
-f(a+\Delta x, b+\Delta y) = f(a,b) + f_x(a,b)\Delta x + f_y(a,b)\Delta y.
+f(a+\Delta x, b+\Delta y) \approx f(a,b) + f_x(a,b)\Delta x + f_y(a,b)\Delta y.
 \]
 
 \noindent Setting \( x = a + \Delta x \) and \( y = b + \Delta y \), we rewrite this as:
 \[
-f(x,y) = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b).
+f(x,y) \approx f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b).
 \]
 
 \noindent This defines a plane:
 \[
 z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b).
 \]
+
 Let \( z_0 = f(a,b) \). Then we can rewrite this as:
 \[
 z - z_0 = f_x(a,b)(x - a) + f_y(a,b)(y - b),
 \]
-which matches the standard form of a plane equation: a constant point \((a,b,z_0)\) plus linear terms in \((x-a)\) and \((y-b)\). Here, the ``slopes'' \( f_x(a,b) \) and \( f_y(a,b) \) serve as the coefficients that determine the plane’s tilt in the \( x \)- and \( y \)-directions. In other words, this \textbf{tangent plane} at \((a,b,f(a,b)))\) just grazes the surface at that point and provides the best linear approximation, making the surface and the plane virtually indistinguishable when we are very close to \((a,b)\). Below we have an example of a plane tangent to a surface:
+which matches the standard form of a plane equation: a constant point \((a,b,z_0)\) plus linear terms in \((x-a)\) and \((y-b)\). Here, the ``slopes'' \( f_x(a,b) \) and \( f_y(a,b) \) serve as the coefficients that determine the plane’s tilt in the \( x \)- and \( y \)-directions. In other words, this \textbf{tangent plane} at \((a,b,f(a,b))\) just grazes the surface at that point and provides the best linear approximation, making the surface and the plane virtually indistinguishable when we are very close to \((a,b)\). Below we have an example of a plane tangent to a surface:
 
+\noindent This is powerful: it means we can approximate a complicated surface near any point with a simple plane. If we know the function value and its partial derivatives at one point, we can estimate the function at nearby points without recomputing---an idea that underpins error estimation, numerical methods, and optimization.\\ \\
 
 %---------------------------------------------
 % Tangent Plane for f(x,y) = x^2 + y^2 at (1,1)
@@ -3155,7 +3160,7 @@ f(\mathbf{a} + \Delta \mathbf{x}) \approx f(\mathbf{a}) + \nabla f(\mathbf{a}) \
 \[
 z = f(\mathbf{a}) + \nabla f(\mathbf{a}) \cdot (\mathbf{x}-\mathbf{a})
 \]
-defines a \textit{tangent hyperplane} to the graph of \( f \) at \(\mathbf{a}\). For \( n=1 \), this hyperplane is just a line (the tangent line). For \( n=2 \), it’s a plane (the tangent plane). For \( n>2 \), the object is an \((n\!-\!1)\)-dimensional hyperplane—a direct generalization of the idea of “flat” linear approximations to higher dimensions.
+defines a \textit{tangent hyperplane} to the graph of \( f \) at \(\mathbf{a}\). For \( n=1 \), this hyperplane is just a line (the tangent line). For \( n=2 \), it’s a plane (the tangent plane). For \( n>2 \), the object is an \(n\)-dimensional hyperplane—a direct generalization of the idea of “flat” linear approximations to higher dimensions.
 
 \subsubsection*{Hyperplanes in Machine Learning:}  \index{Hyperplanes}
 In machine learning, hyperplanes appear in various contexts, notably in classification tasks. For instance, linear classifiers such as Support Vector Machines (SVMs) or simple linear regression models rely on hyperplanes to separate data points or fit data. Consider a binary classification problem in \(\mathbb{R}^n\). A linear classifier tries to find a hyperplane:
@@ -3550,7 +3555,7 @@ f(x,y) &\approx f(25,50) + \tfrac{1}{2}\bigl[f_{xx}(25,50)(x-25)^2 \\
 
   \end{axis}
 \end{tikzpicture}
-\caption{\textit{The surface plot of $f(x,y) = \sin(x)\sin(y)e^{x^2 + y^2}$ with annotated extrema. No laughing, please.}}
+\caption{\textit{The surface plot of $f(x,y) = \sin(x)\sin(y)e^{-0.1(x^2 + y^2)}$ with annotated extrema. No laughing, please.}}
 \label{fig:extrema_ex}
 \end{figure}
 
@@ -4282,9 +4287,6 @@ More on the Hessian, and some of these linear algebra terms to come later.
 \end{center}
 
 \noindent The plot above illustrates the function \( f(x,y) = 2x^2 + 3y^2 - 4x - 6y + 10 \) over the region \( R \). The global minimum at \( (1, 1, 5) \) is marked with a \textbf{red circle}, and the global maximum at \( (3, 3, 25) \) with a \textbf{blue triangle}. Refer to the legend below the graph for clarification.
-
-        
-        \noindent The plot above illustrates the function \( f(x,y) = 2x^2 + 3y^2 - 4x - 6y + 10 \) over the region \( R \). The global minimum at \( (1, 1, 5) \) is marked in red, and the global maximum at \( (3, 3, 25) \) is marked in blue.
     \end{solution}
 \end{example}
 \exampleline
@@ -4321,11 +4323,11 @@ More on the Hessian, and some of these linear algebra terms to come later.
 \[
 f_{xx}=2,\quad f_{yy}=-2,\quad f_{xy}=0.
 \]
-Therefore we have $D = 2(-2) - (0^2) = -4 < 0$. Thus, confirming a saddle point. Our previous example we saw in Figure~\ref{fig:extrema_ex} we indeed have one saddle point. Let's find it!
+Therefore we have $D = 2(-2) - (0^2) = -4 < 0$. Thus, confirming a saddle point. Our previous example we saw in Figure~\ref{fig:extrema_ex} the origin is a saddle point. Let's find it!
 
 
 \exampleline
-\begin{example} Determine the saddle point of the function \( f(x,y) = \sin(x)\sin(y)e^{x^2 + y^2} \).
+\begin{example} Determine the saddle point of the function \( f(x,y) = \sin(x)\sin(y)e^{-0.1(x^2 + y^2)} \).
     
   \begin{solution}
     \begin{enumerate}
@@ -4492,9 +4494,9 @@ D_2 = \det(H_2) = f_{xx}f_{yy} - (f_{xy})^2.
 \noindent The criteria for definiteness in three dimensions are:
 \begin{itemize}
     \item If \( D_3 > 0 \), \( D_2 > 0 \), and \( D_1 > 0 \), the Hessian is \textbf{positive definite}, indicating a \textbf{local minimum}.
-    \item If \( D_3 > 0 \), \( D_2 > 0 \), and \( D_1 < 0 \), the Hessian is \textbf{negative definite}, indicating a \textbf{local maximum}.
-    \item If \( D_3 < 0 \), the Hessian is \textbf{indefinite}, indicating a \textbf{saddle point}.
-    \item If \( D_3 = 0 \), the Hessian is \textbf{semidefinite}, and the test is \textbf{inconclusive}.
+    \item If \( D_3 < 0 \), \( D_2 > 0 \), and \( D_1 < 0 \), the Hessian is \textbf{negative definite}, indicating a \textbf{local maximum}.
+    \item If the leading principal minors do not satisfy either the positive definite or negative definite conditions, the Hessian is \textbf{indefinite}, indicating a \textbf{saddle point}.
+    \item If any leading principal minor \( D_k = 0 \), the test is inconclusive and further analysis is required.
 \end{itemize}
 
 \noindent Let us now extend this reasoning to \( n \)-dimensional functions. For a function \( f(\mathbf{x}) \), where \( \mathbf{x} = (x_1, x_2, \dots, x_n) \), the Hessian is an \( n \times n \) matrix:
@@ -4630,9 +4632,9 @@ This is an unconstrained optimization problem because there are no restrictions 
     \begin{itemize}
         \item Substituting \(x = 2\) and \(y = 3\) into \(f(x, y)\):
         \[
-        f(2, 3) = (2)^2 + (3)^2 - 4(2) - 6(3) + 13 = 4 + 9 - 8 - 18 + 13 = 1.
+        f(2, 3) = (2)^2 + (3)^2 - 4(2) - 6(3) + 13 = 4 + 9 - 8 - 18 + 13 = 0.
         \]
-        \item The minimum cost is \(1\), achieved when \(x = 2\) and \(y = 3\).
+        \item The minimum cost is \(0\), achieved when \(x = 2\) and \(y = 3\).
     \end{itemize}
 \end{enumerate}
 \end{solution}
@@ -4750,7 +4752,8 @@ Find the maximum volume of a rectangular box with its base in the \(xy\)-plane a
     \[
     V = x \cdot y \cdot z = 2 \cdot \frac{4}{3} \cdot 4 = \frac{32}{3}.
     \]
-    
+    Since \( V = 0 \) on the boundary of the first-octant region (where \( x = 0 \), \( y = 0 \), or \( z = 0 \)) and \( V > 0 \) at the interior critical point, this critical point must yield the maximum volume.
+
 \end{enumerate}
 \end{solution}
 \end{example}
@@ -4771,15 +4774,15 @@ where \( \lambda \) is a scalar known as the \textbf{Lagrange multiplier} \index
 
 \subsubsection*{The Lagrange Condition} \index{Lagrange Condition}
 
-\noindent To derive this condition, consider the constrained optimization problem as finding the extrema of \( f(x, y) \) on the curve \( g(x, y) = c \). We construct the \textit{Lagrange function}: \index{Lagrange Function}
+\noindent To derive this condition, consider the constrained optimization problem as finding the extrema of \( f(x, y) \) on the curve \( g(x, y) = c \). We construct the \textit{Lagrangian}: \index{Lagrange Function}
 \[
-\mathcal{L}(x, y, \lambda) = f(x, y) + \lambda \big(g(x, y) - c\big).
+\mathcal{L}(x, y, \lambda) = f(x, y) - \lambda \big(g(x, y) - c\big).
 \]
 \noindent The term \( \lambda(g(x, y) - c) \) enforces the constraint \( g(x, y) = c \). At the extrema of \( f(x, y) \) subject to this constraint, the gradients of \( \mathcal{L} \) with respect to \( x \), \( y \), and \( \lambda \) must vanish:
 \[
-\frac{\partial \mathcal{L}}{\partial x} = \frac{\partial f}{\partial x} + \lambda \frac{\partial g}{\partial x} = 0, \quad
-\frac{\partial \mathcal{L}}{\partial y} = \frac{\partial f}{\partial y} + \lambda \frac{\partial g}{\partial y} = 0, \quad
-\frac{\partial \mathcal{L}}{\partial \lambda} = g(x, y) - c = 0.
+\frac{\partial \mathcal{L}}{\partial x} = \frac{\partial f}{\partial x} - \lambda \frac{\partial g}{\partial x} = 0, \quad
+\frac{\partial \mathcal{L}}{\partial y} = \frac{\partial f}{\partial y} - \lambda \frac{\partial g}{\partial y} = 0, \quad
+\frac{\partial \mathcal{L}}{\partial \lambda} = -(g(x, y) - c) = 0.
 \]
 \noindent These equations are equivalent to the system:
 \[
@@ -4961,7 +4964,7 @@ Find the minimum of the function \( f(x, y) = x^2 + y^2 \) subject to the constr
 \exampleline
 
 
-\noindent Let's now try a problem that's a little messier and doesnt have a nice answer. We will need to use a computer to solve a polynomial using numerical approximation at the end. This is more representative a problem you may encounter in an actual professional setting.
+\noindent Let's now try a problem that's a little messier and doesn't have a nice answer. We will need to use a computer to solve a polynomial using numerical approximation at the end. This is more representative of a problem you may encounter in an actual professional setting.
 
 
 \exampleline
@@ -5274,9 +5277,9 @@ Since production levels must be integer values, round the approximate solution u
 
 \noindent When optimizing a function \( f(x, y, z) \) subject to two or more equality constraints, such as \( g(x, y, z) = c_1 \) and \( h(x, y, z) = c_2 \), the method of Lagrange multipliers naturally extends to accommodate additional constraints. The underlying principle remains the same: at an optimal point, the gradients of \( f \), \( g \), and \( h \) must align in such a way that any movement satisfying the constraints does not produce a first-order change in \( f \).
 
-\noindent For two constraints, we define the \textit{Lagrange function} as:
+\noindent For two constraints, we define the \textit{Lagrangian} as:
 \[
-\mathcal{L}(x, y, z, \lambda_1, \lambda_2) = f(x, y, z) + \lambda_1 \big(g(x, y, z) - c_1\big) + \lambda_2 \big(h(x, y, z) - c_2\big).
+\mathcal{L}(x, y, z, \lambda_1, \lambda_2) = f(x, y, z) - \lambda_1 \big(g(x, y, z) - c_1\big) - \lambda_2 \big(h(x, y, z) - c_2\big).
 \]
 \noindent The gradients of \( \mathcal{L} \) with respect to all variables must vanish at the extrema, leading to the system of equations:
 \[
@@ -5308,7 +5311,7 @@ Since production levels must be integer values, round the approximate solution u
 \]
 the Lagrange function is defined as:
 \[
-\mathcal{L}(x_1, x_2, \dots, x_n, \lambda_1, \lambda_2, \dots, \lambda_m) = f(x_1, x_2, \dots, x_n) + \sum_{i=1}^m \lambda_i \big(g_i(x_1, x_2, \dots, x_n) - c_i\big).
+\mathcal{L}(x_1, x_2, \dots, x_n, \lambda_1, \lambda_2, \dots, \lambda_m) = f(x_1, x_2, \dots, x_n) - \sum_{i=1}^m \lambda_i \big(g_i(x_1, x_2, \dots, x_n) - c_i\big).
 \]
 
 \noindent The necessary conditions for an extremum are:
@@ -5393,27 +5396,46 @@ x + 2y = 10, \quad \text{and} \quad x - y = 3.
 
 \subsection*{Optimization with Inequality Constraints} \index{Optimization with Inequality Constraints}
 
-\noindent Up until now, we have considered optimization problems with equality constraints, where conditions like \( g(x,y) = c \) must be met. However, many real-world problems also include \textit{inequality constraints}, such as \( h(x,y) \geq d \). These constraints arise naturally in scenarios where certain values should not fall below (or rise above) a specified level—for example, ensuring that a production level does not drop below a minimum quota, or that a budget does not exceed a certain maximum amount. \\
+\noindent So far we have used Lagrange multipliers to handle constraints of the form $g(\mathbf{x}) = c$. But many real problems involve \textit{inequality} constraints --- a budget that may not be exceeded, a quota that must be met, a physical quantity that cannot be negative. The \textbf{Karush--Kuhn--Tucker (KKT) conditions} \index{Karush-Kuhn-Tucker Conditions} extend the Lagrange machinery to this setting.
 
-\noindent To handle such conditions, mathematicians and engineers use a more general framework known as the \textbf{Karush-Kuhn-Tucker (KKT)} conditions \index{Karush-Kuhn-Tucker Conditions}. The KKT conditions extend the idea of Lagrange multipliers to cover both equality and inequality constraints. In essence, they incorporate additional variables (called KKT multipliers) that must satisfy certain non-negativity requirements and complementary conditions. The key addition is that when a constraint is not “active” (i.e., it does not exactly hold at its boundary), its corresponding multiplier must be zero, ensuring that non-binding constraints do not influence the solution. \\
+\noindent Consider the general problem
+\[
+\text{minimize } f(\mathbf{x}) \qquad \text{subject to } g_i(\mathbf{x}) \geq 0, \quad i = 1, \ldots, m.
+\]
+Form the Lagrangian
+\[
+\mathcal{L}(\mathbf{x}, \boldsymbol{\mu}) \;=\; f(\mathbf{x}) - \sum_{i=1}^{m} \mu_i \, g_i(\mathbf{x}).
+\]
+At an optimum $\mathbf{x}^*$ there exist multipliers $\mu_1^*, \ldots, \mu_m^*$ satisfying the four \textbf{KKT conditions}:
 
-\noindent Although we will not dive deeply into the full derivation, here are the general steps and guidelines for dealing with inequality constraints:
-\begin{itemize}
-    \item \textbf{Formulate the Problem:} Start with your objective function \( f(x,y) \) and identify any inequality constraints, such as \( h(x,y) \geq d \).
-    \item \textbf{Introduce KKT Multipliers:} Assign a KKT multiplier (often denoted \(\mu\)) to each inequality constraint. These multipliers must be non-negative.
-    \item \textbf{Set Up the Lagrangian-like Function:} Similar to the case of equality constraints, form a function incorporating both the original objective and the constraints, but now include terms \(\mu \cdot [d - h(x,y)]\) that represent the inequality constraints. 
-    \item \textbf{Derive the First-Order Conditions:} Take partial derivatives of this augmented function with respect to your variables and set them to zero. You also include conditions that relate the sign of \(\mu\) to whether the constraint is active.
-    \item \textbf{Check Complementary Slackness:} The KKT framework requires that \(\mu [d - h(x,y)] = 0\). This means:
-    \[
-    \mu > 0 \implies h(x,y) = d \quad \text{(active constraint)},
-    \]
-    \[
-    \mu = 0 \implies h(x,y) > d \quad \text{(inactive constraint)}.
-    \]
-    \item \textbf{Identify the Feasible and Optimal Points:} Solve the resulting system of equations and inequalities to find candidate solutions, then verify which candidate provides the best (minimum or maximum) objective value while respecting the constraints.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}p{0.32\textwidth}p{0.34\textwidth}p{0.28\textwidth}@{}}
+\toprule
+\textbf{Condition} & \textbf{Statement} & \textbf{Meaning} \\
+\midrule
+1. Stationarity & $\nabla f(\mathbf{x}^*) = \displaystyle\sum_{i=1}^{m} \mu_i^* \, \nabla g_i(\mathbf{x}^*)$ & $\nabla \mathcal{L} = \mathbf{0}$ at $\mathbf{x}^*$ \\
+2. Primal feasibility & $g_i(\mathbf{x}^*) \geq 0$ for all $i$ & the answer is in the feasible set \\
+3. Dual feasibility & $\mu_i^* \geq 0$ for all $i$ & multipliers cannot pull the wrong way \\
+4. Complementary slackness & $\mu_i^* \, g_i(\mathbf{x}^*) = 0$ for all $i$ & each constraint is either active or inert \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The fourth condition is the engine of KKT. For each constraint $i$, exactly one of the following holds:
+\begin{itemize}\setlength{\itemsep}{2pt}
+  \item $g_i(\mathbf{x}^*) = 0$ \;---\; the constraint is \emph{active} (binding) and the multiplier $\mu_i^*$ is allowed to be positive, or
+  \item $g_i(\mathbf{x}^*) > 0$ \;---\; the constraint is \emph{inactive} (slack) and $\mu_i^* = 0$ is forced.
 \end{itemize}
+A constraint that is not binding contributes nothing to stationarity --- the machinery automatically ignores it. This is precisely how the KKT system selects which constraints actually shape the optimum.
 
-\noindent While we will not fully derive or prove the KKT conditions here, it is enough to recognize that they represent a natural extension of the methods we have discussed. When confronted with more intricate constraints—like ensuring \( h(x,y) \geq 0 \)—the KKT conditions guide us to solutions that honor these inequalities. Thus, just as Lagrange multipliers handle equality constraints elegantly, the KKT conditions handle both equality and inequality constraints, giving us a powerful toolbox to tackle a wide range of optimization problems.
+\subsubsection*{Connection to Lagrange Multipliers}
+
+\noindent Equality constraints are the special case in which every constraint is forced to be active. If we have $h_j(\mathbf{x}) = 0$, then primal feasibility forces $h_j = 0$ automatically, complementary slackness becomes vacuous, and the multiplier sign restriction disappears (the multiplier $\lambda_j$ may take any sign). What remains of the KKT system is exactly $\nabla f = \sum_j \lambda_j \nabla h_j$ --- the Lagrange condition. So KKT is not a different theory; it is the natural generalization that allows constraints to be inequalities, with complementary slackness deciding which ones bind.
+
+\subsubsection*{Solving by Case Analysis}
+
+\noindent For a problem with $m$ inequality constraints, complementary slackness divides the analysis into up to $2^m$ cases (each constraint is active or inactive). For small $m$ we can enumerate them: assume a particular subset is active, solve the resulting equations from stationarity together with the active equalities, then discard any case that violates primal feasibility ($g_i < 0$) or dual feasibility ($\mu_i < 0$). The surviving candidates are compared, and the smallest value of $f$ wins. For large $m$ specialized algorithms (interior-point, active-set, sequential minimal optimization) take over, but the underlying conditions are the same four equations above.
 
 \subsubsection*{Applications to Machine Learning}
 
@@ -5421,131 +5443,61 @@ x + 2y = 10, \quad \text{and} \quad x - y = 3.
 
 \exampleline
 \begin{example}
-Consider a simplified Support Vector Machine (SVM) \index{Support Vector Machines} scenario where we aim to find the optimal parameter \( w \) that separates two data points with labels \( y_1 = 1 \) and \( y_2 = -1 \). Suppose the data points are \( x_1 = 2 \) and \( x_2 = -1 \). The objective is to maximize the margin between the two points, which can be formulated as minimizing the function:
+\noindent \textbf{(Support Vector Machine --- a classification problem from machine learning.)} A \textit{Support Vector Machine} (SVM) \index{Support Vector Machines} finds a separating line $\mathbf{w}\cdot\mathbf{x} + b = 0$ between two classes of data with the widest possible \textit{margin}. Geometrically, the parallel lines $\mathbf{w}\cdot\mathbf{x} + b = +1$ and $\mathbf{w}\cdot\mathbf{x} + b = -1$ skim the closest points of each class; the gap between them is $\dfrac{2}{\|\mathbf{w}\|}$. Maximizing the margin is therefore equivalent to minimizing $\tfrac{1}{2}\|\mathbf{w}\|^2$, subject to every point being on the correct side: $y_i(\mathbf{w}\cdot\mathbf{x}_i + b) \geq 1$.
+
+\noindent Consider three labeled points in $\mathbb{R}^2$:
 \[
-f(w) = \frac{1}{2}w^2,
+\mathbf{x}_1 = (1,1), \;\; y_1 = +1; \qquad \mathbf{x}_2 = (-1,-1), \;\; y_2 = -1; \qquad \mathbf{x}_3 = (3,3), \;\; y_3 = +1.
 \]
-subject to the following inequality constraints ensuring that each point is correctly classified with a margin of at least 1:
+Find the maximum-margin classifier $\mathbf{w} = (w_1, w_2)$, $b$ by solving
 \[
-y_1(w \cdot x_1) \geq 1 \quad \text{and} \quad y_2(w \cdot x_2) \geq 1.
-\]
-Substituting the given values:
-\[
-1 \cdot (w \cdot 2) \geq 1 \quad \Rightarrow \quad 2w \geq 1,
-\]
-\[
--1 \cdot (w \cdot (-1)) \geq 1 \quad \Rightarrow \quad w \geq 1.
+\text{minimize } \tfrac{1}{2}(w_1^2 + w_2^2) \qquad \text{subject to } \quad y_i\bigl(w_1 x_{i,1} + w_2 x_{i,2} + b\bigr) - 1 \geq 0, \;\; i = 1,2,3.
 \]
 
 \begin{solution}
-\noindent We aim to minimize \( f(w) = \frac{1}{2}w^2 \) subject to the constraints:
+\noindent Writing out the three inequality constraints:
 \[
-2w \geq 1 \quad \text{and} \quad w \geq 1.
+g_1 = w_1 + w_2 + b - 1 \geq 0, \qquad g_2 = w_1 + w_2 - b - 1 \geq 0, \qquad g_3 = 3w_1 + 3w_2 + b - 1 \geq 0.
 \]
-These can be rewritten as:
+
+\noindent\textbf{Step 1: Stationarity.} The KKT condition $\nabla f = \mu_1 \nabla g_1 + \mu_2 \nabla g_2 + \mu_3 \nabla g_3$, taken component-wise in $(w_1, w_2, b)$, gives
 \[
-h_1(w) = 2w - 1 \geq 0, \quad h_2(w) = w - 1 \geq 0.
+w_1 = \mu_1 + \mu_2 + 3\mu_3, \qquad w_2 = \mu_1 + \mu_2 + 3\mu_3, \qquad 0 = \mu_1 - \mu_2 + \mu_3.
 \]
- 
-\begin{enumerate}
-    \item \textbf{Formulate the Lagrangian:} Introduce KKT multipliers \( \mu_1 \) and \( \mu_2 \) for the two inequality constraints:
-    \[
-    \mathcal{L}(w, \mu_1, \mu_2) = \frac{1}{2}w^2 - \mu_1 (2w - 1) - \mu_2 (w - 1).
-    \]
-    
-    \item \textbf{Derive the First-Order Conditions:} Take the derivative of \( \mathcal{L} \) with respect to \( w \) and set it to zero:
-    \[
-    \frac{\partial \mathcal{L}}{\partial w} = w - 2\mu_1 - \mu_2 = 0 \quad \Rightarrow \quad w = 2\mu_1 + \mu_2.
-    \]
-    
-    \item \textbf{Complementary Slackness Conditions:} 
-    \[
-    \mu_1 (2w - 1) = 0, \quad \mu_2 (w - 1) = 0.
-    \]
-    \[
-    \mu_1 \geq 0, \quad \mu_2 \geq 0.
-    \]
-    
-    \item \textbf{Analyze Possible Cases:}
-    
-    \begin{itemize}
-        \item \textbf{Case 1: Both Constraints are Active}
-        
-        If both constraints are active, then:
-        \[
-        2w - 1 = 0 \quad \Rightarrow \quad w = \frac{1}{2},
-        \]
-        \[
-        w - 1 = 0 \quad \Rightarrow \quad w = 1.
-        \]
-        This leads to a contradiction since \( w \) cannot be both \( \frac{1}{2} \) and \( 1 \). Therefore, this case is not possible.
-        
-        \item \textbf{Case 2: Only \( h_1(w) \) is Active}
-        
-        If \( h_1(w) \) is active, then \( 2w - 1 = 0 \) and \( w > 1 \) (since \( h_2(w) \) is inactive).
-        \[
-        w = \frac{1}{2}.
-        \]
-        However, \( \frac{1}{2} < 1 \), which violates \( h_2(w) \geq 0 \). Therefore, this case is also not possible.
-        
-        \item \textbf{Case 3: Only \( h_2(w) \) is Active}
-        
-        If \( h_2(w) \) is active, then \( w - 1 = 0 \) and \( 2w - 1 > 0 \):
-        \[
-        w = 1.
-        \]
-        Check \( h_1(w) \):
-        \[
-        2(1) - 1 = 1 \geq 0 \quad \text{(satisfied)}.
-        \]
-        Substitute \( w = 1 \) into the first-order condition:
-        \[
-        1 = 2\mu_1 + \mu_2.
-        \]
-        Since \( h_1(w) \) is inactive (\( \mu_1 = 0 \)):
-        \[
-        1 = 0 + \mu_2 \quad \Rightarrow \quad \mu_2 = 1.
-        \]
-        \[
-        \mu_1 = 0, \quad \mu_2 = 1.
-        \]
-        
-        \item \textbf{Case 4: Both Constraints are Inactive}
-        
-        If both constraints are inactive, then \( \mu_1 = 0 \) and \( \mu_2 = 0 \). The first-order condition becomes:
-        \[
-        w = 0.
-        \]
-        However, check the constraints:
-        \[
-        2(0) - 1 = -1 < 0 \quad \text{and} \quad 0 - 1 = -1 < 0,
-        \]
-        which violate both constraints. Therefore, this case is not feasible.
-    \end{itemize}
-    
-    \item \textbf{Determine the Optimal Solution:}
-    
-    The only feasible case is \textbf{Case 3}, where:
-    \[
-    w = 1, \quad \mu_1 = 0, \quad \mu_2 = 1.
-    \]
-    
-    \item \textbf{Verify the Solution:}
-    
-    Substitute \( w = 1 \) back into the objective function:
-    \[
-    f(1) = \frac{1}{2}(1)^2 = \frac{1}{2}.
-    \]
-    This is the minimum value of \( f(w) \) subject to the given constraints.
-\end{enumerate}
+The first two equations force $w_1 = w_2$; call the common value $w$.
 
-\noindent \textbf{Conclusion:} The optimal parameter is \( w = 1 \), which satisfies the inequality constraints \( 2w \geq 1 \) and \( w \geq 1 \). This solution minimizes the objective function while ensuring that both constraints are respected. In this simplified SVM scenario, \( w = 1 \) represents the parameter that maximizes the margin between the two data points while correctly classifying them.
+\noindent\textbf{Step 2: Pick the active set.} The geometry suggests $\mathbf{x}_3 = (3,3)$ sits well inside the $+1$ region while $\mathbf{x}_1$ and $\mathbf{x}_2$ are the closest pair. Try \textit{constraints 1 and 2 active, constraint 3 inactive} ($\mu_3 = 0$).
 
+Active equations $g_1 = g_2 = 0$:
+\[
+2w + b = 1, \qquad 2w - b = 1 \quad \Longrightarrow \quad w = \tfrac{1}{2}, \;\; b = 0.
+\]
+With $\mu_3 = 0$ and $w = \tfrac{1}{2}$, stationarity reduces to $\tfrac{1}{2} = \mu_1 + \mu_2$ and $\mu_1 = \mu_2$, so
+\[
+\mu_1 = \mu_2 = \tfrac{1}{4}, \qquad \mu_3 = 0.
+\]
+
+\noindent\textbf{Step 3: Verify all four KKT conditions.}
+\begin{itemize}\setlength{\itemsep}{2pt}
+  \item \textbf{Stationarity:} $w_1 = w_2 = \tfrac{1}{4} + \tfrac{1}{4} + 3(0) = \tfrac{1}{2}$ \checkmark; \;\; $\mu_1 - \mu_2 + \mu_3 = 0$ \checkmark.
+  \item \textbf{Primal feasibility:} $g_1 = g_2 = 0 \geq 0$ \checkmark; \;\; $g_3 = \tfrac{3}{2} + \tfrac{3}{2} + 0 - 1 = 2 \geq 0$ \checkmark.
+  \item \textbf{Dual feasibility:} $\mu_1 = \mu_2 = \tfrac{1}{4} \geq 0$, $\mu_3 = 0 \geq 0$ \checkmark.
+  \item \textbf{Complementary slackness:} $\mu_1 g_1 = \tfrac{1}{4}\cdot 0 = 0$ \checkmark; \;\; $\mu_2 g_2 = 0$ \checkmark; \;\; $\mu_3 g_3 = 0\cdot 2 = 0$ \checkmark.
+\end{itemize}
+All four conditions hold. Because $f$ is strictly convex and the feasible region (intersection of half-planes) is convex, this KKT point is the unique global minimum.
+
+\noindent\textbf{Step 4: Read off the answer.}
+\[
+\boxed{\;\mathbf{w}^* = \bigl(\tfrac{1}{2},\,\tfrac{1}{2}\bigr), \quad b^* = 0, \quad \tfrac{1}{2}\|\mathbf{w}^*\|^2 = \tfrac{1}{4}, \quad \text{margin} = \tfrac{2}{\|\mathbf{w}^*\|} = 2\sqrt{2}.\;}
+\]
+The decision boundary is $\tfrac{1}{2}x_1 + \tfrac{1}{2}x_2 = 0$, i.e. the line $x_1 + x_2 = 0$.
+
+\noindent\textbf{Interpretation.} The two points $\mathbf{x}_1 = (1,1)$ and $\mathbf{x}_2 = (-1,-1)$ lie exactly on the margin lines and have $\mu_1, \mu_2 > 0$: they are the \textit{support vectors}, the data points that determine the classifier. The third point $\mathbf{x}_3 = (3,3)$ is well inside the $+1$ region, so $g_3 > 0$ and complementary slackness forces $\mu_3 = 0$ --- it contributes nothing and could be removed without changing the answer. This is the geometric content of the KKT conditions in SVM: the optimum is built only from the binding constraints.
 \end{solution}
 \end{example}
 \exampleline
 
-\noindent This simplified scenario captures the core idea: if unconstrained optimization leads us outside the allowed set, inequality constraints force us to choose the best feasible point. More sophisticated methods, such as the KKT conditions, allow us to systematically solve problems with multiple and more complex inequalities, a crucial step in handling real-world optimization tasks in fields like machine learning.
+\noindent The SVM example illustrates the general lesson: when an optimum lies inside the feasible region, the corresponding inequality constraint sleeps and its multiplier is zero; only the constraints that the optimum actually touches enter the stationarity equation. This selection mechanism is what makes the KKT framework, despite its apparent complexity, both algorithmically tractable and geometrically transparent.
 
 
 
@@ -5581,19 +5533,24 @@ h_1(w) = 2w - 1 \geq 0, \quad h_2(w) = w - 1 \geq 0.
     \]
     \item \textbf{Partial Derivative:} The derivative of a multivariable function with respect to one variable, holding all others constant.
     \item \textbf{Clairaut's Theorem:} States that mixed partial derivatives are equal when certain continuity conditions are met.
-    \item \textbf{Implicit Differentiation:} A technique for finding derivatives when relationships between variables are defined implicitly
-    \item \textbf{Directional Derivative:} The rate of change of a function in a specific direction, quantified using a unit vector
-    \item \textbf{Gradient Vector:} A vector field containing all partial derivatives, pointing in direction of steepest increase
-\item \textbf{Tangent Plane:} A plane that touches a surface at a point and provides the best linear approximation near that point
-\item \textbf{Differentials:} Small increments in variables used to approximate changes in functions
-    \item \textbf{Critical Point:} A point where all partial derivatives are zero or at least one does not exist
-    \item \textbf{Local Maximum/Minimum:} A point where function value is higher/lower than all nearby points
-    \item \textbf{Global Maximum/Minimum:} A point where function value is highest/lowest over entire domain
-    \item \textbf{Saddle Point:} A critical point that is neither a maximum nor minimum
-    \item \textbf{Hessian Matrix:} Matrix of all second partial derivatives of a function
-    \item \textbf{Discriminant:} Determinant of the Hessian matrix in two dimensions
-    \item \textbf{Constraint:} A condition that limits the possible values of variables in optimization
-    \item \textbf{Lagrange Multiplier:} A variable ($\lambda$) introduced to solve constrained optimization problems
+    \item \textbf{Implicit Differentiation:} A technique for finding derivatives when relationships between variables are defined implicitly.
+    \item \textbf{Directional Derivative:} The rate of change of a function in a specific direction, quantified using a unit vector.
+    \item \textbf{Gradient Vector:} A vector field containing all partial derivatives, pointing in direction of steepest increase.
+    \item \textbf{Tangent Plane:} A plane that touches a surface at a point and provides the best linear approximation near that point.
+    \item \textbf{Differentials:} Small increments in variables used to approximate changes in functions.
+    \item \textbf{Critical Point:} A point where all partial derivatives are zero or at least one does not exist.
+    \item \textbf{Local Maximum/Minimum:} A point where function value is higher/lower than all nearby points.
+    \item \textbf{Global Maximum/Minimum:} A point where function value is highest/lowest over entire domain.
+    \item \textbf{Saddle Point:} A critical point that is neither a maximum nor minimum.
+    \item \textbf{Hessian Matrix:} Matrix of all second partial derivatives of a function.
+    \item \textbf{Discriminant:} Determinant of the Hessian matrix in two dimensions.
+    \item \textbf{Constraint:} A condition that limits the possible values of variables in optimization.
+    \item \textbf{Lagrange Multiplier:} A variable ($\lambda$) introduced to solve constrained optimization problems.
+    \item \textbf{KKT (Karush-Kuhn-Tucker) Conditions:} The four necessary conditions for optimality with inequality constraints --- stationarity, primal feasibility, dual feasibility, and complementary slackness. They generalize Lagrange multipliers; equality constraints are the special case in which every constraint is active.
+    \item \textbf{Complementary Slackness:} The condition that for each inequality constraint $g_i(\mathbf{x}) \geq 0$, the product $\mu_i \cdot g_i(\mathbf{x}) = 0$. So either the constraint is active ($g_i = 0$) or its multiplier vanishes ($\mu_i = 0$).
+    \item \textbf{Active / Inactive Constraint:} An inequality constraint $g_i(\mathbf{x}^*) \geq 0$ is \textit{active} (or binding) at $\mathbf{x}^*$ when $g_i(\mathbf{x}^*) = 0$, and \textit{inactive} (or slack) when $g_i(\mathbf{x}^*) > 0$. Only active constraints contribute to the stationarity equation.
+    \item \textbf{Support Vector:} In an SVM, a data point whose KKT multiplier is positive --- equivalently, a point that lies exactly on a margin line and helps determine the classifier.
+    \item \textbf{Feasible Region:} The set of all points satisfying the constraints of an optimization problem.
 
 \end{itemize}
 
@@ -5612,7 +5569,7 @@ z = f(x, y), \quad (x, y) \in \mathbb{R}^2.
 
 \paragraph{Range:}
 \[
-\range f = \{z \in \mathbb{R} \mid (x, y) \in \dom f \}.
+\range f = \{z \in \mathbb{R} \mid z = f(x, y) \text{ for some } (x, y) \in \dom f \}.
 \]
 
 \paragraph{Level Curves:}
@@ -5624,11 +5581,11 @@ f(x, y) = k, \quad \text{for constant } k.
 \[
 f(x, y, z) = k, \quad \text{for constant } k.
 \]
-\paragraph{Hyperplanes}
+\paragraph{Hyperplanes:}
     \[
     a_1x_1 + a_2x_2 + \dots + a_nx_n = c.
     \]
-\paragraph{Hyperspheres}
+\paragraph{Hyperspheres:}
     \[
     x_1^2 + x_2^2 + \dots + x_n^2 = r^2.
     \]
@@ -5682,6 +5639,7 @@ For $z = f(x_1,...,x_n)$
 \end{alignat*}
 
 \paragraph{Directional Derivative Definition:}
+For a unit vector \(\mathbf{u}\):
 \begin{alignat*}{2}
 D_{\mathbf{u}} f(\mathbf{p}) &= \frac{d}{dh} f(\mathbf{p} + h \mathbf{u}) \bigg|_{h=0} \\
 &= \nabla f(\mathbf{p}) \cdot \mathbf{u}
@@ -5696,10 +5654,42 @@ D_{\mathbf{u}} f(\mathbf{p}) &= \frac{d}{dh} f(\mathbf{p} + h \mathbf{u}) \bigg|
 \frac{\partial f}{\partial x_n}(\mathbf{p}) 
 \end{bmatrix}
 \]
-\paragraph{Tangent Plane:}
+\paragraph{Gradient Properties:}
+\begin{itemize}
+\item $\nabla f$ points in the direction of steepest ascent
+\item $|\nabla f|$ = maximum rate of change
+\item $\nabla f \perp$ level curves/surfaces of $f$
+\item $D_{\mathbf{u}}f = |\nabla f|\cos\theta$ where $\theta$ = angle between $\nabla f$ and $\mathbf{u}$
+\end{itemize}
+
+\paragraph{Total Differential:}
+\[
+df = f_x \, dx + f_y \, dy \quad(\text{3D: } + f_z\,dz)
+\]
+
+\paragraph{Linear Approximation:}
+\[
+f(x,y) \approx f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)
+\]
+
+\paragraph{Implicit Differentiation:}
+If \(F(x,y) = 0\): $\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}$
+
+\medskip
+If \(F(x,y,z) = 0\): $\dfrac{\partial z}{\partial x} = -\dfrac{F_x}{F_z}$, \;\; $\dfrac{\partial z}{\partial y} = -\dfrac{F_y}{F_z}$
+
+\paragraph{Tangent Plane to $z = f(x,y)$:}
 \[
 z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)
 \]
+
+\paragraph{Tangent Plane to $F(x,y,z) = k$:}
+\[
+F_x(x-x_0) + F_y(y-y_0) + F_z(z-z_0) = 0
+\]
+
+\paragraph{Critical Points:}
+$(a,b)$ is a critical point of $f$ if $\nabla f(a,b) = \mathbf{0}$ (i.e.\ $f_x = f_y = 0$) or $\nabla f$ is undefined.
 \paragraph{Hessian Matrix:}
 For \(f: \mathbb{R}^n \to \mathbb{R}\):
 \[
@@ -5734,7 +5724,7 @@ At critical point \((a,b)\):
 \paragraph{Lagrange Multiplier (One Constraint):}
 For \(f: \mathbb{R}^n \to \mathbb{R}\) subject to \(g(x_1,...,x_n) = c\):
 \[
-\mathcal{L}(\mathbf{x},\lambda) = f(\mathbf{x}) + \lambda(g(\mathbf{x}) - c)
+\mathcal{L}(\mathbf{x},\lambda) = f(\mathbf{x}) - \lambda(g(\mathbf{x}) - c)
 \]
 With necessary condition:
 \[
@@ -5744,7 +5734,7 @@ With necessary condition:
 \paragraph{Lagrange Multipliers (Multiple Constraints):}
 For \(f: \mathbb{R}^n \to \mathbb{R}\) subject to \(m\) constraints \(g_i(\mathbf{x}) = c_i\):
 \[
-\mathcal{L}(\mathbf{x},\lambda_1,...,\lambda_m) = f(\mathbf{x}) + \sum_{i=1}^m \lambda_i(g_i(\mathbf{x}) - c_i)
+\mathcal{L}(\mathbf{x},\lambda_1,...,\lambda_m) = f(\mathbf{x}) - \sum_{i=1}^m \lambda_i(g_i(\mathbf{x}) - c_i)
 \]
 With necessary condition:
 \[
@@ -5769,7 +5759,7 @@ With necessary condition:
 
     \item The monthly payment $M$ for a mortgage depends on the principal $P$, annual interest rate $r$, and number of years $t$ according to:
     \[
-    M = f(P,r,t) = P\frac{r(1+r)^{12t}}{12((1+r)^{12t}-1)}
+    M = f(P,r,t) = P\frac{\frac{r}{12}\left(1+\frac{r}{12}\right)^{12t}}{\left(1+\frac{r}{12}\right)^{12t}-1}
     \]
     Calculate $f(300000, 0.06, 30)$ to find the monthly payment on a \$300,000 loan at 6\% annual interest for 30 years.
 
@@ -5782,11 +5772,11 @@ With necessary condition:
     
     \item Find the domain and range of $f(x,y) = \sqrt{9-x^2-y^2}$.
     
-    \item Determine if the following parametric curve lies on the given surface: $\mathbf{r}(t) = \langle t, t^2, t^3 \rangle$ on $z = y^{3/2}$.
+    \item Determine for which values of \( t \) the parametric curve $\mathbf{r}(t) = \langle t, t^2, t^3 \rangle$ lies on the surface $z = y^{3/2}$.
     
     \item Find and sketch the domain of $f(x,y) = \sqrt{\frac{x}{y-1}}$.
     
-    \item Look around at the room you are sitting in. Sketch the schematic of just the walls and guess the measurements of height and width. Assume you want to paint the walls a different color and let that paint cost $\$ P$ per square meter. Write a function that represents the cost of painting your room given any paint. Dont forget to buy primer too!
+    \item Look around at the room you are sitting in. Sketch the schematic of just the walls and guess the measurements of height and width. Assume you want to paint the walls a different color and let that paint cost $\$ P$ per square meter. Write a function that represents the cost of painting your room given any paint. Don't forget to buy primer too!
     
 
     
@@ -5811,7 +5801,7 @@ With necessary condition:
     
     \item Find $\lim_{(x,y) \to (0,0)} \frac{x^2 - y^2}{x^2 + y^2}$.
     
-    \item Prove that $f(x,y) = \frac{x^3y}{x^4 + y^2}$ is continuous at $(0,0)$.
+    \item Let $f(x,y) = \frac{x^3y}{x^4 + y^2}$ for $(x,y) \neq (0,0)$ and $f(0,0) = 0$. Prove that $f$ is continuous at $(0,0)$.
     
     \item Evaluate $\lim_{(x,y) \to (1,2)} \frac{\sin(xy-2)}{x-1}$.
     
@@ -5846,28 +5836,23 @@ With necessary condition:
     
     \item Show that $f(x,y) = \frac{xy}{x^2 + y^2}$ if $(x,y) \neq (0,0)$, $f(0,0) = 0$ has all partial derivatives at $(0,0)$ but is not differentiable there.
     
-    \item For the function $f(x,y) = x^y$, show that:
+    \item For the function $f(x,y) = x^3 y + x y^3$, verify Euler's theorem for homogeneous functions by showing that:
     \[
-    y\frac{\partial f}{\partial x} = x\frac{\partial f}{\partial y}
+    x\frac{\partial f}{\partial x} + y\frac{\partial f}{\partial y} = 4f
     \]
-    This is known as Euler's homogeneous differential equation.
     
-    \item Let $f(x,y)$ be twice differentiable everywhere. If $f_{xx} + f_{yy} = 0$, show that $u = f_x$ and $v = -f_y$ satisfy:
+    \item Let $f(x,y)$ be twice differentiable everywhere. If $f_{xx} + f_{yy} = 0$, show that $u = f_x$ and $v = f_y$ satisfy:
     \[
     \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0 \quad \text{and} \quad \frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}
     \]
-    These are known as the Cauchy-Riemann equations.
     
     \item If $f(x,y)$ satisfies $xf_x + yf_y = nf$ for some constant $n$, prove that $f(tx,ty) = t^nf(x,y)$ for any $t > 0$.
     
-    \item For the implicitly defined function $y(x)$ given by $x^2 + y^2 = \sin(xy)$, show that:
-    \[
-    \frac{d^2y}{dx^2}\bigg|_{(0,0)} = -1
-    \]
+    \item For the implicitly defined function $y(x)$ given by $y - x^2 = \sin(xy)$, find $\frac{dy}{dx}$ and $\frac{d^2y}{dx^2}$ at the point $(0, 0)$.
     
     \item If $z$ is implicitly defined by $e^{xyz} = xyz + 1$, prove that:
     \[
-    \frac{\partial z}{\partial x} \cdot \frac{\partial z}{\partial y} \cdot \frac{\partial z}{\partial z} = -1
+    \frac{\partial z}{\partial x} \cdot \frac{\partial x}{\partial y} \cdot \frac{\partial y}{\partial z} = -1
     \]
     at any point where $xyz = 0$.
 
@@ -5950,7 +5935,7 @@ With necessary condition:
     
     \item Find all local maxima, minima, and saddle points of $f(x,y) = xy - x^2 - y^2$.
     
-    \item Show that $f(x,y) = (y-x^2)(y-2x^2)$ has exactly three critical points and classify each.
+    \item Find all critical points of $f(x,y) = (y-x^2)(y-2x^2)$ and classify each. (Hint: the origin is the only critical point, and the second derivative test is inconclusive there.)
 
     \item  Let \( f(x,y,z) = x^2 + y^2 + z^2 - 4x - 6y + 8z \).
     \begin{enumerate}
@@ -5979,7 +5964,7 @@ With necessary condition:
     
     \item Find the maximum and minimum values of $f(x,y,z) = x + y + z$ subject to $x^2 + y^2 + z^2 = 1$.
 
-    \item Maximize the function \( f(x,y) = 3x + 4y \) subject to the inequality constraints:
+    \item Minimize the function \( f(x,y) = 3x + 4y \) subject to the inequality constraints:
     \[
     \begin{cases}
     x + 2y \geq 8 \\
@@ -5991,11 +5976,12 @@ With necessary condition:
     \[
     \begin{cases}
     x + y + z \geq 6 \\
-    x \geq 1 \\
-    y \geq 2 \\
-    z \geq 3
+    x \geq 0 \\
+    y \geq 0 \\
+    z \geq 0
     \end{cases}
     \]
+    Verify all four KKT conditions at your candidate, and identify which constraints are active.
     
     \item Consider the optimization problem:
     \[

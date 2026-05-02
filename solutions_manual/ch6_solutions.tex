@@ -1,0 +1,1320 @@
+\chapter{Chapter 6: Differential Equations}
+
+\begin{enumerate}
+
+%%% PROBLEM 1 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item The equation $\dfrac{dy}{dx}=3x^2$ involves a single independent variable $x$ and ordinary derivatives. It is an \textbf{ODE}.
+\item The equation $\dfrac{\partial u}{\partial t}=4\dfrac{\partial u}{\partial x}$ involves partial derivatives with respect to two independent variables $t$ and $x$. It is a \textbf{PDE}.
+\item The equation $\dfrac{d^2y}{dx^2}+5y=\sin(x)$ involves ordinary derivatives of $y$ with respect to the single variable $x$. It is an \textbf{ODE}.
+\end{enumerate}
+
+%%% PROBLEM 2 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item The highest derivative is $\dfrac{d^2y}{dx^2}$, so the order is \textbf{2}.
+\item The highest derivative is $\dfrac{d^3y}{dx^3}$, so the order is \textbf{3}.
+\item The highest-order partial derivatives are $\dfrac{\partial^2 u}{\partial x^2}$ and $\dfrac{\partial^2 u}{\partial y^2}$, so the order is \textbf{2}.
+\end{enumerate}
+
+%%% PROBLEM 3 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $\dfrac{dy}{dx}=y^2-\sin(x)$. The term $y^2$ is nonlinear in the unknown $y$. This equation is \textbf{nonlinear}.
+\item $\dfrac{dy}{dx}+y\cos(x)=e^x$. Every term involving $y$ or its derivatives appears to the first power and is not multiplied by $y$ or its derivatives. This equation is \textbf{linear}.
+\item $\dfrac{d^2y}{dx^2}+3y\dfrac{dy}{dx}=x$. The term $3y\,y'$ is a product of $y$ and $y'$, which is nonlinear. This equation is \textbf{nonlinear}.
+\end{enumerate}
+
+%%% PROBLEM 4 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $y''-3y'+2y=e^x$. The right-hand side $e^x\neq 0$, so the equation is \textbf{non-homogeneous}.
+\item $y'+2y=0$. The right-hand side is $0$, so the equation is \textbf{homogeneous}.
+\item $y''+y=\sin(x)$. The right-hand side $\sin(x)\neq 0$, so the equation is \textbf{non-homogeneous}.
+\end{enumerate}
+
+%%% PROBLEM 5 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $x\,y''+2y'-y=0$. The coefficient of $y''$ is $x$, which is not constant. This ODE does \textbf{not} have constant coefficients.
+\item $3y''+2y'-y=0$. All coefficients ($3$, $2$, $-1$) are constants. This ODE \textbf{has constant coefficients}.
+\item $y''-4y=0$. All coefficients ($1$, $0$, $-4$) are constants. This ODE \textbf{has constant coefficients}.
+\end{enumerate}
+
+%%% PROBLEM 6 %%%
+\item \textbf{Solution.}
+Let $y=e^{2x}$. Then $y'=2e^{2x}$ and $y''=4e^{2x}$. Substituting into $y''-4y$:
+\[
+y''-4y = 4e^{2x}-4e^{2x}=0.\]
+Since the equation is satisfied, $y=e^{2x}$ is indeed a solution.
+
+%%% PROBLEM 7 %%%
+\item \textbf{Solution.}
+Let $y=3e^{-x}+2$. Then $y'=-3e^{-x}$. Substituting into $y'+y$:
+\[
+y'+y = -3e^{-x}+(3e^{-x}+2) = 2.\]
+The equation $y'+y=2$ is satisfied, confirming $y=3e^{-x}+2$ is a solution.
+
+%%% PROBLEM 8 %%%
+\item \textbf{Solution.}
+Differentiate $x^2+y^2=1$ implicitly with respect to $x$:
+\[
+2x+2y\frac{dy}{dx}=0 \implies \frac{dy}{dx}=-\frac{x}{y}.\]
+This matches the given differential equation, so $x^2+y^2=1$ is a solution.
+
+%%% PROBLEM 9 %%%
+\item \textbf{Solution.}
+Starting from $\ln|y|+y=x$, differentiate both sides with respect to $x$:
+\[
+\frac{1}{y}\,y' + y' = 1 \implies \left(\frac{1}{y}+1\right)y' = 1.\]
+This confirms the implicit relation is a solution of the given ODE.
+
+%%% PROBLEM 10 %%%
+\item \textbf{Solution.}
+Separate variables: $y\,dy = 2x\,dx$. Integrate both sides:
+\[
+\int y\,dy = \int 2x\,dx \implies \frac{y^2}{2}=x^2+C.
+\]
+Apply the initial condition $y(1)=2$: $\frac{4}{2}=1+C$, so $C=1$. Therefore $\frac{y^2}{2}=x^2+1$, giving
+\[
+\boxed{y = \sqrt{2x^2+2}}.
+\]
+(We take the positive root since $y(1)=2>0$.)
+
+%%% PROBLEM 11 %%%
+\item \textbf{Solution.}
+Separate variables: $e^{-y}\,dy = x\,dx$. Integrate:
+\[
+\int e^{-y}\,dy = \int x\,dx \implies -e^{-y} = \frac{x^2}{2}+C.
+\]
+Solving for $y$:
+\[
+e^{-y} = -\frac{x^2}{2}+C_1, \quad \text{where } C_1=-C,
+\]
+\[
+\boxed{y = -\ln\!\left(C_1-\frac{x^2}{2}\right)},
+\]
+valid where $C_1-\frac{x^2}{2}>0$.
+
+%%% PROBLEM 12 %%%
+\item \textbf{Solution.}
+The equation $y'+2y=\sin x$ is first-order linear. The integrating factor is $\mu=e^{\int 2\,dx}=e^{2x}$. Multiply through:
+\[
+\frac{d}{dx}\bigl(e^{2x}y\bigr)=e^{2x}\sin x.
+\]
+Integrate the right side using integration by parts (or the standard formula $\int e^{ax}\sin(bx)\,dx = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2+b^2}$):
+\[
+\int e^{2x}\sin x\,dx = \frac{e^{2x}(2\sin x-\cos x)}{5}+C.
+\]
+Therefore
+\[
+e^{2x}y = \frac{e^{2x}(2\sin x - \cos x)}{5}+C,
+\]
+\[
+\boxed{y = \frac{2\sin x - \cos x}{5}+Ce^{-2x}}.
+\]
+
+%%% PROBLEM 13 %%%
+\item \textbf{Solution.}
+Write $M=2xy+y^2$ and $N=x^2+2xy$. Check exactness:
+\[
+\frac{\partial M}{\partial y}=2x+2y, \quad \frac{\partial N}{\partial x}=2x+2y.
+\]
+Since $M_y=N_x$, the equation is exact. Find $F(x,y)$ such that $F_x=M$ and $F_y=N$:
+\[
+F = \int (2xy+y^2)\,dx = x^2y+xy^2+g(y).
+\]
+Then $F_y=x^2+2xy+g'(y)=N=x^2+2xy$, so $g'(y)=0$ and $g(y)=C_0$. The general solution is
+\[
+\boxed{x^2y+xy^2=C}.
+\]
+
+%%% PROBLEM 14 %%%
+\item \textbf{Solution.}
+The Bernoulli equation $y'-y=e^x y^2$ has $n=2$. Let $v=y^{1-2}=y^{-1}$, so $y=v^{-1}$ and $y'=-v^{-2}v'$. Substituting:
+\[
+-v^{-2}v'-v^{-1}=e^x v^{-2}.
+\]
+Multiply by $-v^2$:
+\[
+v'+v=-e^x.
+\]
+This is first-order linear with integrating factor $\mu=e^x$:
+\[
+\frac{d}{dx}(e^x v) = -e^{2x} \implies e^x v = -\frac{e^{2x}}{2}+C.
+\]
+So $v=-\frac{e^x}{2}+Ce^{-x}$, and since $v=1/y$:
+\[
+\boxed{y = \frac{1}{Ce^{-x}-\frac{1}{2}e^x} = \frac{2}{2Ce^{-x}-e^x}}.
+\]
+
+%%% PROBLEM 15 %%%
+\item \textbf{Solution.}
+Rewrite as $y'-\frac{y}{x}=x^2$, a first-order linear ODE. The integrating factor is
+\[
+\mu = e^{\int -1/x\,dx}=e^{-\ln x}=\frac{1}{x}.
+\]
+Multiply: $\frac{d}{dx}\!\left(\frac{y}{x}\right)=x$. Integrate:
+\[
+\frac{y}{x}=\frac{x^2}{2}+C \implies y = \frac{x^3}{2}+Cx.
+\]
+Apply $y(1)=2$: $2=\frac{1}{2}+C$, so $C=\frac{3}{2}$. Therefore
+\[
+\boxed{y=\frac{x^3}{2}+\frac{3x}{2}}.
+\]
+
+%%% PROBLEM 16 %%%
+\item \textbf{Solution.}
+Separate variables: $\frac{dy}{\sqrt{y}}=3\,dx$. Integrate:
+\[
+2\sqrt{y}=3x+C.
+\]
+Apply $y(4)=9$: $2(3)=3(4)+C$, so $6=12+C$ and $C=-6$. Therefore $2\sqrt{y}=3x-6$ and
+\[
+\boxed{y = \left(\frac{3x-6}{2}\right)^2 = \frac{9}{4}(x-2)^2}.
+\]
+
+%%% PROBLEM 17 %%%
+\item \textbf{Solution.}
+The equation $y'-\frac{y}{x}=x^2$ for $x>0$ has integrating factor $\mu=e^{-\int dx/x}=\frac{1}{x}$. Then
+\[
+\frac{d}{dx}\!\left(\frac{y}{x}\right)=x \implies \frac{y}{x}=\frac{x^2}{2}+C,
+\]
+so
+\[
+\boxed{y = \frac{x^3}{2}+Cx}.
+\]
+
+%%% PROBLEM 18 %%%
+\item \textbf{Solution.}
+Separate variables: $(1+y^2)\,dy = 2x\,dx$. Integrate:
+\[
+y+\frac{y^3}{3}=x^2+C.
+\]
+The general solution in implicit form is
+\[
+\boxed{y+\frac{y^3}{3}=x^2+C}.
+\]
+
+%%% PROBLEM 19 %%%
+\item \textbf{Solution.}
+Let $y=e^x-1$. Then $y'=e^x$. Substituting into $y'-y$:
+\[
+y'-y = e^x-(e^x-1)=1.\]
+The equation $y'-y=1$ is satisfied, confirming $y=e^x-1$ is a solution.
+
+%%% PROBLEM 20 %%%
+\item \textbf{Solution.}
+Write $M=y\cos x-\sin x$ and $N=\cos x$. Check:
+\[
+M_y=\cos x, \quad N_x=-\sin x.
+\]
+Since $M_y\neq N_x$, the equation is \textbf{not exact} as stated. However, let us check for an integrating factor. We compute
+\[
+\frac{M_y-N_x}{N}=\frac{\cos x-(-\sin x)}{\cos x}=1+\tan x.
+\]
+This depends on $x$ alone, so an integrating factor $\mu$ depending on $x$ satisfies:
+\[
+\frac{1}{\mu}\frac{d\mu}{dx}=\frac{M_y-N_x}{N}=1+\tan x.
+\]
+Then $\ln\mu = x-\ln|\cos x|$, so $\mu = \frac{e^x}{\cos x}=e^x\sec x$.
+
+Multiply the equation by $\mu$:
+\[
+\widetilde{M}=e^x\sec x(y\cos x-\sin x)=e^x y - e^x\tan x, \quad \widetilde{N}=e^x\sec x\cdot\cos x = e^x.
+\]
+Now find $F$ with $F_y=\widetilde{N}=e^x$, so $F=ye^x+h(x)$. Then $F_x=ye^x+h'(x)=\widetilde{M}=ye^x-e^x\tan x$, giving $h'(x)=-e^x\tan x$. Thus
+\[
+F = ye^x - \int e^x\tan x\,dx.
+\]
+Since $\int e^x\tan x\,dx$ does not have a simple closed form, rewrite the original equation in standard linear form. Dividing $(y\cos x - \sin x)\,dx + \cos x\,dy = 0$ by $\cos x\,dx$ gives:
+\[
+y' + y = \tan x.
+\]
+This is first-order linear with integrating factor $\mu = e^x$:
+\[
+\frac{d}{dx}(e^x y) = e^x\tan x, \quad\text{so}\quad e^x y = \int e^x \tan x\,dx + C.
+\]
+Since $\int e^x \tan x\,dx$ has no elementary closed form, the general solution is
+\[
+\boxed{y = e^{-x}\int e^x \tan x\,dx + Ce^{-x}}.
+\]
+The equation is \textbf{not exact} in its original form.
+
+%%% PROBLEM 21 %%%
+\item \textbf{Solution.}
+The Bernoulli equation $y'+y=xy^2$ has $n=2$. Set $v=y^{-1}$, so $v'=-y^{-2}y'$. From $y'+y=xy^2$, divide by $y^2$:
+\[
+y^{-2}y'+y^{-1}=x.
+\]
+Since $v=y^{-1}$ gives $v'=-y^{-2}y'$, we have $-v'+v=x$, or
+\[
+v'-v=-x.
+\]
+Integrating factor: $\mu=e^{-x}$. Then
+\[
+\frac{d}{dx}(e^{-x}v)=-xe^{-x}.
+\]
+Integrate by parts: $\int -xe^{-x}\,dx = xe^{-x}-e^{-x}+C = (x-1)e^{-x}+C$ (since $\int xe^{-x}\,dx = -xe^{-x}+e^{-x}$, so $\int -xe^{-x}\,dx = xe^{-x}-e^{-x}$). Therefore
+\[
+e^{-x}v = xe^{-x}-e^{-x}+C \implies v = x-1+Ce^{x}.
+\]
+Since $v=1/y$:
+\[
+\boxed{y = \frac{1}{x-1+Ce^x}}.
+\]
+
+%%% PROBLEM 22 %%%
+\item \textbf{Solution.}
+Separate variables: $\frac{dy}{y}=\frac{x\,dx}{1+x^2}$. Integrate:
+\[
+\ln|y|=\frac{1}{2}\ln(1+x^2)+C_1.
+\]
+Exponentiate:
+\[
+\boxed{y = C\sqrt{1+x^2}}.
+\]
+
+%%% PROBLEM 23 %%%
+\item \textbf{Solution.}
+Rewrite: $y'-\frac{y}{x}=\ln x$, first-order linear. Integrating factor $\mu=\frac{1}{x}$:
+\[
+\frac{d}{dx}\!\left(\frac{y}{x}\right)=\frac{\ln x}{x}.
+\]
+Integrate: $\int \frac{\ln x}{x}\,dx = \frac{(\ln x)^2}{2}+C$. So
+\[
+\frac{y}{x}=\frac{(\ln x)^2}{2}+C \implies y = \frac{x(\ln x)^2}{2}+Cx.
+\]
+Apply $y(1)=0$: $0=0+C$, so $C=0$. Therefore
+\[
+\boxed{y = \frac{x(\ln x)^2}{2}}.
+\]
+
+%%% PROBLEM 24 %%%
+\item \textbf{Solution.}
+The equation $y'+\frac{2}{x}y=\sin x$ has integrating factor $\mu=e^{\int 2/x\,dx}=x^2$. Then
+\[
+\frac{d}{dx}(x^2 y)=x^2\sin x.
+\]
+Integrate by parts twice:
+\[
+\int x^2\sin x\,dx = -x^2\cos x+2x\sin x+2\cos x+C.
+\]
+Therefore
+\[
+x^2 y = -x^2\cos x+2x\sin x+2\cos x+C,
+\]
+\[
+\boxed{y = -\cos x+\frac{2\sin x}{x}+\frac{2\cos x}{x^2}+\frac{C}{x^2}}.
+\]
+
+%%% PROBLEM 25 %%%
+\item \textbf{Solution.}
+The Bernoulli equation $y'-\frac{1}{x}y=xy^3$ has $n=3$. Set $v=y^{1-3}=y^{-2}$, so $v'=-2y^{-3}y'$. From the ODE, divide by $y^3$:
+\[
+y^{-3}y'-\frac{1}{x}y^{-2}=x.
+\]
+Since $v'=-2y^{-3}y'$, we get $y^{-3}y'=-\frac{v'}{2}$:
+\[
+-\frac{v'}{2}-\frac{v}{x}=x \implies v'+\frac{2}{x}v=-2x.
+\]
+Integrating factor: $\mu=x^2$. Then
+\[
+\frac{d}{dx}(x^2 v)=-2x^3 \implies x^2v = -\frac{x^4}{2}+C.
+\]
+So $v=-\frac{x^2}{2}+\frac{C}{x^2}$. Since $v=y^{-2}$:
+\[
+\boxed{\frac{1}{y^2}=\frac{C}{x^2}-\frac{x^2}{2}}, \quad \text{i.e., } y^2 = \frac{x^2}{C - \frac{x^4}{2}} = \frac{2x^2}{2C-x^4}.
+\]
+
+%%% PROBLEM 26 %%%
+\item \textbf{Solution.}
+Separate variables: $(1+y)\,dy = e^x\,dx$. Integrate:
+\[
+y+\frac{y^2}{2}=e^x+C.
+\]
+The general solution in implicit form is
+\[
+\boxed{y+\frac{y^2}{2}=e^x+C}.
+\]
+
+%%% PROBLEM 27 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^2-3r+2=0 \implies (r-1)(r-2)=0$, so $r=1,\,2$. The general solution is
+\[
+\boxed{y = C_1 e^x + C_2 e^{2x}}.
+\]
+
+%%% PROBLEM 28 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^2+1=0 \implies r=\pm i$. The general solution is
+\[
+\boxed{y = C_1\cos x + C_2\sin x}.
+\]
+
+%%% PROBLEM 29 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^2+4r+4=0 \implies (r+2)^2=0$, so $r=-2$ (repeated). The general solution is
+\[
+\boxed{y = (C_1+C_2 x)e^{-2x}}.
+\]
+
+%%% PROBLEM 30 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^3-3r^2+3r-1=0 \implies (r-1)^3=0$, so $r=1$ with multiplicity 3. The general solution is
+\[
+\boxed{y = (C_1+C_2 x+C_3 x^2)e^x}.
+\]
+
+%%% PROBLEM 31 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^4-5r^3+8r^2-4r=0$. Factor out $r$:
+\[
+r(r^3-5r^2+8r-4)=0.
+\]
+Test $r=1$: $1-5+8-4=0$, so $(r-1)$ is a factor. Divide: $r^3-5r^2+8r-4=(r-1)(r^2-4r+4)=(r-1)(r-2)^2$. Therefore the roots are $r=0,\,1,\,2,\,2$. The general solution is
+\[
+\boxed{y = C_1 + C_2 e^x + (C_3+C_4 x)e^{2x}}.
+\]
+
+%%% PROBLEM 32 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''-y=0$ has roots $r=\pm 1$, so $y_h=C_1e^x+C_2e^{-x}$. Since $e^x$ is already a solution of the homogeneous equation ($r=1$), we try $y_p=Axe^x$ (multiply by $x$ due to resonance).
+
+Compute: $y_p'=Ae^x+Axe^x=A(1+x)e^x$, $y_p''=A(2+x)e^x$. Substitute:
+\[
+y_p''-y_p = A(2+x)e^x-Axe^x=2Ae^x = e^x.
+\]
+So $A=\frac{1}{2}$ and
+\[
+\boxed{y_p = \frac{x}{2}\,e^x}.
+\]
+
+%%% PROBLEM 33 %%%
+\item \textbf{Solution.}
+The homogeneous solution has roots $r=\pm 1$. Since $e^{-x}$ corresponds to $r=-1$ (a root), we try $y_p=Axe^{-x}$.
+
+Compute: $y_p'=A(e^{-x}-xe^{-x})=A(1-x)e^{-x}$, $y_p''=A(-2+x)e^{-x}$. Substitute:
+\[
+y_p''-y_p = A(-2+x)e^{-x}-Axe^{-x}=-2Ae^{-x}=e^{-x}.
+\]
+So $A=-\frac{1}{2}$ and
+\[
+\boxed{y_p = -\frac{x}{2}\,e^{-x}}.
+\]
+
+%%% PROBLEM 34 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''+2y'+y=0$ has characteristic root $r=-1$ (double), so $y_1=e^{-x}$, $y_2=xe^{-x}$. The Wronskian is
+\[
+W = y_1 y_2'-y_2 y_1' = e^{-x}(e^{-x}-xe^{-x})-xe^{-x}(-e^{-x})=e^{-2x}-xe^{-2x}+xe^{-2x}=e^{-2x}.
+\]
+For variation of parameters with $g(x)=x$:
+\[
+u_1' = -\frac{y_2 g}{W}=-\frac{xe^{-x}\cdot x}{e^{-2x}}=-x^2 e^{x},
+\]
+\[
+u_2' = \frac{y_1 g}{W}=\frac{e^{-x}\cdot x}{e^{-2x}}=xe^{x}.
+\]
+Integrate:
+\[
+u_1 = -\int x^2 e^x\,dx = -(x^2 e^x-2xe^x+2e^x) = -(x^2-2x+2)e^x,
+\]
+\[
+u_2 = \int xe^x\,dx = (x-1)e^x.
+\]
+The particular solution is
+\[
+y_p = u_1 y_1+u_2 y_2 = -(x^2-2x+2)e^x\cdot e^{-x}+(x-1)e^x\cdot xe^{-x}
+\]
+\[
+= -(x^2-2x+2)+x(x-1) = -x^2+2x-2+x^2-x = x-2.
+\]
+\[
+\boxed{y_p = x-2}.
+\]
+
+%%% PROBLEM 35 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''-2y'+y=0$ has $r=1$ (double), so $y_1=e^x$, $y_2=xe^x$. The Wronskian is
+\[
+W = e^x(e^x+xe^x)-xe^x\cdot e^x = e^{2x}+xe^{2x}-xe^{2x}=e^{2x}.
+\]
+With $g(x)=xe^x$:
+\[
+u_1' = -\frac{xe^x\cdot xe^x}{e^{2x}}=-x^2, \qquad u_2' = \frac{e^x\cdot xe^x}{e^{2x}}=x.
+\]
+Integrate: $u_1=-\frac{x^3}{3}$, $u_2=\frac{x^2}{2}$. The particular solution is
+\[
+y_p = -\frac{x^3}{3}e^x+\frac{x^2}{2}\cdot xe^x = \left(-\frac{x^3}{3}+\frac{x^3}{2}\right)e^x = \frac{x^3}{6}e^x.
+\]
+\[
+\boxed{y_p = \frac{x^3}{6}\,e^x}.
+\]
+
+%%% PROBLEM 36 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''+y=0$ has $y_h=C_1\cos x+C_2\sin x$. Since $\sin x$ is a homogeneous solution, the particular solution for $y''+y=\sin x$ requires the resonance form $y_p=x(A\cos x+B\sin x)$.
+
+Compute $y_p'=(A\cos x+B\sin x)+x(-A\sin x+B\cos x)$, and
+\[
+y_p''=-2A\sin x+2B\cos x+x(-A\cos x-B\sin x).
+\]
+Then $y_p''+y_p = -2A\sin x+2B\cos x = \sin x$, giving $A=-\frac{1}{2}$, $B=0$.
+
+So $y_p=-\frac{x}{2}\cos x$. The general solution is $y=C_1\cos x+C_2\sin x-\frac{x}{2}\cos x$.
+
+Apply $y(0)=0$: $C_1=0$. Then $y=C_2\sin x-\frac{x}{2}\cos x$.
+
+$y'=C_2\cos x-\frac{1}{2}\cos x+\frac{x}{2}\sin x$. Apply $y'(0)=1$: $C_2-\frac{1}{2}=1$, so $C_2=\frac{3}{2}$.
+\[
+\boxed{y = \frac{3}{2}\sin x - \frac{x}{2}\cos x}.
+\]
+
+%%% PROBLEM 37 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^2+2r+5=0 \implies r=\frac{-2\pm\sqrt{4-20}}{2}=-1\pm 2i$. General solution:
+\[
+y = e^{-x}(C_1\cos 2x+C_2\sin 2x).
+\]
+Apply $y(0)=2$: $C_1=2$.
+
+$y'=e^{-x}[(-C_1+2C_2)\cos 2x+(-C_2-2C_1)\sin 2x]$. At $x=0$: $y'(0)=-C_1+2C_2=-2+2C_2=0$, so $C_2=1$.
+\[
+\boxed{y = e^{-x}(2\cos 2x+\sin 2x)}.
+\]
+
+%%% PROBLEM 38 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''+4y=0$ has solutions $\cos 2x$, $\sin 2x$. Since $\cos 2x$ is a homogeneous solution, we have resonance. Try $y_p=x(A\cos 2x+B\sin 2x)$.
+
+$y_p'=(A\cos 2x+B\sin 2x)+x(-2A\sin 2x+2B\cos 2x)$,
+
+$y_p''=-4A\sin 2x+4B\cos 2x + x(-4A\cos 2x-4B\sin 2x)$.
+
+$y_p''+4y_p=-4A\sin 2x+4B\cos 2x = \cos 2x$.
+
+So $B=\frac{1}{4}$, $A=0$:
+\[
+\boxed{y_p = \frac{x}{4}\sin 2x}.
+\]
+
+%%% PROBLEM 39 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^4-4r^2+4=0 \implies (r^2-2)^2=0$, so $r^2=2$ and $r=\pm\sqrt{2}$, each with multiplicity 2. The general solution is
+\[
+\boxed{y = (C_1+C_2 x)e^{\sqrt{2}\,x}+(C_3+C_4 x)e^{-\sqrt{2}\,x}}.
+\]
+
+%%% PROBLEM 40 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^3-2r^2+r=0 \implies r(r-1)^2=0$, so $r=0,\,1,\,1$. The homogeneous solution is $y_h=C_1+C_2 e^x+C_3 xe^x$.
+
+Since $e^x$ corresponds to $r=1$ with multiplicity 2, we need $y_p=Ax^2 e^x$ (multiply by $x^2$).
+
+Compute:
+\[
+y_p = Ax^2e^x, \quad y_p' = A(2x+x^2)e^x, \quad y_p'' = A(2+4x+x^2)e^x,
+\]
+\[
+y_p''' = A(6+6x+x^2)e^x.
+\]
+Substitute into $y'''-2y''+y'$:
+\[
+A(6+6x+x^2)e^x - 2A(2+4x+x^2)e^x + A(2x+x^2)e^x
+\]
+\[
+= Ae^x[(6+6x+x^2)-(4+8x+2x^2)+(2x+x^2)] = Ae^x[2] = 2Ae^x.
+\]
+Set $2A=1$, so $A=\frac{1}{2}$:
+\[
+\boxed{y_p = \frac{x^2}{2}\,e^x}.
+\]
+
+%%% PROBLEM 41 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''-2y'+y=0$ has $r=1$ (double), so $y_h=(C_1+C_2 x)e^x$. Since $e^x$ is a double root, try $y_p=Ax^2 e^x$.
+
+$y_p=Ax^2 e^x$, $y_p'=A(2x+x^2)e^x$, $y_p''=A(2+4x+x^2)e^x$.
+
+$y_p''-2y_p'+y_p = A[(2+4x+x^2)-2(2x+x^2)+(x^2)]e^x = 2Ae^x = 3e^x$.
+
+So $A=\frac{3}{2}$. The general solution is
+\[
+\boxed{y = (C_1+C_2 x)e^x+\frac{3}{2}x^2 e^x}.
+\]
+
+%%% PROBLEM 42 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^3-4r^2+5r-2=0$. Test $r=1$: $1-4+5-2=0$. Factor: $(r-1)(r^2-3r+2)=(r-1)(r-1)(r-2)=(r-1)^2(r-2)=0$.
+
+Roots: $r=1$ (double), $r=2$. The general solution is
+\[
+\boxed{y = (C_1+C_2 x)e^x + C_3 e^{2x}}.
+\]
+
+%%% PROBLEM 43 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''+2y'+y=0$ has $r=-1$ (double). Since $e^{-x}$ corresponds to the double root, try $y_p=Ax^2 e^{-x}$.
+
+$y_p=Ax^2 e^{-x}$, $y_p'=A(2x-x^2)e^{-x}$, $y_p''=A(2-4x+x^2)e^{-x}$.
+
+$y_p''+2y_p'+y_p = A[(2-4x+x^2)+2(2x-x^2)+(x^2)]e^{-x}=2Ae^{-x}=e^{-x}$.
+
+So $A=\frac{1}{2}$:
+\[
+\boxed{y_p = \frac{x^2}{2}\,e^{-x}}.
+\]
+
+%%% PROBLEM 44 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''+y=0$ has roots $r=\pm i$. The forcing $e^{ix}$ has $r=i$, which is a root. So we try $y_p=Axe^{ix}$.
+
+$y_p'=Ae^{ix}+Aixe^{ix}=A(1+ix)e^{ix}$, $y_p''=A(2i-x)e^{ix}$.
+
+$y_p''+y_p = A(2i-x)e^{ix}+Axe^{ix}=2Aie^{ix}=e^{ix}$.
+
+So $A=\frac{1}{2i}=-\frac{i}{2}$. The particular solution is
+\[
+y_p = -\frac{i}{2}xe^{ix} = -\frac{i}{2}x(\cos x+i\sin x) = \frac{x\sin x}{2}-\frac{ix\cos x}{2}.
+\]
+The general solution is $y = C_1\cos x + C_2\sin x - \frac{i}{2}xe^{ix}$.
+
+Extracting the real part (for the physical solution corresponding to the real part of $e^{ix}=\cos x$):
+\[
+\boxed{\text{Re}(y_p) = \frac{x}{2}\sin x}.
+\]
+This matches the particular solution for $y''+y=\cos x$.
+
+%%% PROBLEM 45 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^4-2r^2+1=0 \implies (r^2-1)^2=0 \implies (r-1)^2(r+1)^2=0$.
+
+Roots: $r=1$ (double), $r=-1$ (double). The general solution is
+\[
+\boxed{y = (C_1+C_2 x)e^x+(C_3+C_4 x)e^{-x}}.
+\]
+
+%%% PROBLEM 46 %%%
+\item \textbf{Solution.}
+Characteristic equation: $r^3+3r^2+3r+1=0 \implies (r+1)^3=0$, so $r=-1$ with multiplicity 3. The homogeneous solution is $y_h=(C_1+C_2 x+C_3 x^2)e^{-x}$.
+
+Since $e^{-x}$ corresponds to a triple root, try $y_p=Ax^3 e^{-x}$.
+
+$y_p=Ax^3 e^{-x}$. Using the annihilator approach: when we substitute, the operator $(D+1)^3$ kills the homogeneous part, and $(D+1)^3(Ax^3 e^{-x})=A\cdot 6\cdot e^{-x}$ (since $\frac{d^3}{dx^3}[x^3]=6$). So
+\[
+(D+1)^3 y_p = 6Ae^{-x}=e^{-x} \implies A=\frac{1}{6}.
+\]
+The general solution is
+\[
+\boxed{y = (C_1+C_2 x+C_3 x^2)e^{-x}+\frac{x^3}{6}\,e^{-x}}.
+\]
+
+%%% PROBLEM 47 %%%
+\item \textbf{Solution.}
+We solve $y''+y=\sin t$, $y(0)=0$, $y'(0)=1$ using Laplace transforms. Let $Y=\mathcal{L}\{y\}$.
+
+Taking the Laplace transform:
+\[
+s^2Y - sy(0)-y'(0)+Y = \frac{1}{s^2+1}.
+\]
+With $y(0)=0$, $y'(0)=1$:
+\[
+(s^2+1)Y - 1 = \frac{1}{s^2+1} \implies Y = \frac{1}{s^2+1}+\frac{1}{(s^2+1)^2}.
+\]
+We know $\mathcal{L}^{-1}\!\left\{\frac{1}{s^2+1}\right\}=\sin t$ and $\mathcal{L}^{-1}\!\left\{\frac{1}{(s^2+1)^2}\right\}=\frac{\sin t - t\cos t}{2}$.
+
+Therefore
+\[
+y = \sin t + \frac{\sin t - t\cos t}{2} = \frac{3}{2}\sin t - \frac{t}{2}\cos t.
+\]
+\[
+\boxed{y = \frac{3}{2}\sin t - \frac{t}{2}\cos t}.
+\]
+This agrees with the answer to Problem 36.
+
+%%% PROBLEM 48 %%%
+\item \textbf{Solution.}
+Take the Laplace transform of $y''-3y'+2y=e^{3t}$ with $y(0)=y'(0)=0$:
+\[
+(s^2-3s+2)Y = \frac{1}{s-3} \implies Y = \frac{1}{(s-1)(s-2)(s-3)}.
+\]
+Partial fractions: $\frac{1}{(s-1)(s-2)(s-3)}=\frac{A}{s-1}+\frac{B}{s-2}+\frac{C}{s-3}$.
+
+$A=\frac{1}{(1-2)(1-3)}=\frac{1}{2}$, $B=\frac{1}{(2-1)(2-3)}=-1$, $C=\frac{1}{(3-1)(3-2)}=\frac{1}{2}$.
+
+Inverse transform:
+\[
+\boxed{y = \frac{1}{2}e^t - e^{2t}+\frac{1}{2}e^{3t}}.
+\]
+
+%%% PROBLEM 49 %%%
+\item \textbf{Solution.}
+The homogeneous solutions are $y_1=\cos x$, $y_2=\sin x$, $W=1$. With $g(x)=\tan x$:
+\[
+u_1' = -\frac{\sin x\tan x}{1}=-\frac{\sin^2 x}{\cos x}=-\frac{1-\cos^2 x}{\cos x}=\cos x-\sec x,
+\]
+\[
+u_2' = \frac{\cos x\tan x}{1}=\sin x.
+\]
+Integrate:
+\[
+u_1 = \sin x - \ln|\sec x+\tan x|, \quad u_2 = -\cos x.
+\]
+The particular solution is
+\[
+y_p = u_1\cos x+u_2\sin x = (\sin x-\ln|\sec x+\tan x|)\cos x - \cos x\sin x
+\]
+\[
+= -\cos x\ln|\sec x+\tan x|.
+\]
+\[
+\boxed{y_p = -\cos x\ln|\sec x+\tan x|}.
+\]
+
+%%% PROBLEM 50 %%%
+\item \textbf{Solution.}
+With $y_1=\cos x$, $y_2=\sin x$, $W=1$, and $g(x)=\sec^2 x$:
+\[
+u_1' = -\sin x\sec^2 x = -\frac{\sin x}{\cos^2 x}, \quad u_2' = \cos x\sec^2 x = \sec x.
+\]
+Integrate:
+\[
+u_1 = \int -\frac{\sin x}{\cos^2 x}\,dx = -\frac{1}{\cos x}=-\sec x,
+\]
+\[
+u_2 = \int \sec x\,dx = \ln|\sec x+\tan x|.
+\]
+The particular solution is
+\[
+y_p = -\sec x\cos x+\sin x\ln|\sec x+\tan x| = -1+\sin x\ln|\sec x+\tan x|.
+\]
+\[
+\boxed{y_p = -1+\sin x\ln|\sec x+\tan x|}.
+\]
+
+%%% PROBLEM 51 %%%
+\item \textbf{Solution.}
+Take the Laplace transform. Let $Y=\mathcal{L}\{y\}$. Note $\mathcal{L}\!\left\{\int_0^t y(s)\,ds\right\}=\frac{Y}{s}$.
+\[
+sY - y(0) + \frac{Y}{s} = \frac{1}{s}.
+\]
+With $y(0)=0$:
+\[
+sY+\frac{Y}{s}=\frac{1}{s} \implies Y\!\left(s+\frac{1}{s}\right)=\frac{1}{s} \implies Y\cdot\frac{s^2+1}{s}=\frac{1}{s},
+\]
+\[
+Y = \frac{1}{s^2+1}.
+\]
+Inverse transform:
+\[
+\boxed{y(t) = \sin t}.
+\]
+
+%%% PROBLEM 52 %%%
+\item \textbf{Solution.}
+Take the Laplace transform of $y''+2y'+5y=u(t-3)$ with $y(0)=0$, $y'(0)=1$:
+\[
+s^2Y-1+2sY+5Y = \frac{e^{-3s}}{s}.
+\]
+\[
+(s^2+2s+5)Y = 1+\frac{e^{-3s}}{s}.
+\]
+Note $s^2+2s+5=(s+1)^2+4$. So
+\[
+Y = \frac{1}{(s+1)^2+4}+\frac{e^{-3s}}{s[(s+1)^2+4]}.
+\]
+The first term inverts to $\frac{1}{2}e^{-t}\sin 2t$.
+
+For the second term, use partial fractions on $\frac{1}{s(s^2+2s+5)}=\frac{A}{s}+\frac{Bs+C}{s^2+2s+5}$.
+
+$A=\frac{1}{5}$. Then $1=\frac{1}{5}(s^2+2s+5)+(Bs+C)s$. Expanding: $1=\frac{s^2}{5}+\frac{2s}{5}+1+Bs^2+Cs$. Comparing $s^2$: $0=\frac{1}{5}+B$, so $B=-\frac{1}{5}$. Comparing $s$: $0=\frac{2}{5}+C$, so $C=-\frac{2}{5}$.
+
+\[
+\frac{1}{s(s^2+2s+5)}=\frac{1}{5}\cdot\frac{1}{s}-\frac{1}{5}\cdot\frac{s+2}{(s+1)^2+4}=\frac{1}{5}\cdot\frac{1}{s}-\frac{1}{5}\cdot\frac{(s+1)+1}{(s+1)^2+4}.
+\]
+
+Inverse: $\frac{1}{5}-\frac{1}{5}e^{-t}\cos 2t - \frac{1}{10}e^{-t}\sin 2t$.
+
+Applying the shift by 3 (second shifting theorem):
+\[
+\boxed{y(t) = \frac{1}{2}e^{-t}\sin 2t + u(t-3)\left[\frac{1}{5}-\frac{1}{5}e^{-(t-3)}\cos 2(t-3)-\frac{1}{10}e^{-(t-3)}\sin 2(t-3)\right]}.
+\]
+
+%%% PROBLEM 53 %%%
+\item \textbf{Solution.}
+Take the Laplace transform of $y''-y=\delta(t-2)$ with $y(0)=y'(0)=0$:
+\[
+(s^2-1)Y = e^{-2s} \implies Y = \frac{e^{-2s}}{s^2-1}=\frac{e^{-2s}}{(s-1)(s+1)}.
+\]
+Partial fractions: $\frac{1}{(s-1)(s+1)}=\frac{1/2}{s-1}-\frac{1/2}{s+1}$. Inverse of $\frac{1}{s^2-1}$ is $\sinh t$. By the second shifting theorem:
+\[
+\boxed{y(t) = u(t-2)\sinh(t-2) = \frac{u(t-2)}{2}\left[e^{t-2}-e^{-(t-2)}\right]}.
+\]
+
+%%% PROBLEM 54 %%%
+\item \textbf{Solution.}
+Take the Laplace transform of $y''+3y'+2y=te^{-t}$ with $y(0)=1$, $y'(0)=0$:
+\[
+s^2Y-s+3(sY-1)+2Y = \frac{1}{(s+1)^2}.
+\]
+\[
+(s^2+3s+2)Y = s+3+\frac{1}{(s+1)^2}.
+\]
+$(s^2+3s+2)=(s+1)(s+2)$. So
+\[
+Y = \frac{s+3}{(s+1)(s+2)}+\frac{1}{(s+1)^3(s+2)}.
+\]
+First term: $\frac{s+3}{(s+1)(s+2)}=\frac{A}{s+1}+\frac{B}{s+2}$. $A=\frac{1+3}{1}=2$, $B=\frac{-2+3}{-1}=-1$. So $\frac{2}{s+1}-\frac{1}{s+2}$, giving $2e^{-t}-e^{-2t}$.
+
+Second term: $\frac{1}{(s+1)^3(s+2)}$. Let $w=s+1$:
+\[
+\frac{1}{w^3(w+1)}=\frac{A}{w}+\frac{B}{w^2}+\frac{C}{w^3}+\frac{D}{w+1}.
+\]
+$C=\frac{1}{1}=1$. $D=\frac{1}{(-1)^3}=-1$. Expand: $1=Aw^2(w+1)+Bw(w+1)+C(w+1)+Dw^3$. Setting $w=0$: $1=C$. Setting $w=-1$: $1=-D$, so $D=-1$.
+
+Expand fully: $Aw^3+Aw^2+Bw^2+Bw+Cw+C+Dw^3=(A+D)w^3+(A+B)w^2+(B+C)w+C$.
+
+$C=1$. Coefficient of $w^3$: $A+D=0$, so $A=1$. Coefficient of $w^2$: $A+B=0$, so $B=-1$. Check $w$: $B+C=-1+1=0$. 
+So $\frac{1}{(s+1)^3(s+2)}=\frac{1}{s+1}-\frac{1}{(s+1)^2}+\frac{1}{(s+1)^3}-\frac{1}{s+2}$.
+
+Inverse: $e^{-t}-te^{-t}+\frac{t^2}{2}e^{-t}-e^{-2t}$.
+
+Combining both terms:
+\[
+y = 2e^{-t}-e^{-2t}+e^{-t}-te^{-t}+\frac{t^2}{2}e^{-t}-e^{-2t} = 3e^{-t}-te^{-t}+\frac{t^2}{2}e^{-t}-2e^{-2t}.
+\]
+\[
+\boxed{y(t) = \left(3-t+\frac{t^2}{2}\right)e^{-t}-2e^{-2t}}.
+\]
+
+%%% PROBLEM 55 %%%
+\item \textbf{Solution.}
+Take the Laplace transform of $y''+y=u(t-\pi)$ with $y(0)=y'(0)=0$:
+\[
+(s^2+1)Y = \frac{e^{-\pi s}}{s} \implies Y = \frac{e^{-\pi s}}{s(s^2+1)}.
+\]
+Partial fractions: $\frac{1}{s(s^2+1)}=\frac{1}{s}-\frac{s}{s^2+1}$. Inverse: $1-\cos t$.
+
+By the second shifting theorem:
+\[
+y(t) = u(t-\pi)[1-\cos(t-\pi)] = u(t-\pi)[1+\cos t],
+\]
+since $\cos(t-\pi)=-\cos t$.
+\[
+\boxed{y(t) = u(t-\pi)(1+\cos t)}.
+\]
+
+%%% PROBLEM 56 %%%
+\item \textbf{Solution.}
+Take the Laplace transform with $y(0)=0$:
+\[
+sY + \frac{Y}{s} = \frac{1}{s+1}.
+\]
+\[
+Y\cdot\frac{s^2+1}{s}=\frac{1}{s+1} \implies Y = \frac{s}{(s+1)(s^2+1)}.
+\]
+Partial fractions: $\frac{s}{(s+1)(s^2+1)}=\frac{A}{s+1}+\frac{Bs+C}{s^2+1}$.
+
+$A=\frac{-1}{1+1}=-\frac{1}{2}$. Then $s=-\frac{1}{2}(s^2+1)+(Bs+C)(s+1)$. Expand: $s=-\frac{s^2}{2}-\frac{1}{2}+Bs^2+Bs+Cs+C$.
+
+$s^2$: $0=-\frac{1}{2}+B$, so $B=\frac{1}{2}$. Constant: $0=-\frac{1}{2}+C$, so $C=\frac{1}{2}$. Check $s$: $1=B+C=1$. 
+\[
+Y = -\frac{1/2}{s+1}+\frac{s/2+1/2}{s^2+1}=-\frac{1}{2}\cdot\frac{1}{s+1}+\frac{1}{2}\cdot\frac{s}{s^2+1}+\frac{1}{2}\cdot\frac{1}{s^2+1}.
+\]
+Inverse:
+\[
+\boxed{y(t) = -\frac{1}{2}e^{-t}+\frac{1}{2}\cos t+\frac{1}{2}\sin t}.
+\]
+
+%%% PROBLEM 57 %%%
+\item \textbf{Solution.}
+Take the Laplace transform of $y''+y=e^t\sin 2t$ with $y(0)=y'(0)=0$. Note $\mathcal{L}\{e^t\sin 2t\}=\frac{2}{(s-1)^2+4}$.
+\[
+(s^2+1)Y = \frac{2}{(s-1)^2+4}=\frac{2}{s^2-2s+5}.
+\]
+\[
+Y = \frac{2}{(s^2+1)(s^2-2s+5)}.
+\]
+Partial fractions: $\frac{2}{(s^2+1)(s^2-2s+5)}=\frac{As+B}{s^2+1}+\frac{Cs+D}{s^2-2s+5}$.
+
+$2=(As+B)(s^2-2s+5)+(Cs+D)(s^2+1)$.
+
+Set $s=i$: $2=(Ai+B)(4-2i)+(Ci+D)(0)=(Ai+B)(4-2i)$.
+
+$(Ai+B)(4-2i)=4Ai-2Ai^2+4B-2Bi=2A+4B+(4A-2B)i=2$.
+
+So $4A-2B=0$ and $2A+4B=2$. From the first: $A=B/2$. Then $B+4B=2$, $B=\frac{2}{5}$, $A=\frac{1}{5}$.
+
+Set $s=1+2i$. Since $s^2-2s+5=(s-1)^2+4$, at $s=1+2i$ we get $(2i)^2+4=0$. Evaluating $s^2+1$ at $s=1+2i$: $(1+2i)^2+1=1+4i-4+1=-2+4i$.
+
+$2=(C(1+2i)+D)(-2+4i)$.
+
+$C(1+2i)+D = (C+D)+2Ci$. Multiply by $(-2+4i)$: $(-2(C+D)-4C\cdot 2)+ (4(C+D)-2\cdot 2C)i = (-2C-2D-8C)+ (4C+4D-4C)i = (-10C-2D)+4Di$.
+
+So $-10C-2D=2$ and $4D=0$, giving $D=0$ and $C=-\frac{1}{5}$.
+
+\[
+Y = \frac{1}{5}\cdot\frac{s+2}{s^2+1}-\frac{1}{5}\cdot\frac{s}{s^2-2s+5}=\frac{1}{5}\cdot\frac{s}{s^2+1}+\frac{2}{5}\cdot\frac{1}{s^2+1}-\frac{1}{5}\cdot\frac{(s-1)+1}{(s-1)^2+4}.
+\]
+\[
+= \frac{1}{5}\cdot\frac{s}{s^2+1}+\frac{2}{5}\cdot\frac{1}{s^2+1}-\frac{1}{5}\cdot\frac{s-1}{(s-1)^2+4}-\frac{1}{10}\cdot\frac{2}{(s-1)^2+4}.
+\]
+Inverse:
+\[
+\boxed{y(t) = \frac{1}{5}\cos t+\frac{2}{5}\sin t-\frac{1}{5}e^t\cos 2t-\frac{1}{10}e^t\sin 2t}.
+\]
+
+%%% PROBLEM 58 %%%
+\item \textbf{Solution.}
+Take the Laplace transform of $y''+2y'+y=\delta(t-1)+\delta(t-2)$ with $y(0)=y'(0)=0$:
+\[
+(s+1)^2 Y = e^{-s}+e^{-2s} \implies Y = \frac{e^{-s}}{(s+1)^2}+\frac{e^{-2s}}{(s+1)^2}.
+\]
+Since $\mathcal{L}^{-1}\!\left\{\frac{1}{(s+1)^2}\right\}=te^{-t}$, by the second shifting theorem:
+\[
+\boxed{y(t) = u(t-1)(t-1)e^{-(t-1)}+u(t-2)(t-2)e^{-(t-2)}}.
+\]
+
+%%% PROBLEM 59 %%%
+\item \textbf{Solution.}
+The homogeneous equation $y''+4y=0$ has $y_1=\cos 2x$, $y_2=\sin 2x$, $W=2$. With $g(x)=e^{2x}\cos 3x$:
+\[
+u_1' = -\frac{\sin 2x\cdot e^{2x}\cos 3x}{2}, \quad u_2' = \frac{\cos 2x\cdot e^{2x}\cos 3x}{2}.
+\]
+Use the product-to-sum identities: $\sin 2x\cos 3x = \frac{1}{2}[\sin 5x-\sin x]$ and $\cos 2x\cos 3x = \frac{1}{2}[\cos 5x+\cos x]$.
+\[
+u_1' = -\frac{e^{2x}}{4}(\sin 5x-\sin x), \quad u_2' = \frac{e^{2x}}{4}(\cos 5x+\cos x).
+\]
+Using $\int e^{ax}\sin bx\,dx = \frac{e^{ax}(a\sin bx-b\cos bx)}{a^2+b^2}$ and $\int e^{ax}\cos bx\,dx = \frac{e^{ax}(a\cos bx+b\sin bx)}{a^2+b^2}$:
+
+\[
+u_1 = -\frac{1}{4}\left[\frac{e^{2x}(2\sin 5x-5\cos 5x)}{29}-\frac{e^{2x}(2\sin x-\cos x)}{5}\right],
+\]
+\[
+u_2 = \frac{1}{4}\left[\frac{e^{2x}(2\cos 5x+5\sin 5x)}{29}+\frac{e^{2x}(2\cos x+\sin x)}{5}\right].
+\]
+The particular solution $y_p = u_1\cos 2x + u_2\sin 2x$. After substantial algebra (combining the terms and using product-to-sum identities to simplify $\cos 2x\sin 5x$, etc.), one obtains:
+\begin{align*}
+\boxed{y_p} &= \frac{e^{2x}(2\cos 3x + 3\sin 3x)}{4+9+4\cdot 4} \\
+&= \frac{e^{2x}}{4}\left[\frac{\cos x+2\sin x}{5}+\frac{-\cos 5x+10\sin 5x-3\cos 3x+2\sin 3x}{29}\right].
+\end{align*}
+A cleaner form is obtained by the method of undetermined coefficients. Try $y_p = e^{2x}(A\cos 3x + B\sin 3x)$. Substituting into $y''+4y$:
+
+$y_p' = e^{2x}[(2A-3B)\cos 3x+(2B+3A)\sin 3x]$.
+
+$y_p'' = e^{2x}[(-5A-12B)\cos 3x+(-5B+12A)\sin 3x]$.
+
+$y_p''+4y_p = e^{2x}[(-5A-12B+4A)\cos 3x+(-5B+12A+4B)\sin 3x]$
+
+$= e^{2x}[(-A-12B)\cos 3x+(12A-B)\sin 3x] = e^{2x}\cos 3x$.
+
+So $-A-12B=1$ and $12A-B=0$, i.e., $B=12A$ and $-A-144A=1$, $A=-\frac{1}{145}$, $B=-\frac{12}{145}$.
+\[
+\boxed{y_p = -\frac{e^{2x}}{145}(\cos 3x+12\sin 3x)}.
+\]
+
+%%% PROBLEM 60 %%%
+\item \textbf{Solution.}
+Assume $u(x,t)=X(x)T(t)$. Substituting into $u_t=\alpha u_{xx}$:
+\[
+XT'=\alpha X''T \implies \frac{T'}{\alpha T}=\frac{X''}{X}=-\lambda.
+\]
+\textbf{Spatial problem:} $X''+\lambda X=0$, $X(0)=X(L)=0$. For nontrivial solutions, $\lambda_n=\left(\frac{n\pi}{L}\right)^2$ with $X_n(x)=\sin\!\left(\frac{n\pi x}{L}\right)$, $n=1,2,3,\ldots$
+
+\textbf{Temporal problem:} $T'+\alpha\lambda_n T=0 \implies T_n(t)=e^{-\alpha(n\pi/L)^2 t}$.
+
+By superposition:
+\[
+u(x,t)=\sum_{n=1}^{\infty}B_n\sin\!\left(\frac{n\pi x}{L}\right)e^{-\alpha(n\pi/L)^2 t},
+\]
+where the coefficients are determined by the initial condition $u(x,0)=f(x)$:
+\[
+\boxed{B_n = \frac{2}{L}\int_0^L f(x)\sin\!\left(\frac{n\pi x}{L}\right)dx}.
+\]
+
+%%% PROBLEM 61 %%%
+\item \textbf{Solution.}
+Assume $u(x,y)=X(x)Y(y)$. Substituting into $u_{xx}+u_{yy}=0$:
+\[
+X''Y+XY''=0 \implies \frac{X''}{X}=-\frac{Y''}{Y}=-\lambda.
+\]
+\textbf{$X$-problem:} $X''+\lambda X=0$, $X(0)=X(L)=0$. Eigenvalues: $\lambda_n=(n\pi/L)^2$, eigenfunctions $X_n=\sin(n\pi x/L)$.
+
+\textbf{$Y$-problem:} $Y''-\lambda_n Y=0$, $Y(0)=0$. General solution: $Y=A\cosh(n\pi y/L)+B\sinh(n\pi y/L)$. From $Y(0)=0$: $A=0$, so $Y_n=\sinh(n\pi y/L)$.
+
+Superposition:
+\[
+u(x,y)=\sum_{n=1}^{\infty}B_n\sin\!\left(\frac{n\pi x}{L}\right)\sinh\!\left(\frac{n\pi y}{L}\right).
+\]
+Apply $u(x,H)=g(x)$:
+\[
+g(x)=\sum_{n=1}^{\infty}B_n\sinh\!\left(\frac{n\pi H}{L}\right)\sin\!\left(\frac{n\pi x}{L}\right).
+\]
+\[
+\boxed{B_n = \frac{2}{L\sinh(n\pi H/L)}\int_0^L g(x)\sin\!\left(\frac{n\pi x}{L}\right)dx}.
+\]
+
+%%% PROBLEM 62 %%%
+\item \textbf{Solution.}
+Assume $u(x,t)=X(x)T(t)$. From $u_{tt}=c^2 u_{xx}$:
+\[
+\frac{T''}{c^2 T}=\frac{X''}{X}=-\lambda.
+\]
+\textbf{Spatial:} $X''+\lambda X=0$, $X(0)=X(L)=0$. Eigenvalues $\lambda_n=(n\pi/L)^2$, $X_n=\sin(n\pi x/L)$.
+
+\textbf{Temporal:} $T''+c^2\lambda_n T=0 \implies T_n=A_n\cos(cn\pi t/L)+B_n\sin(cn\pi t/L)$.
+
+Superposition:
+\[
+u(x,t)=\sum_{n=1}^{\infty}\left[A_n\cos\!\left(\frac{cn\pi t}{L}\right)+B_n\sin\!\left(\frac{cn\pi t}{L}\right)\right]\sin\!\left(\frac{n\pi x}{L}\right).
+\]
+From $u(x,0)=f(x)$: $A_n=\frac{2}{L}\int_0^L f(x)\sin(n\pi x/L)\,dx$.
+
+From $u_t(x,0)=g(x)$:
+\[
+\boxed{B_n = \frac{2}{cn\pi}\int_0^L g(x)\sin\!\left(\frac{n\pi x}{L}\right)dx}.
+\]
+
+%%% PROBLEM 63 %%%
+\item \textbf{Solution.}
+The PDE $u_x+2u_y=3$ with $u(x,0)=\sin x$.
+
+Characteristic equations: $\frac{dx}{1}=\frac{dy}{2}=\frac{du}{3}$.
+
+From $\frac{dx}{1}=\frac{dy}{2}$: $y=2x+c_1$, so $c_1=y-2x$ is constant along characteristics.
+
+From $\frac{dx}{1}=\frac{du}{3}$: $u=3x+c_2$, so $c_2=u-3x$ is constant.
+
+General solution: $u-3x=\phi(y-2x)$, i.e., $u=3x+\phi(y-2x)$.
+
+Apply $u(x,0)=\sin x$: $\sin x = 3x+\phi(-2x)$, so $\phi(-2x)=\sin x-3x$. Let $s=-2x$, then $x=-s/2$ and $\phi(s)=\sin(-s/2)-3(-s/2)=-\sin(s/2)+\frac{3s}{2}$.
+
+Therefore $\phi(y-2x)=-\sin\!\left(\frac{y-2x}{2}\right)+\frac{3(y-2x)}{2}$ and
+\[
+u = 3x-\sin\!\left(\frac{y-2x}{2}\right)+\frac{3y-6x}{2} = \frac{3y}{2}-\sin\!\left(\frac{y-2x}{2}\right).
+\]
+\[
+\boxed{u(x,y)=\frac{3y}{2}-\sin\!\left(\frac{y-2x}{2}\right)}.
+\]
+
+%%% PROBLEM 64 %%%
+\item \textbf{Solution.}
+The PDE $u\,u_x+u_y=0$ with $u(x,0)=x$.
+
+Parametrize characteristics by $s$ with initial data at $y=0$: $x(0)=x_0$, $y(0)=0$, $u(0)=x_0$.
+
+Characteristic equations: $\frac{dx}{ds}=u$, $\frac{dy}{ds}=1$, $\frac{du}{ds}=0$.
+
+From $du/ds=0$: $u=x_0$ (constant along characteristics).
+
+From $dy/ds=1$: $y=s$.
+
+From $dx/ds=u=x_0$: $x=x_0 s+x_0=x_0(1+s)=x_0(1+y)$.
+
+So $x_0=\frac{x}{1+y}$ and $u=x_0$:
+\[
+\boxed{u(x,y)=\frac{x}{1+y}},
+\]
+valid for $y>-1$ (before characteristics cross).
+
+%%% PROBLEM 65 %%%
+\item \textbf{Solution.}
+We seek the solution of $u_t=u_{xx}+H(x-L/2)$ with $u(0,t)=u(L,t)=0$, $u(x,0)=0$.
+
+First find the steady-state solution $v(x)$ satisfying $v''+H(x-L/2)=0$, $v(0)=v(L)=0$, then write $u=v(x)+w(x,t)$ where $w$ satisfies the homogeneous heat equation with adjusted initial condition.
+
+For $0<x<L/2$: $v''=0$, so $v=Ax+B$. With $v(0)=0$: $B=0$, so $v=Ax$.
+
+For $L/2<x<L$: $v''=-1$, so $v=-\frac{x^2}{2}+Cx+D$.
+
+Continuity at $x=L/2$: $\frac{AL}{2}=-\frac{L^2}{8}+\frac{CL}{2}+D$.
+
+Continuity of $v'$ at $x=L/2$: $A=-\frac{L}{2}+C$.
+
+At $x=L$: $v(L)=0$: $-\frac{L^2}{2}+CL+D=0$.
+
+From the last: $D=\frac{L^2}{2}-CL$. Substituting into continuity: $\frac{AL}{2}=-\frac{L^2}{8}+\frac{CL}{2}+\frac{L^2}{2}-CL = \frac{3L^2}{8}-\frac{CL}{2}$.
+
+From $A=C-L/2$: $(C-L/2)\frac{L}{2}=\frac{3L^2}{8}-\frac{CL}{2}$, i.e., $\frac{CL}{2}-\frac{L^2}{4}=\frac{3L^2}{8}-\frac{CL}{2}$, so $CL=\frac{3L^2}{8}+\frac{L^2}{4}=\frac{5L^2}{8}$, $C=\frac{5L}{8}$.
+
+Then $A=\frac{5L}{8}-\frac{L}{2}=\frac{L}{8}$ and $D=\frac{L^2}{2}-\frac{5L^2}{8}=-\frac{L^2}{8}$.
+
+Steady state:
+\[
+v(x)=\begin{cases}\frac{Lx}{8}, & 0<x<L/2,\\[4pt] -\frac{x^2}{2}+\frac{5Lx}{8}-\frac{L^2}{8}, & L/2<x<L.\end{cases}
+\]
+Now $w=u-v$ satisfies $w_t=w_{xx}$, $w(0,t)=w(L,t)=0$, $w(x,0)=-v(x)$.
+
+\[
+w(x,t)=\sum_{n=1}^{\infty}B_n\sin\!\left(\frac{n\pi x}{L}\right)e^{-(n\pi/L)^2 t},
+\]
+where $B_n=\frac{2}{L}\int_0^L [-v(x)]\sin(n\pi x/L)\,dx = -\frac{2}{L}\int_0^L v(x)\sin(n\pi x/L)\,dx$.
+
+\[
+\boxed{u(x,t)=v(x)+\sum_{n=1}^{\infty}B_n\sin\!\left(\frac{n\pi x}{L}\right)e^{-(n\pi/L)^2 t}},
+\]
+with $v(x)$ as above and $B_n=-\frac{2}{L}\int_0^L v(x)\sin(n\pi x/L)\,dx$.
+
+%%% PROBLEM 66 %%%
+\item \textbf{Solution.}
+Seek a steady-state particular solution: $u_p(x)$ satisfying $u_p''+\sin(\pi x)=0$, $u_p(0)=u_p(1)=0$:
+\[
+u_p''=-\sin(\pi x)\implies u_p = \frac{\sin(\pi x)}{\pi^2}.
+\]
+(Check: $u_p''=-\sin(\pi x)$. $\checkmark$; $u_p(0)=u_p(1)=0$. $\checkmark$.)
+
+Write $u=u_p+w$ where $w_t=w_{xx}$, $w(0,t)=w(1,t)=0$, $w(x,0)=-u_p(x)=-\frac{\sin(\pi x)}{\pi^2}$.
+
+The solution is $w(x,t)=-\frac{1}{\pi^2}\sin(\pi x)e^{-\pi^2 t}$ (only the $n=1$ Fourier mode is present). Therefore:
+\[
+\boxed{u(x,t)=\frac{\sin(\pi x)}{\pi^2}\left(1-e^{-\pi^2 t}\right)}.
+\]
+
+%%% PROBLEM 67 %%%
+\item \textbf{Solution.}
+Assume $u(r,\theta)=R(r)\Theta(\theta)$. Substituting into Laplace's equation in polar coordinates:
+\[
+r^2\frac{R''}{R}+r\frac{R'}{R}=-\frac{\Theta''}{\Theta}=\lambda.
+\]
+\textbf{Angular problem:} $\Theta''+\lambda\Theta=0$ with $\Theta(\theta+2\pi)=\Theta(\theta)$ (periodicity). Eigenvalues: $\lambda_n=n^2$, $n=0,1,2,\ldots$ with $\Theta_0=1$, $\Theta_n=A_n\cos n\theta+B_n\sin n\theta$.
+
+\textbf{Radial problem:} $r^2R''+rR'-n^2R=0$ (Euler equation). Solutions: $R=r^n$ and $R=r^{-n}$. For boundedness at $r=0$, take $R_n=r^n$.
+
+Superposition:
+\[
+u(r,\theta)=\frac{A_0}{2}+\sum_{n=1}^{\infty}r^n(A_n\cos n\theta+B_n\sin n\theta).
+\]
+Apply $u(a,\theta)=f(\theta)$:
+\[
+f(\theta)=\frac{A_0}{2}+\sum_{n=1}^{\infty}a^n(A_n\cos n\theta+B_n\sin n\theta).
+\]
+The Fourier coefficients are:
+\[
+\boxed{A_n = \frac{1}{\pi a^n}\int_{-\pi}^{\pi}f(\theta)\cos n\theta\,d\theta, \quad B_n = \frac{1}{\pi a^n}\int_{-\pi}^{\pi}f(\theta)\sin n\theta\,d\theta}.
+\]
+This is the Poisson integral representation of the solution.
+
+%%% PROBLEM 68 %%%
+\item \textbf{Solution.}
+Take the Fourier transform in $x$: let $\hat{u}(k,t)=\int_{-\infty}^{\infty}u(x,t)e^{-ikx}\,dx$.
+
+The wave equation becomes $\hat{u}_{tt}=-c^2k^2\hat{u}$, with $\hat{u}(k,0)=1$ (since $\mathcal{F}\{\delta(x)\}=1$) and $\hat{u}_t(k,0)=0$.
+
+Solution: $\hat{u}(k,t)=\cos(ckt)$.
+
+Invert:
+\[
+u(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}\cos(ckt)\,e^{ikx}\,dk = \frac{1}{2\pi}\int_{-\infty}^{\infty}\frac{e^{i(x+ct)k}+e^{i(x-ct)k}}{2}\,dk
+\]
+\[
+= \frac{1}{2}[\delta(x+ct)+\delta(x-ct)].
+\]
+\[
+\boxed{u(x,t)=\frac{1}{2}\bigl[\delta(x-ct)+\delta(x+ct)\bigr]}.
+\]
+This is d'Alembert's solution for impulsive initial displacement.
+
+%%% PROBLEM 69 %%%
+\item \textbf{Solution.}
+The Green's function $G(x,\xi)$ satisfies $-G_{xx}=\delta(x-\xi)$ with $G(0,\xi)=G(L,\xi)=0$.
+
+For $x<\xi$: $G''=0$, so $G=Ax$, using $G(0)=0$.
+
+For $x>\xi$: $G''=0$, so $G=B(L-x)$, using $G(L)=0$.
+
+Continuity at $x=\xi$: $A\xi=B(L-\xi)$.
+
+Jump condition (integrate $-G''=\delta$ across $\xi$): since $G'(\xi^-)=A$ and $G'(\xi^+)=-B$, we obtain $-G'(\xi^+)+G'(\xi^-)=B+A=1$. Combined with $A\xi = B(L-\xi)$:
+
+From $B=1-A$: $A\xi=(1-A)(L-\xi)=L-\xi-AL+A\xi$, so $0=L-\xi-AL$, hence $A=\frac{L-\xi}{L}$ and $B=\frac{\xi}{L}$.
+
+\[
+G(x,\xi)=\begin{cases}\dfrac{(L-\xi)x}{L}, & 0\le x\le\xi,\\[6pt] \dfrac{\xi(L-x)}{L}, & \xi\le x\le L.\end{cases}
+\]
+The solution is:
+\[
+\boxed{u(x)=\int_0^L G(x,\xi)\,f(\xi)\,d\xi = \frac{1}{L}\left[(L-x)\int_0^x \xi\,f(\xi)\,d\xi + x\int_x^L (L-\xi)\,f(\xi)\,d\xi\right]}.
+\]
+
+%%% PROBLEM 70 %%%
+\item \textbf{Solution.}
+The Fourier sine coefficients are
+\[
+B_n = \frac{2}{L}\int_0^L x(L-x)\sin\!\left(\frac{n\pi x}{L}\right)dx.
+\]
+Expand $x(L-x)=Lx-x^2$. Using standard integrals:
+\[
+\int_0^L x\sin\!\left(\frac{n\pi x}{L}\right)dx = \frac{L^2(-1)^{n+1}}{n\pi},
+\]
+Using integration by parts:
+\[
+\int_0^L x^2\sin\!\left(\frac{n\pi x}{L}\right)dx = \left[-\frac{L}{n\pi}x^2\cos\!\left(\frac{n\pi x}{L}\right)\right]_0^L + \frac{2L}{n\pi}\int_0^L x\cos\!\left(\frac{n\pi x}{L}\right)dx.
+\]
+The first term is $-\frac{L^3}{n\pi}(-1)^n$. For the remaining integral:
+\[
+\int_0^L x\cos\!\left(\frac{n\pi x}{L}\right)dx = \frac{L^2}{(n\pi)^2}[(-1)^n-1].
+\]
+So $\int_0^L x^2\sin(n\pi x/L)\,dx = -\frac{L^3(-1)^n}{n\pi}+\frac{2L^3}{(n\pi)^3}[(-1)^n-1]$.
+
+Therefore:
+\[
+B_n = \frac{2}{L}\left[\frac{L^3(-1)^{n+1}}{n\pi}+\frac{L^3(-1)^n}{n\pi}-\frac{2L^3}{(n\pi)^3}[(-1)^n-1]\right]
+\]
+\[
+= \frac{2}{L}\cdot\left[-\frac{2L^3}{(n\pi)^3}[(-1)^n-1]\right] = \frac{-4L^2}{(n\pi)^3}[(-1)^n-1].
+\]
+When $n$ is even, $(-1)^n-1=0$, so $B_n=0$. When $n$ is odd, $(-1)^n-1=-2$:
+\[
+B_n = \frac{-4L^2}{(n\pi)^3}(-2) = \frac{8L^2}{(n\pi)^3}.
+\]
+\[
+\boxed{f(x)=x(L-x)=\frac{8L^2}{\pi^3}\sum_{\substack{n=1,3,5,\ldots}}^{\infty}\frac{1}{n^3}\sin\!\left(\frac{n\pi x}{L}\right)}.
+\]
+
+%%% PROBLEM 71 %%%
+\item \textbf{Solution.}
+The PDE $u_t+u_x=0$ with $u(x,0)=e^{-x^2}$.
+
+Characteristic equations: $\frac{dt}{1}=\frac{dx}{1}$, so $x-t=c$ (constant). Along characteristics, $u$ is constant: $\frac{du}{dt}=0$ following $dx/dt=1$.
+
+So $u(x,t)=\phi(x-t)$ where $\phi$ is determined by the initial condition: $u(x,0)=\phi(x)=e^{-x^2}$.
+
+\[
+\boxed{u(x,t)=e^{-(x-t)^2}}.
+\]
+
+%%% PROBLEM 72 %%%
+\item \textbf{Solution.}
+The PDE $xu_x+u_y=0$ with $u(x,0)=\ln(1+x^2)$.
+
+Characteristic equations: $\frac{dx}{x}=\frac{dy}{1}=\frac{du}{0}$.
+
+From $\frac{dx}{x}=dy$: $\ln|x|=y+c_1$, so $xe^{-y}=c_1$ (constant along characteristics).
+
+From $du=0$: $u$ is constant along characteristics.
+
+General solution: $u=\phi(xe^{-y})$.
+
+Apply $u(x,0)=\ln(1+x^2)$: $\phi(x)=\ln(1+x^2)$.
+
+\[
+\boxed{u(x,y)=\ln(1+x^2e^{-2y})}.
+\]
+
+%%% PROBLEM 73 %%%
+\item \textbf{Solution.}
+The heat equation $u_t=u_{xx}$ on $0<x<1$ with $u(0,t)=u(1,t)=0$ and $u(x,0)=x(1-x)$.
+
+The solution is $u(x,t)=\sum_{n=1}^{\infty}B_n\sin(n\pi x)\,e^{-n^2\pi^2 t}$, where
+\[
+B_n = 2\int_0^1 x(1-x)\sin(n\pi x)\,dx.
+\]
+From Problem 70 with $L=1$: $B_n=0$ for $n$ even, and $B_n=\frac{8}{(n\pi)^3}$ for $n$ odd.
+
+The first three nonzero terms ($n=1,3,5$):
+\[
+\boxed{u(x,t)\approx \frac{8}{\pi^3}\sin(\pi x)\,e^{-\pi^2 t}+\frac{8}{27\pi^3}\sin(3\pi x)\,e^{-9\pi^2 t}+\frac{8}{125\pi^3}\sin(5\pi x)\,e^{-25\pi^2 t}}.
+\]
+
+%%% PROBLEM 74 %%%
+\item \textbf{Solution.}
+With Neumann conditions $u_x(0,t)=u_x(L,t)=0$, separation of variables $u=X(x)T(t)$ gives:
+
+$X''+\lambda X=0$, $X'(0)=X'(L)=0$. Eigenvalues: $\lambda_0=0$ with $X_0=1$, and $\lambda_n=(n\pi/L)^2$ with $X_n=\cos(n\pi x/L)$, $n=1,2,\ldots$
+
+$T'+\lambda_n T=0 \implies T_n=e^{-(n\pi/L)^2 t}$, and $T_0=1$.
+
+Superposition:
+\[
+u(x,t)=\frac{A_0}{2}+\sum_{n=1}^{\infty}A_n\cos\!\left(\frac{n\pi x}{L}\right)e^{-(n\pi/L)^2 t},
+\]
+where the Fourier cosine coefficients are:
+\[
+\boxed{A_n = \frac{2}{L}\int_0^L f(x)\cos\!\left(\frac{n\pi x}{L}\right)dx, \quad n=0,1,2,\ldots}
+\]
+
+%%% PROBLEM 75 %%%
+\item \textbf{Solution.}
+Take the Fourier transform $\hat{u}(k,t)=\int_{-\infty}^{\infty}u(x,t)e^{-ikx}\,dx$:
+\[
+\hat{u}_t + ick\hat{u}=-Dk^2\hat{u} \implies \hat{u}_t = -(Dk^2+ick)\hat{u}.
+\]
+Solution: $\hat{u}(k,t)=\hat{\phi}(k)\,e^{-(Dk^2+ick)t}$, where $\hat{\phi}=\mathcal{F}\{\phi\}$.
+
+Inverse transform:
+\[
+u(x,t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}\hat{\phi}(k)\,e^{ikx-(Dk^2+ick)t}\,dk = \frac{1}{2\pi}\int_{-\infty}^{\infty}\hat{\phi}(k)\,e^{ik(x-ct)-Dk^2t}\,dk.
+\]
+This is a convolution:
+\[
+\boxed{u(x,t)=\frac{1}{\sqrt{4\pi Dt}}\int_{-\infty}^{\infty}\phi(\xi)\,\exp\!\left(-\frac{(x-ct-\xi)^2}{4Dt}\right)d\xi}.
+\]
+The solution is the initial profile $\phi$ advected at speed $c$ and diffused with diffusivity $D$.
+
+%%% PROBLEM 76 %%%
+\item \textbf{Solution.}
+Take the Laplace transform in $t$: let $U(x,s)=\mathcal{L}\{u(x,t)\}$. With $u(x,0)=0$:
+\[
+sU = U_{xx} \implies U_{xx}-sU=0.
+\]
+For $x>0$ with boundedness as $x\to\infty$: $U(x,s)=A(s)\,e^{-\sqrt{s}\,x}$ (taking $\operatorname{Re}(\sqrt{s})>0$).
+
+Boundary condition: $U(0,s)=G(s)=\mathcal{L}\{g(t)\}$, so $A(s)=G(s)$:
+\[
+U(x,s)=G(s)\,e^{-x\sqrt{s}}.
+\]
+Using the known inverse $\mathcal{L}^{-1}\{e^{-x\sqrt{s}}\}=\frac{x}{2\sqrt{\pi}\,t^{3/2}}\,e^{-x^2/(4t)}$, and applying the convolution theorem:
+\[
+\boxed{u(x,t)=\frac{x}{2\sqrt{\pi}}\int_0^t \frac{g(\tau)}{(t-\tau)^{3/2}}\,e^{-x^2/[4(t-\tau)]}\,d\tau}.
+\]
+
+%%% PROBLEM 77 %%%
+\item \textbf{Solution.}
+The PDE $(1+x^2)u_x+u_y=0$ with $u(x,0)=\frac{1}{1+x^2}$.
+
+Characteristic equations: $\frac{dx}{1+x^2}=\frac{dy}{1}=\frac{du}{0}$.
+
+From $\frac{dx}{1+x^2}=dy$: $\arctan x = y + c$, so $c=\arctan x - y$.
+
+Since $u$ is constant along characteristics: $u=\phi(\arctan x-y)$.
+
+Apply $u(x,0)=\frac{1}{1+x^2}$: $\phi(\arctan x)=\frac{1}{1+x^2}$. Let $\theta=\arctan x$, then $x=\tan\theta$ and $\frac{1}{1+x^2}=\cos^2\theta$. So $\phi(\theta)=\cos^2\theta$.
+
+Therefore:
+\[
+\boxed{u(x,y)=\cos^2(\arctan x - y)}.
+\]
+
+%%% PROBLEM 78 %%%
+\item \textbf{Solution.}
+Assume $u(x,y,t)=X(x)Y(y)T(t)$. From $u_{tt}=c^2(u_{xx}+u_{yy})$:
+\[
+\frac{T''}{c^2 T}=\frac{X''}{X}+\frac{Y''}{Y}.
+\]
+Separate: $\frac{X''}{X}=-\mu$, $\frac{Y''}{Y}=-\nu$, $\frac{T''}{c^2 T}=-(\mu+\nu)$.
+
+\textbf{$X$-problem:} $X''+\mu X=0$, $X(0)=X(L)=0$. Eigenvalues $\mu_m=(m\pi/L)^2$, $X_m=\sin(m\pi x/L)$.
+
+\textbf{$Y$-problem:} $Y''+\nu Y=0$, $Y(0)=Y(H)=0$. Eigenvalues $\nu_n=(n\pi/H)^2$, $Y_n=\sin(n\pi y/H)$.
+
+\textbf{$T$-problem:} $T''+c^2\omega_{mn}^2 T=0$ where $\omega_{mn}^2=\mu_m+\nu_n=(m\pi/L)^2+(n\pi/H)^2$.
+
+$T_{mn}=A_{mn}\cos(c\omega_{mn}t)+B_{mn}\sin(c\omega_{mn}t)$.
+
+Superposition:
+\[
+u = \sum_{m=1}^{\infty}\sum_{n=1}^{\infty}\bigl[A_{mn}\cos(c\omega_{mn}t)+B_{mn}\sin(c\omega_{mn}t)\bigr]\sin\!\left(\frac{m\pi x}{L}\right)\sin\!\left(\frac{n\pi y}{H}\right).
+\]
+From $u(x,y,0)=f(x,y)$:
+\[
+A_{mn}=\frac{4}{LH}\int_0^L\int_0^H f(x,y)\sin\!\left(\frac{m\pi x}{L}\right)\sin\!\left(\frac{n\pi y}{H}\right)dy\,dx.
+\]
+From $u_t(x,y,0)=g(x,y)$:
+\[
+\boxed{B_{mn}=\frac{4}{c\omega_{mn}LH}\int_0^L\int_0^H g(x,y)\sin\!\left(\frac{m\pi x}{L}\right)\sin\!\left(\frac{n\pi y}{H}\right)dy\,dx},
+\]
+where $\omega_{mn}=\pi\sqrt{(m/L)^2+(n/H)^2}$.
+
+\end{enumerate}

@@ -1,0 +1,290 @@
+\documentclass[11pt]{article}
+\usepackage{worksheet_style}
+
+% ---- Toggle: uncomment for filled version ----
+%\worksheetfilledtrue
+\begin{document}
+\worksheetheader{3}{Lines and Planes in Space}
+
+\begin{background}
+With vectors in hand, we can now describe geometric objects in 3D. A line needs a point and a direction; a plane needs a point and a normal. These are the simplest objects in space, and the techniques here---parametric equations, dot products for angles, cross products for normals---come back throughout the course.
+\end{background}
+
+%=============================================================
+\wsection{Lines in $\R^3$}
+
+\begin{defbox}{Parametric Equation of a Line}
+A line through $P_0 = (x_0, y_0, z_0)$ with direction vector $\vect{d} = \vec{a,b,c}$:
+
+\textbf{Vector form:}
+\[\vect{r}(t) = \wbml{\vect{r}_0 + t\,\vect{d} = \vec{x_0 + at,\; y_0 + bt,\; z_0 + ct}}\]
+
+\textbf{Component form:}
+\[x = \wbm{x_0 + at}, \quad y = \wbm{y_0 + bt}, \quad z = \wbm{z_0 + ct}\]
+
+-- Each value of $t \in (-\infty, \infty)$ gives a point on the line
+\end{defbox}
+
+\begin{center}
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[scale=3.5, tdplot_main_coords]
+    \pgfmathsetmacro{\xone}{0.2}
+    \pgfmathsetmacro{\yone}{0.3}
+    \pgfmathsetmacro{\zone}{0.4}
+    \pgfmathsetmacro{\xtwo}{0.8}
+    \pgfmathsetmacro{\ytwo}{0.9}
+    \pgfmathsetmacro{\ztwo}{0.6}
+    \draw[->, thick] (0,0,0) -- (1.2,0,0) node[anchor=west] {$x$};
+    \draw[->, thick] (0,0,0) -- (0,1.2,0) node[anchor=west] {$y$};
+    \draw[->, thick] (0,0,0) -- (0,0,1.2) node[anchor=south] {$z$};
+    \filldraw[blue] (\xone, \yone, \zone) circle (0.4pt);
+    \filldraw[blue] (\xtwo, \ytwo, \ztwo) circle (0.4pt);
+    \draw[->, blue!70!black, ultra thick] (\xone, \yone, \zone) -- (\xtwo, \ytwo, \ztwo);
+    \node[anchor=north east] at (\xone - 0.05, \yone - 0.05, \zone) {$\vect{P_1}$};
+    \node[anchor=south west] at (\xtwo + 0.05, \ytwo + 0.05, \ztwo) {$\vect{P_2}$};
+    \node[anchor=south] at ({(\xone + \xtwo)/2 + 0.1}, {(\yone + \ytwo)/2 + 0.1}, {(\zone + \ztwo)/2 + 0.07}) {$\vect{r}(t)$};
+\end{tikzpicture}\\
+{\small The line segment connecting points $\vect{P_1}$ and $\vect{P_2}$ in 3D, represented by $\vect{r}(t)=(1-t)\vect{P_1}+t\vect{P_2}$ for $t\in[0,1]$.}
+\end{center}
+
+\begin{defbox}{Line Segment}
+The segment from $P_1$ to $P_2$:
+\[\vect{r}(t) = \wbml{(1-t)\,\vect{r}_1 + t\,\vect{r}_2, \quad t\in[0,1]}\]
+-- $t=0$ gives $P_1$; $t=1$ gives $P_2$
+\end{defbox}
+
+\begin{example}[Parametric Line]
+Write the parametric equation of the line through $P_0 = (1, -2, 3)$ in direction $\vect{d} = \vec{4,-1,2}$.
+
+\wbbox{
+1. Apply the formula $\vect{r}(t) = \vect{r}_0 + t\,\vect{d}$:
+\[\vect{r}(t) = \vec{1+4t,\; -2-t,\; 3+2t}\]
+
+2. Component form: $x = 1+4t$, \; $y = -2-t$, \; $z = 3+2t$
+}{2.5cm}
+\end{example}
+
+%=============================================================
+\wsection{Planes in $\R^3$}
+
+\begin{defbox}{Equation of a Plane}
+A plane through $P_0 = (x_0, y_0, z_0)$ with normal vector $\vect{n} = \vec{A, B, C}$:
+
+\textbf{Point-normal form:}
+\[\wbml{A(x-x_0) + B(y-y_0) + C(z-z_0) = 0}\]
+
+\textbf{General form:}
+\[\wbml{Ax + By + Cz = D}\]
+where $D = Ax_0 + By_0 + Cz_0$
+\end{defbox}
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,
+                    3d view={120}{25},
+                    scale=1.3]
+\def\xx{2}
+\def\yy{3}
+\def\zz{3}
+\def\nl{2.5}
+\def\px{0.2}
+\def\py{0.8}
+\def\qx{0.4}
+\def\qy{1.6}
+\pgfmathsetmacro\pz{\zz*(1-\px/\xx-\py/\yy)}
+\pgfmathsetmacro\qz{\zz*(1-\qx/\xx-\qy/\yy)}
+\coordinate (O)  at (0,0,0);
+\coordinate (A)  at (\xx,0,0);
+\coordinate (B)  at (0,\yy,0);
+\coordinate (C)  at (0,0,\zz);
+\coordinate (P)  at (\px,\py,\pz);
+\coordinate (P0) at (\qx,\qy,\qz);
+\coordinate (N0) at ($(P0)+(1/\xx,1/\yy,1/\zz)$);
+\coordinate (N)  at ($(P0)!\nl cm!(N0)$);
+\foreach\i/\j in {A/x,B/y,C/z}
+{
+  \draw[dashed] (O)  -- (\i);
+  \draw[-latex] (\i) -- ($(\i)!-1cm!(O)$);
+  \node      at ($(\i)!-1.2cm!(O)$) {$\j$};
+}
+\draw[gray] (\qx,\qy,0) -- (P0);
+\draw[gray] (\qx,0,\qz) -- (P0);
+\draw[gray] (0,\qy,\qz) -- (P0);
+\draw[green!50!black,thick,fill=green,fill opacity=0.4] (A) -- (B) -- (C) -- cycle;
+\fill (P0) circle (2pt);
+\node[anchor=south east] at ($(P0) + (0, 3.2, 0)$) {$P_0(x_0, y_0, z_0)$};
+\fill (N)  circle (1pt) node[above] {$(a, b, c)$};
+\draw[very thick,latex-latex,teal!70!blue]
+  (P0) -- (N) node [black,midway,below right] {$\vect{n}$};
+\coordinate (AUX) at ($($(P0)!0.5cm!(P)$)!0.5!($(P0)!0.5cm!(N)$)$);
+\draw[red] ($(P0)!0.25cm!(P)$) -- (AUX) -- ($(P0)!0.25cm!(N)$);
+\end{tikzpicture}\\
+{\small A plane in 3D space defined by a point $P_0$ and a normal vector $\vect{n}$ extending from $P_0$ in the perpendicular direction.}
+\end{center}
+
+\begin{example}[Plane from Point and Normal]
+Find the equation of the plane through $(2, -1, 3)$ with normal $\vect{n} = \vec{4, 5, -2}$.
+
+\wbbox{
+1. Point-normal form:
+\[4(x-2) + 5(y+1) - 2(z-3) = 0\]
+
+2. Expand:
+\[4x - 8 + 5y + 5 - 2z + 6 = 0\]
+
+3. Result: $\boxed{4x + 5y - 2z = -3}$
+}{3cm}
+\end{example}
+
+\begin{example}[Plane from Three Points]
+Find the equation of the plane through $P_1 = (1,2,3)$, $P_2 = (4,-1,2)$, $P_3 = (-2,3,5)$.
+
+\wbbox{
+1. Two vectors in the plane:
+\[\overrightarrow{P_1P_2} = \vec{3,-3,-1}, \quad \overrightarrow{P_1P_3} = \vec{-3,1,2}\]
+
+2. Normal via cross product:
+\[\vect{n} = \vec{3,-3,-1}\times\vec{-3,1,2} = \vec{-6+1,\; 3-6,\; 3-9} = \vec{-5,-3,-6}\]
+
+3. Use $P_1 = (1,2,3)$:
+\[-5(x-1) - 3(y-2) - 6(z-3) = 0 \implies \boxed{5x+3y+6z = 29}\]
+}{4.5cm}
+\end{example}
+
+%=============================================================
+\wsection{Intersections and Angles}
+
+\wsubsection{Line--Plane Intersection}
+
+-- Strategy: substitute parametric equations of the line into the plane equation, solve for $t$
+
+\begin{example}[Line--Plane Intersection]
+Find where $\vect{r}(t) = \vec{1+2t,\; 2-t,\; 3+t}$ intersects $3x - y + 2z = 5$.
+
+\wbbox{
+1. Substitute:
+\[3(1+2t) - (2-t) + 2(3+t) = 5\]
+
+2. Solve:
+\[3+6t - 2+t + 6+2t = 5 \implies 9t + 7 = 5 \implies t = -\tfrac{2}{9}\]
+
+3. Point:
+\[\left(1-\tfrac{4}{9},\; 2+\tfrac{2}{9},\; 3-\tfrac{2}{9}\right) = \boxed{\left(\tfrac{5}{9},\; \tfrac{20}{9},\; \tfrac{25}{9}\right)}\]
+}{4cm}
+\end{example}
+
+\wsubsection{Angle Between Two Planes}
+
+\begin{formulabox}{Angle Between Planes}
+If planes have normals $\vect{n}_1$ and $\vect{n}_2$:
+\[\cos\theta = \wbml{\frac{|\vect{n}_1 \cdot \vect{n}_2|}{\|\vect{n}_1\|\,\|\vect{n}_2\|}}\]
+-- Parallel: $\vect{n}_1 \parallel \vect{n}_2$ \quad -- Perpendicular: $\vect{n}_1 \cdot \vect{n}_2 = 0$
+\end{formulabox}
+
+\wsubsection{Line of Intersection of Two Planes}
+
+\begin{formulabox}{Strategy}
+Given planes $\Pi_1$ and $\Pi_2$ with normals $\vect{n}_1$ and $\vect{n}_2$:
+\begin{enumerate}[nosep]
+  \item \textbf{Direction:} $\vect{d} = \wbm{\vect{n}_1 \times \vect{n}_2}$
+  \item \textbf{Point:} Set one variable (e.g.\ $z=0$) and solve the $2\times 2$ system
+\end{enumerate}
+\end{formulabox}
+
+\begin{example}[Intersection of Two Planes]
+Find the line of intersection of $2x - y + z = 3$ and $x + y - 2z = -4$.
+
+\wbbox{
+1. Direction: $\vect{n}_1 = \vec{2,-1,1}$, $\vect{n}_2 = \vec{1,1,-2}$
+\[\vect{d} = \vect{n}_1 \times \vect{n}_2 = \vec{(-1)(-2)-(1)(1),\; (1)(1)-(2)(-2),\; (2)(1)-(-1)(1)} = \vec{1, 5, 3}\]
+
+2. Point (set $z=0$): $2x-y = 3$ and $x+y=-4$.
+
+3. Adding: $3x=-1 \implies x=-1/3$, $y=-11/3$.
+
+4. Result: $\vect{r}(t) = \vec{-1/3 + t,\; -11/3 + 5t,\; 3t}$
+}{4.5cm}
+\end{example}
+
+%=============================================================
+\wsection{Distances}
+
+\begin{thmbox}{Distance from a Point to a Plane}
+Distance from $P_1 = (x_1, y_1, z_1)$ to $Ax+By+Cz=D$:
+\[d = \wbml{\frac{|Ax_1 + By_1 + Cz_1 - D|}{\sqrt{A^2 + B^2 + C^2}}}\]
+\end{thmbox}
+
+\begin{example}[Point-to-Plane Distance]
+Find the distance from $Q = (1,-1,-3)$ to the plane $x + 2y + 3z = 18$.
+
+\wbbox{
+1. Apply formula:
+\[d = \frac{|1+2(-1)+3(-3)-18|}{\sqrt{1+4+9}} = \frac{|1-2-9-18|}{\sqrt{14}} = \frac{28}{\sqrt{14}}\]
+
+2. Simplify: $d = \frac{28\sqrt{14}}{14} = \boxed{2\sqrt{14}}$
+}{3cm}
+\end{example}
+
+%=============================================================
+\wsection{Vector Projection onto a Plane}
+
+\begin{formulabox}{Projection onto a Plane}
+To project $\vect{a}$ onto a plane with normal $\vect{n}$:
+\[\vect{a}_{\text{plane}} = \wbml{\vect{a} - \proj_{\vect{n}}\vect{a} = \vect{a} - \frac{\vect{a}\cdot\vect{n}}{\|\vect{n}\|^2}\vect{n}}\]
+-- Subtract the normal component from the vector
+\end{formulabox}
+
+\begin{example}[Projection onto a Plane]
+Project $\vect{a} = \vec{3,4,5}$ onto the plane with normal $\vect{n} = \vec{1,1,1}$.
+
+\wbbox{
+1. Normal component:
+\[\proj_{\vect{n}}\vect{a} = \frac{3+4+5}{3}\vec{1,1,1} = 4\vec{1,1,1} = \vec{4,4,4}\]
+
+2. Plane projection:
+\[\vect{a}_{\text{plane}} = \vec{3,4,5} - \vec{4,4,4} = \vec{-1, 0, 1}\]
+
+3. Check: $\vec{-1,0,1}\cdot\vec{1,1,1} = -1+0+1 = 0$ \;\checkmark\; (perpendicular to $\vect{n}$)
+}{3.5cm}
+\end{example}
+
+%=============================================================
+\vspace{6pt}
+\textit{Show all work for full credit.}
+
+\begin{practice}
+
+\prob Write the parametric equation of the line through $P=(2,1,-3)$ in direction $\vect{d} = \vec{1,-2,4}$.
+
+\wans{$\vect{r}(t) = \wbml{\vec{2+t,\; 1-2t,\; -3+4t}}$}
+
+\vspace{2cm}
+
+\prob Find the equation of the plane through $(3,0,-1)$ with normal $\vect{n} = \vec{2,1,-5}$.
+
+\wans{\wbml{$2x+y-5z = 11$}}
+
+\vspace{2.5cm}
+
+\prob Find where the line $\vect{r}(t) = \vec{-t,\; 2t,\; t+3}$ intersects the plane $-x+y = 6$.
+
+\wans{$t = \wbm{2}$, \; point $= \wbml{(-2, 4, 5)}$}
+
+\vspace{2.5cm}
+
+\prob Find the distance from $(2, 3, -1)$ to the plane $x - 2y + 2z = 4$.
+
+\wans{$d = \wbm{10/3}$}
+
+\vspace{2.5cm}
+
+\prob Given $\Pi_1: x + 2y - z = 3$ and $\Pi_2: 2x - y + 3z = 1$: (a) find the angle between the planes, (b) find the line of intersection.
+
+Answer (a): $\theta = \wbml{\arccos\!\left(\frac{3}{2\sqrt{21}}\right) \approx 70.9^\circ}$
+
+Answer (b): $\vect{r}(t) = \wbml{\vec{1+t,\; 1-t,\; -t}}$
+
+\vspace{3cm}
+
+\end{practice}
+
+\end{document}

@@ -1,0 +1,140 @@
+\documentclass[12pt, oneside]{book}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{esint}
+\usepackage{physics}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, plainpages=false, pdfpagelabels=true}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+\definecolor{coverblue}{HTML}{1B4F72}
+\definecolor{covergold}{HTML}{D4A017}
+
+\sloppy
+\allowdisplaybreaks[4]
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\textit{Solutions Manual}}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+%-------------------- Title Page --------------------
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+
+    {\color{coverblue}\rule{\textwidth}{2pt}}
+
+    \vspace{1.5cm}
+
+    {\Huge\bfseries\color{coverblue} Solutions Manual \par}
+
+    \vspace{0.8cm}
+
+    {\Large for \par}
+
+    \vspace{0.8cm}
+
+    {\LARGE\bfseries\color{coverblue} Theories of Generalized Change \par}
+
+    \vspace{0.4cm}
+
+    {\large Second Edition \par}
+
+    \vspace{1.5cm}
+
+    {\color{coverblue}\rule{\textwidth}{2pt}}
+
+    \vspace{2cm}
+
+    {\Large Joseph J. Bab\v{c}anec \par}
+
+    \vspace{0.5cm}
+
+    {\large Bergen Community College \par}
+
+    \vfill
+
+    {\color{covergold}\rule{0.4\textwidth}{1pt}}
+
+    \vspace{0.5cm}
+
+    {\large 2026 \par}
+
+    \vspace{1cm}
+\end{titlepage}
+
+%-------------------- Copyright Page --------------------
+\newpage
+\thispagestyle{empty}
+\vspace*{4cm}
+
+\noindent Solutions Manual for\\
+\textit{Theories of Generalized Change}\\
+Second Edition
+
+\vspace{1.2cm}
+
+\noindent Copyright \copyright\ 2025, 2026 by Joseph J. Bab\v{c}anec
+
+\vspace{0.8cm}
+
+\noindent All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means---electronic, mechanical, photocopying, recording, or otherwise---without the prior written permission of the author.
+
+\vspace{1.2cm}
+
+\noindent Typeset in \LaTeX\ using the Computer Modern typeface.
+
+\vfill
+
+\noindent First Printing, 2026
+
+\clearpage
+
+%-------------------- Table of Contents --------------------
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\tableofcontents
+
+%-------------------- About This Manual --------------------
+\newpage
+\thispagestyle{empty}
+\vspace*{3cm}
+
+\begin{center}
+{\Large \textbf{About This Manual}}
+\end{center}
+
+\bigskip
+
+\noindent This manual contains complete, worked solutions to all 549 practice problems in \textit{Theories of Generalized Change}, Second Edition.
+
+\medskip
+
+\noindent Each solution is written to show the reasoning behind each step, not just the final answer. Where appropriate, we include diagrams, intermediate computations, and remarks connecting the problem to broader themes.
+
+\medskip
+
+\noindent For maximum benefit, attempt each problem on your own before consulting the solution. Mathematics is learned by doing, not by reading.
+
+%-------------------- Main Content --------------------
+\cleardoublepage
+\pagenumbering{arabic}
+
+\input{ch1_solutions}
+\input{ch2_solutions}
+\input{ch3_solutions}
+\input{ch4_solutions}
+\input{ch5_solutions}
+\input{ch6_solutions}
+\input{ch7_solutions}
+
+\end{document}

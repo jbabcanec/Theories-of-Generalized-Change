@@ -1,0 +1,929 @@
+\chapter{Chapter 1: Single-Variable Calculus, Vectors, and the Geometry of Space}
+
+\begin{enumerate}
+
+%%% Problem 1
+\item \textbf{Solution.}
+We differentiate \( f(t) = t^3 + \sin(t) + e^t \) term by term:
+\[
+f'(t) = \frac{d}{dt}(t^3) + \frac{d}{dt}(\sin t) + \frac{d}{dt}(e^t) = 3t^2 + \cos t + e^t.
+\]
+
+%%% Problem 2
+\item \textbf{Solution.}
+This is a standard limit. Direct substitution gives \( \frac{\sin 0}{0} = \frac{0}{0} \), an indeterminate form. Applying L'H\^opital's Rule:
+\[
+\lim_{t \to 0} \frac{\sin t}{t} = \lim_{t \to 0} \frac{\cos t}{1} = \cos 0 = 1.
+\]
+
+%%% Problem 3
+\item \textbf{Solution.}
+We integrate term by term:
+\[
+\int (2t + 3)\, dt = 2 \cdot \frac{t^2}{2} + 3t + C = t^2 + 3t + C.
+\]
+
+%%% Problem 4
+\item \textbf{Solution.}
+First, observe that \( f(t) = t^4 - 4t^3 + 6t^2 - 4t + 1 = (t-1)^4 \). We can verify this by expanding \( (t-1)^4 \) using the binomial theorem:
+\[
+(t-1)^4 = t^4 - 4t^3 + 6t^2 - 4t + 1.
+\]
+Now differentiate:
+\[
+f'(t) = 4(t-1)^3.
+\]
+Setting \( f'(t) = 0 \) gives \( 4(t-1)^3 = 0 \), so \( t = 1 \). The only critical point is \( t = 1 \).
+
+%%% Problem 5
+\item \textbf{Solution.}
+We apply the Ratio Test to \( \displaystyle\sum_{n=0}^{\infty} \frac{x^n}{n!} \):
+\[
+L = \lim_{n \to \infty} \left| \frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^n} \right| = \lim_{n \to \infty} \frac{|x|}{n+1} = 0.
+\]
+Since \( L = 0 < 1 \) for all \( x \), the series converges for all real numbers. The interval of convergence is \( (-\infty, \infty) \).
+
+(This is, of course, the well-known series for \( e^x \).)
+
+%%% Problem 6
+\item \textbf{Solution.}
+We evaluate:
+\begin{align*}
+\int_{1}^{\infty} \frac{1}{x^2}\, dx &= \lim_{b \to \infty} \int_{1}^{b} x^{-2}\, dx = \lim_{b \to \infty} \left[ -\frac{1}{x} \right]_1^b \\
+&= \lim_{b \to \infty} \left( -\frac{1}{b} + 1 \right) = 1.
+\end{align*}
+
+%%% Problem 7
+\item \textbf{Solution.}
+The Taylor series of \( e^x \) centered at \( x = 0 \) is \( \displaystyle\sum_{n=0}^{\infty} \frac{x^n}{n!} \). Up to the \( x^3 \) term:
+\[
+e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}.
+\]
+
+%%% Problem 8
+\item \textbf{Solution.}
+We divide numerator and denominator by \( x^3 \):
+\[
+\lim_{x \to \infty} \frac{2x^3 - x + 1}{x^3 + 4x^2} = \lim_{x \to \infty} \frac{2 - \frac{1}{x^2} + \frac{1}{x^3}}{1 + \frac{4}{x}} = \frac{2 - 0 + 0}{1 + 0} = 2.
+\]
+
+%%% Problem 9
+\item \textbf{Solution.}
+A rectangle inscribed under \( y = 4 - x^2 \) (with its base on the \( x \)-axis) has corners at \( (\pm x, 0) \) and \( (\pm x, 4 - x^2) \) for some \( x \in (0, 2) \). The area is:
+\[
+A(x) = 2x(4 - x^2) = 8x - 2x^3.
+\]
+Differentiate and set equal to zero:
+\[
+A'(x) = 8 - 6x^2 = 0 \implies x^2 = \frac{4}{3} \implies x = \frac{2}{\sqrt{3}} = \frac{2\sqrt{3}}{3}.
+\]
+We verify this is a maximum since \( A''(x) = -12x < 0 \) for \( x > 0 \). The maximum area is:
+\[
+A\!\left(\frac{2\sqrt{3}}{3}\right) = 2 \cdot \frac{2\sqrt{3}}{3}\left(4 - \frac{4}{3}\right) = \frac{4\sqrt{3}}{3} \cdot \frac{8}{3} = \frac{32\sqrt{3}}{9}.
+\]
+
+%%% Problem 10
+\item \textbf{Solution.}
+Let \( x \) be the distance from the base of the ladder to the wall and \( y \) the height of the top of the ladder. By the Pythagorean theorem:
+\[
+x^2 + y^2 = 100.
+\]
+Differentiate implicitly with respect to time \( t \):
+\[
+2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0 \implies \frac{dy}{dt} = -\frac{x}{y}\frac{dx}{dt}.
+\]
+When \( x = 6 \), we have \( y = \sqrt{100 - 36} = \sqrt{64} = 8 \). We are given \( \frac{dx}{dt} = 2 \) ft/s. Therefore:
+\[
+\frac{dy}{dt} = -\frac{6}{8}(2) = -\frac{3}{2} \text{ ft/s}.
+\]
+The top of the ladder is descending at \( \frac{3}{2} \) feet per second.
+
+%%% Problem 11
+\item \textbf{Solution.}
+Given \( (x, y, z) = (3, -3, 3) \), we convert to spherical \( (\rho, \theta, \phi) \):
+\[
+\rho = \sqrt{x^2 + y^2 + z^2} = \sqrt{9 + 9 + 9} = \sqrt{27} = 3\sqrt{3}.
+\]
+\[
+\theta = \tan^{-1}\!\left(\frac{y}{x}\right) = \tan^{-1}\!\left(\frac{-3}{3}\right) = \tan^{-1}(-1).
+\]
+Since \( x > 0 \) and \( y < 0 \), the point is in the fourth quadrant of the \( xy \)-plane, so \( \theta = -\frac{\pi}{4} \) (equivalently, \( \frac{7\pi}{4} \)).
+\[
+\phi = \cos^{-1}\!\left(\frac{z}{\rho}\right) = \cos^{-1}\!\left(\frac{3}{3\sqrt{3}}\right) = \cos^{-1}\!\left(\frac{1}{\sqrt{3}}\right).
+\]
+Thus the spherical coordinates are \( \left(3\sqrt{3},\; \dfrac{7\pi}{4},\; \cos^{-1}\!\!\left(\dfrac{1}{\sqrt{3}}\right)\right) \).
+
+%%% Problem 12
+\item \textbf{Solution.}
+Given cylindrical coordinates \( (r, \theta, z) = \left(2, \frac{\pi}{4}, -1\right) \):
+\[
+x = r\cos\theta = 2\cos\frac{\pi}{4} = 2 \cdot \frac{\sqrt{2}}{2} = \sqrt{2},
+\]
+\[
+y = r\sin\theta = 2\sin\frac{\pi}{4} = 2 \cdot \frac{\sqrt{2}}{2} = \sqrt{2},
+\]
+\[
+z = -1.
+\]
+The rectangular coordinates are \( (\sqrt{2}, \sqrt{2}, -1) \).
+
+%%% Problem 13
+\item \textbf{Solution.}
+The distance between \( (2, -1, 4) \) and \( (-3, 5, -2) \) is:
+\[
+d = \sqrt{(2-(-3))^2 + (-1-5)^2 + (4-(-2))^2} = \sqrt{25 + 36 + 36} = \sqrt{97}.
+\]
+
+%%% Problem 14
+\item \textbf{Solution.}
+Given spherical coordinates \( (\rho, \theta, \phi) = \left(5, \frac{\pi}{3}, \frac{\pi}{6}\right) \):
+\[
+x = \rho\sin\phi\cos\theta = 5\sin\frac{\pi}{6}\cos\frac{\pi}{3} = 5 \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{5}{4},
+\]
+\[
+y = \rho\sin\phi\sin\theta = 5\sin\frac{\pi}{6}\sin\frac{\pi}{3} = 5 \cdot \frac{1}{2} \cdot \frac{\sqrt{3}}{2} = \frac{5\sqrt{3}}{4},
+\]
+\[
+z = \rho\cos\phi = 5\cos\frac{\pi}{6} = 5 \cdot \frac{\sqrt{3}}{2} = \frac{5\sqrt{3}}{2}.
+\]
+The rectangular coordinates are \( \left(\dfrac{5}{4},\; \dfrac{5\sqrt{3}}{4},\; \dfrac{5\sqrt{3}}{2}\right) \).
+
+%%% Problem 15
+\item \textbf{Solution.}
+Given \( (x, y, z) = (-4, 4, \sqrt{3}) \):
+\[
+r = \sqrt{x^2 + y^2} = \sqrt{16 + 16} = \sqrt{32} = 4\sqrt{2}.
+\]
+\[
+\theta = \tan^{-1}\!\left(\frac{y}{x}\right) = \tan^{-1}\!\left(\frac{4}{-4}\right) = \tan^{-1}(-1).
+\]
+Since \( x < 0 \) and \( y > 0 \) (second quadrant), \( \theta = \pi - \frac{\pi}{4} = \frac{3\pi}{4} \).
+
+The cylindrical coordinates are \( \left(4\sqrt{2},\; \dfrac{3\pi}{4},\; \sqrt{3}\right) \).
+
+%%% Problem 16
+\item \textbf{Solution.}
+The midpoint of \( (1, 2, 3) \) and \( (-1, -2, -3) \) is:
+\[
+\left(\frac{1 + (-1)}{2},\; \frac{2 + (-2)}{2},\; \frac{3 + (-3)}{2}\right) = (0, 0, 0).
+\]
+
+%%% Problem 17
+\item \textbf{Solution.}
+The projection of \( \mathbf{v} = \langle 3, 3, 3 \rangle \) onto the \( xy \)-plane is \( \mathbf{v}_{xy} = \langle 3, 3, 0 \rangle \). The angle between \( \mathbf{v}_{xy} \) and the positive \( x \)-axis is:
+\[
+\theta = \tan^{-1}\!\left(\frac{3}{3}\right) = \tan^{-1}(1) = \frac{\pi}{4}.
+\]
+
+%%% Problem 18
+\item \textbf{Solution.}
+Given \( (x, y, z) = (0, -5, 5) \):
+\[
+\rho = \sqrt{0 + 25 + 25} = \sqrt{50} = 5\sqrt{2}.
+\]
+\[
+\theta = \tan^{-1}\!\left(\frac{-5}{0}\right).
+\]
+Since \( x = 0 \) and \( y < 0 \), we have \( \theta = \frac{3\pi}{2} \) (equivalently \( -\frac{\pi}{2} \)).
+\[
+\phi = \cos^{-1}\!\left(\frac{5}{5\sqrt{2}}\right) = \cos^{-1}\!\left(\frac{1}{\sqrt{2}}\right) = \frac{\pi}{4}.
+\]
+The spherical coordinates are \( \left(5\sqrt{2},\; \dfrac{3\pi}{2},\; \dfrac{\pi}{4}\right) \).
+
+%%% Problem 19
+\item \textbf{Solution.}
+Given \( (x, y, z) = (2\sqrt{2}, 2\sqrt{2}, -3) \):
+\[
+r = \sqrt{(2\sqrt{2})^2 + (2\sqrt{2})^2} = \sqrt{8 + 8} = \sqrt{16} = 4.
+\]
+\[
+\theta = \tan^{-1}\!\left(\frac{2\sqrt{2}}{2\sqrt{2}}\right) = \tan^{-1}(1) = \frac{\pi}{4}.
+\]
+(Both \( x > 0 \) and \( y > 0 \), so the angle is indeed in the first quadrant.)
+
+The cylindrical coordinates are \( \left(4,\; \dfrac{\pi}{4},\; -3\right) \).
+
+%%% Problem 20
+\item \textbf{Solution.}
+Given \( (x, y, z) = (-2, -2, 2\sqrt{2}) \):
+\[
+\rho = \sqrt{4 + 4 + 8} = \sqrt{16} = 4.
+\]
+\[
+\theta = \tan^{-1}\!\left(\frac{-2}{-2}\right) = \tan^{-1}(1).
+\]
+Since \( x < 0 \) and \( y < 0 \) (third quadrant), \( \theta = \pi + \frac{\pi}{4} = \frac{5\pi}{4} \).
+\[
+\phi = \cos^{-1}\!\left(\frac{2\sqrt{2}}{4}\right) = \cos^{-1}\!\left(\frac{\sqrt{2}}{2}\right) = \frac{\pi}{4}.
+\]
+The spherical coordinates are \( \left(4,\; \dfrac{5\pi}{4},\; \dfrac{\pi}{4}\right) \).
+
+%%% Problem 21
+\item \textbf{Solution.}
+Given \( (\rho, \theta, \phi) = \left(6, \frac{2\pi}{3}, \frac{\pi}{4}\right) \):
+\[
+x = 6\sin\frac{\pi}{4}\cos\frac{2\pi}{3} = 6 \cdot \frac{\sqrt{2}}{2} \cdot \left(-\frac{1}{2}\right) = -\frac{3\sqrt{2}}{2},
+\]
+\[
+y = 6\sin\frac{\pi}{4}\sin\frac{2\pi}{3} = 6 \cdot \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{3}}{2} = \frac{3\sqrt{6}}{2},
+\]
+\[
+z = 6\cos\frac{\pi}{4} = 6 \cdot \frac{\sqrt{2}}{2} = 3\sqrt{2}.
+\]
+The rectangular coordinates are \( \left(-\dfrac{3\sqrt{2}}{2},\; \dfrac{3\sqrt{6}}{2},\; 3\sqrt{2}\right) \).
+
+%%% Problem 22
+\item \textbf{Solution.}
+Given cylindrical \( (r, \theta, z) = \left(3, \frac{\pi}{6}, 4\right) \), we convert to spherical \( (\rho, \theta, \phi) \).
+
+Since \( \rho = \sqrt{r^2 + z^2} = \sqrt{9 + 16} = 5 \), and the azimuthal angle \( \theta \) stays the same:
+\[
+\theta = \frac{\pi}{6}.
+\]
+The polar angle is:
+\[
+\phi = \cos^{-1}\!\left(\frac{z}{\rho}\right) = \cos^{-1}\!\left(\frac{4}{5}\right).
+\]
+Alternatively, \( \phi = \tan^{-1}\!\left(\frac{r}{z}\right) = \tan^{-1}\!\left(\frac{3}{4}\right) \).
+
+The spherical coordinates are \( \left(5,\; \dfrac{\pi}{6},\; \cos^{-1}\!\!\left(\dfrac{4}{5}\right)\right) \).
+
+%%% Problem 23
+\item \textbf{Solution.}
+Given cylindrical \( (r, \theta, z) = \left(1, \frac{\pi}{2}, -2\right) \):
+\[
+x = r\cos\theta = 1 \cdot \cos\frac{\pi}{2} = 0,
+\]
+\[
+y = r\sin\theta = 1 \cdot \sin\frac{\pi}{2} = 1,
+\]
+\[
+z = -2.
+\]
+The rectangular coordinates are \( (0, 1, -2) \).
+
+%%% Problem 24
+\item \textbf{Solution.}
+The distance from the origin to the point \( (a, b, c) \) is:
+\[
+d = \sqrt{(a - 0)^2 + (b - 0)^2 + (c - 0)^2} = \sqrt{a^2 + b^2 + c^2}.
+\]
+
+%%% Problem 25
+\item \textbf{Solution.}
+At the origin, \( (x, y, z) = (0, 0, 0) \), we have \( \rho = \sqrt{0 + 0 + 0} = 0 \). However, the angles \( \theta \) and \( \phi \) are undefined when \( \rho = 0 \), because:
+\begin{itemize}
+    \item \( \theta = \tan^{-1}(y/x) \) is undefined when both \( x = 0 \) and \( y = 0 \).
+    \item \( \phi = \cos^{-1}(z/\rho) \) involves division by zero when \( \rho = 0 \).
+\end{itemize}
+Geometrically, the origin has no preferred direction, so no unique angles can be assigned. The convention typically used is to write the origin as \( (\rho, \theta, \phi) = (0, 0, 0) \), with the understanding that the angular coordinates are arbitrary.
+
+%%% Problem 26
+\item \textbf{Solution.}
+\[
+|\mathbf{v}| = \sqrt{3^2 + (-4)^2 + 5^2} = \sqrt{9 + 16 + 25} = \sqrt{50} = 5\sqrt{2}.
+\]
+
+%%% Problem 27
+\item \textbf{Solution.}
+First compute \( |\mathbf{v}| = \sqrt{(-2)^2 + 1^2 + 3^2} = \sqrt{4 + 1 + 9} = \sqrt{14} \). The unit vector is:
+\[
+\hat{\mathbf{v}} = \frac{\mathbf{v}}{|\mathbf{v}|} = \frac{1}{\sqrt{14}}\langle -2, 1, 3 \rangle = \left\langle -\frac{2}{\sqrt{14}},\; \frac{1}{\sqrt{14}},\; \frac{3}{\sqrt{14}} \right\rangle.
+\]
+
+%%% Problem 28
+\item \textbf{Solution.}
+\[
+\mathbf{u} \cdot \mathbf{v} = (1)(4) + (2)(0) + (3)(-1) = 4 + 0 - 3 = 1.
+\]
+
+%%% Problem 29
+\item \textbf{Solution.}
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 1 & 0 & -1 \\ 0 & 2 & 3 \end{vmatrix}.
+\]
+Expanding:
+\[
+\mathbf{u} \times \mathbf{v} = \mathbf{i}(0 \cdot 3 - (-1) \cdot 2) - \mathbf{j}(1 \cdot 3 - (-1) \cdot 0) + \mathbf{k}(1 \cdot 2 - 0 \cdot 0)
+\]
+\[
+= \mathbf{i}(0 + 2) - \mathbf{j}(3 - 0) + \mathbf{k}(2 - 0) = \langle 2, -3, 2 \rangle.
+\]
+
+%%% Problem 30
+\item \textbf{Solution.}
+We use \( \cos\theta = \dfrac{\mathbf{u} \cdot \mathbf{v}}{|\mathbf{u}||\mathbf{v}|} \).
+\[
+\mathbf{u} \cdot \mathbf{v} = (1)(3) + (2)(2) + (3)(1) = 3 + 4 + 3 = 10.
+\]
+\[
+|\mathbf{u}| = \sqrt{1 + 4 + 9} = \sqrt{14}, \quad |\mathbf{v}| = \sqrt{9 + 4 + 1} = \sqrt{14}.
+\]
+\[
+\cos\theta = \frac{10}{14} = \frac{5}{7}, \quad \theta = \cos^{-1}\!\left(\frac{5}{7}\right).
+\]
+
+%%% Problem 31
+\item \textbf{Solution.}
+We check whether \( \mathbf{v} = k\,\mathbf{u} \) for some scalar \( k \). Comparing components:
+\[
+\frac{4}{2} = 2, \quad \frac{-2}{-1} = 2, \quad \frac{0}{0} \text{ (consistent since both are 0)}.
+\]
+Since \( \mathbf{v} = 2\,\mathbf{u} \), the vectors are linearly dependent. \qed
+
+%%% Problem 32
+\item \textbf{Solution.}
+The area of the parallelogram is \( |\mathbf{u} \times \mathbf{v}| \). Compute:
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 1 & 0 & 1 \\ 0 & 2 & 1 \end{vmatrix} = \mathbf{i}(0 - 2) - \mathbf{j}(1 - 0) + \mathbf{k}(2 - 0) = \langle -2, -1, 2 \rangle.
+\]
+\[
+|\mathbf{u} \times \mathbf{v}| = \sqrt{4 + 1 + 4} = \sqrt{9} = 3.
+\]
+
+%%% Problem 33
+\item \textbf{Solution.}
+A vector orthogonal to both \( \mathbf{u} \) and \( \mathbf{v} \) is given by \( \mathbf{u} \times \mathbf{v} \):
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 1 & -1 & 0 \\ 2 & 1 & -1 \end{vmatrix} = \mathbf{i}((-1)(-1) - (0)(1)) - \mathbf{j}((1)(-1) - (0)(2)) + \mathbf{k}((1)(1) - (-1)(2))
+\]
+\[
+= \mathbf{i}(1) - \mathbf{j}(-1) + \mathbf{k}(3) = \langle 1, 1, 3 \rangle.
+\]
+
+%%% Problem 34
+\item \textbf{Solution.}
+Three vectors in \( \mathbb{R}^3 \) are linearly independent if and only if their scalar triple product is nonzero. Compute:
+\[
+\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) = \begin{vmatrix} 3 & -1 & 2 \\ 4 & 0 & -2 \\ 1 & 5 & -1 \end{vmatrix}.
+\]
+Expanding along the first row:
+\[
+= 3\begin{vmatrix} 0 & -2 \\ 5 & -1 \end{vmatrix} - (-1)\begin{vmatrix} 4 & -2 \\ 1 & -1 \end{vmatrix} + 2\begin{vmatrix} 4 & 0 \\ 1 & 5 \end{vmatrix}
+\]
+\[
+= 3(0 - (-10)) + 1(-4 - (-2)) + 2(20 - 0)
+\]
+\[
+= 3(10) + 1(-2) + 2(20) = 30 - 2 + 40 = 68.
+\]
+Since the scalar triple product is \( 68 \neq 0 \), the vectors are linearly independent.
+
+%%% Problem 35
+\item \textbf{Solution.}
+The projection of \( \mathbf{u} \) onto \( \mathbf{v} \) is:
+\[
+\text{proj}_{\mathbf{v}}\,\mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{|\mathbf{v}|^2}\,\mathbf{v}.
+\]
+Compute:
+\[
+\mathbf{u} \cdot \mathbf{v} = (4)(1) + (-2)(0) + (1)(3) = 4 + 0 + 3 = 7, \quad |\mathbf{v}|^2 = 1 + 0 + 9 = 10.
+\]
+\[
+\text{proj}_{\mathbf{v}}\,\mathbf{u} = \frac{7}{10}\langle 1, 0, 3 \rangle = \left\langle \frac{7}{10}, 0, \frac{21}{10} \right\rangle.
+\]
+
+%%% Problem 36
+\item \textbf{Solution.}
+\[
+\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) = \begin{vmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{vmatrix}.
+\]
+Expanding along the first row:
+\[
+= 1(45 - 48) - 2(36 - 42) + 3(32 - 35) = 1(-3) - 2(-6) + 3(-3) = -3 + 12 - 9 = 0.
+\]
+
+%%% Problem 37
+\item \textbf{Solution.}
+The volume of the parallelepiped is \( |\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})| \) where \( \mathbf{u} = \langle 1, 2, 0 \rangle \), \( \mathbf{v} = \langle 0, 1, 3 \rangle \), \( \mathbf{w} = \langle 2, 0, 1 \rangle \).
+\[
+\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) = \begin{vmatrix} 1 & 2 & 0 \\ 0 & 1 & 3 \\ 2 & 0 & 1 \end{vmatrix}.
+\]
+Expanding along the first row:
+\[
+= 1(1 \cdot 1 - 3 \cdot 0) - 2(0 \cdot 1 - 3 \cdot 2) + 0(0 \cdot 0 - 1 \cdot 2)
+\]
+\[
+= 1(1) - 2(-6) + 0 = 1 + 12 = 13.
+\]
+The volume is \( |13| = 13 \).
+
+%%% Problem 38
+\item \textbf{Solution.}
+The scalar component of \( \mathbf{a} \) along \( \mathbf{b} \) is:
+\[
+\text{comp}_{\mathbf{b}}\,\mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{b}|}.
+\]
+Compute:
+\[
+\mathbf{a} \cdot \mathbf{b} = (5)(1) + (2)(-1) + (-3)(2) = 5 - 2 - 6 = -3, \quad |\mathbf{b}| = \sqrt{1 + 1 + 4} = \sqrt{6}.
+\]
+\[
+\text{comp}_{\mathbf{b}}\,\mathbf{a} = \frac{-3}{\sqrt{6}} = -\frac{3}{\sqrt{6}} = -\frac{3\sqrt{6}}{6} = -\frac{\sqrt{6}}{2}.
+\]
+
+%%% Problem 39
+\item \textbf{Solution.}
+First compute \( \mathbf{w} = \mathbf{u} \times \mathbf{v} \):
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 2 & 3 & 4 \\ -1 & 0 & 1 \end{vmatrix} = \mathbf{i}(3 - 0) - \mathbf{j}(2 - (-4)) + \mathbf{k}(0 - (-3)) = \langle 3, -6, 3 \rangle.
+\]
+\[
+|\mathbf{w}| = \sqrt{9 + 36 + 9} = \sqrt{54} = 3\sqrt{6}.
+\]
+
+%%% Problem 40
+\item \textbf{Solution.}
+\[
+\mathbf{a} \cdot \mathbf{b} = (2)(1) + (-1)(4) + (3)(-2) = 2 - 4 - 6 = -8.
+\]
+\[
+|\mathbf{a}| = \sqrt{4 + 1 + 9} = \sqrt{14}, \quad |\mathbf{b}| = \sqrt{1 + 16 + 4} = \sqrt{21}.
+\]
+\[
+\cos\theta = \frac{-8}{\sqrt{14}\sqrt{21}} = \frac{-8}{\sqrt{294}} = \frac{-8}{7\sqrt{6}}, \quad \theta = \cos^{-1}\!\left(\frac{-8}{7\sqrt{6}}\right).
+\]
+
+%%% Problem 41
+\item \textbf{Solution.}
+Three vectors are coplanar if and only if their scalar triple product is zero. Compute:
+\[
+\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) = \begin{vmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{vmatrix}.
+\]
+This is the same determinant as in Problem 36:
+\[
+= 1(45 - 48) - 2(36 - 42) + 3(32 - 35) = -3 + 12 - 9 = 0.
+\]
+Since the scalar triple product is zero, the vectors are coplanar.
+
+We can also verify directly: \( \mathbf{w} = 2\mathbf{v} - \mathbf{u} \), since \( 2\langle 4,5,6\rangle - \langle 1,2,3\rangle = \langle 7,8,9\rangle \). \qed
+
+%%% Problem 42
+\item \textbf{Solution.}
+The area of the triangle formed by \( \mathbf{u} \) and \( \mathbf{v} \) is \( \frac{1}{2}|\mathbf{u} \times \mathbf{v}| \):
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 2 & 0 & -1 \\ 1 & 3 & 4 \end{vmatrix} = \mathbf{i}(0 + 3) - \mathbf{j}(8 + 1) + \mathbf{k}(6 - 0) = \langle 3, -9, 6 \rangle.
+\]
+\[
+|\mathbf{u} \times \mathbf{v}| = \sqrt{9 + 81 + 36} = \sqrt{126} = 3\sqrt{14}.
+\]
+The area of the triangle is \( \dfrac{3\sqrt{14}}{2} \).
+
+%%% Problem 43
+\item \textbf{Solution.}
+\[
+\text{proj}_{\mathbf{b}}\,\mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{b}|^2}\,\mathbf{b}.
+\]
+Compute:
+\[
+\mathbf{a} \cdot \mathbf{b} = (3)(4) + (-2)(0) + (1)(-1) = 12 + 0 - 1 = 11, \quad |\mathbf{b}|^2 = 16 + 0 + 1 = 17.
+\]
+\[
+\text{proj}_{\mathbf{b}}\,\mathbf{a} = \frac{11}{17}\langle 4, 0, -1 \rangle = \left\langle \frac{44}{17}, 0, -\frac{11}{17} \right\rangle.
+\]
+
+%%% Problem 44
+\item \textbf{Solution.}
+Two vectors are orthogonal if and only if their dot product is zero:
+\[
+\mathbf{u} \cdot \mathbf{v} = (2)(-1) + (4)(-2) + (6)(-3) = -2 - 8 - 18 = -28.
+\]
+Since \( \mathbf{u} \cdot \mathbf{v} = -28 \neq 0 \), the vectors are \textbf{not} orthogonal.
+
+(In fact, \( \mathbf{v} = -\frac{1}{2}\mathbf{u} \), so the vectors are antiparallel.)
+
+%%% Problem 45
+\item \textbf{Solution.}
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 0 & 1 & 2 \\ 3 & 4 & 5 \end{vmatrix} = \mathbf{i}(5 - 8) - \mathbf{j}(0 - 6) + \mathbf{k}(0 - 3) = \langle -3, 6, -3 \rangle.
+\]
+
+%%% Problem 46
+\item \textbf{Solution.}
+A vector perpendicular to the plane defined by \( \mathbf{u} = \langle 1, 2, 3 \rangle \) and \( \mathbf{v} = \langle 4, 5, 6 \rangle \) is \( \mathbf{u} \times \mathbf{v} \):
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 1 & 2 & 3 \\ 4 & 5 & 6 \end{vmatrix} = \mathbf{i}(12 - 15) - \mathbf{j}(6 - 12) + \mathbf{k}(5 - 8) = \langle -3, 6, -3 \rangle.
+\]
+The magnitude is:
+\[
+|\mathbf{u} \times \mathbf{v}| = \sqrt{9 + 36 + 9} = \sqrt{54} = 3\sqrt{6}.
+\]
+The unit vector is:
+\[
+\hat{\mathbf{n}} = \frac{1}{3\sqrt{6}}\langle -3, 6, -3 \rangle = \left\langle -\frac{1}{\sqrt{6}},\; \frac{2}{\sqrt{6}},\; -\frac{1}{\sqrt{6}} \right\rangle.
+\]
+
+%%% Problem 47
+\item \textbf{Solution.}
+We have \( \mathbf{a} = \langle 1, 0, 2 \rangle \), \( \mathbf{b} = \langle 0, 1, 1 \rangle \), and \( \mathbf{c} = \langle 1, 1, 3 \rangle \). Check the scalar triple product:
+\[
+\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) = \begin{vmatrix} 1 & 0 & 2 \\ 0 & 1 & 1 \\ 1 & 1 & 3 \end{vmatrix} = 1(3 - 1) - 0(0 - 1) + 2(0 - 1) = 2 - 0 - 2 = 0.
+\]
+Since the scalar triple product is zero, the vectors are linearly dependent.
+
+Indeed, we can verify directly: \( \mathbf{c} = \mathbf{a} + \mathbf{b} \), since \( \langle 1, 0, 2 \rangle + \langle 0, 1, 1 \rangle = \langle 1, 1, 3 \rangle \).
+
+%%% Problem 48
+\item \textbf{Solution.}
+\[
+\mathbf{u} \cdot \mathbf{v} = (5)(-1) + (-2)(3) + (4)(2) = -5 - 6 + 8 = -3.
+\]
+
+%%% Problem 49
+\item \textbf{Solution.}
+\[
+\mathbf{u} \cdot \mathbf{v} = (7)(4) + (0)(-3) + (-5)(2) = 28 + 0 - 10 = 18.
+\]
+\[
+|\mathbf{u}| = \sqrt{49 + 0 + 25} = \sqrt{74}, \quad |\mathbf{v}| = \sqrt{16 + 9 + 4} = \sqrt{29}.
+\]
+\[
+\cos\theta = \frac{18}{\sqrt{74}\sqrt{29}} = \frac{18}{\sqrt{2146}}, \quad \theta = \cos^{-1}\!\left(\frac{18}{\sqrt{2146}}\right).
+\]
+
+%%% Problem 50
+\item \textbf{Solution.}
+Two vectors are parallel if and only if one is a scalar multiple of the other, i.e., \( \mathbf{v} = k\,\mathbf{u} \) for some scalar \( k \). Comparing components:
+\[
+\frac{4}{1} = 4, \quad \frac{-1}{3} = -\frac{1}{3}, \quad \frac{5}{-2} = -\frac{5}{2}.
+\]
+Since these ratios are not equal (\( 4 \neq -\frac{1}{3} \neq -\frac{5}{2} \)), there is no scalar \( k \) such that \( \mathbf{v} = k\,\mathbf{u} \). Therefore, \( \mathbf{u} \) and \( \mathbf{v} \) are not parallel. \qed
+
+%%% Problem 51
+\item \textbf{Solution.}
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 3 & -1 & 2 \\ -2 & 4 & 1 \end{vmatrix} = \mathbf{i}(-1 - 8) - \mathbf{j}(3 - (-4)) + \mathbf{k}(12 - 2) = \langle -9, -7, 10 \rangle.
+\]
+\[
+|\mathbf{u} \times \mathbf{v}| = \sqrt{81 + 49 + 100} = \sqrt{230}.
+\]
+
+%%% Problem 52
+\item \textbf{Solution.}
+\[
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 2 & -3 & 1 \\ 4 & 0 & -2 \end{vmatrix} = \mathbf{i}((-3)(-2) - (1)(0)) - \mathbf{j}((2)(-2) - (1)(4)) + \mathbf{k}((2)(0) - (-3)(4))
+\]
+\[
+= \mathbf{i}(6) - \mathbf{j}(-8) + \mathbf{k}(12) = \langle 6, 8, 12 \rangle.
+\]
+A vector orthogonal to both \( \mathbf{u} \) and \( \mathbf{v} \) is \( \langle 6, 8, 12 \rangle \) (or equivalently, \( \langle 3, 4, 6 \rangle \)).
+
+%%% Problem 53
+\item \textbf{Solution.}
+The direction vector from \( (1, 0, -1) \) to \( (2, 3, 4) \) is:
+\[
+\mathbf{d} = \langle 2 - 1,\; 3 - 0,\; 4 - (-1) \rangle = \langle 1, 3, 5 \rangle.
+\]
+Using the point \( (1, 0, -1) \), the parametric equations of the line are:
+\[
+x = 1 + t, \quad y = 3t, \quad z = -1 + 5t,
+\]
+or equivalently, \( \mathbf{r}(t) = \langle 1 + t,\; 3t,\; -1 + 5t \rangle \).
+
+%%% Problem 54
+\item \textbf{Solution.}
+Let \( A = (1, 2, 3) \), \( B = (-1, 0, 4) \), \( C = (3, -2, 1) \). Form two vectors in the plane:
+\[
+\overrightarrow{AB} = \langle -2, -2, 1 \rangle, \quad \overrightarrow{AC} = \langle 2, -4, -2 \rangle.
+\]
+The normal vector is:
+\[
+\mathbf{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ -2 & -2 & 1 \\ 2 & -4 & -2 \end{vmatrix} = \mathbf{i}(4 + 4) - \mathbf{j}(4 - 2) + \mathbf{k}(8 + 4) = \langle 8, -2, 12 \rangle.
+\]
+We can simplify by dividing by 2: \( \mathbf{n} = \langle 4, -1, 6 \rangle \).
+
+Using point \( A = (1, 2, 3) \):
+\[
+4(x - 1) - 1(y - 2) + 6(z - 3) = 0 \implies 4x - y + 6z = 20.
+\]
+
+%%% Problem 55
+\item \textbf{Solution.}
+The line is \( \mathbf{r}(t) = \langle 1 + t,\; 2 - t,\; 3t \rangle \), so \( x = 1 + t \), \( y = 2 - t \), \( z = 3t \). Substitute into \( x - y + z = 5 \):
+\[
+(1 + t) - (2 - t) + 3t = 5 \implies 1 + t - 2 + t + 3t = 5 \implies 5t - 1 = 5 \implies t = \frac{6}{5}.
+\]
+Substituting back:
+\[
+x = 1 + \frac{6}{5} = \frac{11}{5}, \quad y = 2 - \frac{6}{5} = \frac{4}{5}, \quad z = 3 \cdot \frac{6}{5} = \frac{18}{5}.
+\]
+The point of intersection is \( \left(\dfrac{11}{5},\; \dfrac{4}{5},\; \dfrac{18}{5}\right) \).
+
+%%% Problem 56
+\item \textbf{Solution.}
+The direction vector of \( \mathbf{r}_1 \) is \( \mathbf{d}_1 = \langle 1, 2, 3 \rangle \) and of \( \mathbf{r}_2 \) is \( \mathbf{d}_2 = \langle 1, 0, 3 \rangle \).
+
+\textit{Parallel check:} The vectors \( \mathbf{d}_1 \) and \( \mathbf{d}_2 \) are not scalar multiples (since \( 1/1 = 1 \) but \( 2/0 \) is undefined), so the lines are not parallel.
+
+\textit{Intersection check:} Set \( \mathbf{r}_1(t) = \mathbf{r}_2(s) \):
+\[
+t = 1 + s, \quad 2t = 2, \quad 3t = 3s.
+\]
+From the second equation, \( t = 1 \). From the first equation, \( s = t - 1 = 0 \). Check the third: \( 3(1) = 3(0) \) gives \( 3 = 0 \), a contradiction.
+
+Since the lines are not parallel and do not intersect, they are \textbf{skew}.
+
+%%% Problem 57
+\item \textbf{Solution.}
+The line is \( \mathbf{r}(t) = \langle 2t,\; 1 - t,\; 1 + t \rangle \).
+
+\textit{Intersection with \( \Pi_1: x + 2y + 3z = 7 \):}
+\[
+2t + 2(1 - t) + 3(1 + t) = 7 \implies 2t + 2 - 2t + 3 + 3t = 7 \implies 3t + 5 = 7 \implies t_1 = \frac{2}{3}.
+\]
+Point: \( P_1 = \left(\frac{4}{3},\; \frac{1}{3},\; \frac{5}{3}\right) \).
+
+\textit{Intersection with \( \Pi_2: -2x - y - z = 2 \):}
+\[
+-2(2t) - (1 - t) - (1 + t) = 2 \implies -4t - 1 + t - 1 - t = 2 \implies -4t - 2 = 2 \implies t_2 = -1.
+\]
+Point: \( P_2 = (-2,\; 2,\; 0) \).
+
+\textit{Length of the segment:} The direction vector of \( \mathbf{r}(t) \) is \( \mathbf{d} = \langle 2, -1, 1 \rangle \), so \( |\mathbf{d}| = \sqrt{4 + 1 + 1} = \sqrt{6} \). The length from \( P_1 \) to \( P_2 \) is:
+\[
+L = |t_2 - t_1| \cdot |\mathbf{d}| = \left|-1 - \frac{2}{3}\right| \cdot \sqrt{6} = \frac{5}{3}\sqrt{6}.
+\]
+
+%%% Problem 58
+\item \textbf{Solution.}
+The line is \( \mathbf{r}(t) = \langle t, t, t \rangle \) with direction \( \mathbf{d} = \langle 1, 1, 1 \rangle \), passing through the origin. The point is \( Q = (1, 0, 2) \). Let \( \overrightarrow{PQ} = \langle 1, 0, 2 \rangle \) (from the origin to \( Q \)).
+
+The shortest distance from a point to a line is:
+\[
+\text{dist} = \frac{|\overrightarrow{PQ} \times \mathbf{d}|}{|\mathbf{d}|}.
+\]
+Compute:
+\[
+\overrightarrow{PQ} \times \mathbf{d} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 1 & 0 & 2 \\ 1 & 1 & 1 \end{vmatrix} = \mathbf{i}(0 - 2) - \mathbf{j}(1 - 2) + \mathbf{k}(1 - 0) = \langle -2, 1, 1 \rangle.
+\]
+\[
+|\overrightarrow{PQ} \times \mathbf{d}| = \sqrt{4 + 1 + 1} = \sqrt{6}, \quad |\mathbf{d}| = \sqrt{3}.
+\]
+\[
+\text{dist} = \frac{\sqrt{6}}{\sqrt{3}} = \sqrt{2}.
+\]
+
+%%% Problem 59
+\item \textbf{Solution.}
+We need to find the line of intersection of \( x + y + z = 1 \) and \( 2x - y + 3z = 4 \).
+
+\textit{Direction vector:} The direction of the line is perpendicular to both normal vectors \( \mathbf{n}_1 = \langle 1, 1, 1 \rangle \) and \( \mathbf{n}_2 = \langle 2, -1, 3 \rangle \):
+\[
+\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2 = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ 1 & 1 & 1 \\ 2 & -1 & 3 \end{vmatrix} = \mathbf{i}(3 + 1) - \mathbf{j}(3 - 2) + \mathbf{k}(-1 - 2) = \langle 4, -1, -3 \rangle.
+\]
+
+\textit{Find a point on the line:} Set \( z = 0 \). Then:
+\[
+x + y = 1 \quad \text{and} \quad 2x - y = 4.
+\]
+Adding: \( 3x = 5 \), so \( x = \frac{5}{3} \), \( y = 1 - \frac{5}{3} = -\frac{2}{3} \). A point is \( \left(\frac{5}{3}, -\frac{2}{3}, 0\right) \).
+
+The parametric equations of the line of intersection are:
+\[
+x = \frac{5}{3} + 4t, \quad y = -\frac{2}{3} - t, \quad z = -3t.
+\]
+
+%%% Problem 60
+\item \textbf{Solution.}
+The distance between parallel planes \( ax + by + cz = d_1 \) and \( ax + by + cz = d_2 \) is:
+\[
+\text{dist} = \frac{|d_1 - d_2|}{\sqrt{a^2 + b^2 + c^2}}.
+\]
+Here, \( d_1 = 5 \), \( d_2 = -3 \), and \( \sqrt{1 + 4 + 4} = 3 \):
+\[
+\text{dist} = \frac{|5 - (-3)|}{3} = \frac{8}{3}.
+\]
+
+%%% Problem 61
+\item \textbf{Solution.}
+The plane \( 3x - 2y + z = 7 \) has normal vector \( \mathbf{n} = \langle 3, -2, 1 \rangle \). A line perpendicular to the plane has direction \( \mathbf{n} \). Through the point \( (2, -1, 4) \):
+\[
+x = 2 + 3t, \quad y = -1 - 2t, \quad z = 4 + t.
+\]
+
+%%% Problem 62
+\item \textbf{Solution.}
+The line has direction \( \mathbf{d} = \langle 2, -1, 4 \rangle \). The plane \( 2x - 3y + z = 7 \) has normal \( \mathbf{n} = \langle 2, -3, 1 \rangle \).
+
+The angle \( \phi \) between a line and a plane satisfies:
+\[
+\sin\phi = \frac{|\mathbf{d} \cdot \mathbf{n}|}{|\mathbf{d}||\mathbf{n}|}.
+\]
+Compute:
+\[
+\mathbf{d} \cdot \mathbf{n} = (2)(2) + (-1)(-3) + (4)(1) = 4 + 3 + 4 = 11.
+\]
+\[
+|\mathbf{d}| = \sqrt{4 + 1 + 16} = \sqrt{21}, \quad |\mathbf{n}| = \sqrt{4 + 9 + 1} = \sqrt{14}.
+\]
+\[
+\sin\phi = \frac{11}{\sqrt{21}\sqrt{14}} = \frac{11}{\sqrt{294}} = \frac{11}{7\sqrt{6}}, \quad \phi = \sin^{-1}\!\left(\frac{11}{7\sqrt{6}}\right).
+\]
+
+%%% Problem 63
+\item \textbf{Solution.}
+A plane with normal \( \mathbf{n} = \langle 3, -2, 5 \rangle \) passing through \( (2, -1, 4) \) has equation:
+\[
+3(x - 2) - 2(y + 1) + 5(z - 4) = 0 \implies 3x - 2y + 5z = 28.
+\]
+
+%%% Problem 64
+\item \textbf{Solution.}
+Substituting \( z = 3 \) into \( x^2 + y^2 + z^2 = 25 \):
+\[
+x^2 + y^2 + 9 = 25 \implies x^2 + y^2 = 16.
+\]
+The intersection is a circle of radius 4 in the plane \( z = 3 \), centered at \( (0, 0, 3) \).
+
+Parametrically: \( x = 4\cos t \), \( y = 4\sin t \), \( z = 3 \), for \( t \in [0, 2\pi) \).
+
+%%% Problem 65
+\item \textbf{Solution.}
+A line parallel to \( \mathbf{v} = \langle 2, -1, 3 \rangle \) through \( (-1, 4, 2) \):
+\[
+x = -1 + 2t, \quad y = 4 - t, \quad z = 2 + 3t.
+\]
+Or equivalently, \( \mathbf{r}(t) = \langle -1 + 2t,\; 4 - t,\; 2 + 3t \rangle \).
+
+%%% Problem 66
+\item \textbf{Solution.}
+Set \( \mathbf{r}_1(t) = \mathbf{r}_2(s) \):
+\[
+1 + t = 4 - s, \quad 2 - t = -1 + s, \quad 3 + 2t = 5 + s.
+\]
+From equation 1: \( t + s = 3 \). From equation 2: \( -t - s = -3 \), i.e., \( t + s = 3 \). These are consistent.
+
+From equation 1: \( s = 3 - t \). Substitute into equation 3:
+\[
+3 + 2t = 5 + (3 - t) = 8 - t \implies 3t = 5 \implies t = \frac{5}{3}.
+\]
+Then \( s = 3 - \frac{5}{3} = \frac{4}{3} \).
+
+Verification: \( \mathbf{r}_1\!\left(\frac{5}{3}\right) = \left\langle \frac{8}{3},\; \frac{1}{3},\; \frac{19}{3} \right\rangle \) and \( \mathbf{r}_2\!\left(\frac{4}{3}\right) = \left\langle 4 - \frac{4}{3},\; -1 + \frac{4}{3},\; 5 + \frac{4}{3} \right\rangle = \left\langle \frac{8}{3},\; \frac{1}{3},\; \frac{19}{3} \right\rangle \).
+
+The lines intersect at \( \left(\dfrac{8}{3},\; \dfrac{1}{3},\; \dfrac{19}{3}\right) \).
+
+%%% Problem 67
+\item \textbf{Solution.}
+For the surface \( F(x,y,z) = x^2 + 2y^2 + 3z^2 = 6 \), the gradient is:
+\[
+\nabla F = \langle 2x, 4y, 6z \rangle.
+\]
+At the point \( (1, 1, 1) \):
+\[
+\nabla F(1,1,1) = \langle 2, 4, 6 \rangle.
+\]
+The tangent plane is:
+\[
+2(x - 1) + 4(y - 1) + 6(z - 1) = 0 \implies 2x + 4y + 6z = 12,
+\]
+or equivalently, \( x + 2y + 3z = 6 \).
+
+%%% Problem 68
+\item \textbf{Solution.}
+The two lines are \( \mathbf{r}_1(t) = \langle t, 2t, 3t \rangle \) (direction \( \mathbf{d}_1 = \langle 1, 2, 3 \rangle \)) and \( \mathbf{r}_2(s) = \langle 1 + s, 2 + s, 3 + s \rangle \) (direction \( \mathbf{d}_2 = \langle 1, 1, 1 \rangle \)).
+
+The vector connecting a general point on \( \mathbf{r}_1 \) to a general point on \( \mathbf{r}_2 \) is:
+\[
+\mathbf{w}(t,s) = \mathbf{r}_2(s) - \mathbf{r}_1(t) = \langle 1 + s - t,\; 2 + s - 2t,\; 3 + s - 3t \rangle.
+\]
+The shortest segment is perpendicular to both lines, so we require \( \mathbf{w} \cdot \mathbf{d}_1 = 0 \) and \( \mathbf{w} \cdot \mathbf{d}_2 = 0 \).
+
+\( \mathbf{w} \cdot \mathbf{d}_1 = 0 \):
+\[
+(1 + s - t) + 2(2 + s - 2t) + 3(3 + s - 3t) = 0
+\]
+\[
+1 + s - t + 4 + 2s - 4t + 9 + 3s - 9t = 0 \implies 6s - 14t + 14 = 0 \implies 3s - 7t = -7. \quad (*)
+\]
+
+\( \mathbf{w} \cdot \mathbf{d}_2 = 0 \):
+\[
+(1 + s - t) + (2 + s - 2t) + (3 + s - 3t) = 0
+\]
+\[
+6 + 3s - 6t = 0 \implies s - 2t = -2. \quad (**)
+\]
+
+From \( (**) \): \( s = 2t - 2 \). Substitute into \( (*) \):
+\[
+3(2t - 2) - 7t = -7 \implies 6t - 6 - 7t = -7 \implies -t = -1 \implies t = 1.
+\]
+Then \( s = 2(1) - 2 = 0 \).
+
+The closest points are:
+\[
+\mathbf{r}_1(1) = \langle 1, 2, 3 \rangle \quad \text{and} \quad \mathbf{r}_2(0) = \langle 1, 2, 3 \rangle.
+\]
+The two lines actually intersect at \( (1, 2, 3) \), so the shortest ``segment'' has length \( 0 \).
+
+%%% Problem 69
+\item \textbf{Solution.}
+The curve is given by \( x = t \), \( y = \sin t \), \( z = \cos t \). Observe that:
+\[
+y^2 + z^2 = \sin^2 t + \cos^2 t = 1.
+\]
+This is the equation of a circular cylinder of radius 1 centered on the \( x \)-axis: \( y^2 + z^2 = 1 \).
+
+\textit{Proof.} For every point \( (t, \sin t, \cos t) \) on the curve, we have \( y^2 + z^2 = \sin^2 t + \cos^2 t = 1 \) by the Pythagorean identity. Therefore, every point on the curve satisfies the cylinder equation \( y^2 + z^2 = 1 \), which is a (circular) cylinder -- a quadric surface. \qed
+
+%%% Problem 70
+\item \textbf{Solution.}
+Substituting \( y = 1 \) into \( x^2 - y^2 - z^2 = 4 \):
+\[
+x^2 - 1 - z^2 = 4 \implies x^2 - z^2 = 5.
+\]
+This is a hyperbola in the \( xz \)-plane (at \( y = 1 \)).
+
+%%% Problem 71
+\item \textbf{Solution.}
+The cylinder \( x^2 + y^2 = 9 \) has radius \( r = 3 \). Between \( z = 0 \) and \( z = 5 \), the lateral surface area is:
+\[
+A = 2\pi r \cdot h = 2\pi(3)(5) = 30\pi.
+\]
+
+%%% Problem 72
+\item \textbf{Solution.}
+An ellipsoid with semi-axes \( a = 3 \), \( b = 4 \), \( c = 5 \) along the \( x \)-, \( y \)-, and \( z \)-axes has equation:
+\[
+\frac{x^2}{9} + \frac{y^2}{16} + \frac{z^2}{25} = 1.
+\]
+
+%%% Problem 73
+\item \textbf{Solution.}
+The parabola \( z = x^2 \) lies in the \( xz \)-plane. When rotated about the \( z \)-axis, each point \( (x, 0, x^2) \) traces a circle of radius \( |x| \) in the horizontal plane at height \( z = x^2 \). For a general point \( (x, y, z) \) on the surface, the distance from the \( z \)-axis is \( r = \sqrt{x^2 + y^2} \), and this equals \( |x_0| \) where \( z = x_0^2 \). Therefore:
+\[
+z = r^2 = x^2 + y^2.
+\]
+The Cartesian equation of the paraboloid is \( z = x^2 + y^2 \).
+
+%%% Problem 74
+\item \textbf{Solution.}
+The original parametric equation is \( \mathbf{r}(t) = (1 - t)\mathbf{P}_0 + t\,\mathbf{P}_1 \) for \( t \in [0, 1] \). At \( t = 0 \), we get \( \mathbf{P}_0 \); at \( t = 1 \), we get \( \mathbf{P}_1 \).
+
+If we want the parameter \( t \) to range over \( [0, a] \) instead, we need \( t = 0 \) to give \( \mathbf{P}_0 \) and \( t = a \) to give \( \mathbf{P}_1 \). We substitute \( t/a \) for the original parameter:
+\[
+\mathbf{r}(t) = \left(1 - \frac{t}{a}\right)\mathbf{P}_0 + \frac{t}{a}\,\mathbf{P}_1, \quad t \in [0, a].
+\]
+This is equivalent to reparametrizing by \( u = t/a \), where \( u \in [0, 1] \).
+
+%%% Problem 75
+\item \textbf{Solution.}
+The equation \( x^2 + y^2 - z^2 = 1 \) can be written as:
+\[
+\frac{x^2}{1} + \frac{y^2}{1} - \frac{z^2}{1} = 1.
+\]
+This is a \textbf{hyperboloid of one sheet}. Its cross-sections at constant \( z = z_0 \) are circles \( x^2 + y^2 = 1 + z_0^2 \) of radius \( \sqrt{1 + z_0^2} \), and its cross-sections at constant \( x \) or \( y \) are hyperbolas.
+
+%%% Problem 76
+\item \textbf{Solution.}
+The cylinder \( x^2 + y^2 = 4 \) can be parametrized as \( x = 2\cos t \), \( y = 2\sin t \). On the plane \( z = x + y \):
+\[
+z = 2\cos t + 2\sin t.
+\]
+The parametric equations for the intersection curve are:
+\[
+x = 2\cos t, \quad y = 2\sin t, \quad z = 2\cos t + 2\sin t, \quad t \in [0, 2\pi).
+\]
+
+%%% Problem 77
+\item \textbf{Solution.}
+Rewrite \( x^2 + y^2 - 4z = 0 \) as:
+\[
+z = \frac{x^2 + y^2}{4} = \frac{x^2}{4} + \frac{y^2}{4}.
+\]
+This has the standard form \( z = \dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} \) with \( a = b = 2 \). Since the coefficients of \( x^2 \) and \( y^2 \) are both positive and equal, this is a \textbf{circular paraboloid}, which is a special case of an elliptic paraboloid. The surface opens upward along the \( z \)-axis.
+
+Therefore, \( x^2 + y^2 - 4z = 0 \) is indeed an elliptic paraboloid.
+
+%%% Problem 78
+\item \textbf{Solution.}
+We compute the volume of the spherical cap of \( x^2 + y^2 + z^2 = 4 \) (radius \( R = 2 \)) above the plane \( z = 1 \).
+
+Using the disk method, for \( z \in [1, 2] \) (the sphere extends from \( z = -2 \) to \( z = 2 \)), each horizontal cross-section at height \( z \) is a disk of radius \( r = \sqrt{4 - z^2} \):
+\[
+V = \int_{1}^{2} \pi(4 - z^2)\, dz = \pi \left[ 4z - \frac{z^3}{3} \right]_1^2 = \pi \left[\left(8 - \frac{8}{3}\right) - \left(4 - \frac{1}{3}\right)\right]
+\]
+\[
+= \pi \left[\frac{16}{3} - \frac{11}{3}\right] = \frac{5\pi}{3}.
+\]
+
+This is the volume of the cap above \( z = 1 \). If the problem asks for the volume enclosed between the sphere and the plane (i.e., the larger piece below \( z = 1 \)), we compute the total volume of the sphere minus the cap:
+\[
+V_{\text{sphere}} = \frac{4}{3}\pi (2)^3 = \frac{32\pi}{3}.
+\]
+\[
+V_{\text{below}} = \frac{32\pi}{3} - \frac{5\pi}{3} = \frac{27\pi}{3} = 9\pi.
+\]
+
+The volume of the spherical cap above \( z = 1 \) is \( \dfrac{5\pi}{3} \), and the volume of the region below \( z = 1 \) inside the sphere is \( 9\pi \).
+
+%%% Problem 79
+\item \textbf{Solution.}
+The parabola \( z = x^2 \) lies in the \( xz \)-plane. When rotated about the \( z \)-axis, each point at distance \( |x| \) from the axis sweeps out a circle of radius \( |x| \). For a general point \( (x, y, z) \) on the resulting surface, the distance from the \( z \)-axis is \( \sqrt{x^2 + y^2} \), which plays the role of \( |x| \). Therefore:
+\[
+z = (\sqrt{x^2 + y^2})^2 = x^2 + y^2.
+\]
+The equation of the surface of revolution is \( z = x^2 + y^2 \), a circular paraboloid.
+
+\end{enumerate}

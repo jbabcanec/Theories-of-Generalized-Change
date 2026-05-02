@@ -76,9 +76,11 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,       % Adjust as needed
-    urlcolor=blue,        % Adjust as needed
-    citecolor=blue,       % Adjust as needed
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    plainpages=false,
+    pdfpagelabels=true,
 }
 
 %-------------------- Warning Suppression --------------------
@@ -111,6 +113,7 @@
 \newcommand{\lecture}[1]{%
     \stepcounter{lecture}%
     \section*{Lecture \thechapter.\thelecture: #1}%
+    \phantomsection%
     \addcontentsline{toc}{section}{Lecture \thechapter.\thelecture: #1}%
     \markright{Lecture~\thechapter.\thelecture: #1}
 }
@@ -118,10 +121,12 @@
 % Sections for Formulas, Definitions, and Practice Problems
 \newcommand{\formsdefs}{%
     \section*{Formulas and Definitions}%
+    \phantomsection%
     \addcontentsline{toc}{section}{Formulas and Definitions}%
 }
 \newcommand{\practice}{%
     \section*{Practice Problems}%
+    \phantomsection%
     \addcontentsline{toc}{section}{Practice Problems}%
 }
 
@@ -213,6 +218,7 @@
 \date{\today}
 
 \begin{document}
+\hypersetup{pageanchor=false}
 
 %-------------------- Title Page --------------------
 \begin{titlepage}
@@ -253,9 +259,9 @@
     \vspace{1cm}
     {\Large \textit{Joseph J. Babčanec}} \\
     \vspace{2cm}
-    {\Large First Edition} \\
+    {\Large Second Edition} \\
     \vspace{1cm}
-    {\Large \copyright\ 2025}
+    {\Large \copyright\ 2025, 2026}
 \end{center}
 
 \clearpage
@@ -284,11 +290,11 @@ To my former math teacher Heather Elfen
 \vspace*{2cm}
 
 \noindent Theories of Generalized Change \\
-First Edition
+Second Edition
 
 \vspace{1.2cm}
 
-\noindent Copyright © 2025 by Joseph J. Babčanec
+\noindent Copyright © 2025, 2026 by Joseph J. Babčanec
 
 \noindent All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means—electronic, mechanical, photocopying, recording, or otherwise—without the prior written permission of the author, except in the case of brief quotations used in reviews or scholarly analysis.
 
@@ -328,14 +334,14 @@ First Edition
 \pagestyle{intro}
 
 %-------------------- Table of Contents --------------------
-\tableofcontents
-% Start Roman numeral page numbering
+% Start Roman numeral page numbering BEFORE TOC
 \pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\tableofcontents
 
 %-------------------- Front Matter --------------------
 \input{preface}
 \input{intro}
-
 %-------------------- Main Content --------------------
 % Reset page numbering to Arabic for the main content
 \cleardoublepage

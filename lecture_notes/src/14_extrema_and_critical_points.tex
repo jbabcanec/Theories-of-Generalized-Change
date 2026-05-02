@@ -1,0 +1,292 @@
+\documentclass[11pt]{article}
+\usepackage{worksheet_style}
+
+% ---- Toggle: uncomment for filled version ----
+%\worksheetfilledtrue
+\begin{document}
+\worksheetheader{14}{Extrema and Critical Points}
+
+\begin{background}
+In Calc I, you found maxima and minima by setting $f'(x) = 0$. The same idea works here: set $\nabla f = \vect{0}$. But in multiple dimensions, something new appears---saddle points, where the surface goes up in one direction and down in another. Today we develop the second derivative test for classifying critical points, then tackle global extrema on closed regions by analyzing boundaries.
+\end{background}
+
+%=============================================================
+\wsection{Critical Points in Several Variables}
+
+\begin{defbox}{Critical Point}
+A point $(a,b)$ is a \textbf{critical point} of $f(x,y)$ if:
+\[\nabla f(a,b) = \vect{0} \quad\text{i.e.,}\quad \wbml{f_x(a,b) = 0 \text{ and } f_y(a,b) = 0}\]
+or if $\nabla f$ is undefined at $(a,b)$.
+
+\medskip
+-- All local extrema occur at critical points (necessary condition)
+
+-- But not every critical point is an extremum (could be a saddle)
+\end{defbox}
+
+%=============================================================
+\wsection{The Second Derivative Test}
+
+\begin{thmbox}{Second Derivative Test for $f(x,y)$}
+At a critical point $(a,b)$, compute the \textbf{discriminant}:
+\[\boxed{D = \wbml{f_{xx}(a,b)\,f_{yy}(a,b) - [f_{xy}(a,b)]^2}}\]
+
+Classification:
+\begin{itemize}[nosep]
+  \item $D > 0$ and $f_{xx} > 0$: \wbi{local minimum}{3cm}
+  \item $D > 0$ and $f_{xx} < 0$: \wbi{local maximum}{3cm}
+  \item $D < 0$: \wbi{saddle point}{3cm}
+  \item $D = 0$: \wbi{inconclusive}{3cm}
+\end{itemize}
+\end{thmbox}
+
+\begin{formulabox}{The Hessian Matrix}
+The discriminant $D$ is the determinant of the \textbf{Hessian}:
+\[H = \begin{pmatrix} f_{xx} & f_{xy} \\ f_{yx} & f_{yy}\end{pmatrix}, \qquad D = \det(H) = f_{xx}f_{yy} - (f_{xy})^2\]
+
+-- $D > 0$ means both eigenvalues of $H$ have the same sign (bowl shape)
+
+-- $D < 0$ means eigenvalues have opposite signs (saddle shape)
+\end{formulabox}
+
+\begin{example}[$f(x,y) = x^3 + y^3 - 3xy$]
+Find and classify all critical points.
+
+1. \textbf{Find critical points:}
+
+\wbbox{
+$f_x = 3x^2 - 3y = 0 \implies y = x^2$
+
+$f_y = 3y^2 - 3x = 0 \implies x = y^2$
+
+Substituting: $x = (x^2)^2 = x^4 \implies x^4 - x = 0 \implies x(x^3-1) = 0$
+
+$x = 0 \implies y = 0$; \quad $x = 1 \implies y = 1$
+
+Critical points: $(0,0)$ and $(1,1)$.
+}{4cm}
+
+2. \textbf{Second partials:} $f_{xx} = 6x$, \; $f_{yy} = 6y$, \; $f_{xy} = -3$
+
+3. \textbf{Classify:}
+
+\textbf{At $(0,0)$:} $D = (0)(0) - 9 = $ \wbm{$-9 < 0$} $\implies$ \wbi{saddle point}{3cm}
+
+\textbf{At $(1,1)$:} $D = (6)(6) - 9 = $ \wbm{$27 > 0$}, $f_{xx} = 6 > 0$ $\implies$ \wbi{local minimum}{3cm}, $f(1,1) = -1$
+\end{example}
+
+\begin{example}[$f(x,y) = 2x^2 + y^2 - 4x - 2y + 6$]
+Find and classify all critical points.
+
+1. \textbf{Critical points:}
+
+$f_x = 4x - 4 = 0 \implies x = $ \wbm{$1$}
+
+$f_y = 2y - 2 = 0 \implies y = $ \wbm{$1$}
+
+One critical point: $(1,1)$.
+
+2. \textbf{Second partials:} $f_{xx} = 4$, \; $f_{yy} = 2$, \; $f_{xy} = 0$
+
+3. \textbf{Classify:} $D = (4)(2) - 0 = 8 > 0$, \; $f_{xx} = 4 > 0$
+
+$\implies$ \textbf{Local minimum} at $(1,1)$, \; $f(1,1) = 2+1-4-2+6 = $ \wbm{$3$}
+
+\textit{Also the global minimum since $f \to \infty$ as $\|(x,y)\| \to \infty$.}
+\end{example}
+
+%=============================================================
+\wsection{Saddle Points}
+
+-- A \textbf{saddle point} is a critical point that is neither a max nor a min
+
+-- The surface curves up in one direction and down in another
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+  \begin{axis}[
+    view={60}{30},
+    xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+    domain=-2:2, y domain=-2:2,
+    samples=30, samples y=30,
+    width=8cm, height=6cm,
+    grid=major,
+    colormap/viridis,
+    zmin=-4, zmax=4
+  ]
+  % Example saddle surface: z = x^2 - y^2
+  \addplot3[surf, opacity=0.8] {x^2 - y^2};
+  \addplot3[mark=*, color=bcred] coordinates {(0,0,0)};
+  \end{axis}
+\end{tikzpicture}
+
+{\small A saddle point at $(0,0)$ for $z=x^2-y^2$. Along the $x$-axis it looks like a minimum; along the $y$-axis it looks like a maximum.}
+\end{center}
+
+\begin{example}[The Classic Saddle: $z = x^2 - y^2$]
+$\nabla f = \vec{2x, -2y} = \vect{0}$ at $(0,0)$.
+
+$f_{xx} = 2$, \; $f_{yy} = -2$, \; $f_{xy} = 0$. \; $D = (2)(-2) - 0 = -4 < 0$. \textbf{Saddle point.}
+
+\wbbox{
+-- Along $y = 0$: $z = x^2$ (opens upward --- looks like a minimum)
+
+-- Along $x = 0$: $z = -y^2$ (opens downward --- looks like a maximum)
+
+-- The point $(0,0)$ is simultaneously a min in the $x$-direction and a max in the $y$-direction!
+}{2.5cm}
+\end{example}
+
+%=============================================================
+\wsection{Global Extrema on Closed Bounded Regions}
+
+\begin{thmbox}{Extreme Value Theorem (Multivariate)}
+If $f$ is continuous on a \textbf{closed, bounded} region $D$, then $f$ attains both a global maximum and a global minimum on $D$.
+\end{thmbox}
+
+\begin{formulabox}{Strategy for Finding Global Extrema}
+\begin{enumerate}[nosep]
+  \item Find all critical points \textbf{inside} $D$ (set $\nabla f = \vect{0}$)
+  \item Parameterize each piece of the \textbf{boundary}, reduce to 1D optimization on each edge
+  \item Evaluate $f$ at all critical points (interior and boundary) and at all \textbf{corners}
+  \item Compare all values: largest $=$ global max, smallest $=$ global min
+\end{enumerate}
+\end{formulabox}
+
+\begin{example}[Global Extrema on a Rectangle]
+Find the global max and min of $f(x,y) = x^2 + y^2 - 4x - 6y$ on $R = [0,4]\times[0,5]$.
+
+1. \textbf{Interior critical points:}
+
+\wbbox{
+$f_x = 2x - 4 = 0 \implies x = 2$, \quad $f_y = 2y - 6 = 0 \implies y = 3$
+
+Interior critical point: $(2,3) \in R$. \; $f(2,3) = 4 + 9 - 8 - 18 = -13$.
+}{2cm}
+
+2. \textbf{Boundary analysis (4 edges):}
+
+\wbbox{
+\textit{Bottom} ($y=0$, $0 \leq x \leq 4$): $f = x^2 - 4x$. \; $f' = 2x-4 = 0 \implies x = 2$. \; $f(2,0) = -4$.
+
+\textit{Top} ($y=5$, $0 \leq x \leq 4$): $f = x^2 - 4x - 5$. \; $f' = 2x-4 = 0 \implies x = 2$. \; $f(2,5) = -9$.
+
+\textit{Left} ($x=0$, $0 \leq y \leq 5$): $f = y^2 - 6y$. \; $f' = 2y-6 = 0 \implies y = 3$. \; $f(0,3) = -9$.
+
+\textit{Right} ($x=4$, $0 \leq y \leq 5$): $f = y^2 - 6y$. \; $f' = 2y-6 = 0 \implies y = 3$. \; $f(4,3) = -9$.
+}{4.5cm}
+
+3. \textbf{Corners:}
+
+$f(0,0) = 0$, \; $f(4,0) = 0$, \; $f(0,5) = -5$, \; $f(4,5) = -5$
+
+4. \textbf{Compare all values:} $\{-13, -4, -9, -9, -9, 0, 0, -5, -5\}$
+
+\[\boxed{\text{Global max} = 0 \text{ at } (0,0) \text{ and } (4,0). \quad \text{Global min} = -13 \text{ at } (2,3).}\]
+\end{example}
+
+%=============================================================
+
+\begin{practice}
+
+\prob Find and classify all critical points of $f(x,y) = x^2 + y^2 + 2x - 4y + 5$.
+
+\wbbox{
+$f_x = 2x+2 = 0 \implies x = -1$, \; $f_y = 2y-4 = 0 \implies y = 2$. Point: $(-1,2)$.
+
+$D = (2)(2) - 0 = 4 > 0$, $f_{xx} = 2 > 0$. Local (and global) min. $f(-1,2) = 1+4-2-8+5 = 0$.
+}{3cm}
+
+\wans{\wbi{local min at $(-1,2)$, $f = 0$}{6cm}}
+
+\vspace{3cm}
+
+\prob Find and classify all critical points of $f(x,y) = x^2 y - x^2 - 2y^2$.
+
+\wbbox{
+$f_x = 2xy - 2x = 2x(y-1) = 0 \implies x = 0$ or $y = 1$.
+
+$f_y = x^2 - 4y = 0$.
+
+If $x = 0$: $-4y = 0 \implies y = 0$. Point $(0,0)$.
+
+If $y = 1$: $x^2 = 4 \implies x = \pm 2$. Points $(\pm 2, 1)$.
+
+$f_{xx} = 2y-2$, $f_{yy} = -4$, $f_{xy} = 2x$.
+
+$(0,0)$: $D = (-2)(-4) - 0 = 8 > 0$, $f_{xx} = -2 < 0$. \textbf{Local max.} $f = 0$.
+
+$(2,1)$: $D = (0)(-4) - 16 = -16 < 0$. \textbf{Saddle.}
+
+$(-2,1)$: $D = (0)(-4) - 16 = -16 < 0$. \textbf{Saddle.}
+}{5cm}
+
+\wans{\wbi{local max at $(0,0)$; saddles at $(\pm 2, 1)$}{7cm}}
+
+\vspace{3cm}
+
+\prob Show that $f(x,y) = x^2 - y^2$ has a saddle point at the origin. Explain geometrically why it is neither a max nor a min.
+
+\wbbox{
+$f_x = 2x = 0$, $f_y = -2y = 0 \implies$ critical point $(0,0)$.
+
+$D = (2)(-2) - 0 = -4 < 0$. Saddle point.
+
+Along $x$-axis ($y=0$): $f = x^2 \geq 0$, so $f(0,0) = 0$ is a minimum.
+
+Along $y$-axis ($x=0$): $f = -y^2 \leq 0$, so $f(0,0) = 0$ is a maximum.
+
+Since $f$ increases in some directions and decreases in others, it cannot be an extremum.
+}{4cm}
+
+\vspace{3cm}
+
+\prob Find the global extrema of $f(x,y) = x^3 - 3x + y^2$ on $R = [-2,2]\times[-1,1]$.
+
+\wbbox{
+\textbf{Interior:} $f_x = 3x^2 - 3 = 0 \implies x = \pm 1$, $f_y = 2y = 0 \implies y = 0$.
+
+$f(1,0) = 1-3 = -2$, \; $f(-1,0) = -1+3 = 2$.
+
+$D = 6x \cdot 2 - 0$. At $(1,0)$: $D = 12 > 0$, $f_{xx} = 6 > 0$, local min. At $(-1,0)$: $D = -12 < 0$, saddle.
+
+\textbf{Boundaries:} $f(2,y) = 2+y^2$: min $2$, max $3$. $f(-2,y) = -2+6+y^2 = 4+y^2$: min $4$, max $5$.
+
+$f(x,\pm 1) = x^3-3x+1$: crit at $x = \pm 1$, $f(1,\pm 1) = -1$, $f(-1,\pm 1) = 3$.
+
+Corners: $f(2,\pm 1) = 3$, $f(-2,\pm 1) = 5$.
+
+\textbf{Global max $= 5$ at $(-2,\pm 1)$. Global min $= -2$ at $(1,0)$.}
+}{6.5cm}
+
+\wans{global max $=$ \wbm{$5$} at \wbm{$(-2,\pm 1)$}; \; global min $=$ \wbm{$-2$} at \wbm{$(1,0)$}}
+
+\vspace{3cm}
+
+\prob Find and classify all critical points of $f(x,y) = xy(1-x-y)$.
+
+\wbbox{
+$f = xy - x^2 y - xy^2$
+
+$f_x = y - 2xy - y^2 = y(1-2x-y) = 0$
+
+$f_y = x - x^2 - 2xy = x(1-x-2y) = 0$
+
+Case $y = 0$: $f_y = x(1-x) = 0 \implies x = 0$ or $x = 1$. Points $(0,0)$, $(1,0)$.
+
+Case $x = 0$: $f_x = y(1-y) = 0 \implies y = 0$ or $y = 1$. Points $(0,0)$, $(0,1)$.
+
+Case $1-2x-y = 0$ and $1-x-2y = 0$: subtract to get $x = y$. Then $1-3x=0 \implies x = 1/3$. Point $(1/3, 1/3)$.
+
+$f_{xx} = -2y$, $f_{yy} = -2x$, $f_{xy} = 1-2x-2y$.
+
+$(0,0)$: $D = 0 - 1 = -1 < 0$. Saddle. $(1,0)$: $D = 0 - (-1)^2 = -1 < 0$. Saddle. $(0,1)$: $D = 0 - (-1)^2 = -1 < 0$. Saddle.
+
+$(1/3,1/3)$: $D = (-2/3)(-2/3) - (-1/3)^2 = 4/9 - 1/9 = 1/3 > 0$, $f_{xx} = -2/3 < 0$. \textbf{Local max.} $f = 1/27$.
+}{7cm}
+
+\wans{\wbi{saddles at $(0,0),(1,0),(0,1)$; local max at $(1/3,1/3)$, $f = 1/27$}{8cm}}
+
+\end{practice}
+
+\end{document}

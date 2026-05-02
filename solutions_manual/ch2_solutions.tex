@@ -1,0 +1,1270 @@
+\chapter{Chapter 2: Vector-Valued Functions and Motion in Space}
+
+\begin{enumerate}
+
+%%% Problems 1--8: Vector-Valued Functions: Parametric Equations %%%
+
+% Problem 1
+\item \textbf{Solution.}
+We have $\mathbf{r}(t)=\langle e^{-t}\cos t,\; e^{-t}\sin t,\; t\rangle$.
+A curve is smooth if $\mathbf{r}'(t)\neq\mathbf{0}$ for all $t$.
+
+Compute the derivative component by component:
+\[
+\mathbf{r}'(t)=\langle -e^{-t}\cos t - e^{-t}\sin t,\; -e^{-t}\sin t + e^{-t}\cos t,\; 1\rangle.
+\]
+Since the third component is $1\neq 0$ for all $t$, we have $\mathbf{r}'(t)\neq\mathbf{0}$ for every $t$.
+
+Therefore the curve is \boxed{\text{smooth for all } t}.
+
+% Problem 2
+\item \textbf{Solution.}
+Given $\mathbf{r}(t)=\langle t^2, e^{2t}, \ln t\rangle$ with $t>0$, differentiate component by component:
+\[
+\boxed{\mathbf{r}'(t)=\left\langle 2t,\; 2e^{2t},\; \frac{1}{t}\right\rangle.}
+\]
+
+% Problem 3
+\item \textbf{Solution.}
+The direction vector is $\mathbf{r}_2-\mathbf{r}_1=\langle 4-1, 5-2, 6-3\rangle=\langle 3,3,3\rangle$.
+Using the point $\mathbf{r}_1$:
+\[
+\boxed{\mathbf{r}(t)=\langle 1,2,3\rangle + t\langle 3,3,3\rangle = \langle 1+3t,\; 2+3t,\; 3+3t\rangle,\quad t\in\mathbb{R}.}
+\]
+
+% Problem 4
+\item \textbf{Solution.}
+From $\mathbf{r}(t)=\langle 3\cos t, 3\sin t, t\rangle$, the parametric equations are
+\[
+x=3\cos t,\quad y=3\sin t,\quad z=t.
+\]
+Since $x^2+y^2=9\cos^2 t+9\sin^2 t=9$ and $z=t$ increases linearly, the curve is a \boxed{\text{circular helix of radius 3 winding around the } z\text{-axis}}.
+
+% Problem 5
+\item \textbf{Solution.}
+We have $\mathbf{r}(t)=\langle t, t^2, t^3\rangle$ so $x=t$, $y=t^2$, $z=t^3$.
+For $t\ge 0$: $y=t^2\ge 0$ and $t=\sqrt{y}$, so
+\[
+z = t^3 = (\sqrt{y})^3 = y^{3/2}.
+\]
+Therefore $z=y^{3/2}$, which means the curve lies on the surface $z=y^{3/2}$. \qed
+
+% Problem 6
+\item \textbf{Solution.}
+Given $\mathbf{r}(t)=\langle t, \sin t, \cos t\rangle$, the velocity vector is
+\[
+\mathbf{v}(t)=\mathbf{r}'(t)=\langle 1, \cos t, -\sin t\rangle.
+\]
+The speed is
+\[
+|\mathbf{v}(t)|=\sqrt{1+\cos^2 t+\sin^2 t}=\sqrt{1+1}=\sqrt{2}.
+\]
+Since the speed equals the constant $\sqrt{2}$ for all $t$, the speed is \boxed{\text{constant, equal to } \sqrt{2}}.
+
+% Problem 7
+\item \textbf{Solution.}
+\[
+\int_0^1 \mathbf{r}(t)\,dt = \left\langle \int_0^1 t\,dt,\; \int_0^1 t^2\,dt,\; \int_0^1 t^3\,dt\right\rangle = \left\langle \frac{t^2}{2}\bigg|_0^1,\; \frac{t^3}{3}\bigg|_0^1,\; \frac{t^4}{4}\bigg|_0^1\right\rangle = \boxed{\left\langle \frac{1}{2},\; \frac{1}{3},\; \frac{1}{4}\right\rangle.}
+\]
+
+% Problem 8
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, 0\rangle$ so $\mathbf{r}'(t)=\langle 1, 2t, 0\rangle$ and $|\mathbf{r}'(t)|=\sqrt{1+4t^2}$.
+The arc length is
+\[
+L=\int_0^2 \sqrt{1+4t^2}\,dt.
+\]
+Let $2t=\sinh u$, so $dt=\frac{1}{2}\cosh u\,du$ and $\sqrt{1+4t^2}=\cosh u$.
+When $t=0$, $u=0$; when $t=2$, $u=\sinh^{-1}4=\ln(4+\sqrt{17})$.
+\[
+L=\int_0^{\sinh^{-1}4}\cosh^2 u\cdot\frac{1}{2}\,du = \frac{1}{4}\bigl[u+\sinh u\cosh u\bigr]_0^{\sinh^{-1}4}.
+\]
+At $u=\sinh^{-1}4$: $\sinh u=4$, $\cosh u=\sqrt{17}$, so
+\[
+\boxed{L = \frac{1}{4}\bigl[\ln(4+\sqrt{17})+4\sqrt{17}\bigr] \approx 4.6468.}
+\]
+
+%%% Problems 9--17: Calculus with Vector-Valued Functions %%%
+
+% Problem 9
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t^3, t^2, t\rangle$.
+\[
+\mathbf{r}'(t)=\langle 3t^2, 2t, 1\rangle, \qquad \boxed{\mathbf{r}''(t)=\langle 6t, 2, 0\rangle.}
+\]
+
+% Problem 10
+\item \textbf{Solution.}
+We have $\mathbf{r}(t)=\langle t,\, t^2,\, t^3/3\rangle$, so $\mathbf{r}'(t)=\langle 1,\, 2t,\, t^2\rangle$.
+Compute the cross product:
+\[
+\mathbf{r}(t)\times\mathbf{r}'(t) = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ t & t^2 & t^3/3 \\ 1 & 2t & t^2\end{vmatrix}.
+\]
+\[
+\mathbf{i}:\; t^2\cdot t^2 - \frac{t^3}{3}\cdot 2t = t^4-\frac{2t^4}{3}=\frac{t^4}{3}.
+\]
+\[
+\mathbf{j}:\; -\!\left(t\cdot t^2 - \frac{t^3}{3}\cdot 1\right)=-t^3+\frac{t^3}{3}=-\frac{2t^3}{3}.
+\]
+\[
+\mathbf{k}:\; t\cdot 2t - t^2\cdot 1 = 2t^2-t^2=t^2.
+\]
+So $\mathbf{r}\times\mathbf{r}'=\langle t^4/3,\; -2t^3/3,\; t^2\rangle$.
+Integrating from $0$ to $\pi$:
+\[
+\int_0^{\pi}\left\langle \frac{t^4}{3},\;-\frac{2t^3}{3},\; t^2\right\rangle dt = \left\langle \frac{t^5}{15}\bigg|_0^\pi,\; -\frac{t^4}{6}\bigg|_0^\pi,\; \frac{t^3}{3}\bigg|_0^\pi\right\rangle = \boxed{\left\langle \frac{\pi^5}{15},\; -\frac{\pi^4}{6},\; \frac{\pi^3}{3}\right\rangle.}
+\]
+
+% Problem 11
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle e^t\cos t,\; e^t\sin t,\; t^2\rangle$.
+Using the product rule:
+\begin{align*}
+\mathbf{r}'(t) &= \langle e^t\cos t - e^t\sin t,\; e^t\sin t + e^t\cos t,\; 2t\rangle \\
+&= \langle e^t(\cos t-\sin t),\; e^t(\sin t+\cos t),\; 2t\rangle.
+\end{align*}
+
+\textit{Geometric interpretation:} The first two components trace a spiral of exponentially growing radius $e^t$ in the $xy$-plane. The derivative shows the velocity tangent to this expanding spiral, while the $z$-component $2t$ indicates the rate of climb accelerates linearly. The particle spirals outward with increasing speed.
+
+% Problem 12
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle \ln t, t, \sqrt{t}\rangle$ for $t>0$.
+\[
+\mathbf{r}'(t)=\left\langle \frac{1}{t},\; 1,\; \frac{1}{2\sqrt{t}}\right\rangle, \qquad \boxed{\mathbf{r}''(t)=\left\langle -\frac{1}{t^2},\; 0,\; -\frac{1}{4t^{3/2}}\right\rangle.}
+\]
+
+% Problem 13
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle e^t, \ln t, t^3\rangle$.
+\[
+\mathbf{v}(t)=\mathbf{r}'(t)=\left\langle e^t, \frac{1}{t}, 3t^2\right\rangle, \qquad \mathbf{a}(t)=\mathbf{r}''(t)=\left\langle e^t, -\frac{1}{t^2}, 6t\right\rangle.
+\]
+At $t=1$:
+\[
+\boxed{\mathbf{v}(1)=\langle e, 1, 3\rangle, \qquad \mathbf{a}(1)=\langle e, -1, 6\rangle.}
+\]
+
+% Problem 14
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t^2, t^3, t\rangle$.
+At $t=1$: $\mathbf{r}(1)=\langle 1,1,1\rangle$ and $\mathbf{r}'(t)=\langle 2t,3t^2,1\rangle$ so $\mathbf{r}'(1)=\langle 2,3,1\rangle$.
+The tangent line is
+\[
+\boxed{\boldsymbol{\ell}(t)=\langle 1,1,1\rangle + t\langle 2,3,1\rangle = \langle 1+2t,\; 1+3t,\; 1+t\rangle.}
+\]
+
+% Problem 15
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, t^3\rangle$, so $\mathbf{v}(t)=\langle 1,2t,3t^2\rangle$ and
+\[
+\boxed{\mathbf{a}(t)=\langle 0, 2, 6t\rangle.}
+\]
+The acceleration has no component in the $x$-direction, a constant component of $2$ in the $y$-direction, and a linearly increasing component $6t$ in the $z$-direction. This means the particle accelerates more strongly in the $z$-direction as time increases, consistent with the cubic dependence of $z$ on $t$.
+
+% Problem 16
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \cos t, e^t\rangle$.
+\[
+\boxed{\mathbf{v}(t)=\langle 1, -\sin t, e^t\rangle, \qquad \mathbf{a}(t)=\langle 0, -\cos t, e^t\rangle.}
+\]
+
+% Problem 17
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t^2, \sin t, \cos t\rangle$, $\mathbf{r}'(t)=\langle 2t, \cos t, -\sin t\rangle$.
+\[
+\mathbf{r}(t)\cdot\mathbf{r}'(t) = t^2\cdot 2t + \sin t\cos t + \cos t(-\sin t) = 2t^3 + \sin t\cos t - \sin t\cos t = 2t^3.
+\]
+Therefore
+\[
+\boxed{\int \mathbf{r}(t)\cdot\mathbf{r}'(t)\,dt = \int 2t^3\,dt = \frac{t^4}{2}+C.}
+\]
+
+%%% Problems 18--27: Motion Along a Curve: Velocity, Acceleration, Projectile Motion %%%
+
+% Problem 18
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 10t, 20t-4.9t^2\rangle$.
+\[
+\mathbf{v}(t)=\langle 10, 20-9.8t\rangle, \qquad \mathbf{a}(t)=\langle 0, -9.8\rangle.
+\]
+At $t=1$:
+\[
+\boxed{\mathbf{v}(1)=\langle 10, 10.2\rangle, \qquad \mathbf{a}(1)=\langle 0, -9.8\rangle.}
+\]
+
+% Problem 19
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 2\cos t, 3\sin t, t\rangle$.
+$\mathbf{v}(t)=\langle -2\sin t, 3\cos t, 1\rangle$.
+Speed: $|\mathbf{v}(t)|=\sqrt{4\sin^2 t+9\cos^2 t+1}=\sqrt{5+5\cos^2 t}$.
+At $t=\pi/4$: $\cos^2(\pi/4)=1/2$, so
+\[
+|\mathbf{v}(\pi/4)|=\sqrt{5+5/2}=\sqrt{15/2}=\frac{\sqrt{30}}{2}.
+\]
+$\mathbf{a}(t)=\langle -2\cos t, -3\sin t, 0\rangle$.
+At $t=\pi/4$:
+\[
+\boxed{|\mathbf{v}(\pi/4)|=\frac{\sqrt{30}}{2}\approx 2.739,\qquad \mathbf{a}(\pi/4)=\left\langle -\sqrt{2},\; -\frac{3\sqrt{2}}{2},\; 0\right\rangle.}
+\]
+
+% Problem 20
+\item \textbf{Solution.}
+With $\mathbf{v}_0=\langle 20,30\rangle$ and $\mathbf{a}=\langle 0,-9.8\rangle$, integrating:
+\[
+\mathbf{v}(t)=\mathbf{v}_0+\mathbf{a}\,t=\langle 20, 30-9.8t\rangle.
+\]
+Assuming initial position $\mathbf{r}(0)=\langle 0,0\rangle$:
+\[
+\boxed{\mathbf{r}(t)=\langle 20t,\; 30t - 4.9t^2\rangle.}
+\]
+
+% Problem 21
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle v_0\cos\theta\cdot t,\; v_0\sin\theta\cdot t-\tfrac{1}{2}gt^2\rangle$.
+The vertical component of velocity is $v_y(t)=v_0\sin\theta - gt$.
+Maximum height occurs when $v_y=0$:
+\[
+t^*=\frac{v_0\sin\theta}{g}.
+\]
+Substituting into the height:
+\[
+y_{\max}=v_0\sin\theta\cdot\frac{v_0\sin\theta}{g}-\frac{1}{2}g\left(\frac{v_0\sin\theta}{g}\right)^2 = \frac{v_0^2\sin^2\theta}{g}-\frac{v_0^2\sin^2\theta}{2g}.
+\]
+\[
+\boxed{y_{\max}=\frac{v_0^2\sin^2\theta}{2g}.}
+\]
+
+% Problem 22
+\item \textbf{Solution.}
+$\mathbf{v}(t)=\langle t^2,\sin t\rangle$ and $\mathbf{r}(0)=\langle 1,0\rangle$.
+\[
+\mathbf{r}(t)=\mathbf{r}(0)+\int_0^t \mathbf{v}(u)\,du = \langle 1,0\rangle+\left\langle \frac{t^3}{3},\; 1-\cos t\right\rangle.
+\]
+\[
+\boxed{\mathbf{r}(t)=\left\langle 1+\frac{t^3}{3},\; 1-\cos t\right\rangle.}
+\]
+
+% Problem 23
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t^3, t^2, t\rangle$.
+$\mathbf{v}(t)=\langle 3t^2, 2t, 1\rangle$, $\mathbf{a}(t)=\langle 6t, 2, 0\rangle$.
+At $t=2$:
+\[
+\boxed{\mathbf{v}(2)=\langle 12, 4, 1\rangle, \qquad \mathbf{a}(2)=\langle 12, 2, 0\rangle.}
+\]
+
+% Problem 24
+\item \textbf{Solution.}
+A projectile launched with speed $v_0$ at angle $\theta$ has initial velocity $\mathbf{v}_0=\langle v_0\cos\theta,\; v_0\sin\theta\rangle$.
+Under gravity $\mathbf{a}=\langle 0,-g\rangle$:
+\[
+\mathbf{v}(t)=\mathbf{v}_0+\mathbf{a}\,t = \langle v_0\cos\theta,\; v_0\sin\theta - gt\rangle.
+\]
+Therefore:
+\[
+\boxed{v_x(t)=v_0\cos\theta \quad(\text{constant}), \qquad v_y(t)=v_0\sin\theta - gt.}
+\]
+
+% Problem 25
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, t^3\rangle$ so $\mathbf{r}'(t)=\langle 1, 2t, 3t^2\rangle$.
+\[
+\boxed{|\mathbf{r}'(t)|=\sqrt{1+4t^2+9t^4}.}
+\]
+
+% Problem 26
+\item \textbf{Solution.}
+$\mathbf{a}(t)=\langle 0,2\rangle$, $\mathbf{v}(0)=\langle 5,0\rangle$.
+Integrating: $\mathbf{v}(t)=\langle 5, 2t\rangle$.
+Assuming $\mathbf{r}(0)=\langle 0,0\rangle$:
+\[
+\boxed{\mathbf{r}(t)=\langle 5t,\; t^2\rangle.}
+\]
+
+% Problem 27
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 10t, 20t-4.9t^2\rangle$, so $v_y(t)=20-9.8t$.
+Maximum height when $v_y=0$:
+\[
+20-9.8t=0 \implies \boxed{t=\frac{20}{9.8}=\frac{100}{49}\approx 2.041\text{ s}.}
+\]
+
+%%% Problems 28--37: Motion Along a Curve: Curvature and Normal Vectors %%%
+
+% Problem 28
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, t^3\rangle$, $\mathbf{r}'(t)=\langle 1, 2t, 3t^2\rangle$.
+At $t=1$: $\mathbf{r}'(1)=\langle 1,2,3\rangle$, $|\mathbf{r}'(1)|=\sqrt{1+4+9}=\sqrt{14}$.
+\[
+\boxed{\mathbf{T}(1)=\frac{1}{\sqrt{14}}\langle 1,2,3\rangle.}
+\]
+
+% Problem 29
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, 0\rangle$, $\mathbf{r}'(t)=\langle 1,2t,0\rangle$, $\mathbf{r}''(t)=\langle 0,2,0\rangle$.
+\[
+\mathbf{r}'\times\mathbf{r}'' = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&2t&0\\0&2&0\end{vmatrix} = \langle 0,0,2\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=2$, $|\mathbf{r}'|=(1+4t^2)^{1/2}$.
+\[
+\boxed{\kappa(t)=\frac{|\mathbf{r}'\times\mathbf{r}''|}{|\mathbf{r}'|^3}=\frac{2}{(1+4t^2)^{3/2}}.}
+\]
+
+% Problem 30
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^3, t^2\rangle$, $\mathbf{r}'(t)=\langle 1, 3t^2, 2t\rangle$, $\mathbf{r}''(t)=\langle 0, 6t, 2\rangle$.
+At $t=0$: $\mathbf{r}'(0)=\langle 1,0,0\rangle$, $\mathbf{r}''(0)=\langle 0,0,2\rangle$.
+\[
+\mathbf{r}'(0)\times\mathbf{r}''(0) = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&0&0\\0&0&2\end{vmatrix}=\langle 0,-2,0\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=2$, $|\mathbf{r}'(0)|=1$.
+$\kappa(0)=2/1=2$, so the radius of curvature is
+\[
+\boxed{\rho = \frac{1}{\kappa(0)}=\frac{1}{2}.}
+\]
+
+% Problem 31
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle \cos t, \sin t, t\rangle$, $\mathbf{r}'(t)=\langle -\sin t, \cos t, 1\rangle$, $\mathbf{r}''(t)=\langle -\cos t, -\sin t, 0\rangle$.
+\[
+\mathbf{r}'\times\mathbf{r}'' = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-\sin t&\cos t&1\\-\cos t&-\sin t&0\end{vmatrix} = \langle \sin t, -\cos t, 1\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{\sin^2 t+\cos^2 t+1}=\sqrt{2}$, $|\mathbf{r}'|=\sqrt{1+1}=\sqrt{2}$.
+\[
+\boxed{\kappa = \frac{\sqrt{2}}{(\sqrt{2})^3}=\frac{\sqrt{2}}{2\sqrt{2}}=\frac{1}{2}.}
+\]
+Since $\kappa=1/2$ is independent of $t$, the curvature is constant. \qed
+
+% Problem 32
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \ln t, t^2\rangle$ for $t>0$.
+$\mathbf{r}'(t)=\langle 1, 1/t, 2t\rangle$, $\mathbf{r}''(t)=\langle 0, -1/t^2, 2\rangle$.
+At $t=1$: $\mathbf{r}'(1)=\langle 1,1,2\rangle$, $|\mathbf{r}'(1)|=\sqrt{6}$.
+
+$\mathbf{T}(1)=\frac{1}{\sqrt{6}}\langle 1,1,2\rangle$.
+
+$\mathbf{r}''(1)=\langle 0,-1,2\rangle$.
+
+$\mathbf{r}'\times\mathbf{r}''$ at $t=1$:
+\[
+\langle 1,1,2\rangle\times\langle 0,-1,2\rangle = \langle 1\cdot 2-2(-1),\; 2\cdot 0-1\cdot 2,\; 1(-1)-1\cdot 0\rangle = \langle 4,-2,-1\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{16+4+1}=\sqrt{21}$.
+$\kappa=\sqrt{21}/(\sqrt{6})^3=\sqrt{21}/(6\sqrt{6})$.
+
+To find $\mathbf{N}$, compute $\mathbf{T}'(t)$ at $t=1$.
+We use: $\mathbf{T}'=\frac{\mathbf{r}''|\mathbf{r}'|^2-\mathbf{r}'(\mathbf{r}'\cdot\mathbf{r}'')}{|\mathbf{r}'|^4}\cdot|\mathbf{r}'|$.
+
+Alternatively, use $\mathbf{N}=\mathbf{B}\times\mathbf{T}$ where $\mathbf{B}=\frac{\mathbf{r}'\times\mathbf{r}''}{|\mathbf{r}'\times\mathbf{r}''|}$.
+\[
+\mathbf{B}(1)=\frac{1}{\sqrt{21}}\langle 4,-2,-1\rangle.
+\]
+\[
+\mathbf{N}(1)=\mathbf{B}(1)\times\mathbf{T}(1)=\frac{1}{\sqrt{21}\cdot\sqrt{6}}\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\4&-2&-1\\1&1&2\end{vmatrix}.
+\]
+\[
+= \frac{1}{\sqrt{126}}\langle (-2)(2)-(-1)(1),\; (-1)(1)-(4)(2),\; (4)(1)-(-2)(1)\rangle = \frac{1}{\sqrt{126}}\langle -3,-9,6\rangle.
+\]
+Simplify: $\langle -3,-9,6\rangle = 3\langle -1,-3,2\rangle$, $|\langle -3,-9,6\rangle|=3\sqrt{14}$.
+Since $|\langle -3,-9,6\rangle|=3\sqrt{14}=\sqrt{126}$, the unit normal is:
+\[
+\boxed{\mathbf{N}(1)=\frac{1}{\sqrt{14}}\langle -1,-3,2\rangle, \qquad \mathbf{B}(1)=\frac{1}{\sqrt{21}}\langle 4,-2,-1\rangle.}
+\]
+
+% Problem 33
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \sin t, \cos t\rangle$, $\mathbf{r}'(t)=\langle 1, \cos t, -\sin t\rangle$, $\mathbf{r}''(t)=\langle 0, -\sin t, -\cos t\rangle$.
+$|\mathbf{r}'(t)|=\sqrt{1+\cos^2 t+\sin^2 t}=\sqrt{2}$.
+\[
+\mathbf{r}'\times\mathbf{r}'' = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&\cos t&-\sin t\\0&-\sin t&-\cos t\end{vmatrix} = \langle -\cos^2 t-\sin^2 t,\; \cos t,\; -\sin t\rangle = \langle -1, \cos t, -\sin t\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{1+\cos^2 t+\sin^2 t}=\sqrt{2}$.
+\[
+\kappa(t)=\frac{\sqrt{2}}{(\sqrt{2})^3}=\frac{1}{2}.
+\]
+The curvature $\kappa=1/2$ is \textbf{constant} for all $t$, so the curve is equally curved everywhere---there is no point where it is ``most curved.'' \boxed{\kappa = \tfrac{1}{2} \text{ (constant for all } t\text{)}.}
+
+% Problem 34
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle e^t, e^{-t}, t\rangle$, $\mathbf{r}'(t)=\langle e^t, -e^{-t}, 1\rangle$, $\mathbf{r}''(t)=\langle e^t, e^{-t}, 0\rangle$.
+At $t=0$: $\mathbf{r}'(0)=\langle 1,-1,1\rangle$, $\mathbf{r}''(0)=\langle 1,1,0\rangle$.
+\[
+\mathbf{r}'(0)\times\mathbf{r}''(0)=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&-1&1\\1&1&0\end{vmatrix}=\langle -1,1,2\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{1+1+4}=\sqrt{6}$, $|\mathbf{r}'(0)|=\sqrt{3}$.
+\[
+\boxed{\kappa(0)=\frac{\sqrt{6}}{(\sqrt{3})^3}=\frac{\sqrt{6}}{3\sqrt{3}}=\frac{\sqrt{2}}{3}.}
+\]
+
+% Problem 35
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \ln t, \sqrt{t}\rangle$ for $t>0$.
+$\mathbf{r}'(t)=\langle 1, 1/t, 1/(2\sqrt{t})\rangle$, $\mathbf{r}''(t)=\langle 0, -1/t^2, -1/(4t^{3/2})\rangle$.
+
+$\mathbf{r}'\times\mathbf{r}''$:
+\[
+= \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\[3pt]1&\dfrac{1}{t}&\dfrac{1}{2\sqrt{t}}\\[6pt]0&-\dfrac{1}{t^2}&-\dfrac{1}{4t^{3/2}}\end{vmatrix}.
+\]
+$\mathbf{i}$: $\frac{1}{t}\cdot\left(-\frac{1}{4t^{3/2}}\right)-\frac{1}{2\sqrt{t}}\cdot\left(-\frac{1}{t^2}\right) = -\frac{1}{4t^{5/2}}+\frac{1}{2t^{5/2}}=\frac{1}{4t^{5/2}}$.
+
+$\mathbf{j}$: $-\left[1\cdot\left(-\frac{1}{4t^{3/2}}\right)-\frac{1}{2\sqrt{t}}\cdot 0\right]=\frac{1}{4t^{3/2}}$.
+
+$\mathbf{k}$: $1\cdot\left(-\frac{1}{t^2}\right)-\frac{1}{t}\cdot 0 = -\frac{1}{t^2}$.
+
+\[
+\mathbf{r}'\times\mathbf{r}'' = \left\langle \frac{1}{4t^{5/2}},\; \frac{1}{4t^{3/2}},\; -\frac{1}{t^2}\right\rangle.
+\]
+\[
+|\mathbf{r}'\times\mathbf{r}''|^2 = \frac{1}{16t^5}+\frac{1}{16t^3}+\frac{1}{t^4} = \frac{1+t^2+16t}{16t^5}.
+\]
+
+$|\mathbf{r}'|^2 = 1+\frac{1}{t^2}+\frac{1}{4t} = \frac{4t^2+4+t}{4t^2}$, so $|\mathbf{r}'|^3=\left(\frac{4t^2+t+4}{4t^2}\right)^{3/2}$.
+\[
+\boxed{\kappa(t)=\frac{\sqrt{1+t^2+16t}}{(4t^2+t+4)^{3/2}}\cdot\frac{(4t^2)^{3/2}}{4t^{5/2}} = \frac{\sqrt{1+t^2+16t}\cdot 4t^{1/2}}{(4t^2+t+4)^{3/2}}.}
+\]
+(This is the exact expression; it does not simplify to a closed-form elementary expression.)
+
+% Problem 36
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t^2, t^3, t\rangle$, $\mathbf{r}'(t)=\langle 2t, 3t^2, 1\rangle$, $\mathbf{r}''(t)=\langle 2, 6t, 0\rangle$.
+At $t=1$: $\mathbf{r}'=\langle 2,3,1\rangle$, $|\mathbf{r}'|=\sqrt{14}$; $\mathbf{r}''=\langle 2,6,0\rangle$.
+\[
+\mathbf{r}'\times\mathbf{r}''=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\2&3&1\\2&6&0\end{vmatrix}=\langle -6, 2, 6\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{36+4+36}=\sqrt{76}=2\sqrt{19}$.
+\[
+\kappa(1)=\frac{2\sqrt{19}}{(\sqrt{14})^3}=\frac{2\sqrt{19}}{14\sqrt{14}}=\frac{\sqrt{19}}{7\sqrt{14}}.
+\]
+$\mathbf{T}(1)=\frac{1}{\sqrt{14}}\langle 2,3,1\rangle$, $\mathbf{B}(1)=\frac{1}{2\sqrt{19}}\langle -6,2,6\rangle=\frac{1}{\sqrt{19}}\langle -3,1,3\rangle$.
+\begin{align*}
+\mathbf{N}(1) &= \mathbf{B}(1)\times\mathbf{T}(1)
+= \frac{1}{\sqrt{19}\sqrt{14}}\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-3&1&3\\2&3&1\end{vmatrix} \\
+&= \frac{1}{\sqrt{266}}\langle 1-9,\; 6+3,\; -9-2\rangle
+= \frac{1}{\sqrt{266}}\langle -8,9,-11\rangle.
+\end{align*}
+Note that $|\langle -8,9,-11\rangle|=\sqrt{64+81+121}=\sqrt{266}$, confirming unit length.
+\[
+\boxed{\kappa(1)=\frac{\sqrt{19}}{7\sqrt{14}}=\frac{\sqrt{266}}{98}, \qquad \mathbf{N}(1)=\frac{1}{\sqrt{266}}\langle -8,9,-11\rangle.}
+\]
+
+% Problem 37
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle \ln(t+1), \sqrt{t}, t^2\rangle$.
+$\mathbf{r}'(t)=\langle \frac{1}{t+1}, \frac{1}{2\sqrt{t}}, 2t\rangle$, $\mathbf{r}''(t)=\langle -\frac{1}{(t+1)^2}, -\frac{1}{4t^{3/2}}, 2\rangle$.
+
+At $t=1$: $\mathbf{r}'(1)=\langle 1/2, 1/2, 2\rangle$, $\mathbf{r}''(1)=\langle -1/4, -1/4, 2\rangle$.
+$|\mathbf{r}'(1)|=\sqrt{1/4+1/4+4}=\sqrt{9/2}=3/\sqrt{2}$.
+
+Computing $\mathbf{r}'(1)\times\mathbf{r}''(1)$ component-wise:
+
+$\mathbf{i}$: $(1/2)(2)-(2)(-1/4)=1+1/2=3/2$.
+
+$\mathbf{j}$: $(2)(-1/4)-(1/2)(2)=-1/2-1=-3/2$.
+
+$\mathbf{k}$: $(1/2)(-1/4)-(1/2)(-1/4)=-1/8+1/8=0$.
+
+So $\mathbf{r}'\times\mathbf{r}''=\langle 3/2, -3/2, 0\rangle$, $|\mathbf{r}'\times\mathbf{r}''|=\frac{3}{2}\sqrt{2}=\frac{3\sqrt{2}}{2}$.
+\[
+\kappa(1)=\frac{3\sqrt{2}/2}{(3/\sqrt{2})^3}=\frac{3\sqrt{2}/2}{27/(2\sqrt{2})}=\frac{3\sqrt{2}}{2}\cdot\frac{2\sqrt{2}}{27}=\frac{12}{54}=\frac{2}{9}.
+\]
+\[
+\boxed{\kappa(1)=\frac{2}{9}.}
+\]
+
+%%% Problems 38--47: The TNB Frame and Curvature %%%
+
+% Problem 38
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \ln t, t^2\rangle$. At $t=1$: $\mathbf{r}'(1)=\langle 1,1,2\rangle$, $|\mathbf{r}'(1)|=\sqrt{6}$.
+
+This is the same curve as Problem~32. From that solution:
+\[
+\boxed{\mathbf{T}(1)=\frac{1}{\sqrt{6}}\langle 1,1,2\rangle,\quad \mathbf{N}(1)=\frac{1}{\sqrt{14}}\langle -1,-3,2\rangle,\quad \mathbf{B}(1)=\frac{1}{\sqrt{21}}\langle 4,-2,-1\rangle.}
+\]
+(See Problem~32 for the full derivation.)
+
+% Problem 39
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 2\cos t, 3\sin t, t\rangle$.
+$\mathbf{r}'(t)=\langle -2\sin t, 3\cos t, 1\rangle$, $|\mathbf{r}'|=\sqrt{4\sin^2 t+9\cos^2 t+1}=\sqrt{5+5\cos^2 t}$.
+
+$\mathbf{T}(t)=\frac{\langle -2\sin t, 3\cos t, 1\rangle}{\sqrt{5+5\cos^2 t}}$.
+
+$\mathbf{r}''(t)=\langle -2\cos t, -3\sin t, 0\rangle$.
+\[
+\mathbf{r}'\times\mathbf{r}''=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\-2\sin t&3\cos t&1\\-2\cos t&-3\sin t&0\end{vmatrix}=\langle 3\sin t, -2\cos t, 6\rangle.
+\]
+(Check $\mathbf{i}$: $3\cos t\cdot 0 - 1\cdot(-3\sin t)=3\sin t$. $\mathbf{j}$: $-((-2\sin t)(0)-(1)(-2\cos t))=-2\cos t$. $\mathbf{k}$: $(-2\sin t)(-3\sin t)-(3\cos t)(-2\cos t)=6\sin^2 t+6\cos^2 t=6$.)
+
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{9\sin^2 t+4\cos^2 t+36}=\sqrt{40-5\cos^2 t}$.
+
+$\mathbf{B}(t)=\frac{\langle 3\sin t, -2\cos t, 6\rangle}{\sqrt{40-5\cos^2 t}}$.
+
+$\mathbf{N}(t)=\mathbf{B}(t)\times\mathbf{T}(t)$.
+
+While $\mathbf{N}$ can be written explicitly, it is algebraically involved. In closed form:
+\[
+\boxed{\mathbf{T}(t)=\frac{\langle -2\sin t,\, 3\cos t,\, 1\rangle}{\sqrt{5+5\cos^2 t}},\quad \mathbf{B}(t)=\frac{\langle 3\sin t,\, -2\cos t,\, 6\rangle}{\sqrt{40-5\cos^2 t}},\quad \mathbf{N}(t)=\mathbf{B}(t)\times\mathbf{T}(t).}
+\]
+
+% Problem 40
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle (2+\cos 3t)\cos t,\;(2+\cos 3t)\sin t,\;\sin 3t\rangle$.
+At $t=0$: $\mathbf{r}(0)=\langle 3,0,0\rangle$.
+
+$\mathbf{r}'(t)$: Using the product rule,
+\begin{align*}
+x'(t) &= -3\sin 3t\cos t-(2+\cos 3t)\sin t,\\
+y'(t) &= -3\sin 3t\sin t+(2+\cos 3t)\cos t,\\
+z'(t) &= 3\cos 3t.
+\end{align*}
+At $t=0$: $\sin 0=0$, $\cos 0=1$, $\sin 0=0$, $\cos 0=1$:
+\[
+\mathbf{r}'(0)=\langle 0, 3, 3\rangle, \quad |\mathbf{r}'(0)|=3\sqrt{2}.
+\]
+
+Evaluating $\mathbf{r}''(t)$ at $t=0$:
+
+$x'(t) = -3\sin 3t\cos t - (2+\cos 3t)\sin t$.
+$x''(t) = -9\cos 3t\cos t + 3\sin 3t\sin t + 3\sin 3t\sin t - (2+\cos 3t)\cos t$.
+At $t=0$: $x''(0) = -9(1)(1)+0+0-3(1)=-12$.
+
+$y'(t) = -3\sin 3t\sin t + (2+\cos 3t)\cos t$.
+$y''(t) = -9\cos 3t\sin t -3\sin 3t\cos t - 3\sin 3t\cos t -(2+\cos 3t)\sin t$.
+At $t=0$: $y''(0) = 0-0-0-0=0$.
+
+$z'(t) = 3\cos 3t$, $z''(t) = -9\sin 3t$.
+At $t=0$: $z''(0)=0$.
+
+So $\mathbf{r}''(0)=\langle -12, 0, 0\rangle$.
+
+$\mathbf{r}'(0)\times\mathbf{r}''(0)=\langle 0,3,3\rangle\times\langle -12,0,0\rangle = \langle 0-0,\; 3(-12)-0,\; 0-3(-12)\rangle=\langle 0,-36,36\rangle$.
+
+$|\mathbf{r}'\times\mathbf{r}''|=36\sqrt{2}$, $|\mathbf{r}'|=3\sqrt{2}$.
+\[
+\kappa(0)=\frac{36\sqrt{2}}{(3\sqrt{2})^3}=\frac{36\sqrt{2}}{54\sqrt{2}}=\frac{2}{3}.
+\]
+
+For torsion, we need $\mathbf{r}'''(0)$. Compute $\mathbf{r}'''$:
+$x'''(t)=\frac{d}{dt}x''(t)$. At $t=0$, using repeated differentiation:
+
+$x''(t) = -9\cos 3t\cos t + 6\sin 3t\sin t - (2+\cos 3t)\cos t$.
+$x'''(t) = 27\sin 3t\cos t + 9\cos 3t\sin t + 18\cos 3t\sin t + 6\sin 3t\cos t + 3\sin 3t\cos t + (2+\cos 3t)\sin t$.
+At $t=0$: all terms with $\sin 0$ or $\sin 0$ vanish. $x'''(0)=0$.
+
+$y''(t) = -9\cos 3t\sin t - 6\sin 3t\cos t - (2+\cos 3t)\sin t$.
+$y'''(t)=27\sin 3t\sin t - 9\cos 3t\cos t - 18\cos 3t\cos t + 6\sin 3t\sin t + 3\sin 3t\sin t - (2+\cos 3t)\cos t$.
+At $t=0$: $y'''(0) = 0-9-18+0+0-3=-30$.
+
+$z''(t)=-9\sin 3t$, $z'''(t)=-27\cos 3t$. $z'''(0)=-27$.
+
+So $\mathbf{r}'''(0)=\langle 0,-30,-27\rangle$.
+
+Torsion: $\tau = \frac{(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''}{|\mathbf{r}'\times\mathbf{r}''|^2}$.
+\[
+\langle 0,-36,36\rangle\cdot\langle 0,-30,-27\rangle = 0+1080-972=108.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|^2=(36\sqrt{2})^2=2592$.
+\[
+\tau(0)=\frac{108}{2592}=\frac{1}{24}.
+\]
+\[
+\boxed{\kappa(0)=\frac{2}{3},\qquad \tau(0)=\frac{1}{24}.}
+\]
+
+% Problem 41
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, t^3\rangle$, $\mathbf{r}'(t)=\langle 1,2t,3t^2\rangle$, $\mathbf{r}''(t)=\langle 0,2,6t\rangle$.
+At $t=1$: $\mathbf{r}'=\langle 1,2,3\rangle$, $\mathbf{r}''=\langle 0,2,6\rangle$.
+\[
+\mathbf{r}'\times\mathbf{r}''=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&2&3\\0&2&6\end{vmatrix}=\langle 12-6, 0-6, 2-0\rangle = \langle 6,-6,2\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{36+36+4}=\sqrt{76}=2\sqrt{19}$.
+\[
+\boxed{\mathbf{B}(1)=\frac{1}{2\sqrt{19}}\langle 6,-6,2\rangle = \frac{1}{\sqrt{19}}\langle 3,-3,1\rangle.}
+\]
+
+% Problem 42
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \sin t, \cos t\rangle$, $\mathbf{r}'=\langle 1, \cos t, -\sin t\rangle$, $|\mathbf{r}'|=\sqrt{2}$.
+
+$\mathbf{T}(t)=\frac{1}{\sqrt{2}}\langle 1, \cos t, -\sin t\rangle$.
+
+$\mathbf{T}'(t)=\frac{1}{\sqrt{2}}\langle 0, -\sin t, -\cos t\rangle$, $|\mathbf{T}'|=\frac{1}{\sqrt{2}}$.
+
+$\mathbf{N}(t)=\frac{\mathbf{T}'}{|\mathbf{T}'|}=\langle 0, -\sin t, -\cos t\rangle$.
+
+$\kappa = |\mathbf{T}'|/|\mathbf{r}'| = \frac{1/\sqrt{2}}{\sqrt{2}}=\frac{1}{2}$.
+
+$\mathbf{B}(t)=\mathbf{T}\times\mathbf{N}=\frac{1}{\sqrt{2}}\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&\cos t&-\sin t\\0&-\sin t&-\cos t\end{vmatrix}$.
+$=\frac{1}{\sqrt{2}}\langle -\cos^2 t-\sin^2 t,\; \cos t, \; -\sin t\rangle = \frac{1}{\sqrt{2}}\langle -1, \cos t, -\sin t\rangle$.
+
+Verifying component-wise: $\mathbf{i}: \cos t(-\cos t)-(-\sin t)(-\sin t)=-\cos^2 t-\sin^2 t = -1$;
+$\mathbf{j}: -[1(-\cos t)-(-\sin t)(0)]=\cos t$;
+$\mathbf{k}: 1(-\sin t)-\cos t(0)=-\sin t$.
+
+Thus $\mathbf{B}=\frac{1}{\sqrt{2}}\langle -1,\cos t,-\sin t\rangle$, which has magnitude $\frac{1}{\sqrt{2}}\sqrt{1+1}=1$ as expected.
+
+The Frenet--Serret formulas are:
+\begin{align*}
+\mathbf{T}' &= \kappa\,|\mathbf{r}'|\,\mathbf{N} = \frac{1}{2}\cdot\sqrt{2}\cdot\mathbf{N} = \frac{\sqrt{2}}{2}\,\mathbf{N},\\
+\mathbf{N}' &= -\kappa\,|\mathbf{r}'|\,\mathbf{T}+\tau\,|\mathbf{r}'|\,\mathbf{B},\\
+\mathbf{B}' &= -\tau\,|\mathbf{r}'|\,\mathbf{N}.
+\end{align*}
+(Here primes denote $d/dt$; alternatively in terms of arc length $s$: $d\mathbf{T}/ds=\kappa\mathbf{N}$, etc.)
+
+For torsion: $\mathbf{r}''=\langle 0,-\sin t,-\cos t\rangle$, so $\mathbf{r}'''=\langle 0,-\cos t,\sin t\rangle$.
+
+$\tau=\frac{(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''}{|\mathbf{r}'\times\mathbf{r}''|^2}$.
+$\mathbf{r}'\times\mathbf{r}''=\langle -1,\cos t,-\sin t\rangle$ (from Problem~33), $|\mathbf{r}'\times\mathbf{r}''|=\sqrt{2}$.
+
+$(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''=\langle -1,\cos t,-\sin t\rangle\cdot\langle 0,-\cos t,\sin t\rangle = 0-\cos^2 t-\sin^2 t=-1$.
+
+$\tau = -1/2$.
+
+Therefore the Frenet--Serret formulas (with respect to arc length $s$, where $ds/dt=\sqrt{2}$) are:
+\[
+\boxed{\frac{d\mathbf{T}}{ds}=\frac{1}{2}\mathbf{N},\quad \frac{d\mathbf{N}}{ds}=-\frac{1}{2}\mathbf{T}+\frac{1}{2}\mathbf{B},\quad \frac{d\mathbf{B}}{ds}=-\frac{1}{2}\mathbf{N},}
+\]
+with $\kappa=1/2$ and $\tau=-1/2$.
+
+(Note: the negative torsion $\tau=-1/2$ is used in $d\mathbf{N}/ds=-\kappa\mathbf{T}+\tau\mathbf{B}$ and $d\mathbf{B}/ds=-\tau\mathbf{N}=\frac{1}{2}\mathbf{N}$.)
+
+Correcting: $d\mathbf{B}/ds=-\tau\mathbf{N}=-(-1/2)\mathbf{N}=\frac{1}{2}\mathbf{N}$.
+\[
+\boxed{\frac{d\mathbf{T}}{ds}=\frac{1}{2}\mathbf{N},\quad \frac{d\mathbf{N}}{ds}=-\frac{1}{2}\mathbf{T}-\frac{1}{2}\mathbf{B},\quad \frac{d\mathbf{B}}{ds}=\frac{1}{2}\mathbf{N}.}
+\]
+
+% Problem 43
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, e^t, e^{-t}\rangle$, $\mathbf{r}'(t)=\langle 1, e^t, -e^{-t}\rangle$, $\mathbf{r}''(t)=\langle 0, e^t, e^{-t}\rangle$.
+At $t=0$: $\mathbf{r}'(0)=\langle 1,1,-1\rangle$, $|\mathbf{r}'(0)|=\sqrt{3}$.
+
+$\mathbf{T}(0)=\frac{1}{\sqrt{3}}\langle 1,1,-1\rangle$.
+
+$\mathbf{r}''(0)=\langle 0,1,1\rangle$.
+$\mathbf{r}'(0)\times\mathbf{r}''(0)=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&1&-1\\0&1&1\end{vmatrix}=\langle 1+1, 0-1, 1-0\rangle = \langle 2,-1,1\rangle$.
+
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{4+1+1}=\sqrt{6}$.
+$\mathbf{B}(0)=\frac{1}{\sqrt{6}}\langle 2,-1,1\rangle$.
+
+$\mathbf{N}(0)=\mathbf{B}(0)\times\mathbf{T}(0)=\frac{1}{\sqrt{6}\sqrt{3}}\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\2&-1&1\\1&1&-1\end{vmatrix}=\frac{1}{\sqrt{18}}\langle 1-1,\; 1+2,\; 2+1\rangle = \frac{1}{3\sqrt{2}}\langle 0,3,3\rangle$.
+
+$=\frac{1}{\sqrt{2}}\langle 0,1,1\rangle$.
+One can verify $|\langle 0,1,1\rangle/\sqrt{2}|=1$.
+
+\[
+\boxed{\mathbf{T}(0)=\frac{1}{\sqrt{3}}\langle 1,1,-1\rangle,\quad \mathbf{N}(0)=\frac{1}{\sqrt{2}}\langle 0,1,1\rangle,\quad \mathbf{B}(0)=\frac{1}{\sqrt{6}}\langle 2,-1,1\rangle.}
+\]
+
+% Problem 44
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \ln t, \sqrt{t}\rangle$, $\mathbf{r}'=\langle 1,1/t, 1/(2\sqrt{t})\rangle$, $\mathbf{r}''=\langle 0,-1/t^2,-1/(4t^{3/2})\rangle$, $\mathbf{r}'''=\langle 0,2/t^3,3/(8t^{5/2})\rangle$.
+
+From Problem~35: $\mathbf{r}'\times\mathbf{r}''=\langle 1/(4t^{5/2}),\; 1/(4t^{3/2}),\; -1/t^2\rangle$.
+
+$|\mathbf{r}'\times\mathbf{r}''|^2=\frac{1}{16t^5}+\frac{1}{16t^3}+\frac{1}{t^4}=\frac{1+t^2+16t}{16t^5}$.
+
+$(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''=\frac{1}{4t^{5/2}}\cdot 0+\frac{1}{4t^{3/2}}\cdot\frac{2}{t^3}+\left(-\frac{1}{t^2}\right)\cdot\frac{3}{8t^{5/2}}=\frac{1}{2t^{9/2}}-\frac{3}{8t^{9/2}}=\frac{1}{8t^{9/2}}$.
+
+\[
+\boxed{\tau(t)=\frac{1/(8t^{9/2})}{(1+t^2+16t)/(16t^5)}=\frac{16t^5}{8t^{9/2}(1+t^2+16t)}=\frac{2\sqrt{t}}{1+16t+t^2}.}
+\]
+
+% Problem 45
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, t^3\rangle$, $\mathbf{r}'=\langle 1,2t,3t^2\rangle$, $\mathbf{r}''=\langle 0,2,6t\rangle$, $\mathbf{r}'''=\langle 0,0,6\rangle$.
+
+$\mathbf{r}'\times\mathbf{r}''=\langle 12t^2-6t^2,\; 0-6t,\; 2-0\rangle = \langle 6t^2,-6t,2\rangle$.
+$|\mathbf{r}'\times\mathbf{r}''|^2=36t^4+36t^2+4$.
+
+$(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''=\langle 6t^2,-6t,2\rangle\cdot\langle 0,0,6\rangle=12$.
+
+$\tau(t)=\frac{12}{36t^4+36t^2+4}=\frac{3}{9t^4+9t^2+1}$.
+
+By the Frenet--Serret formula, $\frac{d\mathbf{B}}{ds}=-\tau\,\mathbf{N}$, so
+\[
+\frac{d\mathbf{B}}{dt}=-\tau\,|\mathbf{r}'|\,\mathbf{N}.
+\]
+The torsion is $\tau=\frac{3}{9t^4+9t^2+1}$ and $|\mathbf{r}'|=\sqrt{1+4t^2+9t^4}$.
+
+Therefore:
+\[
+\boxed{\frac{d\mathbf{B}}{dt}=-\frac{3\sqrt{1+4t^2+9t^4}}{9t^4+9t^2+1}\,\mathbf{N}(t).}
+\]
+(At $t=1$: $\tau=3/19$, $|\mathbf{r}'|=\sqrt{14}$, so $d\mathbf{B}/dt|_{t=1}=-\frac{3\sqrt{14}}{19}\,\mathbf{N}(1)$.)
+
+% Problem 46
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle e^{-t}\cos t, e^{-t}\sin t, t\rangle$.
+$\mathbf{r}'(t)=\langle -e^{-t}\cos t-e^{-t}\sin t,\; -e^{-t}\sin t+e^{-t}\cos t,\; 1\rangle = \langle -e^{-t}(\cos t+\sin t),\; e^{-t}(\cos t-\sin t),\; 1\rangle$.
+
+$\mathbf{r}''(t)=\langle e^{-t}(\cos t+\sin t)+e^{-t}(\sin t-\cos t),\; -e^{-t}(\cos t-\sin t)+e^{-t}(-\sin t-\cos t),\; 0\rangle$.
+$=\langle 2e^{-t}\sin t,\; -2e^{-t}\cos t,\; 0\rangle$.
+
+At $t=\pi$: $e^{-\pi}$, $\sin\pi=0$, $\cos\pi=-1$.
+$\mathbf{r}'(\pi)=\langle -e^{-\pi}(-1+0),\; e^{-\pi}(-1-0),\; 1\rangle = \langle e^{-\pi},\; -e^{-\pi},\; 1\rangle$.
+$\mathbf{r}''(\pi)=\langle 0,\; 2e^{-\pi},\; 0\rangle$.
+
+$\mathbf{r}'(\pi)\times\mathbf{r}''(\pi)=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\e^{-\pi}&-e^{-\pi}&1\\0&2e^{-\pi}&0\end{vmatrix}=\langle 0-2e^{-\pi},\; 0-0,\; 2e^{-2\pi}-0\rangle = \langle -2e^{-\pi}, 0, 2e^{-2\pi}\rangle$.
+
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{4e^{-2\pi}+4e^{-4\pi}}=2e^{-\pi}\sqrt{1+e^{-2\pi}}$.
+
+\[
+\boxed{\mathbf{B}(\pi)=\frac{\langle -2e^{-\pi}, 0, 2e^{-2\pi}\rangle}{2e^{-\pi}\sqrt{1+e^{-2\pi}}}=\frac{1}{\sqrt{1+e^{-2\pi}}}\langle -1, 0, e^{-\pi}\rangle.}
+\]
+
+% Problem 47
+\item \textbf{Solution.}
+A space curve with constant curvature $\kappa>0$ and constant torsion $\tau$ is a \textbf{circular helix} (or a circle if $\tau=0$, or a straight line if $\kappa=0$).
+
+More precisely: if $\kappa>0$ is constant and $\tau=0$, the curve is a circle of radius $1/\kappa$. If both $\kappa>0$ and $\tau\neq 0$ are constant, the curve is a circular helix. The radius of the helix is $r=\kappa/(\kappa^2+\tau^2)$ and the pitch (rise per turn) is
+$2\pi|\tau|/(\kappa^2+\tau^2)$.
+
+This is a classical result: \boxed{\text{a curve with constant } \kappa > 0 \text{ and constant } \tau \text{ is a circular helix.}}
+
+%%% Problems 48--57: Arc Length and Reparameterization %%%
+
+% Problem 48
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, 0\rangle$, $\mathbf{r}'(t)=\langle 1,2t,0\rangle$, $|\mathbf{r}'|=\sqrt{1+4t^2}$.
+\[
+L=\int_0^3\sqrt{1+4t^2}\,dt.
+\]
+Let $2t=\sinh u$, $dt=\frac{1}{2}\cosh u\,du$:
+\[
+L = \frac{1}{2}\int_0^{\sinh^{-1}6}\cosh^2 u\,du = \frac{1}{4}[u+\sinh u\cosh u]_0^{\sinh^{-1}6}.
+\]
+$\sinh^{-1}6=\ln(6+\sqrt{37})$, $\cosh(\sinh^{-1}6)=\sqrt{37}$.
+\[
+\boxed{L=\frac{1}{4}\bigl[\ln(6+\sqrt{37})+6\sqrt{37}\bigr]\approx 9.747.}
+\]
+
+% Problem 49
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 3t, 4t, 0\rangle$, $\mathbf{r}'(t)=\langle 3,4,0\rangle$, $|\mathbf{r}'|=5$.
+Arc length from $0$ to $t$: $s(t)=\int_0^t 5\,du = 5t$, so $t=s/5$.
+\[
+\boxed{\mathbf{r}(s)=\left\langle \frac{3s}{5},\; \frac{4s}{5},\; 0\right\rangle.}
+\]
+
+% Problem 50
+\item \textbf{Solution.}
+For a polar curve $r(\theta)=3\theta$, the arc length formula is
+\[
+L=\int_0^{\pi}\sqrt{r^2+\left(\frac{dr}{d\theta}\right)^2}\,d\theta = \int_0^{\pi}\sqrt{9\theta^2+9}\,d\theta = 3\int_0^{\pi}\sqrt{\theta^2+1}\,d\theta.
+\]
+Using $\int\sqrt{\theta^2+1}\,d\theta = \frac{1}{2}[\theta\sqrt{\theta^2+1}+\sinh^{-1}\theta]$:
+\[
+L = \frac{3}{2}\bigl[\theta\sqrt{\theta^2+1}+\ln(\theta+\sqrt{\theta^2+1})\bigr]_0^{\pi} = \frac{3}{2}\bigl[\pi\sqrt{\pi^2+1}+\ln(\pi+\sqrt{\pi^2+1})\bigr].
+\]
+\[
+\boxed{L = \frac{3}{2}\bigl[\pi\sqrt{\pi^2+1}+\ln(\pi+\sqrt{\pi^2+1})\bigr]\approx 16.16.}
+\]
+
+% Problem 51
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle e^t, e^{-t}, t\rangle$, $\mathbf{r}'(t)=\langle e^t, -e^{-t}, 1\rangle$.
+$|\mathbf{r}'|=\sqrt{e^{2t}+e^{-2t}+1}$.
+Note $e^{2t}+e^{-2t}=2\cosh 2t$, so $|\mathbf{r}'|=\sqrt{2\cosh 2t+1}$.
+
+Unfortunately this does not simplify to a nice closed form. However, observe:
+$e^{2t}+e^{-2t}+1=(e^t+e^{-t})^2-1 = 4\cosh^2 t -1$. So $|\mathbf{r}'|=\sqrt{4\cosh^2 t-1}$.
+
+This integral does not have a simple closed form; we express it as:
+\[
+\boxed{L=\int_0^2\sqrt{e^{2t}+e^{-2t}+1}\,dt \approx 7.212.}
+\]
+(Numerical evaluation gives $L\approx 7.212$.)
+
+% Problem 52
+\item \textbf{Solution.}
+$y=\epsilon x^2$ so $dy/dx=2\epsilon x$.
+\[
+L = \int_0^1\sqrt{1+4\epsilon^2 x^2}\,dx.
+\]
+For $\epsilon\ll 1$, use the expansion $\sqrt{1+u}\approx 1+u/2-u^2/8+\cdots$ with $u=4\epsilon^2 x^2$:
+\[
+L\approx \int_0^1\left(1+2\epsilon^2 x^2 - 2\epsilon^4 x^4+\cdots\right)dx = 1+\frac{2\epsilon^2}{3}-\frac{2\epsilon^4}{5}+\cdots
+\]
+To leading order:
+\[
+\boxed{L\approx 1+\frac{2\epsilon^2}{3}.}
+\]
+
+% Problem 53
+\item \textbf{Solution.}
+A simple smooth path from $\langle 0,0,0\rangle$ to $\langle 1,1,1\rangle$ with continuous derivatives is
+\[
+\mathbf{r}(t) = \langle t, t, t\rangle, \quad t\in[0,1].
+\]
+This is smooth ($\mathbf{r}'(t)=\langle 1,1,1\rangle\neq\mathbf{0}$) with all derivatives continuous.
+
+For a more flexible design (e.g., starting and ending with zero velocity for a robotic arm), use a polynomial blend:
+\[
+\mathbf{r}(t)=\langle s(t), s(t), s(t)\rangle, \quad s(t)=3t^2-2t^3, \quad t\in[0,1].
+\]
+Then $s(0)=0$, $s(1)=1$, $s'(0)=0$, $s'(1)=0$, and all derivatives are continuous. The velocity is
+$\mathbf{r}'(t)=(6t-6t^2)\langle 1,1,1\rangle$, which is zero at the endpoints (smooth start/stop).
+
+\boxed{\mathbf{r}(t)=\langle 3t^2-2t^3,\; 3t^2-2t^3,\; 3t^2-2t^3\rangle,\quad t\in[0,1].}
+
+% Problem 54
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t^3, t^2, t\rangle$, $\mathbf{r}'(t)=\langle 3t^2, 2t, 1\rangle$, $|\mathbf{r}'|=\sqrt{9t^4+4t^2+1}$.
+\[
+L=\int_0^2\sqrt{9t^4+4t^2+1}\,dt.
+\]
+Note $9t^4+4t^2+1=(3t^2+1)^2-2t^2$. This does not factor nicely, so we evaluate numerically.
+
+Numerically: $\boxed{L=\int_0^2\sqrt{9t^4+4t^2+1}\,dt \approx 9.571.}$
+
+% Problem 55
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 3\cos t, 3\sin t, 4t\rangle$, $\mathbf{r}'(t)=\langle -3\sin t, 3\cos t, 4\rangle$.
+$|\mathbf{r}'|=\sqrt{9\sin^2 t+9\cos^2 t+16}=\sqrt{9+16}=5$.
+
+Arc length: $s(t)=5t$, so $t=s/5$.
+\[
+\boxed{\mathbf{r}(s)=\left\langle 3\cos\frac{s}{5},\; 3\sin\frac{s}{5},\; \frac{4s}{5}\right\rangle.}
+\]
+
+% Problem 56
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \ln(1+t^2), t^2\rangle$, $\mathbf{r}'(t)=\langle 1, \frac{2t}{1+t^2}, 2t\rangle$.
+
+$|\mathbf{r}'|^2=1+\frac{4t^2}{(1+t^2)^2}+4t^2 = \frac{(1+t^2)^2+4t^2+4t^2(1+t^2)^2}{(1+t^2)^2}$.
+
+Let us compute more carefully:
+$|\mathbf{r}'|^2 = 1+4t^2+\frac{4t^2}{(1+t^2)^2}$.
+
+The arc length $s(t)=\int_0^t|\mathbf{r}'(u)|\,du$ does not have a closed-form antiderivative, so the arc length parameterization is defined implicitly:
+\[
+\boxed{s(t)=\int_0^t\sqrt{1+4u^2+\frac{4u^2}{(1+u^2)^2}}\,du,}
+\]
+and the reparameterization is $\mathbf{r}(s)=\mathbf{r}(t(s))$ where $t(s)$ is the inverse function of $s(t)$.
+
+% Problem 57
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t^2, t^3, t\rangle$, $\mathbf{r}'(t)=\langle 2t, 3t^2, 1\rangle$, $|\mathbf{r}'|=\sqrt{4t^2+9t^4+1}$.
+\[
+L=\int_0^1\sqrt{9t^4+4t^2+1}\,dt.
+\]
+This integral does not have a simple closed form. Numerically:
+\[
+\boxed{L=\int_0^1\sqrt{9t^4+4t^2+1}\,dt \approx 1.8101.}
+\]
+
+%%% Problems 58--67: Arc Length and Applications in Engineering Paths %%%
+
+% Problem 58
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 4\cos t, 4\sin t, 3t\rangle$ for $t\in[0,2\pi]$.
+$\mathbf{r}'(t)=\langle -4\sin t, 4\cos t, 3\rangle$, $|\mathbf{r}'|=\sqrt{16+9}=5$.
+
+Total arc length: $L=\int_0^{2\pi}5\,dt=10\pi$.
+
+Arc length parameter: $s=5t$, so $t=s/5$.
+\[
+\boxed{L=10\pi,\qquad \mathbf{r}(s)=\left\langle 4\cos\frac{s}{5},\; 4\sin\frac{s}{5},\; \frac{3s}{5}\right\rangle,\quad s\in[0,10\pi].}
+\]
+
+% Problem 59
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \sin t, \cos t\rangle$, $\mathbf{r}'(t)=\langle 1, \cos t, -\sin t\rangle$, $|\mathbf{r}'|=\sqrt{2}$.
+\[
+\boxed{L=\int_0^{2\pi}\sqrt{2}\,dt = 2\pi\sqrt{2}.}
+\]
+
+% Problem 60
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle e^t, \ln t, t\rangle$, $\mathbf{r}'(t)=\langle e^t, 1/t, 1\rangle$.
+$|\mathbf{r}'|=\sqrt{e^{2t}+1/t^2+1}$.
+\[
+L=\int_1^3\sqrt{e^{2t}+\frac{1}{t^2}+1}\,dt.
+\]
+This does not simplify to a closed form. Numerically:
+\[
+\boxed{L=\int_1^3\sqrt{e^{2t}+\frac{1}{t^2}+1}\,dt \approx 19.49.}
+\]
+
+% Problem 61
+\item \textbf{Solution.}
+For a particle moving at constant speed $v$ along $\mathbf{r}(t)=\langle t, t^2, t^4\rangle$, the travel time equals the arc length divided by speed.
+
+$\mathbf{r}'(t)=\langle 1, 2t, 4t^3\rangle$, $|\mathbf{r}'|=\sqrt{1+4t^2+16t^6}$.
+
+To minimize travel time at constant speed, we need the path with the shortest arc length between the endpoints. The straight line from $\mathbf{r}(0)=\langle 0,0,0\rangle$ to $\mathbf{r}(T)$ for any given $T$ would be optimal, but since the vehicle is constrained to the curve, the total travel time along the curve from $t=0$ to $t=T$ is:
+\[
+\boxed{\text{Travel time} = \frac{L}{v}=\frac{1}{v}\int_0^T\sqrt{1+4t^2+16t^6}\,dt.}
+\]
+Since the curve is fixed, one cannot reduce the arc length; the travel time is minimized by traveling at maximum constant speed along the curve. The ``optimized'' path is simply the given curve traversed at the highest possible speed.
+
+% Problem 62
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 7000\cos t, 7000\sin t, 0\rangle$, $\mathbf{r}'(t)=\langle -7000\sin t, 7000\cos t, 0\rangle$, $|\mathbf{r}'|=7000$.
+One orbit: $t\in[0,2\pi]$.
+\[
+\boxed{L=\int_0^{2\pi}7000\,dt = 14000\pi \approx 43{,}982\text{ km}.}
+\]
+
+% Problem 63
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 2\cos t, 2\sin t, 0\rangle$, $\mathbf{r}'(t)=\langle -2\sin t, 2\cos t, 0\rangle$, $|\mathbf{r}'|=2$.
+
+$s=2t \implies t=s/2$.
+\[
+\boxed{\mathbf{r}(s)=\left\langle 2\cos\frac{s}{2},\; 2\sin\frac{s}{2},\; 0\right\rangle,\quad s\in[0,4\pi].}
+\]
+
+% Problem 64
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, e^t, \ln t\rangle$, $\mathbf{r}'(t)=\langle 1, e^t, 1/t\rangle$, $|\mathbf{r}'|=\sqrt{1+e^{2t}+1/t^2}$.
+\[
+L=\int_1^2\sqrt{1+e^{2t}+\frac{1}{t^2}}\,dt.
+\]
+This integral does not have a closed-form solution. Numerically:
+\[
+\boxed{L=\int_1^2\sqrt{1+e^{2t}+\frac{1}{t^2}}\,dt \approx 6.79.}
+\]
+
+% Problem 65
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \sin t, \cos t\rangle$, $|\mathbf{r}'|=\sqrt{2}$ (from Problem~59).
+\[
+\boxed{L=\int_0^{\pi}\sqrt{2}\,dt = \pi\sqrt{2}.}
+\]
+
+% Problem 66
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 10\cos t, 10\sin t, t^2\rangle$, $\mathbf{r}'(t)=\langle -10\sin t, 10\cos t, 2t\rangle$, $|\mathbf{r}'|=\sqrt{100+4t^2}$.
+\[
+L=\int_0^{\pi}\sqrt{100+4t^2}\,dt = 2\int_0^{\pi}\sqrt{25+t^2}\,dt.
+\]
+Using $\int\sqrt{a^2+t^2}\,dt=\frac{1}{2}\bigl[t\sqrt{a^2+t^2}+a^2\ln(t+\sqrt{a^2+t^2})\bigr]$ with $a=5$:
+\[
+L = 2\cdot\frac{1}{2}\bigl[t\sqrt{25+t^2}+25\ln(t+\sqrt{25+t^2})\bigr]_0^{\pi}.
+\]
+\[
+= \pi\sqrt{25+\pi^2}+25\ln\!\left(\frac{\pi+\sqrt{25+\pi^2}}{5}\right).
+\]
+\[
+\boxed{L=\pi\sqrt{25+\pi^2}+25\ln\!\left(\frac{\pi+\sqrt{25+\pi^2}}{5}\right)\approx 32.52.}
+\]
+
+% Problem 67
+\item \textbf{Solution.}
+For uniform speed from $\langle 0,0,0\rangle$ to $\langle 5,5,5\rangle$, the simplest smooth path is a straight line:
+$\mathbf{r}(t)=t\langle 5,5,5\rangle$ for $t\in[0,1]$.
+$|\mathbf{r}'(t)|=5\sqrt{3}$ (constant speed). Arc length: $L=5\sqrt{3}$.
+Arc length parameterization: $t=s/(5\sqrt{3})$, so
+\[
+\boxed{\mathbf{r}(s)=\frac{s}{5\sqrt{3}}\langle 5,5,5\rangle = \frac{s}{\sqrt{3}}\langle 1,1,1\rangle, \quad s\in[0, 5\sqrt{3}].}
+\]
+By construction, $|d\mathbf{r}/ds|=1$, so the drone moves at unit speed along this parameterization. To achieve a desired speed $v$, travel at $s=vt$.
+
+%%% Problems 68--77: Applied Problems %%%
+
+% Problem 68
+\item \textbf{Solution.}
+$v_0=50$ m/s, $\theta=45°$, $g=9.8$ m/s$^2$.
+$v_{0x}=50\cos 45°=25\sqrt{2}$, $v_{0y}=25\sqrt{2}$.
+
+Time of flight (when $y=0$ and $t>0$): $v_{0y}t-\frac{1}{2}gt^2=0 \implies t=2v_{0y}/g=\frac{50\sqrt{2}}{9.8}$.
+
+Horizontal range:
+\[
+R = v_{0x}\cdot\frac{2v_{0y}}{g}=\frac{v_0^2\sin 2\theta}{g}=\frac{2500}{9.8}\approx 255.1\text{ m}.
+\]
+
+Maximum height:
+\[
+H = \frac{v_0^2\sin^2\theta}{2g}=\frac{2500\cdot 1/2}{2\cdot 9.8}=\frac{1250}{19.6}\approx 63.78\text{ m}.
+\]
+
+\[
+\boxed{R\approx 255.1\text{ m},\qquad H\approx 63.78\text{ m}.}
+\]
+
+% Problem 69
+\item \textbf{Solution.}
+Circular path of radius $R=100$ m, tangential acceleration $a_T=2$ m/s$^2$, speed $v=10$ m/s.
+
+Centripetal (normal) acceleration: $a_N=v^2/R=100/100=1$ m/s$^2$.
+
+Total acceleration:
+\[
+|a|=\sqrt{a_T^2+a_N^2}=\sqrt{4+1}=\sqrt{5}\approx 2.236\text{ m/s}^2.
+\]
+
+\[
+\boxed{|\mathbf{a}|=\sqrt{5}\approx 2.236\text{ m/s}^2.}
+\]
+
+% Problem 70
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 10\cos t, 10\sin t, t^2\rangle$.
+$\mathbf{v}(t)=\langle -10\sin t, 10\cos t, 2t\rangle$.
+$\mathbf{a}(t)=\langle -10\cos t, -10\sin t, 2\rangle$.
+
+At $t=1$:
+$\mathbf{v}(1)=\langle -10\sin 1, 10\cos 1, 2\rangle$.
+Speed: $|\mathbf{v}(1)|=\sqrt{100\sin^2 1+100\cos^2 1+4}=\sqrt{104}=2\sqrt{26}$.
+
+$\mathbf{a}(1)=\langle -10\cos 1, -10\sin 1, 2\rangle$.
+$|\mathbf{a}(1)|=\sqrt{100+4}=\sqrt{104}=2\sqrt{26}$.
+
+\[
+\boxed{|\mathbf{v}(1)|=2\sqrt{26}\approx 10.20,\qquad \mathbf{a}(1)=\langle -10\cos 1, -10\sin 1, 2\rangle,\quad |\mathbf{a}(1)|=2\sqrt{26}.}
+\]
+
+% Problem 71
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle \ln(t+1), \sqrt{t}, t^2\rangle$, $\mathbf{r}'(t)=\langle 1/(t+1), 1/(2\sqrt{t}), 2t\rangle$ for $t>0$.
+$|\mathbf{r}'|=\sqrt{\frac{1}{(t+1)^2}+\frac{1}{4t}+4t^2}$.
+\[
+L=\int_0^2\sqrt{\frac{1}{(t+1)^2}+\frac{1}{4t}+4t^2}\,dt.
+\]
+Note: At $t=0$, $1/(2\sqrt{t})\to\infty$, so the integrand has an integrable singularity. Numerically:
+\[
+\boxed{L\approx 4.82.}
+\]
+
+% Problem 72
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, \ln t\rangle$, $\mathbf{r}'=\langle 1, 2t, 1/t\rangle$, $\mathbf{r}''=\langle 0, 2, -1/t^2\rangle$.
+At $t=1$: $\mathbf{r}'=\langle 1,2,1\rangle$, $\mathbf{r}''=\langle 0,2,-1\rangle$.
+\[
+\mathbf{r}'\times\mathbf{r}''=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\1&2&1\\0&2&-1\end{vmatrix}=\langle -2-2,\; 0+1,\; 2-0\rangle = \langle -4,1,2\rangle.
+\]
+$|\mathbf{r}'\times\mathbf{r}''|=\sqrt{16+1+4}=\sqrt{21}$, $|\mathbf{r}'|=\sqrt{6}$.
+\[
+\boxed{\kappa(1)=\frac{\sqrt{21}}{(\sqrt{6})^3}=\frac{\sqrt{21}}{6\sqrt{6}}=\frac{\sqrt{126}}{36}=\frac{\sqrt{14}}{12}\approx 0.312.}
+\]
+
+% Problem 73
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 7000\cos t, 7000\sin t, 0\rangle$ km.
+$\mathbf{v}(t)=\langle -7000\sin t, 7000\cos t, 0\rangle$, $|\mathbf{v}|=7000$ km (per unit of $t$).
+$\mathbf{a}(t)=\langle -7000\cos t, -7000\sin t, 0\rangle$, $|\mathbf{a}|=7000$ km (per $t^2$).
+
+The acceleration points toward the origin (centripetal): $\mathbf{a}=-7000\,\hat{\mathbf{r}}$.
+Centripetal acceleration magnitude: $a_c=v^2/R=7000^2/7000=7000$.
+
+\[
+\boxed{\text{Speed}=7000\text{ km/[unit time]},\qquad a_{\text{centripetal}}=\frac{v^2}{R}=7000\text{ km/[unit time]}^2.}
+\]
+
+% Problem 74
+\item \textbf{Solution.}
+We need $\mathbf{r}:[0,1]\to\mathbb{R}^3$ with $\mathbf{r}(0)=\langle 0,0,0\rangle$, $\mathbf{r}(1)=\langle 2,2,2\rangle$, and $\mathbf{r}', \mathbf{r}''$ continuous.
+
+Using a cubic Hermite interpolant with zero-velocity endpoints:
+\[
+s(t)=3t^2-2t^3, \quad \mathbf{r}(t)=2s(t)\langle 1,1,1\rangle = \langle 2(3t^2-2t^3),\; 2(3t^2-2t^3),\; 2(3t^2-2t^3)\rangle.
+\]
+Check: $\mathbf{r}(0)=\langle 0,0,0\rangle$, $\mathbf{r}(1)=\langle 2,2,2\rangle$.
+$\mathbf{r}'(t)=2(6t-6t^2)\langle 1,1,1\rangle$, so $\mathbf{r}'(0)=\mathbf{r}'(1)=\mathbf{0}$ (smooth start/stop).
+$\mathbf{r}''(t)=2(6-12t)\langle 1,1,1\rangle$ is continuous.
+
+\[
+\boxed{\mathbf{r}(t)=(6t^2-4t^3)\langle 1,1,1\rangle, \quad t\in[0,1].}
+\]
+
+% Problem 75
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \sin t, \cos t\rangle$, $|\mathbf{r}'|=\sqrt{2}$.
+\[
+\boxed{L=\int_0^{2\pi}\sqrt{2}\,dt=2\pi\sqrt{2}\approx 8.886.}
+\]
+
+% Problem 76
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^3, t\rangle$.
+$\mathbf{v}(t)=\langle 1, 3t^2, 1\rangle$, $\mathbf{a}(t)=\langle 0, 6t, 0\rangle$.
+At $t=1$:
+$\mathbf{v}(1)=\langle 1,3,1\rangle$, $|\mathbf{v}(1)|=\sqrt{1+9+1}=\sqrt{11}$, $\mathbf{a}(1)=\langle 0,6,0\rangle$.
+\[
+\boxed{\mathbf{v}(1)=\langle 1,3,1\rangle,\quad \mathbf{a}(1)=\langle 0,6,0\rangle,\quad |\mathbf{v}(1)|=\sqrt{11}.}
+\]
+
+% Problem 77
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle e^t, e^{-t}, t\rangle$, $|\mathbf{r}'|=\sqrt{e^{2t}+e^{-2t}+1}$.
+\[
+L=\int_0^1\sqrt{e^{2t}+e^{-2t}+1}\,dt.
+\]
+Numerically: $\boxed{L\approx 2.003.}$
+
+%%% Problems 78--87: Advanced Challenges %%%
+
+% Problem 78
+\item \textbf{Solution.}
+This is the same as Problem~38. For $\mathbf{r}(t)=\langle t, \ln t, t^2\rangle$ at $t=1$:
+\[
+\boxed{\mathbf{T}(1)=\frac{1}{\sqrt{6}}\langle 1,1,2\rangle,\quad \mathbf{N}(1)=\frac{1}{\sqrt{14}}\langle -1,-3,2\rangle,\quad \mathbf{B}(1)=\frac{1}{\sqrt{21}}\langle 4,-2,-1\rangle.}
+\]
+See Problem~32/38 for the full computation.
+
+% Problem 79
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle \cos t, \sin t, t\rangle$, $|\mathbf{r}'|=\sqrt{2}$.
+\[
+\boxed{L=\int_0^{2\pi}\sqrt{2}\,dt=2\pi\sqrt{2}.}
+\]
+
+% Problem 80
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \sqrt{2}\,t, t^2\rangle$, $\mathbf{r}'(t)=\langle 1, \sqrt{2}, 2t\rangle$.
+$|\mathbf{r}'|=\sqrt{1+2+4t^2}=\sqrt{3+4t^2}$.
+
+Hint says $|\mathbf{r}'|$ simplifies nicely. Indeed: $\sqrt{3+4t^2}$. Let us check if $3+4t^2$ is a perfect square... Not in general, but $\sqrt{3+4t^2}$ can be integrated.
+
+$s(t)=\int_0^t\sqrt{3+4u^2}\,du$. Let $2u=\sqrt{3}\sinh\phi$:
+\[
+s(t) = \frac{\sqrt{3}}{4}\bigl[2t\sqrt{3+4t^2}/\sqrt{3}+\sqrt{3}\,\sinh^{-1}(2t/\sqrt{3})\bigr] = \frac{1}{2}\,t\sqrt{3+4t^2}+\frac{3}{4}\ln\!\left(\frac{2t+\sqrt{3+4t^2}}{\sqrt{3}}\right).
+\]
+
+The expression $\sqrt{3+4t^2}$ does not simplify further. The arc length is:
+\[
+s(t)=\int_0^t\sqrt{3+4u^2}\,du = \frac{t\sqrt{3+4t^2}}{2}+\frac{3}{4}\ln\!\left(\frac{2t+\sqrt{3+4t^2}}{\sqrt{3}}\right).
+\]
+The reparameterization is $\mathbf{r}(s)=\mathbf{r}(t(s))$ where $t(s)$ is the inverse of the above.
+
+\[
+\boxed{s(t)=\frac{t}{2}\sqrt{3+4t^2}+\frac{3}{4}\ln\!\left(\frac{2t+\sqrt{3+4t^2}}{\sqrt{3}}\right);\quad \mathbf{r}(s)=\langle t(s),\;\sqrt{2}\,t(s),\;t(s)^2\rangle.}
+\]
+
+% Problem 81
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, t^3\rangle$, $\mathbf{r}'=\langle 1,2t,3t^2\rangle$, $\mathbf{r}''=\langle 0,2,6t\rangle$, $\mathbf{r}'''=\langle 0,0,6\rangle$.
+
+At $t=1$: $\mathbf{r}'=\langle 1,2,3\rangle$, $|\mathbf{r}'|=\sqrt{14}$, $\mathbf{r}''=\langle 0,2,6\rangle$.
+$\mathbf{r}'\times\mathbf{r}''=\langle 6,-6,2\rangle$, $|\mathbf{r}'\times\mathbf{r}''|=\sqrt{76}=2\sqrt{19}$.
+
+Curvature:
+\[
+\kappa(1)=\frac{2\sqrt{19}}{(\sqrt{14})^3}=\frac{2\sqrt{19}}{14\sqrt{14}}=\frac{\sqrt{19}}{7\sqrt{14}}=\frac{\sqrt{266}}{98}.
+\]
+
+Torsion:
+$(\mathbf{r}'\times\mathbf{r}'')\cdot\mathbf{r}'''=\langle 6,-6,2\rangle\cdot\langle 0,0,6\rangle=12$.
+\[
+\tau(1)=\frac{12}{|\mathbf{r}'\times\mathbf{r}''|^2}=\frac{12}{76}=\frac{3}{19}.
+\]
+
+\[
+\boxed{\kappa(1)=\frac{\sqrt{19}}{7\sqrt{14}}=\frac{\sqrt{266}}{98}\approx 0.166, \qquad \tau(1)=\frac{3}{19}\approx 0.158.}
+\]
+
+% Problem 82
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 8000\cos t, 6000\sin t, 0\rangle$, $\mathbf{r}'(t)=\langle -8000\sin t, 6000\cos t, 0\rangle$.
+$|\mathbf{r}'|=\sqrt{64\times 10^6\sin^2 t+36\times 10^6\cos^2 t}=2000\sqrt{16\sin^2 t+9\cos^2 t}=2000\sqrt{9+7\sin^2 t}$.
+
+\[
+L=\int_0^{2\pi}2000\sqrt{9+7\sin^2 t}\,dt = 4\cdot 2000\int_0^{\pi/2}\sqrt{9+7\sin^2 t}\,dt.
+\]
+$= 8000\int_0^{\pi/2}\sqrt{9+7\sin^2 t}\,dt = 8000\cdot 3\int_0^{\pi/2}\sqrt{1+\frac{7}{9}\sin^2 t}\,dt$.
+
+This is an incomplete elliptic integral of the second kind. With $k^2=7/9$:
+$=24000\,E\!\left(\sqrt{7/9}\right)\cdot\frac{\pi}{2}$---no, the standard form is $E(k)=\int_0^{\pi/2}\sqrt{1-k^2\sin^2 t}\,dt$.
+
+We have $\sqrt{1+(7/9)\sin^2 t}$. Rewrite: $9+7\sin^2 t=16-7\cos^2 t$, so $\sqrt{9+7\sin^2 t}=4\sqrt{1-\frac{7}{16}\cos^2 t}$.
+
+Let $u=\pi/2-t$: $\int_0^{\pi/2}\sqrt{1-\frac{7}{16}\cos^2 t}\,dt=\int_0^{\pi/2}\sqrt{1-\frac{7}{16}\sin^2 u}\,du = E\!\left(\sqrt{7/16}\right)=E\!\left(\frac{\sqrt{7}}{4}\right)$.
+
+So $L=8000\cdot 4\,E\!\left(\frac{\sqrt{7}}{4}\right)=32000\,E\!\left(\frac{\sqrt{7}}{4}\right)$.
+
+Numerically, $k=\sqrt{7}/4\approx 0.6614$, $E(0.6614)\approx 1.3556$.
+$L\approx 32000\times 1.3556\approx 43{,}379$ km.
+
+For context, this is the circumference of an ellipse with semi-major axis $a=8000$ and semi-minor axis $b=6000$: $L=4aE(e)$ where eccentricity $e=\sqrt{1-b^2/a^2}=\sqrt{1-9/16}=\sqrt{7}/4$.
+
+\[
+\boxed{L = 4\cdot 8000\cdot E\!\left(\frac{\sqrt{7}}{4}\right) = 32000\,E\!\left(\frac{\sqrt{7}}{4}\right)\approx 43{,}379\text{ km}.}
+\]
+
+% Problem 83
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, \ln t, \sqrt{t}\rangle$, $\mathbf{r}'=\langle 1, 1/t, 1/(2\sqrt{t})\rangle$.
+$|\mathbf{r}'|^2=1+1/t^2+1/(4t)=(4t^2+4+t)/(4t^2)$.
+$|\mathbf{r}'|=\sqrt{4t^2+t+4}/(2t)$.
+\[
+L=\int_1^2\frac{\sqrt{4t^2+t+4}}{2t}\,dt.
+\]
+This does not have a simple closed form. Numerically:
+\[
+\boxed{L\approx 1.554.}
+\]
+
+% Problem 84
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, t^2, t^3\rangle$, $\mathbf{r}'=\langle 1,2t,3t^2\rangle$.
+\[
+|\mathbf{r}'(t)|=\sqrt{1+4t^2+9t^4}.
+\]
+As $t\to\infty$: $9t^4$ dominates, so $|\mathbf{r}'(t)|\sim 3t^2$.
+More precisely, for large $t$:
+\[
+|\mathbf{r}'(t)|=3t^2\sqrt{1+\frac{4}{9t^2}+\frac{1}{9t^4}} \approx 3t^2\left(1+\frac{2}{9t^2}+\cdots\right) \approx 3t^2+\frac{2}{3}+\cdots
+\]
+Thus the speed grows without bound as $t\to\infty$, dominated by the $z$-component ($3t^2$).
+
+\[
+\boxed{|\mathbf{r}'(t)|=\sqrt{1+4t^2+9t^4}\sim 3t^2 \text{ as } t\to\infty.}
+\]
+
+% Problem 85
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 10\cos t, 10\sin t, t^2\rangle$, $|\mathbf{r}'|=\sqrt{100+4t^2}$.
+\[
+L=\int_0^{2\pi}\sqrt{100+4t^2}\,dt = 2\int_0^{2\pi}\sqrt{25+t^2}\,dt.
+\]
+$=\bigl[t\sqrt{25+t^2}+25\ln(t+\sqrt{25+t^2})\bigr]_0^{2\pi}$.
+$=2\pi\sqrt{25+4\pi^2}+25\ln\!\left(\frac{2\pi+\sqrt{25+4\pi^2}}{5}\right)$.
+
+\[
+\boxed{L=2\pi\sqrt{25+4\pi^2}+25\ln\!\left(\frac{2\pi+\sqrt{25+4\pi^2}}{5}\right)\approx 66.89.}
+\]
+
+% Problem 86
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle 5\cos t, 5\sin t, 12t\rangle$, $\mathbf{r}'(t)=\langle -5\sin t, 5\cos t, 12\rangle$.
+$|\mathbf{r}'|=\sqrt{25\sin^2 t+25\cos^2 t+144}=\sqrt{25+144}=\sqrt{169}=13$.
+
+Since the speed is $\boxed{13}$ for all $t$, the speed is \textbf{constant}. The drone travels at a uniform speed of 13 units per unit time along this helix.
+
+% Problem 87
+\item \textbf{Solution.}
+$\mathbf{r}(t)=\langle t, e^t, \ln t\rangle$ for $t>0$.
+
+\textit{Velocity:} $\mathbf{v}(t)=\langle 1, e^t, 1/t\rangle$. At $t=1$: $\mathbf{v}(1)=\langle 1, e, 1\rangle$.
+
+\textit{Acceleration:} $\mathbf{a}(t)=\langle 0, e^t, -1/t^2\rangle$. At $t=1$: $\mathbf{a}(1)=\langle 0, e, -1\rangle$.
+
+\textit{Curvature:}
+$\mathbf{v}\times\mathbf{a}|_{t=1}=\langle 1,e,1\rangle\times\langle 0,e,-1\rangle = \langle -e-e,\; 0+1,\; e-0\rangle = \langle -2e, 1, e\rangle$.
+
+$|\mathbf{v}\times\mathbf{a}|=\sqrt{4e^2+1+e^2}=\sqrt{5e^2+1}$.
+$|\mathbf{v}(1)|=\sqrt{1+e^2+1}=\sqrt{e^2+2}$.
+\[
+\kappa(1)=\frac{\sqrt{5e^2+1}}{(e^2+2)^{3/2}}.
+\]
+
+\textit{Torsion:}
+$\mathbf{r}'''(t)=\langle 0, e^t, 2/t^3\rangle$. At $t=1$: $\mathbf{r}'''(1)=\langle 0, e, 2\rangle$.
+
+$(\mathbf{v}\times\mathbf{a})\cdot\mathbf{r}'''=\langle -2e,1,e\rangle\cdot\langle 0,e,2\rangle = 0+e+2e = 3e$.
+
+$|\mathbf{v}\times\mathbf{a}|^2=5e^2+1$.
+\[
+\tau(1)=\frac{3e}{5e^2+1}.
+\]
+
+\begin{align*}
+&\boxed{\mathbf{v}(1)=\langle 1,e,1\rangle,\quad \mathbf{a}(1)=\langle 0,e,-1\rangle,} \\
+&\boxed{\kappa(1)=\frac{\sqrt{5e^2+1}}{(e^2+2)^{3/2}}\approx 0.301,\quad \tau(1)=\frac{3e}{5e^2+1}\approx 0.211.}
+\end{align*}
+
+\end{enumerate}

@@ -1,0 +1,188 @@
+\documentclass[11pt]{article}
+\usepackage{worksheet_style}
+
+% ---- Toggle: uncomment for filled version ----
+%\worksheetfilledtrue
+\begin{document}
+\worksheetheader{5}{Vector-Valued Functions}
+
+\begin{background}
+We now shift from static geometry to motion. A vector-valued function $\vect{r}(t)$ traces a curve through space as the parameter $t$ varies---think of it as the position of a particle at time $t$. This chapter connects the vector algebra from Chapter 1 to calculus: we'll differentiate and integrate these functions component by component, leading to tangent vectors, arc length, curvature, and projectile motion.
+\end{background}
+
+%=============================================================
+\wsection{Parametric Curves in $\R^3$}
+
+\begin{defbox}{Vector-Valued Function (VVF)}
+A VVF maps a scalar $t$ to a vector:
+\[\vect{r}(t) = \vec{f(t),\; g(t),\; h(t)} = f(t)\,\ihat + g(t)\,\jhat + h(t)\,\khat\]
+-- $f, g, h$ are the \wbi{component functions}{3cm}
+
+-- As $t$ varies, the tip of $\vect{r}(t)$ traces a \textbf{space curve}
+\end{defbox}
+
+\begin{center}
+\tdplotsetmaincoords{60}{110}
+\begin{tikzpicture}[tdplot_main_coords, scale=1.9]
+\draw[->] (0,0,0) -- (1.5,0,0) node[anchor=north east] {$x$};
+\draw[->] (0,0,0) -- (0,1.5,0) node[anchor=north west] {$y$};
+\draw[->] (0,0,0) -- (0,0,2.5) node[anchor=south] {$z$};
+\draw[domain=0:720, variable=\t, smooth, samples=200, thick, blue]
+    plot ({cos(\t)}, {sin(\t)}, {\t/360});
+\end{tikzpicture}\\
+{\small Helix $\vect{r}(t)=\vec{R\cos t,\,R\sin t,\,ct}$ spiraling around the $z$-axis. As $t$ increases, $\vect{r}(t)$ rotates in the $xy$-plane while rising linearly in $z$.}
+\end{center}
+
+\begin{formulabox}{Common Parametric Curves}
+\begin{itemize}[nosep, leftmargin=*]
+  \item \textbf{Line:} $\vect{r}(t) = \vect{r}_0 + t\,\vect{d}$
+  \item \textbf{Circle} (radius $R$, $xy$-plane): $\vect{r}(t) = \wbml{\vec{R\cos t,\; R\sin t,\; 0}}$, \; $t\in[0,2\pi]$
+  \item \textbf{Helix} (radius $R$, rising rate $c$): $\vect{r}(t) = \wbml{\vec{R\cos t,\; R\sin t,\; ct}}$
+  \item \textbf{Ellipse:} $\vect{r}(t) = \vec{a\cos t,\; b\sin t,\; 0}$
+\end{itemize}
+\end{formulabox}
+
+\begin{example}[Identifying a Helix]
+Describe the curve $\vect{r}(t) = \vec{3\cos t,\; 3\sin t,\; 2t}$ for $t \geq 0$.
+
+\wbbox{
+1. Check: $x^2 + y^2 = 9\cos^2 t + 9\sin^2 t = 9$ -- lies on the cylinder $x^2+y^2=9$.
+
+2. The $z$-component $z = 2t$ increases linearly.
+
+3. Result: a \textbf{helix} of radius 3, rising at rate 2 per radian, winding around the $z$-axis.
+}{3cm}
+\end{example}
+
+%=============================================================
+\wsection{Derivatives of VVFs}
+
+\begin{defbox}{Derivative of a VVF}
+The derivative $\vect{r}\,'(t)$ is the instantaneous rate of change of the position vector, obtained by differentiating each component separately. Geometrically it is the \textbf{velocity vector}: it points in the direction the curve is moving at that instant, and its magnitude is the speed at which the particle is traversing the curve.
+\[\vect{r}\,'(t) = \wbml{\vec{f'(t),\; g'(t),\; h'(t)}}\]
+-- $\vect{r}\,'(t)$ is a \wbi{tangent vector}{3cm} to the curve at $\vect{r}(t)$
+
+-- $\|\vect{r}\,'(t)\|$ is the \wbi{speed}{2cm}
+\end{defbox}
+
+\begin{formulabox}{Derivative Rules for VVFs}
+\begin{itemize}[nosep, leftmargin=*]
+  \item Scalar product rule: $\ds\frac{d}{dt}[f(t)\,\vect{r}(t)] = \wbml{f'(t)\,\vect{r}(t) + f(t)\,\vect{r}\,'(t)}$
+  \item Dot product rule: $\ds\frac{d}{dt}[\vect{r}(t)\cdot\vect{s}(t)] = \wbml{\vect{r}\,'(t)\cdot\vect{s}(t) + \vect{r}(t)\cdot\vect{s}\,'(t)}$
+  \item Cross product rule: $\ds\frac{d}{dt}[\vect{r}(t)\times\vect{s}(t)] = \wbml{\vect{r}\,'(t)\times\vect{s}(t) + \vect{r}(t)\times\vect{s}\,'(t)}$
+  \item Chain rule: $\ds\frac{d}{dt}[\vect{r}(g(t))] = \vect{r}\,'(g(t))\cdot g'(t)$
+\end{itemize}
+\end{formulabox}
+
+\begin{example}[Derivative and Analysis at a Point]
+Let $\vect{r}(t) = \vec{t^3,\; \sin t,\; e^t}$. Find $\vect{r}\,'(t)$ and analyze at $t = \pi$.
+
+\wbbox{
+1. Derivative: $\vect{r}\,'(t) = \vec{3t^2,\; \cos t,\; e^t}$
+
+2. At $t = \pi$:
+\begin{itemize}[nosep]
+  \item Position: $\vect{r}(\pi) = \vec{\pi^3,\; 0,\; e^\pi}$
+  \item Tangent vector: $\vect{r}\,'(\pi) = \vec{3\pi^2,\; -1,\; e^\pi}$
+\end{itemize}
+
+3. Component analysis: $x$-comp $> 0$ (increasing), $y$-comp $< 0$ (decreasing), $z$-comp $> 0$ (increasing)
+
+4. Speed: $\|\vect{r}\,'(\pi)\| = \sqrt{9\pi^4 + 1 + e^{2\pi}}$
+}{4cm}
+\end{example}
+
+%=============================================================
+\wsection{Integrals of VVFs}
+
+\begin{defbox}{Integral of a VVF}
+Also \textbf{component-wise}:
+\[\int \vect{r}(t)\,dt = \wbml{\left\langle\int f(t)\,dt,\;\int g(t)\,dt,\;\int h(t)\,dt\right\rangle + \vect{C}}\]
+-- $\vect{C} = \vec{C_1, C_2, C_3}$ is a \textbf{vector constant} of integration
+
+\[\int_a^b \vect{r}(t)\,dt = \wbml{\left\langle\int_a^b f(t)\,dt,\;\int_a^b g(t)\,dt,\;\int_a^b h(t)\,dt\right\rangle}\]
+\end{defbox}
+
+\begin{example}[Definite Integral of a VVF]
+Evaluate $\ds\int_0^1 \vec{3t^2,\; 2\sin t,\; e^{2t}}\,dt$.
+
+\wbbox{
+1. $x$-component: $\ds\int_0^1 3t^2\,dt = \left[t^3\right]_0^1 = 1$
+
+2. $y$-component: $\ds\int_0^1 2\sin t\,dt = \left[-2\cos t\right]_0^1 = 2-2\cos 1$
+
+3. $z$-component: $\ds\int_0^1 e^{2t}\,dt = \left[\frac{e^{2t}}{2}\right]_0^1 = \frac{e^2-1}{2}$
+
+4. Result: $\left\langle 1,\; 2-2\cos 1,\; \frac{e^2-1}{2}\right\rangle$
+}{4.5cm}
+\end{example}
+
+%=============================================================
+\wsection{Tangent Lines and Curves on Surfaces}
+
+\begin{formulabox}{Tangent Line at $t = t_0$}
+\[\vect{L}(s) = \wbml{\vect{r}(t_0) + s\,\vect{r}\,'(t_0)}\]
+-- Point of tangency: $\vect{r}(t_0)$ \quad -- Direction: $\vect{r}\,'(t_0)$
+\end{formulabox}
+
+-- To show a curve lies on a surface: substitute the components into the surface equation and verify
+
+\begin{example}[Tangent Line $+$ Curve on a Surface]
+The curve $\vect{r}(t) = \vec{e^t,\; e^{-t},\; t}$. Show it lies on $xy = 1$ and find the tangent line at $t=0$.
+
+\wbbox{
+1. On the surface: $x \cdot y = e^t \cdot e^{-t} = e^0 = 1$ \;\checkmark\; for all $t$.
+
+2. At $t=0$: $\vect{r}(0) = \vec{1, 1, 0}$
+
+3. Tangent vector: $\vect{r}\,'(t) = \vec{e^t, -e^{-t}, 1} \implies \vect{r}\,'(0) = \vec{1, -1, 1}$
+
+4. Tangent line: $\vect{L}(s) = \vec{1+s,\; 1-s,\; s}$
+}{4cm}
+\end{example}
+
+%=============================================================
+\vspace{6pt}
+\textit{Show all work for full credit.}
+
+\begin{practice}
+
+\prob If $\vect{r}(t) = \vec{t^2,\; \ln(t+1),\; \cos t}$, find $\vect{r}\,'(t)$ and $\vect{r}\,'(0)$.
+
+\wans{$\vect{r}\,'(t) = \wbml{\vec{2t,\; \frac{1}{t+1},\; -\sin t}}$, \quad $\vect{r}\,'(0) = \wbm{\vec{0, 1, 0}}$}
+
+\vspace{2.5cm}
+
+\prob Evaluate $\ds\int_0^{\pi} \vec{\cos t,\; \sin t,\; 1}\,dt$.
+
+\wans{\wbml{$\vec{0,\; 2,\; \pi}$}}
+
+\vspace{2.5cm}
+
+\prob A particle has velocity $\vect{v}(t) = \vec{2t,\; 3,\; -1}$ and $\vect{r}(0) = \vec{1, 0, 5}$. Find $\vect{r}(t)$.
+
+\wans{$\vect{r}(t) = \wbml{\vec{t^2+1,\; 3t,\; 5-t}}$}
+
+\vspace{3cm}
+
+\prob Show that $\vect{r}(t) = \vec{2\cos t,\; 3\sin t,\; t}$ lies on the elliptic cylinder $\frac{x^2}{4}+\frac{y^2}{9} = 1$. Find the tangent line at $t = \pi/2$.
+
+\wans{tangent line $= \wbml{\vec{-2s,\; 3,\; \pi/2 + s}}$}
+
+\vspace{3.5cm}
+
+\prob Prove: if $\|\vect{r}(t)\| = c$ (constant), then $\vect{r}(t) \cdot \vect{r}\,'(t) = 0$ for all $t$.
+
+\textit{Hint:} differentiate $\vect{r}(t)\cdot\vect{r}(t) = c^2$.
+
+\wbbox{
+$\ds\frac{d}{dt}[\vect{r}(t)\cdot\vect{r}(t)] = \frac{d}{dt}[c^2] = 0$
+
+By dot product rule: $\vect{r}\,'(t)\cdot\vect{r}(t) + \vect{r}(t)\cdot\vect{r}\,'(t) = 0 \implies 2\,\vect{r}(t)\cdot\vect{r}\,'(t) = 0$. \quad $\square$
+
+Interpretation: a curve on a sphere has velocity always perpendicular to the position vector.
+}{4cm}
+
+\end{practice}
+
+\end{document}

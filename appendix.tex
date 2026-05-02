@@ -140,66 +140,65 @@ For $\frac{P(x)}{Q(x)}$ where degree of $P < $ degree of $Q$:
 \end{multicols}
 
 \newpage
-\appendix
 
 \chapter*{Appendix B: Vector Properties and Formulas}
 \addcontentsline{toc}{chapter}{Appendix B: Vector Properties and Formulas}
 \begin{multicols}{2}
 \subsection*{Vector Algebra}
 \begin{itemize}
-\item Addition: $\vec{u} + \vec{v} = \langle u_1+v_1, u_2+v_2, u_3+v_3 \rangle$
-\item Scalar Multiplication: $c\vec{u} = \langle cu_1, cu_2, cu_3 \rangle$
-\item Dot Product: $\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3 = |\vec{u}||\vec{v}|\cos\theta$
-\item Cross Product: $\vec{u} \times \vec{v} = \begin{vmatrix}
-\hat{i} & \hat{j} & \hat{k} \\
+\item Addition: $\mathbf{u} + \mathbf{v} = \langle u_1+v_1, u_2+v_2, u_3+v_3 \rangle$
+\item Scalar Multiplication: $c\mathbf{u} = \langle cu_1, cu_2, cu_3 \rangle$
+\item Dot Product: $\mathbf{u} \cdot \mathbf{v} = u_1v_1 + u_2v_2 + u_3v_3 = |\mathbf{u}||\mathbf{v}|\cos\theta$
+\item Cross Product: $\mathbf{u} \times \mathbf{v} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
 u_1 & u_2 & u_3 \\
 v_1 & v_2 & v_3 \\
 \end{vmatrix}$
-\item Magnitude: $|\vec{u}| = \sqrt{u_1^2 + u_2^2 + u_3^2}$
-\item Unit Vector: $\hat{u} = \frac{\vec{u}}{|\vec{u}|}$
+\item Magnitude: $|\mathbf{u}| = \sqrt{u_1^2 + u_2^2 + u_3^2}$
+\item Unit Vector: $\hat{u} = \frac{\mathbf{u}}{|\mathbf{u}|}$
 \end{itemize}
 
 \subsection*{Equations of a Line}
 \begin{itemize}
-\item Parametric Form: $\vec{r}(t) = \vec{r}_0 + t\vec{v}$, where $\vec{v}$ is the direction vector
+\item Parametric Form: $\mathbf{r}(t) = \mathbf{r}_0 + t\mathbf{v}$, where $\mathbf{v}$ is the direction vector
 \item Symmetric Form: $\frac{x-x_0}{v_1} = \frac{y-y_0}{v_2} = \frac{z-z_0}{v_3}$
 \end{itemize}
 
 \subsection*{Equations of a Plane}
 \begin{itemize}
 \item General Form: $ax + by + cz + d = 0$
-\item Normal Form: $\vec{n} \cdot (\vec{r} - \vec{r}_0) = 0$
-\item Parametric Form: $\vec{r}(s,t) = \vec{r}_0 + s\vec{v}_1 + t\vec{v}_2$
+\item Normal Form: $\mathbf{n} \cdot (\mathbf{r} - \mathbf{r}_0) = 0$
+\item Parametric Form: $\mathbf{r}(s,t) = \mathbf{r}_0 + s\mathbf{v}_1 + t\mathbf{v}_2$
 \end{itemize}
 
 \subsection*{Curvature and Torsion}
 \begin{itemize}
-\item Curvature: $\kappa = \frac{|\vec{T}'(s)|}{|\vec{r}'(t)|} = \frac{|\vec{r}'(t) \times \vec{r}''(t)|}{|\vec{r}'(t)|^3}$
-\item Torsion: $\tau = \frac{\vec{B} \cdot (\vec{T}' \times \vec{N})}{|\vec{r}'|}$
+\item Curvature: $\kappa = |\mathbf{T}'(s)| = \frac{|\mathbf{T}'(t)|}{|\mathbf{r}'(t)|} = \frac{|\mathbf{r}'(t) \times \mathbf{r}''(t)|}{|\mathbf{r}'(t)|^3}$
+\item Torsion: $\tau = -\mathbf{N} \cdot \mathbf{B}' = \frac{(\mathbf{r}' \times \mathbf{r}'') \cdot \mathbf{r}'''}{|\mathbf{r}' \times \mathbf{r}''|^2}$
 \item TNB Frame:
   \begin{itemize}
-  \item Tangent: $\vec{T} = \frac{\vec{r}'(t)}{|\vec{r}'(t)|}$
-  \item Normal: $\vec{N} = \frac{\vec{T}'(t)}{|\vec{T}'(t)|}$
-  \item Binormal: $\vec{B} = \vec{T} \times \vec{N}$
+  \item Tangent: $\mathbf{T} = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}$
+  \item Normal: $\mathbf{N} = \frac{\mathbf{T}'(t)}{|\mathbf{T}'(t)|}$
+  \item Binormal: $\mathbf{B} = \mathbf{T} \times \mathbf{N}$
   \end{itemize}
 \end{itemize}
 
 \subsection*{Equations of Motion in Physics}
 \begin{itemize}
-\item Position: $\vec{r}(t) = \vec{r}_0 + \vec{v}_0t + \frac{1}{2}\vec{a}t^2$
-\item Velocity: $\vec{v}(t) = \vec{v}_0 + \vec{a}t$
-\item Acceleration: $\vec{a}(t) = \frac{d\vec{v}}{dt}$
+\item Position: $\mathbf{r}(t) = \mathbf{r}_0 + \mathbf{v}_0t + \frac{1}{2}\mathbf{a}t^2$
+\item Velocity: $\mathbf{v}(t) = \mathbf{v}_0 + \mathbf{a}t$
+\item Acceleration: $\mathbf{a}(t) = \frac{d\mathbf{v}}{dt}$
 \end{itemize}
 
 \subsection*{Common Parameterizations}
 \begin{itemize}
-\item Circle: $\vec{r}(t) = \langle R\cos t, R\sin t \rangle$
-\item Helix: $\vec{r}(t) = \langle R\cos t, R\sin t, ht \rangle$
-\item Ellipse: $\vec{r}(t) = \langle a\cos t, b\sin t \rangle$
-\item Parabola: $\vec{r}(t) = \langle t, at^2 \rangle$
+\item Circle: $\mathbf{r}(t) = \langle R\cos t, R\sin t \rangle$
+\item Helix: $\mathbf{r}(t) = \langle R\cos t, R\sin t, ht \rangle$
+\item Ellipse: $\mathbf{r}(t) = \langle a\cos t, b\sin t \rangle$
+\item Parabola: $\mathbf{r}(t) = \langle t, at^2 \rangle$
 \item Sphere: 
     \begin{multline*}
-\vec{r}(\theta, \phi) = \langle R\sin\phi\cos\theta, \\
+\mathbf{r}(\theta, \phi) = \langle R\sin\phi\cos\theta, \\
 R\sin\phi\sin\theta, R\cos\phi \rangle
     \end{multline*}
 \end{itemize}
@@ -207,9 +206,9 @@ R\sin\phi\sin\theta, R\cos\phi \rangle
 \subsection*{Vector Calculus}
 \begin{itemize}
 \item Gradient: $\nabla f = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle$
-\item Divergence: $\nabla \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$
-\item Curl: $\nabla \times \vec{F} = \begin{vmatrix}
-\hat{i} & \hat{j} & \hat{k} \\
+\item Divergence: $\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$
+\item Curl: $\nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
 \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 F_x & F_y & F_z \\
 \end{vmatrix}$
@@ -218,22 +217,21 @@ F_x & F_y & F_z \\
 
 \subsection*{Vector Projections}
 \begin{itemize}
-\item Projection of $\vec{u}$ onto $\vec{v}$: $\text{proj}_{\vec{v}}\vec{u} = \frac{\vec{u} \cdot \vec{v}}{\vec{v} \cdot \vec{v}}\vec{v}$
-\item Component of $\vec{u}$ along $\vec{v}$: $\text{comp}_{\vec{v}}\vec{u} = \frac{\vec{u} \cdot \vec{v}}{|\vec{v}|}$
+\item Projection of $\mathbf{u}$ onto $\mathbf{v}$: $\text{proj}_{\mathbf{v}}\mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\mathbf{v} \cdot \mathbf{v}}\mathbf{v}$
+\item Component of $\mathbf{u}$ along $\mathbf{v}$: $\text{comp}_{\mathbf{v}}\mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{|\mathbf{v}|}$
 \end{itemize}
 
 \subsection*{Distance Formulas}
 \begin{itemize}
-\item Point to Line: $d = \frac{|\vec{n} \cdot (\vec{r} - \vec{r}_0)|}{|\vec{n}|}$
+\item Point to Line: $d = \frac{|\mathbf{v} \times (\mathbf{r} - \mathbf{r}_0)|}{|\mathbf{v}|}$
 \item Point to Plane: $d = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}$
-\item Line to Line (Skew): $d = \frac{|(\vec{r}_2 - \vec{r}_1) \cdot (\vec{v}_1 \times \vec{v}_2)|}{|\vec{v}_1 \times \vec{v}_2|}$
+\item Line to Line (Skew): $d = \frac{|(\mathbf{r}_2 - \mathbf{r}_1) \cdot (\mathbf{v}_1 \times \mathbf{v}_2)|}{|\mathbf{v}_1 \times \mathbf{v}_2|}$
 \end{itemize}
 
 \end{multicols}
 
 
 \newpage
-\appendix
 
 \chapter*{Appendix C: Calculus Theorems}
 \addcontentsline{toc}{chapter}{Appendix C: Calculus Theorems}
@@ -285,9 +283,9 @@ F_x & F_y & F_z \\
 \subsubsection*{Vector Calculus}
 \begin{itemize}
 \item \textbf{Gradient}: $\nabla f = \langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \rangle$
-\item \textbf{Divergence}: $\nabla \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$
-\item \textbf{Curl}: $\nabla \times \vec{F} = \begin{vmatrix}
-\hat{i} & \hat{j} & \hat{k} \\
+\item \textbf{Divergence}: $\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}$
+\item \textbf{Curl}: $\nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
 \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 F_x & F_y & F_z \\
 \end{vmatrix}$
@@ -296,14 +294,14 @@ F_x & F_y & F_z \\
 
 \subsubsection*{Theorems of Vector Calculus}
 \begin{itemize}
-\item \textbf{Green's Theorem}: $\int_C \vec{F} \cdot d\vec{r} = \int\!\!\!\int_R \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA$
-\item \textbf{Stokes' Theorem}: $\int_S (\nabla \times \vec{F}) \cdot \vec{n} \, dS = \int_C \vec{F} \cdot d\vec{r}$
-\item \textbf{Divergence Theorem}: $\int\!\!\!\int\!\!\!\int_V (\nabla \cdot \vec{F}) \, dV = \int_S \vec{F} \cdot \vec{n} \, dS$
+\item \textbf{Green's Theorem}: $\oint_C \mathbf{F} \cdot d\mathbf{r} = \int\!\!\!\int_R \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dA$
+\item \textbf{Stokes' Theorem}: $\int_S (\nabla \times \mathbf{F}) \cdot \mathbf{n} \, dS = \int_C \mathbf{F} \cdot d\mathbf{r}$
+\item \textbf{Divergence Theorem}: $\int\!\!\!\int\!\!\!\int_V (\nabla \cdot \mathbf{F}) \, dV = \int_S \mathbf{F} \cdot \mathbf{n} \, dS$
 \end{itemize}
 
 \subsubsection*{Extrema and Optimization}
 \begin{itemize}
-\item \textbf{Critical Points}: $\nabla f = \vec{0}$
+\item \textbf{Critical Points}: $\nabla f = \mathbf{0}$
 \item \textbf{Second Derivative Test}: Classify critical points using the Hessian matrix $H$.
 \item \textbf{Lagrange Multipliers}: $\nabla f = \lambda \nabla g$ to find extrema subject to $g(x, y, z) = 0$.
 \end{itemize}
@@ -311,7 +309,6 @@ F_x & F_y & F_z \\
 \end{multicols}
 
 \newpage
-\appendix
 
 \chapter*{Appendix D: Quick Reference for First-Order ODEs}
 \addcontentsline{toc}{chapter}{Appendix D: Quick Reference for First-Order ODEs}
@@ -356,16 +353,16 @@ F_x & F_y & F_z \\
   \begin{table}[H]
     \centering
     \caption{\textit{Comprehensive Table of Laplace Transform Pairs: These pairs enable both forward transformation for problem-solving and inverse transformation for solution recovery.}}
-    \label{table:laplace_transforms}
+    \label{table:laplace_transforms_appendix}
     \begin{tabular}{|c|c||c|c|}
       \hline
       \( f(t) \) & \(\mathcal{L}\{f(t)\}\) & \( f(t) \) & \(\mathcal{L}\{f(t)\}\) \\ \hline
-      \(1\) & \(\frac{1}{s}\) & \(t\sin(at)\) & \(\frac{2a}{(s^2+a^2)^2}\) \\ \hline
+      \(1\) & \(\frac{1}{s}\) & \(t\sin(at)\) & \(\frac{2as}{(s^2+a^2)^2}\) \\ \hline
       \(t\) & \(\frac{1}{s^2}\) & \(t\cos(at)\) & \(\frac{s^2-a^2}{(s^2+a^2)^2}\) \\ \hline
       \(t^n\) & \(\frac{n!}{s^{n+1}}\) & \(t^ne^{at}\) & \(\frac{n!}{(s-a)^{n+1}}\) \\ \hline
       \(e^{at}\) & \(\frac{1}{s-a}\) & \(\frac{t^n}{n!}\) & \(\frac{1}{s^{n+1}}\) \\ \hline
-      \(\sin(at)\) & \(\frac{a}{s^2+a^2}\) & \(t^n\cos(at)\) & \(\frac{n!s}{(s^2+a^2)^{n+1}}\) \\ \hline
-      \(\cos(at)\) & \(\frac{s}{s^2+a^2}\) & \(t^n\sin(at)\) & \(\frac{n!a}{(s^2+a^2)^{n+1}}\) \\ \hline
+      \(\sin(at)\) & \(\frac{a}{s^2+a^2}\) & \multicolumn{2}{c|}{For general \(n\): \(\mathcal{L}\{t^n f(t)\} = (-1)^n \frac{d^n}{ds^n} F(s)\)} \\ \hline
+      \(\cos(at)\) & \(\frac{s}{s^2+a^2}\) & & \\ \hline
       \(\sinh(at)\) & \(\frac{a}{s^2-a^2}\) & \(\frac{\sin(at)}{t}\) & \(\tan^{-1}\!\left(\frac{a}{s}\right)\) \\ \hline
       \(\cosh(at)\) & \(\frac{s}{s^2-a^2}\) & \(J_0(at)\) & \(\frac{1}{\sqrt{s^2+a^2}}\) \\ \hline
       \(e^{at}\sin(bt)\) & \(\frac{b}{(s-a)^2+b^2}\) & \(u(t-c)\) & \(\frac{e^{-cs}}{s}\) \\ \hline
@@ -409,7 +406,7 @@ Helmholtz Equation in \(\mathbb{R}^3\) &
 \(\displaystyle G(\mathbf{x},\boldsymbol{\xi}) = \frac{e^{ik\,\lvert \mathbf{x} - \boldsymbol{\xi} \rvert}}{4\pi\,\lvert \mathbf{x} - \boldsymbol{\xi} \rvert}\) \\[5ex]
 \hline
 \end{tabular}
-\label{table:greens_functions}
+\label{table:greens_functions_appendix}
 \end{table}
 
 {

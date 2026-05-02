@@ -1,0 +1,1207 @@
+\chapter{Chapter 7: Complex Variables}
+\begin{enumerate}
+
+%%% PROBLEM 1 %%%
+\item \textbf{Solution.}
+Let $z = 3 - 4i$. The modulus is
+\[
+|z| = \sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5.
+\]
+The complex conjugate is $\bar{z} = 3 + 4i$. We verify:
+\[
+z\bar{z} = (3 - 4i)(3 + 4i) = 9 + 12i - 12i - 16i^2 = 9 + 16 = 25 = 5^2 = |z|^2. \qed
+\]
+
+%%% PROBLEM 2 %%%
+\item \textbf{Solution.}
+Let $z_1 = 2 + 3i$ and $z_2 = -1 + 4i$.
+
+\textbf{(a)} $z_1 + z_2 = (2 + (-1)) + (3 + 4)i = 1 + 7i.$
+
+\textbf{(b)} $z_1 - z_2 = (2 - (-1)) + (3 - 4)i = 3 - i.$
+
+\textbf{(c)} $z_1 \cdot z_2 = (2 + 3i)(-1 + 4i) = -2 + 8i - 3i + 12i^2 = -2 + 5i - 12 = -14 + 5i.$
+
+\textbf{(d)} We rationalize:
+\begin{align*}
+\frac{z_1}{z_2} &= \frac{2 + 3i}{-1 + 4i} \cdot \frac{-1 - 4i}{-1 - 4i}
+= \frac{(2 + 3i)(-1 - 4i)}{(-1)^2 + 4^2} \\
+&= \frac{-2 - 8i - 3i - 12i^2}{1 + 16}
+= \frac{-2 - 11i + 12}{17}
+= \frac{10 - 11i}{17} = \frac{10}{17} - \frac{11}{17}i.
+\end{align*}
+
+%%% PROBLEM 3 %%%
+\item \textbf{Solution.}
+Let $z = -1 - i$. The modulus is
+\[
+|z| = \sqrt{(-1)^2 + (-1)^2} = \sqrt{2}.
+\]
+Since $z$ lies in the third quadrant ($\Re(z) < 0$, $\Im(z) < 0$), the argument is
+\[
+\arg(z) = \pi + \arctan\!\left(\frac{1}{1}\right) = \pi + \frac{\pi}{4} = \frac{5\pi}{4}.
+\]
+(Equivalently, $\arg(z) = -\frac{3\pi}{4}$ if we use the range $(-\pi, \pi]$.) The polar form is
+\[
+z = \sqrt{2}\,e^{i\,5\pi/4} = \sqrt{2}\left(\cos\frac{5\pi}{4} + i\sin\frac{5\pi}{4}\right).
+\]
+
+%%% PROBLEM 4 %%%
+\item \textbf{Solution.}
+Euler's formula states $e^{i\theta} = \cos\theta + i\sin\theta$. We verify by comparing Taylor series. The Taylor series of $e^{i\theta}$ is
+\[
+e^{i\theta} = \sum_{n=0}^{\infty} \frac{(i\theta)^n}{n!} = 1 + i\theta + \frac{(i\theta)^2}{2!} + \frac{(i\theta)^3}{3!} + \frac{(i\theta)^4}{4!} + \cdots
+\]
+Using $i^2 = -1$, $i^3 = -i$, $i^4 = 1$:
+\[
+= 1 + i\theta - \frac{\theta^2}{2!} - \frac{i\theta^3}{3!} + \frac{\theta^4}{4!} + \cdots
+\]
+Separating real and imaginary parts:
+\[
+= \left(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \cdots\right) + i\left(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots\right) = \cos\theta + i\sin\theta.
+\]
+This confirms Euler's formula by comparing the real part with the Taylor series of $\cos\theta$ and the imaginary part with that of $\sin\theta$.
+
+%%% PROBLEM 5 %%%
+\item \textbf{Solution.}
+First, note $\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2} = \cos\frac{\pi}{4} + i\sin\frac{\pi}{4} = e^{i\pi/4}$, which has modulus $1$ and argument $\pi/4$.
+
+By De Moivre's theorem:
+\[
+\left(e^{i\pi/4}\right)^5 = e^{i \cdot 5\pi/4} = \cos\frac{5\pi}{4} + i\sin\frac{5\pi}{4} = -\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}.
+\]
+
+%%% PROBLEM 6 %%%
+\item \textbf{Solution.}
+We solve $z^3 = 8i$. Write $8i = 8e^{i\pi/2}$. The cube roots are
+\[
+z_k = 8^{1/3}\, e^{i(\pi/2 + 2\pi k)/3} = 2\,e^{i(\pi/6 + 2\pi k/3)}, \quad k = 0, 1, 2.
+\]
+
+\textbf{$k=0$:} $z_0 = 2e^{i\pi/6} = 2\left(\cos\frac{\pi}{6} + i\sin\frac{\pi}{6}\right) = 2\left(\frac{\sqrt{3}}{2} + \frac{i}{2}\right) = \sqrt{3} + i.$
+
+\textbf{$k=1$:} $z_1 = 2e^{i\,5\pi/6} = 2\left(\cos\frac{5\pi}{6} + i\sin\frac{5\pi}{6}\right) = 2\left(-\frac{\sqrt{3}}{2} + \frac{i}{2}\right) = -\sqrt{3} + i.$
+
+\textbf{$k=2$:} $z_2 = 2e^{i\,3\pi/2} = 2\left(\cos\frac{3\pi}{2} + i\sin\frac{3\pi}{2}\right) = 2(0 - i) = -2i.$
+
+%%% PROBLEM 7 %%%
+\item \textbf{Solution.}
+$z^2 + 4 = 0 \implies z^2 = -4$. Write $-4 = 4e^{i\pi}$. The square roots are
+\[
+z_k = 2e^{i(\pi + 2\pi k)/2} = 2e^{i(\pi/2 + \pi k)}, \quad k = 0, 1.
+\]
+$k=0$: $z_0 = 2e^{i\pi/2} = 2i$. \quad $k=1$: $z_1 = 2e^{i3\pi/2} = -2i$.
+
+The solutions are $z = \pm 2i$.
+
+%%% PROBLEM 8 %%%
+\item \textbf{Solution.}
+Multiplication by $-i = e^{-i\pi/2}$ rotates a complex number by $-\pi/2$ (i.e., $90^\circ$ clockwise) while preserving its modulus.
+
+\textbf{Illustration:} Take $z = 1 + i$. Then
+\[
+(-i)(1 + i) = -i - i^2 = -i + 1 = 1 - i.
+\]
+The original point $(1,1)$ is mapped to $(1,-1)$, which is indeed a $90^\circ$ clockwise rotation about the origin. Both have modulus $\sqrt{2}$; the argument changes from $\pi/4$ to $-\pi/4$, a decrease of $\pi/2$.
+
+%%% PROBLEM 9 %%%
+\item \textbf{Solution.}
+The equation $|z - (1 + 2i)| = 3$ describes the set of all points in the complex plane at distance $3$ from the point $1 + 2i$. Writing $z = x + iy$:
+\[
+|(x - 1) + i(y - 2)| = 3 \implies (x-1)^2 + (y-2)^2 = 9.
+\]
+This is a \textbf{circle} centered at $(1, 2)$ with radius $3$.
+
+%%% PROBLEM 10 %%%
+\item \textbf{Solution.}
+The $5$th roots of unity are the solutions of $z^5 = 1$. They are
+\[
+z_k = e^{2\pi i k/5}, \quad k = 0, 1, 2, 3, 4.
+\]
+Explicitly:
+\begin{align*}
+z_0 &= 1, \\
+z_1 &= e^{2\pi i/5} = \cos\frac{2\pi}{5} + i\sin\frac{2\pi}{5} \approx 0.309 + 0.951i, \\
+z_2 &= e^{4\pi i/5} = \cos\frac{4\pi}{5} + i\sin\frac{4\pi}{5} \approx -0.809 + 0.588i, \\
+z_3 &= e^{6\pi i/5} = \cos\frac{6\pi}{5} + i\sin\frac{6\pi}{5} \approx -0.809 - 0.588i, \\
+z_4 &= e^{8\pi i/5} = \cos\frac{8\pi}{5} + i\sin\frac{8\pi}{5} \approx 0.309 - 0.951i.
+\end{align*}
+These five points are equally spaced on the unit circle, forming the vertices of a regular pentagon.
+
+%%% PROBLEM 11 %%%
+\item \textbf{Solution.}
+Let $z = 5 - 2i$. Then $\bar{z} = 5 + 2i$ and
+\[
+z\bar{z} = (5 - 2i)(5 + 2i) = 25 + 10i - 10i - 4i^2 = 25 + 4 = 29.
+\]
+Also, $|z|^2 = 5^2 + (-2)^2 = 25 + 4 = 29$. Hence $z\bar{z} = |z|^2 = 29$. $\qed$
+
+%%% PROBLEM 12 %%%
+\item \textbf{Solution.}
+Write $z = x + iy$. Then $|z - 2| = |z + 2|$ becomes
+\[
+\sqrt{(x-2)^2 + y^2} = \sqrt{(x+2)^2 + y^2}.
+\]
+Squaring both sides:
+\[
+(x-2)^2 + y^2 = (x+2)^2 + y^2 \implies x^2 - 4x + 4 = x^2 + 4x + 4 \implies -8x = 0 \implies x = 0.
+\]
+The locus is the \textbf{imaginary axis} (the line $x = 0$). Geometrically, this is the set of all points equidistant from $2$ and $-2$, which is the perpendicular bisector of the segment joining $-2$ and $2$ on the real axis.
+
+%%% PROBLEM 13 %%%
+\item \textbf{Solution.}
+Using the difference of cubes factorization:
+\[
+z^3 - 8 = (z - 2)(z^2 + 2z + 4).
+\]
+The quadratic $z^2 + 2z + 4 = 0$ has roots
+\[
+z = \frac{-2 \pm \sqrt{4 - 16}}{2} = \frac{-2 \pm \sqrt{-12}}{2} = \frac{-2 \pm 2i\sqrt{3}}{2} = -1 \pm i\sqrt{3}.
+\]
+Therefore the complete factorization over $\mathbb{C}$ is
+\[
+z^3 - 8 = (z - 2)(z - (-1 + i\sqrt{3}))(z - (-1 - i\sqrt{3})),
+\]
+and the roots are $z = 2,\; -1 + i\sqrt{3},\; -1 - i\sqrt{3}$.
+
+%%% PROBLEM 14 %%%
+\item \textbf{Solution.}
+$z^4 = -16 = 16e^{i\pi}$. The fourth roots are
+\[
+z_k = 16^{1/4}\, e^{i(\pi + 2\pi k)/4} = 2\,e^{i(\pi/4 + \pi k/2)}, \quad k = 0, 1, 2, 3.
+\]
+
+$k=0$: $z_0 = 2e^{i\pi/4} = 2\left(\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right) = \sqrt{2} + i\sqrt{2}.$
+
+$k=1$: $z_1 = 2e^{i3\pi/4} = 2\left(-\frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\right) = -\sqrt{2} + i\sqrt{2}.$
+
+$k=2$: $z_2 = 2e^{i5\pi/4} = 2\left(-\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) = -\sqrt{2} - i\sqrt{2}.$
+
+$k=3$: $z_3 = 2e^{i7\pi/4} = 2\left(\frac{\sqrt{2}}{2} - i\frac{\sqrt{2}}{2}\right) = \sqrt{2} - i\sqrt{2}.$
+
+%%% PROBLEM 15 %%%
+\item \textbf{Solution.}
+We solve $z^2 + (3 - 2i)z + (5 - i) = 0$ using the quadratic formula. The discriminant is
+\[
+\Delta = (3 - 2i)^2 - 4(5 - i) = 9 - 12i + 4i^2 - 20 + 4i = 9 - 12i - 4 - 20 + 4i = -15 - 8i.
+\]
+We need $\sqrt{-15 - 8i}$. Let $\sqrt{-15 - 8i} = a + bi$. Then $a^2 - b^2 = -15$ and $2ab = -8$, so $b = -4/a$. Substituting:
+\[
+a^2 - \frac{16}{a^2} = -15 \implies a^4 + 15a^2 - 16 = 0 \implies (a^2 + 16)(a^2 - 1) = 0.
+\]
+So $a^2 = 1$, giving $a = 1$, $b = -4$ (or $a = -1$, $b = 4$). Thus $\sqrt{-15 - 8i} = \pm(1 - 4i)$.
+
+The solutions are
+\[
+z = \frac{-(3 - 2i) \pm (1 - 4i)}{2} = \frac{-3 + 2i \pm (1 - 4i)}{2}.
+\]
+\[
+z_1 = \frac{-3 + 2i + 1 - 4i}{2} = \frac{-2 - 2i}{2} = -1 - i.
+\]
+\[
+z_2 = \frac{-3 + 2i - 1 + 4i}{2} = \frac{-4 + 6i}{2} = -2 + 3i.
+\]
+
+\textbf{Verification:} For $z_1 = -1 - i$: $(-1 - i)^2 + (3 - 2i)(-1 - i) + (5 - i) = (2i) + (-3 - 3i + 2i + 2i^2) + (5 - i) = 2i + (-5 - i) + (5 - i) = 0.$
+%%% PROBLEM 16 %%%
+\item \textbf{Solution.}
+Let $z = x + iy$. Then
+\[
+f(z) = z^2 = (x + iy)^2 = x^2 + 2ixy + i^2 y^2 = (x^2 - y^2) + i(2xy).
+\]
+So $u(x,y) = x^2 - y^2$ and $v(x,y) = 2xy$.
+
+If $z$ lies on the real axis, then $y = 0$, so $f(z) = (x^2 - 0) + i(0) = x^2$, which is real. $\qed$
+
+%%% PROBLEM 17 %%%
+\item \textbf{Solution.}
+For $z = x + iy \neq 0$:
+\[
+f(z) = \frac{1}{z} = \frac{1}{x + iy} \cdot \frac{x - iy}{x - iy} = \frac{x - iy}{x^2 + y^2}.
+\]
+Therefore:
+\[
+u(x,y) = \frac{x}{x^2 + y^2}, \qquad v(x,y) = \frac{-y}{x^2 + y^2}.
+\]
+The function $f(z) = 1/z$ is undefined at $z = 0$ (i.e., at the origin $(0,0)$).
+
+%%% PROBLEM 18 %%%
+\item \textbf{Solution.}
+For $z = x + iy$:
+\[
+f(z) = e^z = e^{x+iy} = e^x(\cos y + i\sin y).
+\]
+On the vertical line $x = 0$ (so $z = iy$):
+\[
+f(iy) = e^0(\cos y + i\sin y) = \cos y + i\sin y.
+\]
+As $y$ varies over $\mathbb{R}$, $w = \cos y + i\sin y$ traces the \textbf{unit circle} $|w| = 1$ in the $w$-plane. The image is traversed repeatedly, with the full circle traced once for each interval of length $2\pi$.
+
+%%% PROBLEM 19 %%%
+\item \textbf{Solution.}
+The complex logarithm is defined for $z \neq 0$ as
+\[
+\ln(z) = \ln|z| + i\arg(z).
+\]
+Since $\arg(z)$ is multi-valued (defined up to multiples of $2\pi$), $\ln(z)$ is multi-valued. Its natural domain is $\mathbb{C} \setminus \{0\}$.
+
+To obtain a single-valued function, we introduce a \textbf{branch cut}, typically along the negative real axis $(-\infty, 0]$. This restricts the argument to the interval $(-\pi, \pi]$, giving the \textbf{principal branch}:
+\[
+\operatorname{Log}(z) = \ln|z| + i\operatorname{Arg}(z), \quad \operatorname{Arg}(z) \in (-\pi, \pi].
+\]
+The branch cut is needed because as one traverses a closed loop around the origin, the argument increases by $2\pi$, so $\ln(z)$ would not return to its original value. Removing the branch cut prevents such loops, making the function single-valued and continuous on $\mathbb{C} \setminus (-\infty, 0]$.
+
+%%% PROBLEM 20 %%%
+\item \textbf{Solution.}
+Let $z = x + iy$. Then $iz = ix - y$ and $-iz = -ix + y$. So:
+\[
+e^{iz} = e^{i(x+iy)} = e^{ix - y} = e^{-y}(\cos x + i\sin x),
+\]
+\[
+e^{-iz} = e^{-i(x+iy)} = e^{-ix + y} = e^{y}(\cos x - i\sin x).
+\]
+Therefore:
+\begin{align*}
+\sin z &= \frac{e^{iz} - e^{-iz}}{2i} = \frac{e^{-y}(\cos x + i\sin x) - e^y(\cos x - i\sin x)}{2i} \\
+&= \frac{(e^{-y} - e^y)\cos x + i(e^{-y} + e^y)\sin x}{2i}.
+\end{align*}
+Dividing numerator by $2i$ (multiply by $\frac{1}{2i} = \frac{-i}{2}$):
+\begin{align*}
+\sin z &= \frac{(e^{-y} - e^y)\cos x}{2i} + \frac{i(e^{-y} + e^y)\sin x}{2i} \\
+&= \frac{(e^{-y} - e^y)\cos x \cdot (-i)}{2} + \frac{(e^{-y} + e^y)\sin x}{2}.
+\end{align*}
+Using $\cosh y = \frac{e^y + e^{-y}}{2}$ and $\sinh y = \frac{e^y - e^{-y}}{2}$:
+\[
+\sin z = \sin x \cosh y + i\cos x \sinh y. \qed
+\]
+
+%%% PROBLEM 21 %%%
+\item \textbf{Solution.}
+Write $z = x + iy$. Then $e^z = e^x e^{iy} = e^x(\cos y + i\sin y) = -2$. Comparing:
+\[
+e^x \cos y = -2, \qquad e^x \sin y = 0.
+\]
+From the second equation, $\sin y = 0$, so $y = n\pi$ for $n \in \mathbb{Z}$. From the first equation, $e^x \cos(n\pi) = -2$. Since $\cos(n\pi) = (-1)^n$, we need $(-1)^n e^x = -2$, so $(-1)^n$ must be negative, meaning $n$ is odd. Then $e^x = 2$, so $x = \ln 2$.
+
+All solutions:
+\[
+z = \ln 2 + i(2k+1)\pi, \quad k \in \mathbb{Z}.
+\]
+
+%%% PROBLEM 22 %%%
+\item \textbf{Solution.}
+Let $|z| = 1$, so $z = e^{i\theta}$. Then $f(z) = z^3 = e^{3i\theta}$, which has modulus $|e^{3i\theta}| = 1$ (on the unit circle) and argument $3\theta$ (tripled).
+
+\textbf{Verification with $z = e^{i\pi/3}$:}
+\[
+f(z) = e^{3i\pi/3} = e^{i\pi} = -1.
+\]
+Indeed $|f(z)| = 1$ (on the unit circle), and $\arg(f(z)) = \pi = 3 \cdot \frac{\pi}{3}$, confirming the argument is tripled. $\qed$
+
+%%% PROBLEM 23 %%%
+\item \textbf{Solution.}
+$f(z) = \frac{z^2 + 1}{z - i}$. The denominator vanishes at $z = i$, so $f$ is undefined there. However, we can factor the numerator:
+\[
+z^2 + 1 = (z - i)(z + i).
+\]
+Therefore, for $z \neq i$:
+\[
+f(z) = \frac{(z-i)(z+i)}{z-i} = z + i.
+\]
+The singularity at $z = i$ is a \textbf{removable singularity}. If we define $f(i) = 2i$, the function extends to an entire function. The domain is $\mathbb{C} \setminus \{i\}$.
+
+%%% PROBLEM 24 %%%
+\item \textbf{Solution.}
+Using the principal branch: $\sqrt{z} = |z|^{1/2} e^{i\operatorname{Arg}(z)/2}$.
+
+For $z = 4e^{i\pi}$: we have $|z| = 4$ and $\operatorname{Arg}(z) = \pi$ (since $4e^{i\pi} = -4$, which lies on the negative real axis; the principal argument is $\pi$). Therefore:
+\[
+f(4e^{i\pi}) = \sqrt{4}\, e^{i\pi/2} = 2(\cos(\pi/2) + i\sin(\pi/2)) = 2(0 + i) = 2i.
+\]
+
+%%% PROBLEM 25 %%%
+\item \textbf{Solution.}
+Let $z = -1 - i$. The modulus is $|z| = \sqrt{1 + 1} = \sqrt{2}$.
+
+The argument: since both real and imaginary parts are negative (third quadrant), $\arg(z) = -\frac{3\pi}{4} + 2k\pi$ for $k \in \mathbb{Z}$ (using the convention that the principal argument is $-3\pi/4$).
+
+All values of $\ln(-1-i)$:
+\[
+\ln(-1 - i) = \ln\sqrt{2} + i\!\left(-\frac{3\pi}{4} + 2k\pi\right) = \frac{1}{2}\ln 2 + i\!\left(-\frac{3\pi}{4} + 2k\pi\right), \quad k \in \mathbb{Z}.
+\]
+
+The \textbf{principal value} (with $\operatorname{Arg}(z) \in (-\pi, \pi]$) is:
+\[
+\operatorname{Log}(-1 - i) = \frac{1}{2}\ln 2 - \frac{3\pi}{4}\,i.
+\]
+
+%%% PROBLEM 26 %%%
+\item \textbf{Solution.}
+On the line $y = 1$, we have $z = x + i$, so:
+\[
+w = e^z = e^{x+i} = e^x \cdot e^i = e^x(\cos 1 + i\sin 1).
+\]
+Writing $w = u + iv$: $u = e^x \cos 1$, $v = e^x \sin 1$. Since $\cos 1$ and $\sin 1$ are constants (both positive), as $x$ ranges over $\mathbb{R}$, $e^x$ ranges over $(0, \infty)$.
+
+Therefore $u/\cos 1 = v/\sin 1 = e^x > 0$, which gives the ray $v = u\tan 1$ with $u > 0$.
+
+The image is a \textbf{ray} emanating from the origin at angle $1$ radian (approximately $57.3^\circ$) from the positive real axis, not including the origin.
+
+%%% PROBLEM 27 %%%
+\item \textbf{Solution.}
+Using $\cos z = \frac{e^{iz} + e^{-iz}}{2}$, set $\cos z = 0$:
+\[
+e^{iz} + e^{-iz} = 0 \implies e^{iz} = -e^{-iz} \implies e^{2iz} = -1.
+\]
+Write $-1 = e^{i(\pi + 2k\pi)}$, so $2iz = i(\pi + 2k\pi)$, giving
+\[
+z = \frac{\pi + 2k\pi}{2} = \frac{\pi}{2} + k\pi, \quad k \in \mathbb{Z}.
+\]
+These are exactly the same zeros as in the real case: $z = (2k+1)\frac{\pi}{2}$ for $k \in \mathbb{Z}$. All zeros are real.
+
+%%% PROBLEM 28 %%%
+\item \textbf{Solution.}
+Let $z = x + iy$ with $z \neq 0$. Then:
+\[
+f(z) = z + \frac{1}{z} = (x + iy) + \frac{x - iy}{x^2 + y^2} = \left(x + \frac{x}{x^2 + y^2}\right) + i\left(y - \frac{y}{x^2 + y^2}\right).
+\]
+For $f(z)$ to be real, the imaginary part must vanish:
+\[
+y - \frac{y}{x^2 + y^2} = 0 \implies y\left(1 - \frac{1}{x^2 + y^2}\right) = 0.
+\]
+This holds when either:
+\begin{enumerate}
+    \item[(i)] $y = 0$ (i.e., $z$ is real and nonzero), or
+    \item[(ii)] $x^2 + y^2 = 1$ (i.e., $|z| = 1$, so $z$ lies on the unit circle).
+\end{enumerate}
+
+%%% PROBLEM 29 %%%
+\item \textbf{Solution.}
+Let $z = iy$ with $y \in \mathbb{R}$. Then:
+\[
+f(iy) = \frac{iy - 1}{iy + 1}.
+\]
+We compute the modulus:
+\[
+|f(iy)| = \left|\frac{iy - 1}{iy + 1}\right| = \frac{|iy - 1|}{|iy + 1|} = \frac{\sqrt{1 + y^2}}{\sqrt{1 + y^2}} = 1.
+\]
+Since $|f(iy)| = 1$ for all $y \in \mathbb{R}$, the image lies on the unit circle. $\qed$
+
+%%% PROBLEM 30 %%%
+\item \textbf{Solution.}
+Let $z = x + iy$. Then $z^2 = (x^2 - y^2) + 2ixy$, so:
+\[
+f(z) = e^{z^2} = e^{(x^2 - y^2) + 2ixy} = e^{x^2 - y^2}\bigl(\cos(2xy) + i\sin(2xy)\bigr).
+\]
+Therefore: $u(x,y) = e^{x^2 - y^2}\cos(2xy)$ and $v(x,y) = e^{x^2 - y^2}\sin(2xy)$.
+
+%%% PROBLEM 31 %%%
+\item \textbf{Solution.}
+
+\textbf{(a)} $\displaystyle\lim_{z \to 0} z^3 = 0^3 = 0.$ (Direct substitution; $z^3$ is continuous.)
+
+\textbf{(b)} $\displaystyle\lim_{z \to 0} \frac{\sin z}{z}.$ Using the Taylor series $\sin z = z - \frac{z^3}{3!} + \cdots$:
+\[
+\frac{\sin z}{z} = 1 - \frac{z^2}{3!} + \cdots \to 1 \quad \text{as } z \to 0.
+\]
+
+\textbf{(c)} $\displaystyle\lim_{z \to 0} \frac{e^z - 1}{z}.$ Using $e^z = 1 + z + \frac{z^2}{2!} + \cdots$:
+\[
+\frac{e^z - 1}{z} = 1 + \frac{z}{2!} + \cdots \to 1 \quad \text{as } z \to 0.
+\]
+
+\textbf{(d)} $\displaystyle\lim_{z \to 0} \frac{1 - \cos z}{z^2}.$ Using $\cos z = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} - \cdots$:
+\[
+\frac{1 - \cos z}{z^2} = \frac{1}{2} - \frac{z^2}{4!} + \cdots \to \frac{1}{2} \quad \text{as } z \to 0.
+\]
+
+%%% PROBLEM 32 %%%
+\item \textbf{Solution.}
+Using $\sin z = z - \frac{z^3}{6} + \frac{z^5}{120} - \cdots$:
+\[
+\frac{\sin z - z}{z^3} = \frac{-\frac{z^3}{6} + \frac{z^5}{120} - \cdots}{z^3} = -\frac{1}{6} + \frac{z^2}{120} - \cdots \to -\frac{1}{6} \quad \text{as } z \to 0.
+\]
+
+%%% PROBLEM 33 %%%
+\item \textbf{Solution.}
+The limit $\displaystyle\lim_{z \to 1+i} \frac{z^3 - (1+i)^3}{z - (1+i)}$ is by definition the derivative of $g(z) = z^3$ evaluated at $z_0 = 1+i$:
+\[
+g'(z) = 3z^2, \quad g'(1+i) = 3(1+i)^2 = 3(1 + 2i + i^2) = 3(1 + 2i - 1) = 3(2i) = 6i.
+\]
+
+%%% PROBLEM 34 %%%
+\item \textbf{Solution.}
+We must show: for every $\epsilon > 0$, there exists $\delta > 0$ such that $|z^n - 0| < \epsilon$ whenever $0 < |z - 0| < \delta$.
+
+Choose $\delta = \epsilon^{1/n}$. If $|z| < \delta$, then
+\[
+|z^n| = |z|^n < \delta^n = (\epsilon^{1/n})^n = \epsilon.
+\]
+Therefore $\displaystyle\lim_{z \to 0} z^n = 0$ for all $n \geq 1$. $\qed$
+
+%%% PROBLEM 35 %%%
+\item \textbf{Solution.}
+Using the Taylor series $\sin z = z - \frac{z^3}{3!} + \frac{z^5}{5!} - \cdots$ (valid for all $z \in \mathbb{C}$):
+\[
+\frac{\sin z}{z} = 1 - \frac{z^2}{3!} + \frac{z^4}{5!} - \cdots \to 1 \quad \text{as } z \to 0.
+\]
+The result is the same as the real-variable limit because the Taylor series for $\sin z$ in $\mathbb{C}$ is the same power series as for the real $\sin x$. Since the complex limit requires convergence along \emph{every} path to $0$, and the series converges absolutely for all $z$, the limit equals $1$ regardless of the direction of approach.
+
+%%% PROBLEM 36 %%%
+\item \textbf{Solution.}
+Let $z = x + iy$ with $y \neq 0$. Then $\bar{z} = x - iy$, so:
+\[
+z^2 - \bar{z}^2 = (x+iy)^2 - (x-iy)^2 = (x^2 + 2ixy - y^2) - (x^2 - 2ixy - y^2) = 4ixy.
+\]
+\[
+z - \bar{z} = (x+iy) - (x-iy) = 2iy.
+\]
+Therefore:
+\[
+f(z) = \frac{4ixy}{2iy} = 2x.
+\]
+As $z \to 2 + i$, we have $x \to 2$, so:
+\[
+\lim_{z \to 2+i} f(z) = 2(2) = 4.
+\]
+
+%%% PROBLEM 37 %%%
+\item \textbf{Solution.}
+Write $z = re^{i\theta}$. Then $z \cdot e^{i\theta} = re^{2i\theta}$---but the expression in question is simply $re^{2i\theta}$. We have:
+\[
+|re^{2i\theta}| = r|e^{2i\theta}| = r \cdot 1 = r.
+\]
+Therefore, as $r \to 0$:
+\[
+|re^{2i\theta} - 0| = r \to 0,
+\]
+regardless of $\theta$. The limit does not depend on $\theta$ because the modulus of $e^{2i\theta}$ is always $1$, so the magnitude is controlled entirely by $r$, which tends to $0$. $\qed$
+
+%%% PROBLEM 38 %%%
+\item \textbf{Solution.}
+Write $z = re^{i\theta}$ with $r > 0$. Then $\bar{z} = re^{-i\theta}$, so:
+\[
+\frac{\bar{z}}{z} = \frac{re^{-i\theta}}{re^{i\theta}} = e^{-2i\theta}.
+\]
+This depends on $\theta$ and is independent of $r$. Different directions of approach give different limits:
+\begin{itemize}
+    \item Along the real axis ($\theta = 0$): $\frac{\bar{z}}{z} = e^0 = 1$.
+    \item Along the imaginary axis ($\theta = \pi/2$): $\frac{\bar{z}}{z} = e^{-i\pi} = -1$.
+    \item Along $\theta = \pi/4$: $\frac{\bar{z}}{z} = e^{-i\pi/2} = -i$.
+\end{itemize}
+Since the value depends on the direction of approach, the limit does not exist. $\qed$
+
+%%% PROBLEM 39 %%%
+\item \textbf{Solution.}
+
+\textbf{(a)} For $|z| \to \infty$: $\left|\frac{1}{z}\right| = \frac{1}{|z|} \to 0$. Therefore $\displaystyle\lim_{|z| \to \infty} \frac{1}{z} = 0.$
+
+\textbf{(b)} Write $z = re^{i\theta}$. Then $\frac{z}{|z|} = \frac{re^{i\theta}}{r} = e^{i\theta}$. As $|z| \to \infty$, the value $e^{i\theta}$ depends on the direction of approach. For instance:
+\begin{itemize}
+    \item Along the positive real axis ($\theta = 0$): $e^{i\theta} = 1$.
+    \item Along the positive imaginary axis ($\theta = \pi/2$): $e^{i\theta} = i$.
+\end{itemize}
+Since the limiting value depends on $\theta$, the limit \textbf{does not exist}.
+
+%%% PROBLEM 40 %%%
+\item \textbf{Solution.}
+Let $z = x + iy$, so $\bar{z} = x - iy$ and $z - \bar{z} = 2iy$. Then:
+\[
+\frac{e^z - e^{\bar{z}}}{z - \bar{z}} = \frac{e^{x+iy} - e^{x - iy}}{2iy} = \frac{e^x(e^{iy} - e^{-iy})}{2iy} = \frac{e^x \cdot 2i\sin y}{2iy} = e^x \cdot \frac{\sin y}{y}.
+\]
+As $z \to 0$, we have $x \to 0$ and $y \to 0$, so:
+\[
+\lim_{z \to 0} e^x \cdot \frac{\sin y}{y} = e^0 \cdot 1 = 1.
+\]
+
+%%% PROBLEM 41 %%%
+\item \textbf{Solution.}
+\textbf{Definition:} We say $\displaystyle\lim_{z \to z_0} f(z) = L$ if for every $\epsilon > 0$, there exists a $\delta > 0$ such that
+\[
+0 < |z - z_0| < \delta \implies |f(z) - L| < \epsilon.
+\]
+
+\textbf{Why path independence is crucial:} In $\mathbb{R}$, a variable can approach a point from only two directions (left and right). In $\mathbb{C}$, a variable $z$ can approach $z_0$ from infinitely many directions---along straight lines at any angle, along spirals, along curves of any shape. The $\epsilon$-$\delta$ definition requires $|f(z) - L| < \epsilon$ for \emph{all} $z$ in the punctured disk $0 < |z - z_0| < \delta$, regardless of the path. If the limit depended on the path, the $\epsilon$-$\delta$ condition would fail. This makes the existence of a complex limit a much stronger condition than in real analysis, and it is the reason why complex differentiability implies so much more than real differentiability (e.g., analyticity, harmonicity of components, etc.).
+
+%%% PROBLEM 42 %%%
+\item \textbf{Solution.}
+The \textbf{extended complex plane} (or Riemann sphere) is $\hat{\mathbb{C}} = \mathbb{C} \cup \{\infty\}$. It is obtained by adding a single point at infinity to $\mathbb{C}$. A neighborhood of $\infty$ is any set of the form $\{z \in \mathbb{C} : |z| > R\} \cup \{\infty\}$ for some $R > 0$.
+
+We say $\displaystyle\lim_{z \to z_0} f(z) = \infty$ if for every $M > 0$, there exists $\delta > 0$ such that
+\[
+0 < |z - z_0| < \delta \implies |f(z)| > M.
+\]
+
+\textbf{Proof that $\lim_{z \to 0} 1/z = \infty$:} Given $M > 0$, choose $\delta = 1/M$. If $0 < |z| < \delta = 1/M$, then
+\[
+\left|\frac{1}{z}\right| = \frac{1}{|z|} > \frac{1}{\delta} = M.
+\]
+Therefore $|1/z| > M$ whenever $0 < |z| < \delta$, which proves $\lim_{z \to 0} 1/z = \infty$. $\qed$
+
+%%% PROBLEM 43 %%%
+\item \textbf{Solution.}
+\begin{align*}
+f'(z) &= \lim_{h \to 0} \frac{f(z+h) - f(z)}{h} = \lim_{h \to 0} \frac{(z+h)^2 - z^2}{h} \\
+&= \lim_{h \to 0} \frac{z^2 + 2zh + h^2 - z^2}{h} = \lim_{h \to 0} \frac{2zh + h^2}{h} = \lim_{h \to 0} (2z + h) = 2z.
+\end{align*}
+
+%%% PROBLEM 44 %%%
+\item \textbf{Solution.}
+\begin{align*}
+(e^z)' &= \lim_{h \to 0} \frac{e^{z+h} - e^z}{h} = \lim_{h \to 0} \frac{e^z \cdot e^h - e^z}{h} = e^z \lim_{h \to 0} \frac{e^h - 1}{h}.
+\end{align*}
+Using the series $e^h = 1 + h + \frac{h^2}{2!} + \cdots$:
+\[
+\frac{e^h - 1}{h} = 1 + \frac{h}{2!} + \frac{h^2}{3!} + \cdots \to 1 \quad \text{as } h \to 0.
+\]
+Therefore $(e^z)' = e^z \cdot 1 = e^z$. $\qed$
+
+%%% PROBLEM 45 %%%
+\item \textbf{Solution.}
+On the principal branch, $\operatorname{Log}(z) = \ln|z| + i\operatorname{Arg}(z)$ for $z \notin (-\infty, 0]$. We compute:
+\begin{align*}
+(\operatorname{Log} z)' &= \lim_{h \to 0} \frac{\operatorname{Log}(z+h) - \operatorname{Log}(z)}{h}.
+\end{align*}
+Since $e^{\operatorname{Log} z} = z$, we use the inverse function approach. Let $w = \operatorname{Log} z$, so $z = e^w$. The exponential is holomorphic with $(e^w)' = e^w \neq 0$. By the inverse function theorem for holomorphic functions:
+\[
+(\operatorname{Log} z)' = \frac{1}{(e^w)'}\bigg|_{w = \operatorname{Log} z} = \frac{1}{e^{\operatorname{Log} z}} = \frac{1}{z}.
+\]
+
+Alternatively, using power series: for $|h/z| < 1$,
+\[
+\operatorname{Log}(z+h) - \operatorname{Log}(z) = \operatorname{Log}\!\left(1 + \frac{h}{z}\right) = \frac{h}{z} - \frac{1}{2}\left(\frac{h}{z}\right)^2 + \cdots
+\]
+Dividing by $h$:
+\[
+\frac{\operatorname{Log}(z+h) - \operatorname{Log}(z)}{h} = \frac{1}{z} - \frac{h}{2z^2} + \cdots \to \frac{1}{z} \quad \text{as } h \to 0. \qed
+\]
+
+%%% PROBLEM 46 %%%
+\item \textbf{Solution.}
+\begin{align*}
+(\sin z)' &= \lim_{h \to 0} \frac{\sin(z+h) - \sin z}{h}.
+\end{align*}
+Using the addition formula $\sin(z+h) = \sin z \cos h + \cos z \sin h$:
+\[
+= \lim_{h \to 0} \frac{\sin z \cos h + \cos z \sin h - \sin z}{h} = \lim_{h \to 0}\left[\sin z \cdot \frac{\cos h - 1}{h} + \cos z \cdot \frac{\sin h}{h}\right].
+\]
+Using the known limits $\frac{\cos h - 1}{h} \to 0$ and $\frac{\sin h}{h} \to 1$ as $h \to 0$ (in $\mathbb{C}$):
+\[
+(\sin z)' = \sin z \cdot 0 + \cos z \cdot 1 = \cos z.
+\]
+
+%%% PROBLEM 47 %%%
+\item \textbf{Solution.}
+For $z \neq 0$:
+\begin{align*}
+\left(\frac{1}{z}\right)' &= \lim_{h \to 0} \frac{\frac{1}{z+h} - \frac{1}{z}}{h} = \lim_{h \to 0} \frac{z - (z+h)}{h \cdot z(z+h)} = \lim_{h \to 0} \frac{-h}{h \cdot z(z+h)} = \lim_{h \to 0} \frac{-1}{z(z+h)} = -\frac{1}{z^2}.
+\end{align*}
+
+%%% PROBLEM 48 %%%
+\item \textbf{Solution.}
+Let $f(z) = |z|^2 = z\bar{z}$. Consider the difference quotient at $z_0 \neq 0$:
+\[
+\frac{f(z_0 + h) - f(z_0)}{h} = \frac{|z_0 + h|^2 - |z_0|^2}{h} = \frac{(z_0 + h)\overline{(z_0 + h)} - z_0 \bar{z}_0}{h}.
+\]
+Expanding:
+\[
+= \frac{z_0 \bar{z}_0 + z_0 \bar{h} + h\bar{z}_0 + h\bar{h} - z_0\bar{z}_0}{h} = \frac{z_0 \bar{h} + h\bar{z}_0 + |h|^2}{h} = z_0 \cdot \frac{\bar{h}}{h} + \bar{z}_0 + \bar{h}.
+\]
+As $h \to 0$, $\bar{h} \to 0$, so this becomes $z_0 \cdot \frac{\bar{h}}{h} + \bar{z}_0$.
+
+The term $\bar{h}/h$ depends on the direction: if $h = re^{i\theta}$, then $\bar{h}/h = e^{-2i\theta}$. For $z_0 \neq 0$, the term $z_0 e^{-2i\theta}$ takes different values for different $\theta$, so the limit does not exist. Therefore $f$ is not complex differentiable at any $z_0 \neq 0$. $\qed$
+
+%%% PROBLEM 49 %%%
+\item \textbf{Solution.}
+Let $f(z) = \operatorname{Re}(z) = x$ where $z = x + iy$. So $u(x,y) = x$, $v(x,y) = 0$. The Cauchy--Riemann equations require:
+\[
+u_x = v_y \quad \text{and} \quad u_y = -v_x.
+\]
+We compute: $u_x = 1$, $v_y = 0$, $u_y = 0$, $v_x = 0$.
+
+The first equation gives $1 = 0$, which is false everywhere. Therefore the Cauchy--Riemann equations are never satisfied, and $f(z) = \operatorname{Re}(z)$ is \textbf{nowhere differentiable} in $\mathbb{C}$. $\qed$
+
+%%% PROBLEM 50 %%%
+\item \textbf{Solution.}
+Let $z = x + iy$. Then:
+\[
+z^3 = (x+iy)^3 = x^3 + 3x^2(iy) + 3x(iy)^2 + (iy)^3 = x^3 + 3ix^2 y - 3xy^2 - iy^3.
+\]
+So $u(x,y) = x^3 - 3xy^2$ and $v(x,y) = 3x^2 y - y^3$.
+
+\textbf{Cauchy--Riemann equations:}
+\[
+u_x = 3x^2 - 3y^2, \qquad v_y = 3x^2 - 3y^2 \implies u_x = v_y.\]
+\[
+u_y = -6xy, \qquad v_x = 6xy \implies u_y = -v_x.\]
+Both Cauchy--Riemann equations hold everywhere, confirming $z^3$ is entire. $\qed$
+
+%%% PROBLEM 51 %%%
+\item \textbf{Solution.}
+Let $f(z) = \bar{z} = x - iy$. So $u(x,y) = x$ and $v(x,y) = -y$.
+
+Cauchy--Riemann equations:
+\[
+u_x = 1, \quad v_y = -1 \implies u_x \neq v_y \quad (1 \neq -1).
+\]
+The first Cauchy--Riemann equation fails everywhere. Therefore $f(z) = \bar{z}$ is not holomorphic at any point. $\qed$
+
+%%% PROBLEM 52 %%%
+\item \textbf{Solution.}
+\textbf{Proof outline.} Let $g$ be holomorphic at $z_0$ and $f$ holomorphic at $w_0 = g(z_0)$. We want to show $(f \circ g)'(z_0) = f'(w_0)\,g'(z_0)$.
+
+Consider:
+\[
+\frac{f(g(z)) - f(g(z_0))}{z - z_0} = \frac{f(g(z)) - f(g(z_0))}{g(z) - g(z_0)} \cdot \frac{g(z) - g(z_0)}{z - z_0},
+\]
+valid when $g(z) \neq g(z_0)$. As $z \to z_0$, continuity of $g$ gives $g(z) \to g(z_0) = w_0$, so:
+\[
+\frac{f(g(z)) - f(w_0)}{g(z) - w_0} \to f'(w_0), \qquad \frac{g(z) - g(z_0)}{z - z_0} \to g'(z_0).
+\]
+
+To handle the case when $g(z) = g(z_0)$ for some $z$ near $z_0$, define the auxiliary function
+\[
+\phi(w) = \begin{cases} \dfrac{f(w) - f(w_0)}{w - w_0} & w \neq w_0, \\[6pt] f'(w_0) & w = w_0. \end{cases}
+\]
+Then $\phi$ is continuous at $w_0$ (since $f$ is holomorphic there), and $f(w) - f(w_0) = \phi(w)(w - w_0)$ for all $w$ near $w_0$. Substituting $w = g(z)$:
+\[
+\frac{f(g(z)) - f(g(z_0))}{z - z_0} = \phi(g(z)) \cdot \frac{g(z) - g(z_0)}{z - z_0} \to \phi(w_0) \cdot g'(z_0) = f'(w_0)\,g'(z_0). \qed
+\]
+
+%%% PROBLEM 53 %%%
+\item \textbf{Solution.}
+
+\textbf{(a)} $f(z) = z^2 e^z$. By the product rule:
+\[
+f'(z) = 2z \cdot e^z + z^2 \cdot e^z = e^z(2z + z^2) = z e^z(z + 2).
+\]
+
+\textbf{(b)} $f(z) = \sin(e^z)$. By the chain rule:
+\[
+f'(z) = \cos(e^z) \cdot e^z.
+\]
+
+\textbf{(c)} $f(z) = z^3 + 2z^2 - 3z + 1$. By the power rule:
+\[
+f'(z) = 3z^2 + 4z - 3.
+\]
+
+%%% PROBLEM 54 %%%
+\item \textbf{Solution.}
+Write $z = re^{i\theta}$ with $r > 0$ and $\theta = \operatorname{Arg}(z) \in (-\pi, \pi)$. Then:
+\[
+f(z) = z^{3/2} = r^{3/2} e^{3i\theta/2}.
+\]
+Since $z^{3/2} = e^{(3/2)\operatorname{Log} z}$, by the chain rule:
+\[
+f'(z) = \frac{3}{2} \cdot e^{(3/2)\operatorname{Log} z} \cdot \frac{1}{z} = \frac{3}{2} \cdot \frac{z^{3/2}}{z} = \frac{3}{2} z^{1/2} = \frac{3}{2}\sqrt{z}.
+\]
+
+%%% PROBLEM 55 %%%
+\item \textbf{Solution.}
+Suppose $f'(z) = 0$ for all $z$ in a connected domain $D$. Write $f(z) = u(x,y) + iv(x,y)$. Since $f$ is holomorphic with $f'(z) = 0$, we have $f'(z) = u_x + iv_x = 0$, so $u_x = 0$ and $v_x = 0$ everywhere in $D$.
+
+By the Cauchy--Riemann equations, $u_x = v_y$ and $u_y = -v_x$, so also $v_y = 0$ and $u_y = 0$ everywhere in $D$.
+
+Since all partial derivatives of $u$ and $v$ vanish on the connected open set $D$, both $u$ and $v$ are constant on $D$ (by a standard result from real analysis: a function with zero gradient on a connected open set is constant). Therefore $f$ is constant. $\qed$
+
+%%% PROBLEM 56 %%%
+\item \textbf{Solution.}
+In polar coordinates, $z = re^{i\theta}$, so $f(z) = z^2 = r^2 e^{2i\theta}$. Thus:
+\[
+u(r,\theta) = r^2 \cos(2\theta), \qquad v(r,\theta) = r^2 \sin(2\theta).
+\]
+
+\textbf{Polar Cauchy--Riemann equations:} For $f = u + iv$ in polar form, the Cauchy--Riemann equations become
+\[
+u_r = \frac{1}{r}v_\theta, \qquad v_r = -\frac{1}{r}u_\theta.
+\]
+\textbf{Derivation:} Using $x = r\cos\theta$, $y = r\sin\theta$, by the chain rule:
+\[
+u_r = u_x \cos\theta + u_y \sin\theta, \qquad u_\theta = -u_x r\sin\theta + u_y r\cos\theta.
+\]
+Applying $u_x = v_y$ and $u_y = -v_x$, and similarly computing $v_r$ and $v_\theta$, one obtains the polar C--R equations.
+
+\textbf{Verification for $f(z) = z^2$:}
+\[
+u_r = 2r\cos(2\theta), \qquad \frac{1}{r}v_\theta = \frac{1}{r}\cdot 2r\cos(2\theta) = 2r\cos(2\theta).\]
+\[
+v_r = 2r\sin(2\theta), \qquad -\frac{1}{r}u_\theta = -\frac{1}{r}\cdot(-2r\sin(2\theta)) = 2r\sin(2\theta).\]
+
+%%% PROBLEM 57 %%%
+\item \textbf{Solution.}
+Let $u(x,y) = \frac{1}{2}\ln(x^2 + y^2)$. Compute the partial derivatives for $(x,y) \neq (0,0)$:
+\[
+u_x = \frac{x}{x^2 + y^2}, \qquad u_{xx} = \frac{(x^2+y^2) - x \cdot 2x}{(x^2+y^2)^2} = \frac{y^2 - x^2}{(x^2+y^2)^2}.
+\]
+\[
+u_y = \frac{y}{x^2 + y^2}, \qquad u_{yy} = \frac{(x^2+y^2) - y \cdot 2y}{(x^2+y^2)^2} = \frac{x^2 - y^2}{(x^2+y^2)^2}.
+\]
+Therefore:
+\[
+u_{xx} + u_{yy} = \frac{y^2 - x^2}{(x^2+y^2)^2} + \frac{x^2 - y^2}{(x^2+y^2)^2} = 0.
+\]
+So $u$ is harmonic on $\mathbb{R}^2 \setminus \{(0,0)\}$. $\qed$
+
+%%% PROBLEM 58 %%%
+\item \textbf{Solution.}
+Let $u(x,y) = e^x \cos y$. Then:
+\[
+u_x = e^x \cos y, \qquad u_{xx} = e^x \cos y.
+\]
+\[
+u_y = -e^x \sin y, \qquad u_{yy} = -e^x \cos y.
+\]
+Therefore:
+\[
+u_{xx} + u_{yy} = e^x \cos y - e^x \cos y = 0.
+\]
+Laplace's equation is satisfied, so $u$ is harmonic on $\mathbb{R}^2$. $\qed$
+
+(Note: $u = e^x \cos y = \operatorname{Re}(e^z)$, so this also follows from the fact that $e^z$ is entire.)
+
+%%% PROBLEM 59 %%%
+\item \textbf{Solution.}
+Let $u(x,y) = x^3 - 3xy^2$. Then:
+\[
+u_x = 3x^2 - 3y^2, \qquad u_{xx} = 6x.
+\]
+\[
+u_y = -6xy, \qquad u_{yy} = -6x.
+\]
+Therefore:
+\[
+u_{xx} + u_{yy} = 6x + (-6x) = 0. \qed
+\]
+
+%%% PROBLEM 60 %%%
+\item \textbf{Solution.}
+The geometric series gives:
+\[
+f(z) = \frac{1}{1-z} = \sum_{n=0}^{\infty} z^n = 1 + z + z^2 + z^3 + \cdots
+\]
+This series converges when $|z| < 1$ and diverges when $|z| > 1$. Since the nearest singularity of $f$ to $z = 0$ is at $z = 1$ (distance $1$ from the center), the \textbf{radius of convergence is $R = 1$}.
+
+%%% PROBLEM 61 %%%
+\item \textbf{Solution.}
+The Taylor series of $\operatorname{Log}(1+z)$ about $z = 0$ is:
+\[
+\operatorname{Log}(1+z) = \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} z^n = z - \frac{z^2}{2} + \frac{z^3}{3} - \frac{z^4}{4} + \cdots
+\]
+This can be derived by integrating the geometric series $\frac{1}{1+z} = \sum_{n=0}^{\infty}(-1)^n z^n$ term by term.
+
+The nearest singularity of $\operatorname{Log}(1+z)$ to $z = 0$ is the branch point at $z = -1$ (distance $1$). Therefore the \textbf{radius of convergence is $R = 1$}.
+
+%%% PROBLEM 62 %%%
+\item \textbf{Solution.}
+The path $\gamma$ is the vertical segment from $1$ to $1 + 2i$. Parametrize: $z(t) = 1 + 2it$, $t \in [0,1]$, so $dz = 2i\,dt$.
+\[
+\int_\gamma dz = \int_0^1 2i\,dt = 2i.
+\]
+Alternatively, since $f(z) = 1$ is entire with antiderivative $F(z) = z$:
+\[
+\int_\gamma dz = F(1+2i) - F(1) = (1 + 2i) - 1 = 2i.
+\]
+
+%%% PROBLEM 63 %%%
+\item \textbf{Solution.}
+Parametrize $\gamma$: $z(t) = (1+i)t$, $t \in [0,1]$, so $dz = (1+i)\,dt$. Then:
+\[
+\int_\gamma e^z\,dz = \int_0^1 e^{(1+i)t}(1+i)\,dt = (1+i)\left[\frac{e^{(1+i)t}}{1+i}\right]_0^1 = e^{(1+i)} - e^0 = e^{1+i} - 1.
+\]
+Alternatively, since $e^z$ has antiderivative $e^z$:
+\[
+\int_\gamma e^z\,dz = e^{1+i} - e^0 = e(\cos 1 + i\sin 1) - 1.
+\]
+
+%%% PROBLEM 64 %%%
+\item \textbf{Solution.}
+Since $f(z) = z^2$ is entire (holomorphic on all of $\mathbb{C}$) and $\gamma$ is a closed contour, by \textbf{Cauchy's theorem}:
+\[
+\oint_\gamma z^2\,dz = 0.
+\]
+
+One can also verify directly: $z^2$ has antiderivative $F(z) = z^3/3$, so the integral over any closed curve vanishes.
+
+%%% PROBLEM 65 %%%
+\item \textbf{Solution.}
+On $\gamma_R$: $z = Re^{it}$, $t \in [0,\pi]$. The length of $\gamma_R$ is $L = \pi R$. For $k > 0$ and $z = Re^{it} = R\cos t + iR\sin t$:
+\[
+|e^{ikz}| = |e^{ik(R\cos t + iR\sin t)}| = |e^{ikR\cos t - kR\sin t}| = e^{-kR\sin t}.
+\]
+For $t \in [0,\pi]$, $\sin t \geq 0$, so $|e^{ikz}| \leq 1$, and $M = \max_{z \in \gamma_R}|e^{ikz}| \leq 1$.
+
+By the \textbf{ML inequality}:
+\[
+\left|\int_{\gamma_R} e^{ikz}\,dz\right| \leq M \cdot L \leq 1 \cdot \pi R = \pi R.
+\]
+However, this bound does not tend to zero. For the integrand $e^{ikz}$ alone on the semicircle, a sharper estimate is needed; in typical applications, additional decay from a factor such as $1/p(z)$ for some polynomial $p$ is present.
+
+More precisely, using \textbf{Jordan's lemma}: For $k > 0$,
+\[
+\left|\int_{\gamma_R} e^{ikz}\,dz\right| \leq \frac{\pi}{k}\left(1 - e^{-kR}\right) < \frac{\pi}{k}.
+\]
+This follows from the estimate $\int_0^\pi e^{-kR\sin t}\,dt \leq \frac{\pi}{kR}$ (using $\sin t \geq \frac{2t}{\pi}$ for $t \in [0,\pi/2]$). With the factor $|dz| = R\,dt$:
+\[
+\left|\int_{\gamma_R} e^{ikz}\,dz\right| \leq R\int_0^\pi e^{-kR\sin t}\,dt \leq R \cdot \frac{\pi}{kR} = \frac{\pi}{k}.
+\]
+
+If the problem intends for an additional factor such as $e^{ikz}/z$ or similar (as is standard in applications), the bound $R \cdot \frac{\pi}{kR} \to 0$ does require the $1/R$ decay. In the standard application of Jordan's lemma, $\int_{\gamma_R} \frac{e^{ikz}}{p(z)}\,dz \to 0$ when $\deg p \geq 1$. For $e^{ikz}$ alone, the integral remains bounded but need not tend to zero.
+
+\textbf{Corrected interpretation:} If the integrand is $e^{ikz}/z^n$ for $n \geq 1$, then $|e^{ikz}/z^n| \leq 1/R^n$ on $\gamma_R$, and
+\[
+\left|\int_{\gamma_R} \frac{e^{ikz}}{z^n}\,dz\right| \leq \frac{1}{R^n} \cdot \pi R = \frac{\pi}{R^{n-1}} \to 0 \text{ as } R \to \infty. \qed
+\]
+
+%%% PROBLEM 66 %%%
+\item \textbf{Solution.}
+Parametrize $\gamma$: $z = e^{it}$, $t \in [0, 2\pi]$, so $dz = ie^{it}\,dt$. Then:
+\[
+\oint_\gamma \frac{dz}{z} = \int_0^{2\pi} \frac{ie^{it}}{e^{it}}\,dt = \int_0^{2\pi} i\,dt = 2\pi i.
+\]
+The answer $2\pi i$ equals $2\pi i \cdot n(\gamma, 0)$, where $n(\gamma, 0) = 1$ is the winding number of $\gamma$ about the origin. In general, for any closed contour $\gamma$ not passing through the origin, $\oint_\gamma \frac{dz}{z} = 2\pi i \cdot n(\gamma, 0)$. The unit circle traversed once counterclockwise has winding number $1$.
+
+%%% PROBLEM 67 %%%
+\item \textbf{Solution.}
+An antiderivative of $f(z) = z^3$ is $F(z) = \frac{z^4}{4}$. By the Fundamental Theorem for contour integrals:
+\[
+\int_\gamma z^3\,dz = F(2) - F(1) = \frac{2^4}{4} - \frac{1^4}{4} = \frac{16}{4} - \frac{1}{4} = \frac{15}{4}.
+\]
+
+%%% PROBLEM 68 %%%
+\item \textbf{Solution.}
+With $\gamma(t) = t + it$, $t \in [0,1]$, so $dz = (1+i)\,dt$. Since $\sin z$ has antiderivative $-\cos z$:
+\[
+\int_\gamma \sin(z)\,dz = \bigl[-\cos z\bigr]_{z=0}^{z=1+i} = -\cos(1+i) + \cos(0) = 1 - \cos(1+i).
+\]
+Now, $\cos(1+i) = \cos 1 \cosh 1 - i\sin 1 \sinh 1$. Therefore:
+\[
+\int_\gamma \sin(z)\,dz = 1 - \cos 1 \cosh 1 + i\sin 1 \sinh 1.
+\]
+
+%%% PROBLEM 69 %%%
+\item \textbf{Solution.}
+The function $\frac{1}{z-1}$ has a singularity at $z = 1$, which lies inside the circle $|z| = 2$. By \textbf{Cauchy's Integral Formula} (with $f(z) = 1$, holomorphic inside $\gamma$):
+\[
+\oint_{|z|=2} \frac{dz}{z-1} = 2\pi i \cdot f(1) = 2\pi i \cdot 1 = 2\pi i.
+\]
+
+%%% PROBLEM 70 %%%
+\item \textbf{Solution.}
+\textbf{Proof.} Let $\gamma: [a,b] \to D$ be a piecewise smooth curve from $z_1 = \gamma(a)$ to $z_2 = \gamma(b)$. Since $F' = f$ in $D$:
+\[
+\int_\gamma f(z)\,dz = \int_a^b f(\gamma(t))\,\gamma'(t)\,dt = \int_a^b F'(\gamma(t))\,\gamma'(t)\,dt = \int_a^b \frac{d}{dt}[F(\gamma(t))]\,dt,
+\]
+where the last equality uses the chain rule. By the Fundamental Theorem of Calculus (for real integrals applied component-wise):
+\[
+= F(\gamma(b)) - F(\gamma(a)) = F(z_2) - F(z_1).
+\]
+This depends only on the endpoints $z_1$ and $z_2$, \emph{not} on the path $\gamma$. Therefore the integral is path-independent. $\qed$
+
+%%% PROBLEM 71 %%%
+\item \textbf{Solution.}
+We find an antiderivative of $\frac{z}{z^2+1}$. Let $F(z) = \frac{1}{2}\operatorname{Log}(z^2 + 1)$. Then $F'(z) = \frac{z}{z^2 + 1}$.
+
+The singularities of the integrand are at $z = \pm i$, which do not lie on the segment from $0$ to $2$. On this segment, $z^2 + 1 > 0$ (since $z$ is real and $z^2 + 1 \geq 1$), so $\operatorname{Log}(z^2+1)$ is well-defined and holomorphic.
+
+By the Fundamental Theorem:
+\[
+\int_\gamma \frac{z}{z^2+1}\,dz = F(2) - F(0) = \frac{1}{2}\ln(4+1) - \frac{1}{2}\ln(0+1) = \frac{1}{2}\ln 5 - 0 = \frac{\ln 5}{2}.
+\]
+
+%%% PROBLEM 72 %%%
+\item \textbf{Solution.}
+Let $\gamma: [a,b] \to \mathbb{C}$ be a piecewise smooth curve and let $\phi: [c,d] \to [a,b]$ be a smooth, orientation-preserving reparametrization (i.e., $\phi' > 0$, $\phi(c) = a$, $\phi(d) = b$). Define $\tilde{\gamma}(s) = \gamma(\phi(s))$.
+
+\[
+\int_{\tilde{\gamma}} f(z)\,dz = \int_c^d f(\tilde{\gamma}(s))\,\tilde{\gamma}'(s)\,ds = \int_c^d f(\gamma(\phi(s)))\,\gamma'(\phi(s))\,\phi'(s)\,ds.
+\]
+By the substitution $t = \phi(s)$, $dt = \phi'(s)\,ds$:
+\[
+= \int_a^b f(\gamma(t))\,\gamma'(t)\,dt = \int_\gamma f(z)\,dz.
+\]
+The value is unchanged. This \textbf{invariance property} means that the complex line integral depends only on the oriented curve as a geometric object, not on the particular parametrization chosen. $\qed$
+
+%%% PROBLEM 73 %%%
+\item \textbf{Solution.}
+Let $\gamma$ wind $n$ times counterclockwise around the origin. We can decompose $\gamma$ (by homotopy or deformation) into $n$ copies of a simple closed loop around the origin. For a single counterclockwise loop $C$ around $0$:
+\[
+\oint_C \frac{dz}{z} = 2\pi i
+\]
+(proved by direct parametrization: $z = re^{it}$, $t \in [0,2\pi]$).
+
+Since the integral is additive under concatenation of paths:
+\[
+\oint_\gamma \frac{dz}{z} = n \cdot 2\pi i = 2\pi i n.
+\]
+This is precisely $2\pi i$ times the winding number $n(\gamma, 0) = n$. $\qed$
+
+%%% PROBLEM 74 %%%
+\item \textbf{Solution.}
+The function $e^z$ is entire (holomorphic on all of $\mathbb{C}$), and it has an antiderivative, namely $F(z) = e^z$ (since $F'(z) = e^z$). For any closed piecewise smooth curve $\gamma$ from $z_1$ back to $z_1$:
+\[
+\oint_\gamma e^z\,dz = F(z_1) - F(z_1) = 0.
+\]
+Alternatively, by \textbf{Cauchy's theorem}, since $e^z$ is entire (and hence holomorphic inside and on $\gamma$), the integral over any closed contour is zero. $\qed$
+
+%%% PROBLEM 75 %%%
+\item \textbf{Solution.}
+Parametrize $\gamma$: $z = e^{it}$, $t \in [0,2\pi]$, $dz = ie^{it}\,dt$:
+\[
+\oint_\gamma \frac{dz}{z} = \int_0^{2\pi} \frac{ie^{it}}{e^{it}}\,dt = \int_0^{2\pi} i\,dt = i \cdot 2\pi = 2\pi i. \qed
+\]
+
+%%% PROBLEM 76 %%%
+\item \textbf{Solution.}
+By \textbf{Cauchy's Integral Formula}: if $f$ is holomorphic inside and on $\gamma$ and $z_0$ is inside $\gamma$, then
+\[
+\oint_\gamma \frac{f(z)}{z - z_0}\,dz = 2\pi i\, f(z_0).
+\]
+Here $f(z) = e^z$ (entire), $z_0 = 2$, and $|z| = 3$ encloses $z_0 = 2$. Therefore:
+\[
+\oint_{|z|=3} \frac{e^z}{z-2}\,dz = 2\pi i \cdot e^2.
+\]
+
+%%% PROBLEM 77 %%%
+\item \textbf{Solution.}
+The generalized Cauchy Integral Formula gives:
+\[
+f''(z_0) = \frac{2!}{2\pi i}\oint_\gamma \frac{f(z)}{(z-z_0)^3}\,dz.
+\]
+With $f(z) = \sin z$ and $z_0 = 0$:
+\[
+f''(0) = \frac{2}{2\pi i}\oint_{|z|=R} \frac{\sin z}{z^3}\,dz.
+\]
+Now, $f(z) = \sin z$ gives $f'(z) = \cos z$ and $f''(z) = -\sin z$, so $f''(0) = -\sin 0 = 0$.
+
+Therefore:
+\[
+\oint_{|z|=R} \frac{\sin z}{z^3}\,dz = \frac{2\pi i}{2}\cdot f''(0) = \pi i \cdot 0 = 0.
+\]
+
+%%% PROBLEM 78 %%%
+\item \textbf{Solution.}
+By Cauchy's Integral Formula with $f(z) = 1$ (entire) and $z_0 = 1$ (inside $|z| = 2$):
+\[
+\oint_{|z|=2} \frac{dz}{z-1} = 2\pi i \cdot f(1) = 2\pi i.
+\]
+The answer depends on $z = 1$ lying inside the contour because $\frac{1}{z-1}$ has a singularity at $z = 1$. If $z = 1$ were outside the contour, the integrand would be holomorphic inside and on the contour, and by Cauchy's theorem, the integral would be $0$.
+
+%%% PROBLEM 79 %%%
+\item \textbf{Solution.}
+Since $\frac{1}{(z-1)^2}$ has a pole of order $2$ at $z = 1$, we apply the generalized Cauchy Integral Formula with $f(z) = 1$ and $n = 1$:
+\[
+\frac{f'(z_0)}{1!} = \frac{1}{2\pi i}\oint_\gamma \frac{f(z)}{(z-z_0)^2}\,dz \implies \oint_\gamma \frac{dz}{(z-1)^2} = 2\pi i \cdot f'(1).
+\]
+Since $f(z) = 1$, $f'(z) = 0$, so:
+\[
+\oint_\gamma \frac{dz}{(z-1)^2} = 2\pi i \cdot 0 = 0.
+\]
+
+\textbf{Explanation:} The integrand $\frac{1}{(z-1)^2}$ has a pole of order $2$ at $z = 1$. Its Laurent series about $z = 1$ is simply $(z-1)^{-2}$, so the residue (the coefficient of $(z-1)^{-1}$) is $0$. By the Residue Theorem, the integral equals $2\pi i$ times the residue, which is $0$. In general, for a pole of order $n \geq 2$ with no $(z-z_0)^{-1}$ term, the contour integral vanishes.
+
+%%% PROBLEM 80 %%%
+\item \textbf{Solution.}
+Partial fractions: $\frac{1}{z(z-1)} = \frac{A}{z} + \frac{B}{z-1}$. Setting $z = 0$: $A = -1$. Setting $z = 1$: $B = 1$. So:
+\[
+\frac{1}{z(z-1)} = \frac{-1}{z} + \frac{1}{z-1}.
+\]
+Both singularities $z = 0$ and $z = 1$ lie inside $|z| = 2$. Therefore:
+\[
+\oint_{|z|=2} \frac{dz}{z(z-1)} = -\oint_{|z|=2}\frac{dz}{z} + \oint_{|z|=2}\frac{dz}{z-1} = -2\pi i + 2\pi i = 0.
+\]
+
+%%% PROBLEM 81 %%%
+\item \textbf{Solution.}
+Use partial fractions: $\frac{1}{z(z-2)} = \frac{A}{z} + \frac{B}{z-2}$, giving $A = -1/2$ and $B = 1/2$:
+\[
+\frac{1}{z(z-2)} = -\frac{1}{2z} + \frac{1}{2(z-2)}.
+\]
+
+For the region $0 < |z| < 2$, expand $\frac{1}{z-2} = \frac{-1}{2}\cdot\frac{1}{1 - z/2}$ as a geometric series (valid for $|z| < 2$):
+\[
+\frac{1}{z-2} = -\frac{1}{2}\sum_{n=0}^{\infty}\frac{z^n}{2^n} = -\sum_{n=0}^{\infty}\frac{z^n}{2^{n+1}}.
+\]
+Therefore:
+\[
+f(z) = -\frac{1}{2z} + \frac{1}{2}\left(-\sum_{n=0}^{\infty}\frac{z^n}{2^{n+1}}\right) = -\frac{1}{2z} - \sum_{n=0}^{\infty}\frac{z^n}{2^{n+2}}.
+\]
+\[
+= -\frac{1}{2}\cdot z^{-1} - \frac{1}{4} - \frac{z}{8} - \frac{z^2}{16} - \cdots
+\]
+
+The Laurent series has a single term with negative power ($z^{-1}$ with coefficient $-1/2$), so $z = 0$ is a \textbf{simple pole} (pole of order $1$) with residue $-1/2$.
+
+%%% PROBLEM 82 %%%
+\item \textbf{Solution.}
+We need the residue of $f(z) = \frac{e^{1/z}}{1+z}$ at $z = 0$, i.e., the coefficient $a_{-1}$ in the Laurent expansion about $z = 0$.
+
+Expand $e^{1/z} = \sum_{n=0}^{\infty} \frac{1}{n!\, z^n}$ and $\frac{1}{1+z} = \sum_{m=0}^{\infty}(-1)^m z^m$ (for $|z| < 1$).
+
+\[
+f(z) = \left(\sum_{n=0}^{\infty}\frac{z^{-n}}{n!}\right)\left(\sum_{m=0}^{\infty}(-1)^m z^m\right).
+\]
+
+The coefficient of $z^{-1}$ comes from pairing terms where $m - n = -1$, i.e., $m = n - 1$:
+\[
+a_{-1} = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n!} = \sum_{k=0}^{\infty}\frac{(-1)^k}{(k+1)!} = \sum_{k=0}^{\infty}\frac{(-1)^k}{(k+1)!}.
+\]
+
+This can be evaluated: $\sum_{k=0}^{\infty}\frac{(-1)^k}{(k+1)!} = \frac{1}{1!} - \frac{1}{2!} + \frac{1}{3!} - \cdots$
+
+Recall that $e^{-1} = \sum_{k=0}^{\infty}\frac{(-1)^k}{k!} = 1 - 1 + \frac{1}{2!} - \frac{1}{3!} + \cdots$, so $e^{-1} - 1 = \sum_{k=1}^{\infty}\frac{(-1)^k}{k!} = -\left(\frac{1}{1!} - \frac{1}{2!} + \frac{1}{3!} - \cdots\right)$.
+
+Therefore $a_{-1} = 1 - e^{-1}$.
+
+The residue of $f(z)$ at $z = 0$ is $\boxed{1 - e^{-1}}$.
+
+%%% PROBLEM 83 %%%
+\item \textbf{Solution.}
+First, partial fractions. We write:
+\[
+\frac{z^2 + 1}{z(z-1)(z-2)} = \frac{A}{z} + \frac{B}{z-1} + \frac{C}{z-2}.
+\]
+Setting $z = 0$: $\frac{1}{(-1)(-2)} = \frac{1}{2}$, so $A = 1/2$.
+
+Setting $z = 1$: $\frac{2}{(1)(-1)} = -2$, so $B = -2$.
+
+Setting $z = 2$: $\frac{5}{(2)(1)} = 5/2$, so $C = 5/2$.
+
+For $0 < |z| < 1$, expand $\frac{1}{z-1} = \frac{-1}{1-z} = -\sum_{n=0}^{\infty}z^n$ and $\frac{1}{z-2} = \frac{-1}{2}\cdot\frac{1}{1-z/2} = -\sum_{n=0}^{\infty}\frac{z^n}{2^{n+1}}$.
+
+\begin{align*}
+f(z) &= \frac{1}{2z} + (-2)\left(-\sum_{n=0}^{\infty}z^n\right) + \frac{5}{2}\left(-\sum_{n=0}^{\infty}\frac{z^n}{2^{n+1}}\right) \\
+&= \frac{1}{2z} + 2\sum_{n=0}^{\infty}z^n - \frac{5}{2}\sum_{n=0}^{\infty}\frac{z^n}{2^{n+1}} \\
+&= \frac{1}{2z} + \sum_{n=0}^{\infty}\left(2 - \frac{5}{2^{n+2}}\right)z^n.
+\end{align*}
+
+The only negative power is $z^{-1}$ with coefficient $1/2$. Therefore $z = 0$ is a \textbf{simple pole} with residue $1/2$.
+
+%%% PROBLEM 84 %%%
+\item \textbf{Solution.}
+The singularities of $\frac{e^z}{z^2+1} = \frac{e^z}{(z-i)(z+i)}$ are at $z = i$ and $z = -i$. Both lie inside $|z| = 3$.
+
+By the Residue Theorem:
+\[
+\oint_{|z|=3}\frac{e^z}{z^2+1}\,dz = 2\pi i\bigl[\operatorname{Res}(f, i) + \operatorname{Res}(f, -i)\bigr].
+\]
+
+At $z = i$ (simple pole): $\operatorname{Res}(f, i) = \lim_{z \to i}(z-i)\frac{e^z}{(z-i)(z+i)} = \frac{e^i}{2i}$.
+
+At $z = -i$ (simple pole): $\operatorname{Res}(f, -i) = \lim_{z \to -i}(z+i)\frac{e^z}{(z-i)(z+i)} = \frac{e^{-i}}{-2i}$.
+
+Sum of residues:
+\[
+\frac{e^i}{2i} + \frac{e^{-i}}{-2i} = \frac{e^i - e^{-i}}{2i} = \sin 1.
+\]
+
+Therefore:
+\[
+\oint_{|z|=3}\frac{e^z}{z^2+1}\,dz = 2\pi i \sin 1.
+\]
+
+%%% PROBLEM 85 %%%
+\item \textbf{Solution.}
+Consider $\int_{-\infty}^{\infty}\frac{dx}{x^2+1}$. Let $f(z) = \frac{1}{z^2+1} = \frac{1}{(z-i)(z+i)}$. Close the contour with a semicircle $\gamma_R$ in the upper half-plane.
+
+The contour $C_R$ consists of $[-R, R]$ on the real axis plus $\gamma_R$. The only pole in the upper half-plane is $z = i$.
+
+$\operatorname{Res}(f, i) = \lim_{z \to i}(z-i)\frac{1}{(z-i)(z+i)} = \frac{1}{2i}$.
+
+By the Residue Theorem:
+\[
+\oint_{C_R} f(z)\,dz = 2\pi i \cdot \frac{1}{2i} = \pi.
+\]
+On $\gamma_R$: $|f(z)| \leq \frac{1}{R^2 - 1}$, so by the ML inequality, $\left|\int_{\gamma_R}f(z)\,dz\right| \leq \frac{\pi R}{R^2 - 1} \to 0$ as $R \to \infty$.
+
+Therefore:
+\[
+\int_{-\infty}^{\infty}\frac{dx}{x^2+1} = \pi.
+\]
+
+%%% PROBLEM 86 %%%
+\item \textbf{Solution.}
+\textbf{Proof of Liouville's Theorem.} Let $f$ be entire and bounded: $|f(z)| \leq M$ for all $z \in \mathbb{C}$. Since $f$ is entire, it has a power series $f(z) = \sum_{n=0}^{\infty} a_n z^n$ converging for all $z$.
+
+By \textbf{Cauchy's estimate}, for any $R > 0$ and any $n \geq 1$:
+\[
+|a_n| \leq \frac{\max_{|z|=R}|f(z)|}{R^n} \leq \frac{M}{R^n}.
+\]
+
+Since this holds for \emph{all} $R > 0$, we let $R \to \infty$:
+\[
+|a_n| \leq \lim_{R \to \infty} \frac{M}{R^n} = 0 \quad \text{for all } n \geq 1.
+\]
+
+Therefore $a_n = 0$ for all $n \geq 1$, and $f(z) = a_0$, a constant. $\qed$
+
+%%% PROBLEM 87 %%%
+\item \textbf{Solution.}
+By the generalized Cauchy Integral Formula with $f(z) = e^{z^2}$, $z_0 = i$, and $n = 2$:
+\[
+\oint_{|z-i|=R} \frac{e^{z^2}}{(z-i)^3}\,dz = \frac{2\pi i}{2!}\,f''(i) = \pi i \cdot f''(i).
+\]
+
+Compute $f''(i)$ for $f(z) = e^{z^2}$:
+\[
+f'(z) = 2z\,e^{z^2}, \qquad f''(z) = 2e^{z^2} + 4z^2 e^{z^2} = (2 + 4z^2)e^{z^2}.
+\]
+At $z = i$: $i^2 = -1$, so:
+\[
+f''(i) = (2 + 4(-1))e^{i^2} = (2 - 4)e^{-1} = -\frac{2}{e}.
+\]
+
+Therefore:
+\[
+\oint_{|z-i|=R}\frac{e^{z^2}}{(z-i)^3}\,dz = \pi i \cdot \left(-\frac{2}{e}\right) = -\frac{2\pi i}{e}.
+\]
+
+%%% PROBLEM 88 %%%
+\item \textbf{Solution.}
+We evaluate $\int_{-\infty}^{\infty}\frac{dx}{x^2+1}$ by contour integration. Let $f(z) = \frac{1}{z^2+1} = \frac{1}{(z-i)(z+i)}$.
+
+Close the contour in the upper half-plane with a semicircular arc $\gamma_R$ of radius $R$. The closed contour $C_R = [-R,R] \cup \gamma_R$ encloses the pole at $z = i$ (for $R > 1$).
+
+\textbf{Residue at $z = i$:}
+\[
+\operatorname{Res}(f, i) = \lim_{z \to i}(z-i)\cdot\frac{1}{(z-i)(z+i)} = \frac{1}{i + i} = \frac{1}{2i}.
+\]
+
+\textbf{Residue Theorem:}
+\[
+\oint_{C_R} f(z)\,dz = 2\pi i \cdot \frac{1}{2i} = \pi.
+\]
+
+\textbf{Semicircular contribution:} On $\gamma_R$ ($z = Re^{i\theta}$, $\theta \in [0,\pi]$):
+\[
+|f(z)| = \frac{1}{|z^2+1|} \leq \frac{1}{R^2 - 1}, \qquad \left|\int_{\gamma_R}f(z)\,dz\right| \leq \frac{\pi R}{R^2 - 1} \xrightarrow{R\to\infty} 0.
+\]
+
+\textbf{Conclusion:}
+\[
+\int_{-\infty}^{\infty}\frac{dx}{x^2+1} = \lim_{R\to\infty}\left[\oint_{C_R}f(z)\,dz - \int_{\gamma_R}f(z)\,dz\right] = \pi - 0 = \pi.
+\]
+
+%%% PROBLEM 89 %%%
+\item \textbf{Solution.}
+
+\textbf{(a)} $f(z) = \frac{\sin z}{z}$ at $z = 0$.
+
+The Taylor series of $\sin z$ is $z - \frac{z^3}{3!} + \frac{z^5}{5!} - \cdots$, so:
+\[
+\frac{\sin z}{z} = 1 - \frac{z^2}{3!} + \frac{z^4}{5!} - \cdots
+\]
+This is a power series with no negative powers of $z$, so the singularity at $z = 0$ is \textbf{removable}. Defining $f(0) = 1$ extends $f$ to an entire function.
+
+\textbf{(b)} $f(z) = \frac{1}{(z-1)^3}$ at $z = 1$.
+
+The Laurent series about $z = 1$ is simply $(z-1)^{-3}$. The most negative power is $(z-1)^{-3}$, so $z = 1$ is a \textbf{pole of order $3$}.
+
+\textbf{(c)} $f(z) = e^{1/z}$ at $z = 0$.
+
+\[
+e^{1/z} = \sum_{n=0}^{\infty}\frac{1}{n!\,z^n} = 1 + \frac{1}{z} + \frac{1}{2!\,z^2} + \frac{1}{3!\,z^3} + \cdots
+\]
+The Laurent series has infinitely many negative powers of $z$. Therefore $z = 0$ is an \textbf{essential singularity}.
+
+\end{enumerate}

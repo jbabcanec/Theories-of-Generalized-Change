@@ -1,0 +1,35 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.bbl
+*.blg
+
+# Backup / scratch files
+*.bak
+chapters/chapter*_backup.tex
+chapters/chapter*_old.tex
+**/*_filled_tmp.*
+
+# Local-only build PDF (the published copy is "Theories of Generalized Change.pdf")
+main.pdf
+
+# Internal/working folders not meant for distribution
+audit/
+problems_review/
+standards/

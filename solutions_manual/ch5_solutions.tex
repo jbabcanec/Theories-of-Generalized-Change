@@ -1,0 +1,1328 @@
+\chapter{Chapter 5: Vector Calculus}
+
+\begin{enumerate}
+
+%%% PROBLEM 1 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item We substitute $x=1$, $y=-1$:
+\[
+\mathbf{F}(1,-1) = (1+1)\,\mathbf{i} + (-1-2)\,\mathbf{j} = 2\,\mathbf{i} - 3\,\mathbf{j}.
+\]
+
+\item At $(0,0)$: $\mathbf{F}=(1,-2)$. At $(1,0)$: $\mathbf{F}=(2,-2)$. At $(0,1)$: $\mathbf{F}=(1,-1)$. At $(-1,0)$: $\mathbf{F}=(0,-2)$. At $(0,-1)$: $\mathbf{F}=(1,-3)$.
+
+The field has a ``center'' at $(-1,2)$ where $\mathbf{F}=\mathbf{0}$. Near the origin, every vector points roughly to the lower-right, with the $y$-component always negative (pulling downward) and the $x$-component positive for $x>-1$. The field radiates outward from the point $(-1,2)$.
+\end{enumerate}
+
+%%% PROBLEM 2 %%%
+\item \textbf{Solution.}
+A \emph{scalar field} assigns a single real number to each point in space. Example: the temperature $T(x,y,z)$ at each point in a room.
+
+A \emph{vector field} assigns a vector to each point in space. Example: the velocity $\mathbf{v}(x,y,z)$ of a fluid at each point in a flowing stream.
+
+The key difference is that a scalar field has only magnitude at each point, while a vector field has both magnitude and direction.
+
+%%% PROBLEM 3 %%%
+\item \textbf{Solution.}
+At $(2,0)$: $\mathbf{F} = -0\,\mathbf{i} + 2\,\mathbf{j} = (0,2)$, so the arrow points straight up.
+
+At $(1,1)$: $\mathbf{F} = -1\,\mathbf{i} + 1\,\mathbf{j} = (-1,1)$, so the arrow points up and to the left at $45^\circ$.
+
+At $(-2,-2)$: $\mathbf{F} = 2\,\mathbf{i} + (-2)\,\mathbf{j} = (2,-2)$, so the arrow points down and to the right.
+
+In each case, $\mathbf{F}$ is perpendicular to the position vector $(x,y)$ since $\mathbf{F}\cdot(x,y)= -yx + xy = 0$. Also $|\mathbf{F}| = \sqrt{x^2+y^2}$, which equals the distance from the origin. The overall pattern is \emph{counterclockwise rotation} about the origin, with speed proportional to distance.
+
+%%% PROBLEM 4 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $\mathbf{F}(0,0) = (e^0, e^0) = (1,1)$.
+
+$\mathbf{F}(1,2) = (e^1, e^2) = (e, e^2) \approx (2.718, 7.389)$.
+
+\item At the origin, $\mathbf{F}(0,0)=(1,1)$ is nonzero and points into the first quadrant. Since both components $e^x > 0$ and $e^y > 0$ everywhere, every vector points into the first quadrant. The origin is \emph{neither} a source nor a sink, because $\mathbf{F}(0,0)\neq\mathbf{0}$; sources and sinks occur at points where $\mathbf{F}=\mathbf{0}$ and the flow radiates outward or inward, respectively.
+\end{enumerate}
+
+%%% PROBLEM 5 %%%
+\item \textbf{Solution.}
+Each component of $\mathbf{G}$ has $x^2+y^2+z^2$ in the denominator, which is zero only at the origin $(0,0,0)$. For any point $(x,y,z)\neq(0,0,0)$, the components are ratios of polynomials with a nonzero denominator, hence continuous.
+
+Therefore, $\mathbf{G}$ is \emph{not} continuous at the origin $(0,0,0)$ (it is undefined there), but it is continuous everywhere else in $\mathbb{R}^3\setminus\{(0,0,0)\}$.
+
+%%% PROBLEM 6 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item Each component $x^2$, $y^2$, $z^2$ is a polynomial, and polynomials are continuous on all of $\mathbb{R}^3$. Therefore $\mathbf{H}$ is continuous at every point in $\mathbb{R}^3$.
+
+\item There are no problematic points. Every component is a polynomial, which is defined and continuous everywhere.
+\end{enumerate}
+
+%%% PROBLEM 7 %%%
+\item \textbf{Solution.}
+Engineers and physicists sometimes normalize all arrows to the same length to make the \emph{direction} of the field clearly visible at every point, especially in regions where the magnitude varies dramatically.
+
+\textbf{Advantage:} Normalized plots clearly show the directional pattern of the field (e.g., convergence, divergence, rotation) without large vectors obscuring small ones.
+
+\textbf{Disadvantage:} All information about the \emph{magnitude} is lost. For example, in a wind field, one cannot distinguish regions of high wind speed from regions of low wind speed.
+
+%%% PROBLEM 8 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $\mathbf{F}_1(x,y) = x\,\mathbf{i} + y\,\mathbf{j}$: vectors point radially \emph{outward} from the origin. This is a \textbf{source}.
+
+\item $\mathbf{F}_2(x,y) = -x\,\mathbf{i} - y\,\mathbf{j}$: vectors point radially \emph{inward} toward the origin. This is a \textbf{sink}.
+
+\item $\mathbf{F}_3(x,y) = x\,\mathbf{i} - y\,\mathbf{j}$: vectors point outward along the $x$-axis but inward along the $y$-axis (or vice versa). This is a \textbf{saddle}.
+\end{enumerate}
+
+%%% PROBLEM 9 %%%
+\item \textbf{Solution.}
+Write $\mathbf{F}(x,y) = P\,\mathbf{i} + Q\,\mathbf{j}$ where $P = y$ and $Q = -x$.
+
+Compute:
+\[
+\frac{\partial P}{\partial y} = 1, \qquad \frac{\partial Q}{\partial x} = -1.
+\]
+Since $\dfrac{\partial P}{\partial y} = 1 \neq -1 = \dfrac{\partial Q}{\partial x}$, the field is \textbf{not conservative}.
+
+The failure of the conservative test corresponds to the fact that $\mathbf{F}$ has a rotational/circulatory pattern near the origin---vectors circulate (clockwise) around the origin rather than emanating from a potential function.
+
+%%% PROBLEM 10 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item Here $P = x^3$ and $Q = 3x^2y$.
+\[
+\frac{\partial P}{\partial y} = 0, \qquad \frac{\partial Q}{\partial x} = 6xy.
+\]
+Since $0 \neq 6xy$ in general, $\mathbf{F}$ is \textbf{not conservative}.
+
+\item Since $\mathbf{F}$ is not conservative, no potential function exists.
+\end{enumerate}
+
+%%% PROBLEM 11 %%%
+\item \textbf{Solution.}
+Write $\mathbf{F} = (P,Q,R) = (2xy,\; x^2+z^2,\; 2yz)$. For $\mathbf{F}$ to be conservative on $\mathbb{R}^3$ we need:
+\[
+\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}, \quad \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}, \quad \frac{\partial Q}{\partial z} = \frac{\partial R}{\partial y}.
+\]
+Compute each:
+\[
+\frac{\partial P}{\partial y} = 2x, \quad \frac{\partial Q}{\partial x} = 2x.
+\]
+\[
+\frac{\partial P}{\partial z} = 0, \quad \frac{\partial R}{\partial x} = 0.
+\]
+\[
+\frac{\partial Q}{\partial z} = 2z, \quad \frac{\partial R}{\partial y} = 2z.
+\]
+All three conditions are satisfied, so $\mathbf{F}$ \textbf{is conservative} on $\mathbb{R}^3$.
+
+To find the potential function: $f_x = 2xy \Rightarrow f = x^2y + g(y,z)$. Then $f_y = x^2 + g_y = x^2 + z^2$, so $g_y = z^2$, giving $g = yz^2 + h(z)$. Then $f_z = 2yz + h'(z) = 2yz$, so $h'(z)=0$ and $h$ is constant. Thus $f(x,y,z) = x^2y + yz^2 + C$.
+
+%%% PROBLEM 12 %%%
+\item \textbf{Solution.}
+We have $P = \sqrt{x^2+y^2}$ and $Q = -\sin(xy)$.
+
+\[
+\frac{\partial P}{\partial x} = \frac{x}{\sqrt{x^2+y^2}}, \qquad
+\frac{\partial P}{\partial y} = \frac{y}{\sqrt{x^2+y^2}}.
+\]
+\[
+\frac{\partial Q}{\partial x} = -y\cos(xy), \qquad
+\frac{\partial Q}{\partial y} = -x\cos(xy).
+\]
+
+At the origin $(0,0)$: $\sqrt{x^2+y^2}=0$, so $\dfrac{\partial P}{\partial x}$ and $\dfrac{\partial P}{\partial y}$ involve division by zero. These two partial derivatives are \textbf{undefined at the origin}.
+
+The partial derivatives $\dfrac{\partial Q}{\partial x} = -y\cos(xy)$ and $\dfrac{\partial Q}{\partial y} = -x\cos(xy)$ are well-defined everywhere, including at the origin (both equal $0$ there).
+
+%%% PROBLEM 13 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $P = x^2+y^2$ and $Q = -(x^2+y^2)$.
+\[
+\frac{\partial P}{\partial y} = 2y, \qquad \frac{\partial Q}{\partial x} = -2x.
+\]
+Since $2y \neq -2x$ in general, $\mathbf{F}$ is \textbf{not conservative}.
+
+\item Since the field is not conservative, we classify the origin by examining the flow. At the origin $\mathbf{F}(0,0)=(0,0)$, so it is an equilibrium point. Near the origin, $\text{div}(\mathbf{F}) = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} = 2x + (-2y) = 2x - 2y$. At the origin, $\text{div}(\mathbf{F})=0$, and the divergence changes sign depending on direction. Examining nearby vectors: along the positive $x$-axis, $\mathbf{F}=(x^2, -x^2)$ points into the fourth quadrant; along the positive $y$-axis, $\mathbf{F}=(y^2, -y^2)$ also points into the fourth quadrant. The flow pattern is neither purely radial inward nor outward---the origin behaves like a \textbf{saddle} (flow is neither a pure source nor a pure sink).
+\end{enumerate}
+
+%%% PROBLEM 14 %%%
+\item \textbf{Solution.}
+Parameterize $C$: $\mathbf{r}(t) = (2t, 4t)$ for $0 \le t \le 1$.
+
+Then $\mathbf{r}'(t) = (2,4)$ and $\|\mathbf{r}'(t)\| = \sqrt{4+16} = \sqrt{20} = 2\sqrt{5}$.
+
+On $C$: $x+y = 2t + 4t = 6t$.
+\[
+\int_C (x+y)\,ds = \int_0^1 6t \cdot 2\sqrt{5}\,dt = 12\sqrt{5}\int_0^1 t\,dt = 12\sqrt{5}\cdot\frac{1}{2} = \boxed{6\sqrt{5}}.
+\]
+
+%%% PROBLEM 15 %%%
+\item \textbf{Solution.}
+Parameterize: $\mathbf{r}(t) = (t, t^2)$ for $0 \le t \le 2$.
+
+$\mathbf{r}'(t) = (1, 2t)$, so $\|\mathbf{r}'(t)\| = \sqrt{1+4t^2}$.
+
+On $C$: $x^2+y = t^2 + t^2 = 2t^2$.
+\[
+\int_C (x^2+y)\,ds = \int_0^2 2t^2\sqrt{1+4t^2}\,dt.
+\]
+Let $u = 1+4t^2$, then $du = 8t\,dt$. This substitution does not directly simplify $t^2\sqrt{1+4t^2}$. Instead, use the substitution $2t = \sinh\theta$, so $4t^2 = \sinh^2\theta$, $\sqrt{1+4t^2}=\cosh\theta$, and $2\,dt = \cosh\theta\,d\theta$.
+
+When $t=0$: $\theta=0$. When $t=2$: $\sinh\theta=4$, so $\theta = \ln(4+\sqrt{17})$.
+
+\[
+\int_0^2 2t^2\sqrt{1+4t^2}\,dt = \int_0^{\theta_0} 2\cdot\frac{\sinh^2\theta}{4}\cdot\cosh\theta\cdot\frac{\cosh\theta}{2}\,d\theta = \frac{1}{4}\int_0^{\theta_0}\sinh^2\theta\cosh^2\theta\,d\theta
+\]
+where $\theta_0 = \sinh^{-1}(4)$. Using $\sinh^2\theta\cosh^2\theta = \frac{1}{4}\sinh^2(2\theta)= \frac{1}{8}(\cosh(4\theta)-1)$:
+\[
+= \frac{1}{4}\cdot\frac{1}{8}\left[\frac{\sinh(4\theta)}{4}-\theta\right]_0^{\theta_0} = \frac{1}{32}\left[\frac{\sinh(4\theta_0)}{4}-\theta_0\right].
+\]
+Now $\sinh\theta_0 = 4$, $\cosh\theta_0 = \sqrt{17}$. We need $\sinh(4\theta_0)$. Using double-angle formulas: $\sinh(2\theta_0)=2\cdot4\cdot\sqrt{17}=8\sqrt{17}$, $\cosh(2\theta_0)=2\cosh^2\theta_0-1=33$. Then $\sinh(4\theta_0) = 2\sinh(2\theta_0)\cosh(2\theta_0) = 2\cdot8\sqrt{17}\cdot33 = 528\sqrt{17}$.
+
+\[
+= \frac{1}{32}\left[\frac{528\sqrt{17}}{4} - \ln(4+\sqrt{17})\right] = \frac{1}{32}\left[132\sqrt{17} - \ln(4+\sqrt{17})\right].
+\]
+
+\[
+\boxed{\int_C (x^2+y)\,ds = \frac{132\sqrt{17} - \ln(4+\sqrt{17})}{32}.}
+\]
+
+%%% PROBLEM 16 %%%
+\item \textbf{Solution.}
+Let $\mathbf{r}(t)$, $a\le t\le b$, be a parameterization of $C$. The scalar line integral is
+\[
+\int_C f\,ds = \int_a^b f(\mathbf{r}(t))\,\|\mathbf{r}'(t)\|\,dt.
+\]
+Now reverse the parameterization: let $\tilde{\mathbf{r}}(s) = \mathbf{r}(a+b-s)$ for $s\in[a,b]$. Then $\tilde{\mathbf{r}}\,'(s) = -\mathbf{r}'(a+b-s)$, so
+\[
+\|\tilde{\mathbf{r}}\,'(s)\| = \|\mathbf{r}'(a+b-s)\|.
+\]
+The integral becomes:
+\[
+\int_a^b f(\tilde{\mathbf{r}}(s))\,\|\tilde{\mathbf{r}}\,'(s)\|\,ds = \int_a^b f(\mathbf{r}(a+b-s))\,\|\mathbf{r}'(a+b-s)\|\,ds.
+\]
+Substituting $u = a+b-s$, $du = -ds$; when $s=a$, $u=b$ and when $s=b$, $u=a$:
+\[
+= \int_b^a f(\mathbf{r}(u))\,\|\mathbf{r}'(u)\|(-du) = \int_a^b f(\mathbf{r}(u))\,\|\mathbf{r}'(u)\|\,du.
+\]
+This is exactly the original integral. The sign does not change because $ds = \|\mathbf{r}'(t)\|\,dt > 0$ always; the norm $\|\cdot\|$ absorbs any sign change from reversing direction.
+
+%%% PROBLEM 17 %%%
+\item \textbf{Solution.}
+Parameterize: $x = r\cos t$, $y = r\sin t$, for $t\in[0,\pi/2]$.
+
+$\mathbf{r}'(t) = (-r\sin t, r\cos t)$, so $\|\mathbf{r}'(t)\| = r$.
+
+On $C$: $\sqrt{x^2+y^2} = \sqrt{r^2\cos^2 t + r^2\sin^2 t} = r$.
+\[
+\int_C \sqrt{x^2+y^2}\,ds = \int_0^{\pi/2} r\cdot r\,dt = r^2\int_0^{\pi/2}dt = \boxed{\frac{\pi r^2}{2}}.
+\]
+
+%%% PROBLEM 18 %%%
+\item \textbf{Solution.}
+\textbf{Segment 1} ($C_1$): from $(0,0)$ to $(3,0)$ along the $x$-axis. Parameterize: $\mathbf{r}_1(t) = (t,0)$, $0\le t\le 3$. Then $\|\mathbf{r}_1'(t)\|=1$, $y=0$.
+\[
+\int_{C_1}(2x+3y)\,ds = \int_0^3 2t\cdot 1\,dt = \left[t^2\right]_0^3 = 9.
+\]
+
+\textbf{Segment 2} ($C_2$): from $(3,0)$ to $(3,2)$ vertically. Parameterize: $\mathbf{r}_2(t) = (3,t)$, $0\le t\le 2$. Then $\|\mathbf{r}_2'(t)\|=1$, $x=3$.
+\[
+\int_{C_2}(2x+3y)\,ds = \int_0^2 (6+3t)\cdot 1\,dt = \left[6t+\tfrac{3}{2}t^2\right]_0^2 = 12+6 = 18.
+\]
+
+Total: $\displaystyle\int_C (2x+3y)\,ds = 9 + 18 = \boxed{27}$.
+
+%%% PROBLEM 19 %%%
+\item \textbf{Solution.}
+Parameterize $C$: $\mathbf{r}(t) = (2t, 3t)$, $0\le t\le 1$. Then $\mathbf{r}'(t)=(2,3)$.
+
+$\mathbf{F}(\mathbf{r}(t)) = (y,x) = (3t, 2t)$.
+\[
+\int_C \mathbf{F}\cdot d\mathbf{r} = \int_0^1 (3t,2t)\cdot(2,3)\,dt = \int_0^1(6t+6t)\,dt = \int_0^1 12t\,dt = 6t^2\Big|_0^1 = \boxed{6}.
+\]
+
+%%% PROBLEM 20 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(x-y, x^2)$, so $P=x-y$, $Q=x^2$. The rectangle has four edges traversed counterclockwise.
+
+\textbf{$C_1$}: $(0,0)\to(2,0)$: $\mathbf{r}=(t,0)$, $t\in[0,2]$, $d\mathbf{r}=(1,0)dt$.
+\[
+\int_{C_1} = \int_0^2 (t-0)\cdot 1\,dt = \int_0^2 t\,dt = 2.
+\]
+
+\textbf{$C_2$}: $(2,0)\to(2,1)$: $\mathbf{r}=(2,t)$, $t\in[0,1]$, $d\mathbf{r}=(0,1)dt$.
+\[
+\int_{C_2} = \int_0^1 4\cdot 1\,dt = 4.
+\]
+
+\textbf{$C_3$}: $(2,1)\to(0,1)$: $\mathbf{r}=(2-t,1)$, $t\in[0,2]$, $d\mathbf{r}=(-1,0)dt$.
+\[
+\int_{C_3} = \int_0^2 ((2-t)-1)(-1)\,dt = \int_0^2 -(1-t)\,dt = \int_0^2 (t-1)\,dt = \left[\tfrac{t^2}{2}-t\right]_0^2 = 0.
+\]
+
+\textbf{$C_4$}: $(0,1)\to(0,0)$: $\mathbf{r}=(0,1-t)$, $t\in[0,1]$, $d\mathbf{r}=(0,-1)dt$.
+\[
+\int_{C_4} = \int_0^1 0\cdot(-1)\,dt = 0.
+\]
+
+Total: $2+4+0+0 = \boxed{6}$.
+
+%%% PROBLEM 21 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(\ln(1+y^2), e^x)$, $C$: $x^2+y^2=4$ counterclockwise.
+
+Parameterize: $\mathbf{r}(t) = (2\cos t, 2\sin t)$, $t\in[0,2\pi]$, $\mathbf{r}'(t)=(-2\sin t, 2\cos t)$.
+
+By Green's Theorem:
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA
+\]
+where $P = \ln(1+y^2)$, $Q = e^x$.
+\[
+\frac{\partial Q}{\partial x} = e^x, \qquad \frac{\partial P}{\partial y} = \frac{2y}{1+y^2}.
+\]
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_D\left(e^x - \frac{2y}{1+y^2}\right)dA.
+\]
+The integrand $\frac{2y}{1+y^2}$ is an odd function in $y$ and $D$ is the disk $x^2+y^2\le 4$ which is symmetric about the $x$-axis, so:
+\[
+\iint_D \frac{2y}{1+y^2}\,dA = 0.
+\]
+Thus we need $\iint_D e^x\,dA$. Using polar coordinates $x=r\cos\theta$:
+\[
+\iint_D e^x\,dA = \int_0^{2\pi}\int_0^2 e^{r\cos\theta}\,r\,dr\,d\theta.
+\]
+This integral can be expressed in terms of modified Bessel functions. Using the identity $\frac{1}{2\pi}\int_0^{2\pi}e^{r\cos\theta}\,d\theta = I_0(r)$:
+\[
+= 2\pi\int_0^2 r\,I_0(r)\,dr.
+\]
+Since $\frac{d}{dr}[rI_1(r)] = rI_0(r)$, we get $2\pi[rI_1(r)]_0^2 = 4\pi I_1(2)$.
+
+Therefore $\displaystyle\oint_C \mathbf{F}\cdot d\mathbf{r} = 4\pi I_1(2)$, where $I_1(2) \approx 1.5906$, giving approximately $\boxed{4\pi I_1(2) \approx 19.99}$.
+
+Reversing to clockwise negates the integral: $\displaystyle\oint_{C^-}\mathbf{F}\cdot d\mathbf{r} = -4\pi I_1(2)$.
+
+%%% PROBLEM 22 %%%
+\item \textbf{Solution.}
+If $C$ is piecewise smooth with segments $C_1$, $C_2$, $C_3$, then
+\[
+\int_C \mathbf{F}\cdot d\mathbf{r} = \int_{C_1}\mathbf{F}\cdot d\mathbf{r} + \int_{C_2}\mathbf{F}\cdot d\mathbf{r} + \int_{C_3}\mathbf{F}\cdot d\mathbf{r}.
+\]
+This follows from the additivity of integrals over adjoining curves: the endpoint of $C_1$ equals the starting point of $C_2$, and so on.
+
+This strategy is often used in applications because each smooth segment may have a simple parameterization (e.g., a line segment or circular arc), even though the whole curve $C$ does not admit a single simple formula.
+
+%%% PROBLEM 23 %%%
+\item \textbf{Solution.}
+Let $\mathbf{F} = (3y, -2x)$, so $P=3y$ and $Q=-2x$.
+
+By Green's Theorem (for counterclockwise $C$ enclosing region $D$):
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_D\left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA = \iint_D(-2-3)\,dA = -5\,\text{Area}(D).
+\]
+This is nonzero for any region with positive area, confirming the integral depends on the loop.
+
+If $C$ is traversed \textbf{clockwise}, the integral picks up a sign change:
+\[
+\oint_{C_{\text{cw}}} \mathbf{F}\cdot d\mathbf{r} = +5\,\text{Area}(D).
+\]
+So the clockwise result is the negative of the counterclockwise result.
+
+%%% PROBLEM 24 %%%
+\item \textbf{Solution.}
+Along $x=1$, parameterize: $\mathbf{r}(t) = (1,t)$, $0\le t\le 2$, $\mathbf{r}'(t)=(0,1)$.
+
+$\mathbf{F}(1,t) = (1+1, 2(1)(t)-1) = (2, 2t-1)$.
+\[
+\int_C \mathbf{F}\cdot d\mathbf{r} = \int_0^2 (2,2t-1)\cdot(0,1)\,dt = \int_0^2(2t-1)\,dt = \left[t^2-t\right]_0^2 = 4-2 = \boxed{2}.
+\]
+
+Reversing the path (from $(1,2)$ to $(1,0)$) gives $-2$. This is because for a vector line integral $\int_C \mathbf{F}\cdot d\mathbf{r}$, reversing the direction of traversal negates $d\mathbf{r}$, hence negates the integral.
+
+%%% PROBLEM 25 %%%
+\item \textbf{Solution.}
+$\mathbf{F}(x,y) = (y,x)$, so $P=y$, $Q=x$.
+\[
+\frac{\partial P}{\partial y} = 1, \qquad \frac{\partial Q}{\partial x} = 1.
+\]
+Since $\dfrac{\partial P}{\partial y} = \dfrac{\partial Q}{\partial x}$ everywhere on $\mathbb{R}^2$ (which is simply connected), $\mathbf{F}$ \textbf{is conservative}.
+
+A potential function: $f_x = y \Rightarrow f = xy + g(y)$. Then $f_y = x + g'(y) = x$, so $g'(y)=0$, giving $g(y)=C$. Thus $f(x,y)=xy$.
+
+%%% PROBLEM 26 %%%
+\item \textbf{Solution.}
+$\mathbf{F} = \left(\dfrac{-y}{x^2+y^2},\;\dfrac{x}{x^2+y^2}\right)$ on $\mathbb{R}^2\setminus\{(0,0)\}$.
+
+Parameterize $C$: $x = r\cos t$, $y = r\sin t$, $0\le t\le 2\pi$.
+
+$dx = -r\sin t\,dt$, $dy = r\cos t\,dt$.
+
+On $C$: $x^2+y^2 = r^2$.
+\begin{align*}
+\oint_C \mathbf{F}\cdot d\mathbf{r} &= \int_0^{2\pi}\left[\frac{-r\sin t}{r^2}(-r\sin t) + \frac{r\cos t}{r^2}(r\cos t)\right]dt \\
+&= \int_0^{2\pi}\left[\frac{\sin^2 t}{1} + \frac{\cos^2 t}{1}\right]dt = \int_0^{2\pi}1\,dt = \boxed{2\pi}.
+\end{align*}
+
+Although one can check $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ (both equal $\frac{y^2-x^2}{(x^2+y^2)^2}$), the field is \textbf{not conservative} because the domain $\mathbb{R}^2\setminus\{(0,0)\}$ is \emph{not simply connected}. The circulation around the origin is $2\pi \neq 0$, which is impossible for a conservative field.
+
+%%% PROBLEM 27 %%%
+\item \textbf{Solution.}
+$\mathbf{G}=(x+\sin y,\;\cos x + y)$. Check: $P = x+\sin y$, $Q = \cos x + y$.
+\[
+\frac{\partial P}{\partial y} = \cos y, \qquad \frac{\partial Q}{\partial x} = -\sin x.
+\]
+Since $\cos y \neq -\sin x$ in general (e.g., at $(0,0)$: $1\neq 0$), $\mathbf{G}$ is \textbf{not conservative}.
+
+Therefore we cannot use the potential function method. The integral $\int_C \mathbf{G}\cdot d\mathbf{r}$ from $(0,0)$ to $(2,1)$ is path-dependent and requires specifying a particular path.
+
+%%% PROBLEM 28 %%%
+\item \textbf{Solution.}
+$\mathbf{F} = (yz, zx, xy)$.
+
+\textbf{$C_1$}: $(0,0,0)\to(1,0,0)$. $\mathbf{r}(t)=(t,0,0)$, $t\in[0,1]$, $\mathbf{r}'=(1,0,0)$.
+$\mathbf{F}=(0,0,0)$. So $\int_{C_1}=0$.
+
+\textbf{$C_2$}: $(1,0,0)\to(1,2,0)$. $\mathbf{r}(t)=(1,t,0)$, $t\in[0,2]$, $\mathbf{r}'=(0,1,0)$.
+$\mathbf{F}=(0,0,t)$. So $\mathbf{F}\cdot\mathbf{r}' = 0$, and $\int_{C_2}=0$.
+
+\textbf{$C_3$}: $(1,2,0)\to(1,2,3)$. $\mathbf{r}(t)=(1,2,t)$, $t\in[0,3]$, $\mathbf{r}'=(0,0,1)$.
+$\mathbf{F}=(2t, t, 2)$. So $\mathbf{F}\cdot\mathbf{r}' = 2$, and $\int_{C_3} = \int_0^3 2\,dt = 6$.
+
+Total: $0+0+6 = \boxed{6}$.
+
+To check if $\mathbf{F}$ is conservative, check $\nabla\times\mathbf{F}$:
+\[
+\nabla\times\mathbf{F} = \left(\frac{\partial(xy)}{\partial y}-\frac{\partial(zx)}{\partial z},\;\frac{\partial(yz)}{\partial z}-\frac{\partial(xy)}{\partial x},\;\frac{\partial(zx)}{\partial x}-\frac{\partial(yz)}{\partial y}\right) = (x-x, y-y, z-z) = \mathbf{0}.
+\]
+Since the curl is zero on all of $\mathbb{R}^3$ (simply connected), $\mathbf{F}$ \textbf{is conservative}. A potential function is $f(x,y,z)=xyz$. We verify: $f(1,2,3)-f(0,0,0)=6-0=6$.
+
+%%% PROBLEM 29 %%%
+\item \textbf{Solution.}
+\textbf{Green's Theorem} states: if $C$ is a positively oriented (counterclockwise), piecewise smooth, simple closed curve bounding a region $D$, and $P,Q$ have continuous partial derivatives on an open set containing $D$, then
+\[
+\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA.
+\]
+
+\textbf{Conceptual explanation:} The line integral measures the total ``circulation'' of the vector field $(P,Q)$ around the boundary. Green's Theorem says this equals the sum of all the ``local rotation'' ($\partial Q/\partial x - \partial P/\partial y$) accumulated over the interior region. Intuitively, if we partition $D$ into infinitesimally small rectangles and sum the circulation around each, all interior edge contributions cancel (shared edges are traversed in opposite directions by adjacent rectangles), leaving only the outer boundary $C$. The double integral simply adds up the microscopic rotation at every interior point.
+
+%%% PROBLEM 30 %%%
+\item \textbf{Solution.}
+$P = xy$, $Q = x^2$, rectangle $[0,2]\times[0,1]$.
+
+\textbf{Direct computation:}
+
+$C_1$: $(0,0)\to(2,0)$, $y=0$: $\int_0^2 (0)(1)\,dt + 0 = 0$.
+
+$C_2$: $(2,0)\to(2,1)$, $x=2$: $\mathbf{r}=(2,t)$, $dx=0$, $dy=dt$.
+$\int_0^1 4\,dt = 4$.
+
+$C_3$: $(2,1)\to(0,1)$, $y=1$: $\mathbf{r}=(2-t,1)$, $dx=-dt$, $dy=0$.
+$\int_0^2 (2-t)(1)(-1)\,dt = -\int_0^2(2-t)\,dt = -(2\cdot2-2)=-2$.
+
+$C_4$: $(0,1)\to(0,0)$, $x=0$: $\int_0^1 0\,dt = 0$.
+
+Direct total: $0+4-2+0 = 2$.
+
+\textbf{Green's Theorem:}
+\[
+\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 2x - x = x.
+\]
+\[
+\iint_D x\,dA = \int_0^1\int_0^2 x\,dx\,dy = \int_0^1 2\,dy = 2.
+\]
+
+$\boxed{2}$.
+
+%%% PROBLEM 31 %%%
+\item \textbf{Solution.}
+$P=-y$, $Q=x$, $C$: unit circle counterclockwise, $D$: unit disk.
+\[
+\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} = 1-(-1)=2.
+\]
+By Green's Theorem:
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_D 2\,dA = 2\cdot\text{Area}(D) = 2\pi(1)^2 = \boxed{2\pi}.
+\]
+
+\textbf{Physical interpretation:} This integral measures the \emph{circulation} of $\mathbf{F}$ around the unit circle. The field $\mathbf{F}=(-y,x)$ rotates counterclockwise with speed equal to the distance from the origin. The constant ``curl'' of $2$ means uniform rotation everywhere, so the total circulation around the unit circle is $2\pi$---consistent with a rigid-body rotation at angular velocity $1$.
+
+%%% PROBLEM 32 %%%
+\item \textbf{Solution.}
+The region $D$ is bounded by $y = x^2$ (below) and $y=4$ (above), so $x$ ranges from $-2$ to $2$.
+
+By Green's Theorem (in reverse):
+\[
+\iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA = \oint_C P\,dx + Q\,dy,
+\]
+where $C = \partial D$ is traversed counterclockwise.
+
+The boundary consists of two pieces:
+\begin{itemize}
+\item $C_1$: along $y = x^2$ from $(-2,4)$ to $(2,4)$ (bottom, left to right).
+\item $C_2$: along $y = 4$ from $(2,4)$ to $(-2,4)$ (top, right to left).
+\end{itemize}
+
+The resulting line integral is:
+\[
+\oint_C P\,dx + Q\,dy = \int_{C_1} P\,dx + Q\,dy + \int_{C_2} P\,dx + Q\,dy.
+\]
+
+One advantage of switching to the line integral form is that if $P$ and $Q$ are simple functions, a one-dimensional boundary integral can be easier to evaluate than a two-dimensional area integral, especially when the boundary has a convenient parameterization.
+
+%%% PROBLEM 33 %%%
+\item \textbf{Solution.}
+When we partition $D$ into small rectangles and sum the line integrals around each sub-rectangle, every \emph{interior} edge is shared by exactly two adjacent sub-rectangles. These two rectangles traverse the shared edge in \emph{opposite directions}: what is the right edge of one rectangle is the left edge of its neighbor, and the orientations are opposite. Thus the contributions from interior edges cancel in pairs.
+
+Only the edges lying on the \emph{outer boundary} of $D$ belong to a single sub-rectangle and have no partner to cancel with. These surviving contributions sum to exactly the line integral around the outer boundary $\partial D$. This is the discrete version of Green's Theorem: the sum of local circulations (double integral of curl) equals the global circulation (boundary line integral).
+
+%%% PROBLEM 34 %%%
+\item \textbf{Solution.}
+$P = x^2y^2$, $Q = xy^3$. Triangle with vertices $(0,0)$, $(2,0)$, $(0,2)$.
+\[
+\frac{\partial Q}{\partial x} = y^3, \qquad \frac{\partial P}{\partial y} = 2x^2y.
+\]
+\[
+\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} = y^3 - 2x^2y.
+\]
+By Green's Theorem:
+\[
+\oint_C = \iint_D (y^3 - 2x^2y)\,dA.
+\]
+The triangle: $0\le x \le 2$, $0\le y\le 2-x$.
+\begin{align*}
+&= \int_0^2\int_0^{2-x}(y^3-2x^2y)\,dy\,dx \\
+&= \int_0^2\left[\frac{y^4}{4}-x^2y^2\right]_0^{2-x}dx \\
+&= \int_0^2\left[\frac{(2-x)^4}{4}-x^2(2-x)^2\right]dx.
+\end{align*}
+Let $u = 2-x$:
+\[
+\frac{(2-x)^4}{4} - x^2(2-x)^2 = \frac{u^4}{4}-(2-u)^2 u^2.
+\]
+Expand $(2-u)^2 u^2 = (4-4u+u^2)u^2 = 4u^2 - 4u^3 + u^4$.
+\[
+= \frac{u^4}{4}-4u^2+4u^3-u^4 = -\frac{3u^4}{4}+4u^3-4u^2.
+\]
+Back in $x$ with $u=2-x$, $du=-dx$:
+\[
+\int_0^2\left[-\frac{3(2-x)^4}{4}+4(2-x)^3-4(2-x)^2\right]dx.
+\]
+Let $u=2-x$:
+\[
+= \int_0^2\left[-\frac{3u^4}{4}+4u^3-4u^2\right]du = \left[-\frac{3u^5}{20}+u^4-\frac{4u^3}{3}\right]_0^2
+\]
+\[
+= -\frac{3(32)}{20}+16-\frac{32}{3} = -\frac{96}{20}+16-\frac{32}{3} = -\frac{24}{5}+16-\frac{32}{3}.
+\]
+Common denominator $15$:
+\[
+= \frac{-72+240-160}{15} = \frac{8}{15}.
+\]
+
+$\boxed{\dfrac{8}{15}}$.
+
+%%% PROBLEM 35 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(y,-x)$, so $P=y$, $Q=-x$.
+\[
+\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} = -1 - 1 = -2.
+\]
+By Green's Theorem:
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_D(-2)\,dA = -2\,\text{Area}(D).
+\]
+Therefore the line integral is proportional to the area of the enclosed region, with proportionality constant $-2$:
+\[
+\oint_C (y\,dx - x\,dy) = -2\,\text{Area}(D). \qquad\blacksquare
+\]
+
+%%% PROBLEM 36 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(e^y, \sin x)$, so $P=e^y$, $Q=\sin x$.
+\[
+\frac{\partial Q}{\partial x} = \cos x, \qquad \frac{\partial P}{\partial y} = e^y.
+\]
+By Green's Theorem:
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_D(\cos x - e^y)\,dA,
+\]
+where $D$ is the interior of the ellipse $\frac{x^2}{4}+\frac{y^2}{9}=1$.
+
+Use the substitution $x = 2u$, $y = 3v$ (mapping the ellipse to the unit disk $u^2+v^2\le 1$), with Jacobian $|J|=6$:
+\[
+= \iint_{u^2+v^2\le 1}(\cos(2u)-e^{3v})\cdot 6\,du\,dv.
+\]
+By symmetry, $\cos(2u)$ is even in both $u$ and $v$, and $e^{3v}$ involves only $v$.
+
+For $\iint \cos(2u)\,du\,dv$ over the unit disk, switch to polar: $u=r\cos\theta$:
+\[
+\int_0^{2\pi}\int_0^1\cos(2r\cos\theta)\,r\,dr\,d\theta = 2\pi\int_0^1 r\,J_0(2r)\,dr,
+\]
+where $J_0$ is the Bessel function. Using $\frac{d}{dr}[rJ_1(2r)\cdot\frac{1}{2}]=\frac{1}{2}\cdot[J_1(2r)+2rJ_0(2r)\cdot\frac{1}{2}]$... this becomes intricate.
+
+A more direct approach: use the identity $\int_0^1 r J_0(2r)\,dr = \frac{J_1(2)}{2}$, so $\iint\cos(2u)\,du\,dv = 2\pi\cdot\frac{J_1(2)}{2} = \pi J_1(2)$.
+
+For $\iint e^{3v}\,du\,dv$ over the unit disk: $v = r\sin\theta$:
+\[
+\int_0^{2\pi}\int_0^1 e^{3r\sin\theta}\,r\,dr\,d\theta = 2\pi\int_0^1 r\,I_0(3r)\,dr = 2\pi\cdot\frac{I_1(3)}{3},
+\]
+using $\int_0^1 r I_0(3r)\,dr = \frac{I_1(3)}{3}$.
+
+Therefore:
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = 6\left[\pi J_1(2) - \frac{2\pi I_1(3)}{3}\right] = 6\pi J_1(2) - 4\pi I_1(3).
+\]
+
+Using $J_1(2)\approx 0.5767$ and $I_1(3)\approx 3.9534$:
+\[
+\approx 6\pi(0.5767)-4\pi(3.9534) \approx 10.87 - 49.68 \approx \boxed{-38.81}.
+\]
+
+%%% PROBLEM 37 %%%
+\item \textbf{Solution.}
+Green's Theorem states (for counterclockwise $C$):
+\[
+\oint_{C_{\text{ccw}}} P\,dx+Q\,dy = \iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA.
+\]
+When we reverse the orientation from counterclockwise to clockwise, $d\mathbf{r}$ is negated (the tangent vector reverses), so:
+\[
+\oint_{C_{\text{cw}}} P\,dx+Q\,dy = -\oint_{C_{\text{ccw}}} P\,dx+Q\,dy = -\iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA.
+\]
+The double integral $\iint_D(\partial Q/\partial x - \partial P/\partial y)\,dA$ does not depend on orientation---it is a property of the region and the field. The sign convention (positive = counterclockwise) is what links the line integral to the double integral.
+
+%%% PROBLEM 38 %%%
+\item \textbf{Solution.}
+$\mathbf{F} = \left(\frac{-y}{x^2+y^2},\;\frac{x}{x^2+y^2}\right)$ on $\mathbb{R}^2\setminus\{(0,0)\}$.
+
+First check:
+\[
+\frac{\partial Q}{\partial x} = \frac{(x^2+y^2)-x(2x)}{(x^2+y^2)^2} = \frac{y^2-x^2}{(x^2+y^2)^2},
+\]
+\[
+\frac{\partial P}{\partial y} = \frac{-(x^2+y^2)+y(2y)}{(x^2+y^2)^2} = \frac{y^2-x^2}{(x^2+y^2)^2}.
+\]
+So $\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}=0$ wherever $\mathbf{F}$ is defined.
+
+If Green's Theorem applied directly, we would conclude $\oint_C \mathbf{F}\cdot d\mathbf{r}=\iint_D 0\,dA = 0$. However, $\mathbf{F}$ is undefined at the origin, which lies inside $C$ (the circle of radius $r$). The domain is \textbf{not simply connected}, so Green's Theorem does not apply to the region enclosed by $C$.
+
+Computing directly with parameterization $x=r\cos t$, $y=r\sin t$, $t\in[0,2\pi]$:
+\begin{align*}
+\oint_C \mathbf{F}\cdot d\mathbf{r} &= \int_0^{2\pi}\left[\frac{-r\sin t}{r^2}(-r\sin t)+\frac{r\cos t}{r^2}(r\cos t)\right]dt \\
+&= \int_0^{2\pi}(\sin^2 t + \cos^2 t)\,dt = \boxed{2\pi}.
+\end{align*}
+
+This demonstrates the crucial role of simple connectivity: $\partial Q/\partial x = \partial P/\partial y$ everywhere in the domain, yet the field is not conservative because the domain has a ``hole'' at the origin.
+
+%%% PROBLEM 39 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(x+2y,\;x-y)$, so $P=x+2y$, $Q=x-y$.
+
+\[
+\text{div}(\mathbf{F}) = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y} = 1+(-1) = \boxed{0}.
+\]
+\[
+\text{curl}(\mathbf{F})\text{ (2D)} = \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} = 1-2 = \boxed{-1}.
+\]
+
+The \textbf{divergence} indicates expansion/compression (here zero, meaning the field is area-preserving). The \textbf{curl} indicates rotation (here $-1$, meaning clockwise rotation).
+
+%%% PROBLEM 40 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(x^2, 2y, -3z)$.
+
+\[
+\text{div}(\mathbf{F}) = \frac{\partial}{\partial x}(x^2)+\frac{\partial}{\partial y}(2y)+\frac{\partial}{\partial z}(-3z) = 2x+2-3 = 2x-1.
+\]
+
+This is not identically zero, so $\mathbf{F}$ is \textbf{not incompressible} (not divergence-free).
+
+\[
+\text{curl}(\mathbf{F}) = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ \partial_x&\partial_y&\partial_z\\ x^2&2y&-3z\end{vmatrix} = \mathbf{i}(0-0)-\mathbf{j}(0-0)+\mathbf{k}(0-0) = \boxed{\mathbf{0}}.
+\]
+The curl is zero, so $\mathbf{F}$ is irrotational.
+
+%%% PROBLEM 41 %%%
+\item \textbf{Solution.}
+If $\mathbf{F}=\nabla f = \left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right)$, then
+\[
+\nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ \partial_x&\partial_y&\partial_z\\ f_x & f_y & f_z\end{vmatrix}.
+\]
+The $\mathbf{i}$-component is $\frac{\partial f_z}{\partial y}-\frac{\partial f_y}{\partial z} = f_{zy}-f_{yz}$. By Clairaut's theorem (assuming $f$ has continuous second partial derivatives), $f_{zy}=f_{yz}$, so this component is $0$.
+
+Similarly, the $\mathbf{j}$-component is $f_{xz}-f_{zx}=0$ and the $\mathbf{k}$-component is $f_{yx}-f_{xy}=0$.
+
+Therefore $\nabla\times(\nabla f) = \mathbf{0}$ for any sufficiently smooth scalar function $f$. Every conservative field is irrotational. $\blacksquare$
+
+%%% PROBLEM 42 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(e^x\sin y,\;e^y\sin z,\;e^z\sin x)$.
+\[
+\text{div}(\mathbf{F}) = \frac{\partial}{\partial x}(e^x\sin y)+\frac{\partial}{\partial y}(e^y\sin z)+\frac{\partial}{\partial z}(e^z\sin x)
+\]
+\[
+= e^x\sin y + e^y\sin z + e^z\sin x.
+\]
+This is \textbf{not identically zero}. For example, at $(\pi/2, \pi/2, \pi/2)$:
+\[
+\text{div}(\mathbf{F}) = e^{\pi/2}\sin(\pi/2)+e^{\pi/2}\sin(\pi/2)+e^{\pi/2}\sin(\pi/2) = 3e^{\pi/2}\neq 0.
+\]
+Therefore $\mathbf{F}$ is \textbf{not divergence-free}.
+
+%%% PROBLEM 43 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(x^3, y^3)$.
+\[
+\text{div}(\mathbf{F}) = 3x^2 + 3y^2 = 3(x^2+y^2).
+\]
+This equals zero only at the origin $(0,0)$ and is strictly positive everywhere else.
+
+\textbf{Physical interpretation:} Since $\text{div}(\mathbf{F})=3(x^2+y^2)>0$ for $(x,y)\neq(0,0)$, the field acts as a \emph{source} at every non-origin point: fluid is being ``created'' or expanding outward. The source strength increases with distance from the origin. Only at the origin itself does the divergence vanish (neither source nor sink there).
+
+%%% PROBLEM 44 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $\mathbf{F}_1=(x,-y)$:
+\[
+\text{div}(\mathbf{F}_1)=1+(-1)=0, \quad \text{curl}(\mathbf{F}_1)=\frac{\partial(-y)}{\partial x}-\frac{\partial(x)}{\partial y}=0-0=0.
+\]
+At the origin, both divergence and curl are zero. This is a \textbf{saddle} (hyperbolic flow), not primarily source, sink, or rotation.
+
+\item $\mathbf{F}_2=(2x,2y)$:
+\[
+\text{div}(\mathbf{F}_2)=2+2=4>0, \quad \text{curl}(\mathbf{F}_2)=0-0=0.
+\]
+Divergence is positive, curl is zero. The origin is a \textbf{source}.
+
+\item $\mathbf{F}_3=(-y,x)$:
+\[
+\text{div}(\mathbf{F}_3)=0+0=0, \quad \text{curl}(\mathbf{F}_3)=1-(-1)=2.
+\]
+Divergence is zero, curl is nonzero. The origin is a \textbf{rotation} (counterclockwise).
+\end{enumerate}
+
+%%% PROBLEM 45 %%%
+\item \textbf{Solution.}
+The identity $\nabla\cdot(\nabla\times\mathbf{F})=0$ holds for any smooth vector field $\mathbf{F}$.
+
+If the velocity field $\mathbf{v}$ of a fluid is purely rotational, meaning $\mathbf{v}=\nabla\times\mathbf{A}$ for some vector potential $\mathbf{A}$, then
+\[
+\nabla\cdot\mathbf{v} = \nabla\cdot(\nabla\times\mathbf{A})=0.
+\]
+This means the divergence of $\mathbf{v}$ is zero everywhere.
+
+By the Divergence Theorem, for any closed surface $S$ bounding a volume $V$:
+\[
+\oiint_S \mathbf{v}\cdot d\mathbf{S} = \iiint_V\nabla\cdot\mathbf{v}\,dV = 0.
+\]
+The net outward flux through any closed surface is zero, meaning no fluid is created or destroyed inside $V$. In a purely swirling (rotational) motion, the fluid merely circulates without any net outflow or inflow---mass is conserved. $\blacksquare$
+
+%%% PROBLEM 46 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(yz, zx, xy)$.
+\[
+\text{div}(\mathbf{F}) = \frac{\partial(yz)}{\partial x}+\frac{\partial(zx)}{\partial y}+\frac{\partial(xy)}{\partial z} = 0+0+0 = \boxed{0}.
+\]
+
+\[
+\text{curl}(\mathbf{F}) = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ \partial_x&\partial_y&\partial_z\\ yz&zx&xy\end{vmatrix}
+\]
+\[
+= \mathbf{i}(x-x)-\mathbf{j}(y-y)+\mathbf{k}(z-z) = \boxed{\mathbf{0}}.
+\]
+
+Both divergence and curl are zero. The divergence being zero means no net creation or destruction of fluid (incompressible). The curl being zero means no rotation (irrotational). In fact, $\mathbf{F}=\nabla(xyz)$, confirming it is conservative.
+
+\emph{Note:} The problem statement suggests the curl is nonzero, but computation shows both are zero. The field is both divergence-free and irrotational.
+
+%%% PROBLEM 47 %%%
+\item \textbf{Solution.}
+In cylindrical coordinates with $\mathbf{v}=(v_r, v_\theta, v_z)=(0,\alpha r, 0)$:
+
+\textbf{Divergence} in cylindrical coordinates:
+\[
+\nabla\cdot\mathbf{v} = \frac{1}{r}\frac{\partial(rv_r)}{\partial r}+\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}+\frac{\partial v_z}{\partial z} = \frac{1}{r}\frac{\partial(0)}{\partial r}+\frac{1}{r}\frac{\partial(\alpha r)}{\partial\theta}+0 = 0+0+0 = \boxed{0}.
+\]
+The flow is \textbf{incompressible}.
+
+\textbf{Curl} in cylindrical coordinates:
+\[
+(\nabla\times\mathbf{v})_r = \frac{1}{r}\frac{\partial v_z}{\partial\theta}-\frac{\partial v_\theta}{\partial z} = 0-0=0,
+\]
+\[
+(\nabla\times\mathbf{v})_\theta = \frac{\partial v_r}{\partial z}-\frac{\partial v_z}{\partial r} = 0-0=0,
+\]
+\[
+(\nabla\times\mathbf{v})_z = \frac{1}{r}\frac{\partial(rv_\theta)}{\partial r}-\frac{1}{r}\frac{\partial v_r}{\partial\theta} = \frac{1}{r}\frac{\partial(\alpha r^2)}{\partial r}-0 = \frac{2\alpha r}{r} = 2\alpha.
+\]
+\[
+\nabla\times\mathbf{v} = \boxed{2\alpha\,\mathbf{e}_z}.
+\]
+
+The curl is nonzero (pointing along $z$), confirming the flow \textbf{rotates about the $z$-axis}. This is solid-body rotation with angular velocity $\alpha$.
+
+%%% PROBLEM 48 %%%
+\item \textbf{Solution.}
+In spherical coordinates with $\mathbf{F}=(f(r),0,0)$ (purely radial), the divergence is:
+\[
+\nabla\cdot\mathbf{F} = \frac{1}{r^2}\frac{d}{dr}\bigl(r^2 f(r)\bigr).
+\]
+
+Expanding:
+\[
+\nabla\cdot\mathbf{F} = \frac{1}{r^2}\left[2r\,f(r)+r^2 f'(r)\right] = \frac{2f(r)}{r}+f'(r).
+\]
+
+For this to be zero for $r>0$:
+\[
+\frac{d}{dr}\bigl(r^2 f(r)\bigr)=0 \implies r^2 f(r)=C \implies \boxed{f(r)=\frac{C}{r^2}}
+\]
+for some constant $C$. This is the inverse-square law (e.g., gravitational or electrostatic fields).
+
+%%% PROBLEM 49 %%%
+\item \textbf{Solution.}
+Let $\mathbf{F}=(F_1,F_2,F_3)$ and $f$ be a scalar function.
+
+\textbf{Left side:}
+\[
+\nabla\cdot(f\mathbf{F}) = \frac{\partial(fF_1)}{\partial x}+\frac{\partial(fF_2)}{\partial y}+\frac{\partial(fF_3)}{\partial z}.
+\]
+By the product rule for each term:
+\[
+= \left(f\frac{\partial F_1}{\partial x}+F_1\frac{\partial f}{\partial x}\right)+\left(f\frac{\partial F_2}{\partial y}+F_2\frac{\partial f}{\partial y}\right)+\left(f\frac{\partial F_3}{\partial z}+F_3\frac{\partial f}{\partial z}\right).
+\]
+
+Regrouping:
+\[
+= f\left(\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y}+\frac{\partial F_3}{\partial z}\right)+\left(F_1\frac{\partial f}{\partial x}+F_2\frac{\partial f}{\partial y}+F_3\frac{\partial f}{\partial z}\right).
+\]
+
+\textbf{Right side:}
+\[
+f(\nabla\cdot\mathbf{F})+\mathbf{F}\cdot(\nabla f) = f\left(\frac{\partial F_1}{\partial x}+\frac{\partial F_2}{\partial y}+\frac{\partial F_3}{\partial z}\right)+\left(F_1 f_x+F_2 f_y+F_3 f_z\right).
+\]
+
+Both sides are identical. $\blacksquare$
+
+\textbf{Physical interpretation:} The net outflow of the quantity $f\mathbf{F}$ has two contributions: (1) $f\,\nabla\cdot\mathbf{F}$, which is the outflow due to $\mathbf{F}$ itself expanding/contracting, weighted by $f$; and (2) $\mathbf{F}\cdot\nabla f$, which is the transport of $f$ due to the flow $\mathbf{F}$ carrying $f$ from regions of high $f$ to low $f$ (or vice versa).
+
+%%% PROBLEM 50 %%%
+\item \textbf{Solution.}
+\[
+\nabla\times(\nabla f) = \nabla\times\left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right).
+\]
+\[
+= \left(\frac{\partial^2 f}{\partial y\partial z}-\frac{\partial^2 f}{\partial z\partial y}\right)\mathbf{i} - \left(\frac{\partial^2 f}{\partial x\partial z}-\frac{\partial^2 f}{\partial z\partial x}\right)\mathbf{j} + \left(\frac{\partial^2 f}{\partial x\partial y}-\frac{\partial^2 f}{\partial y\partial x}\right)\mathbf{k}.
+\]
+By Clairaut's theorem ($f_{yz}=f_{zy}$, etc.), every component is zero:
+\[
+\nabla\times(\nabla f)=\mathbf{0}. \qquad\blacksquare
+\]
+
+This means any gradient field is \textbf{irrotational}: there is no circulation or rotation.
+
+\textbf{Physical application:} The electrostatic field $\mathbf{E}=-\nabla V$ (where $V$ is the electric potential) is irrotational: $\nabla\times\mathbf{E}=\mathbf{0}$ in the static case. This is one of Maxwell's equations for electrostatics.
+
+%%% PROBLEM 51 %%%
+\item \textbf{Solution.}
+If $\nabla\cdot\mathbf{F}=3$ everywhere, then at every point, the field has a positive outflow rate of $3$ per unit volume. This means fluid is being ``created'' uniformly throughout space at a constant rate---$\mathbf{F}$ behaves like a \textbf{uniform source of fluid}.
+
+To verify, use the Divergence Theorem on a sphere $S$ of radius $R$:
+\[
+\oiint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V \nabla\cdot\mathbf{F}\,dV = \iiint_V 3\,dV = 3\cdot\frac{4}{3}\pi R^3 = 4\pi R^3.
+\]
+The total outward flux through the sphere is $4\pi R^3$, which grows with the volume, confirming the uniform source interpretation.
+
+%%% PROBLEM 52 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(x^2, y^2, z^2)$.
+
+\textbf{Step 1:} Compute $\nabla\times\mathbf{F}$:
+\[
+\nabla\times\mathbf{F} = (0-0)\mathbf{i}-(0-0)\mathbf{j}+(0-0)\mathbf{k} = \mathbf{0}.
+\]
+
+\textbf{Step 2:} $\nabla\times(\nabla\times\mathbf{F}) = \nabla\times\mathbf{0} = \mathbf{0}$.
+
+\textbf{Step 3:} Verify with the identity $\nabla(\nabla\cdot\mathbf{F})-\nabla^2\mathbf{F}$:
+
+$\nabla\cdot\mathbf{F} = 2x+2y+2z$.
+
+$\nabla(\nabla\cdot\mathbf{F}) = \nabla(2x+2y+2z)=(2,2,2)$.
+
+$\nabla^2\mathbf{F} = (\nabla^2(x^2),\;\nabla^2(y^2),\;\nabla^2(z^2)) = (2,2,2)$.
+
+Therefore:
+\[
+\nabla(\nabla\cdot\mathbf{F})-\nabla^2\mathbf{F} = (2,2,2)-(2,2,2)=\mathbf{0}.
+\]
+Both sides agree: $\nabla\times(\nabla\times\mathbf{F})=\mathbf{0}$.
+
+%%% PROBLEM 53 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $\mathbf{F}=\nabla(x^2+2y^2) = (2x, 4y)$, so $P=2x$, $Q=4y$.
+
+\item $\text{curl}(\mathbf{F}) = \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y} = 0 - 0 = \boxed{0}$.
+
+$\text{div}(\mathbf{F}) = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y} = 2+4 = \boxed{6}$.
+
+\item Yes, $\text{curl}(\mathbf{F})=0$ confirms that gradient fields are always irrotational, consistent with the identity $\nabla\times(\nabla f)=\mathbf{0}$.
+\end{enumerate}
+
+%%% PROBLEM 54 %%%
+\item \textbf{Solution.}
+The surface $x^2+y^2=4z^2$ is a cone. Rewrite as $z = \pm\frac{1}{2}\sqrt{x^2+y^2}$.
+
+Using cylindrical-style parameters, let $x=r\cos\theta$, $y=r\sin\theta$, and then $z=\pm\frac{r}{2}$, where $r\ge 0$.
+
+\textbf{Parametric form:}
+\[
+\mathbf{r}(r,\theta) = \left(r\cos\theta,\; r\sin\theta,\; \pm\frac{r}{2}\right),
+\]
+with parameter constraints: $r\ge 0$, $0\le\theta\le 2\pi$ (or $0\le\theta <2\pi$).
+
+The $+$ sign gives the upper cone ($z\ge 0$) and the $-$ sign gives the lower cone ($z\le 0$). Together they form the full double cone.
+
+%%% PROBLEM 55 %%%
+\item \textbf{Solution.}
+The surface is $x = y^2+2z^2$ with $x\le 4$.
+
+Let $y = u$ and $z = v$ be the parameters. Then $x = u^2+2v^2$.
+
+\textbf{Parametrization:}
+\[
+\mathbf{r}(u,v)=(u^2+2v^2,\; u,\; v).
+\]
+
+The constraint $x\le 4$ becomes $u^2+2v^2\le 4$, which is an elliptical region in the $(u,v)$-plane:
+\[
+\frac{u^2}{4}+\frac{v^2}{2}\le 1.
+\]
+So the domain is: $\{(u,v): u^2+2v^2\le 4\}$, i.e., $-2\le u\le 2$ and $-\sqrt{(4-u^2)/2}\le v\le\sqrt{(4-u^2)/2}$.
+
+%%% PROBLEM 56 %%%
+\item \textbf{Solution.}
+$\mathbf{r}(u,v)=(u, v, \sqrt{u^2+v^2})$.
+
+\begin{enumerate}
+\item
+\[
+\mathbf{r}_u = \left(1, 0, \frac{u}{\sqrt{u^2+v^2}}\right), \qquad \mathbf{r}_v = \left(0, 1, \frac{v}{\sqrt{u^2+v^2}}\right).
+\]
+
+\item Let $s=\sqrt{u^2+v^2}$.
+\[
+\mathbf{n}=\mathbf{r}_u\times\mathbf{r}_v = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ 1&0&u/s\\ 0&1&v/s\end{vmatrix} = \left(-\frac{u}{s},\;-\frac{v}{s},\;1\right).
+\]
+
+\item
+\[
+\|\mathbf{n}\| = \sqrt{\frac{u^2}{s^2}+\frac{v^2}{s^2}+1} = \sqrt{\frac{u^2+v^2}{u^2+v^2}+1} = \sqrt{1+1}=\boxed{\sqrt{2}}.
+\]
+\end{enumerate}
+
+%%% PROBLEM 57 %%%
+\item \textbf{Solution.}
+The paraboloid is $z=9-x^2-y^2$ and the region is $x^2+y^2\le 5$.
+
+For a surface $z=f(x,y)$, the surface area element is $dS = \sqrt{1+f_x^2+f_y^2}\,dA$.
+
+Here $f_x=-2x$, $f_y=-2y$, so $\sqrt{1+4x^2+4y^2}$.
+
+\[
+\text{Surface Area} = \iint_{x^2+y^2\le 5}\sqrt{1+4x^2+4y^2}\,dA.
+\]
+
+In polar coordinates ($x=r\cos\theta$, $y=r\sin\theta$):
+\[
+\boxed{\text{Surface Area} = \int_0^{2\pi}\int_0^{\sqrt{5}}\sqrt{1+4r^2}\;r\,dr\,d\theta.}
+\]
+
+%%% PROBLEM 58 %%%
+\item \textbf{Solution.}
+$z=f(x,y)=x^2+4y^2$, so $f_x=2x$, $f_y=8y$.
+\[
+dS = \sqrt{1+f_x^2+f_y^2}\,dA = \sqrt{1+4x^2+64y^2}\,dA.
+\]
+
+On the surface, $T(x,y,z) = \sqrt{1+x^2+y^2}$ (since $z=x^2+4y^2$, $T$ depends only on $x,y$).
+
+\[
+\boxed{\iint_S T\,dS = \int_{-1}^{1}\int_{-1}^{1}\sqrt{1+x^2+y^2}\;\sqrt{1+4x^2+64y^2}\;dx\,dy.}
+\]
+
+%%% PROBLEM 59 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item The plane $z=2x$ over $\{0\le x\le 2,\;0\le y\le 1\}$:
+\[
+\mathbf{r}(x,y)=(x, y, 2x), \quad 0\le x\le 2,\;0\le y\le 1.
+\]
+
+\item $\mathbf{r}_x=(1,0,2)$, $\mathbf{r}_y=(0,1,0)$.
+\[
+\mathbf{r}_x\times\mathbf{r}_y = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ 1&0&2\\ 0&1&0\end{vmatrix} = (-2, 0, 1).
+\]
+For upward orientation ($z$-component positive), $\mathbf{n}\,dA = (-2,0,1)\,dx\,dy$.
+
+$\mathbf{F}=(x^2, 0, yz)$. On the surface $z=2x$: $\mathbf{F}=(x^2, 0, 2xy)$.
+
+\[
+\boxed{\iint_S\mathbf{F}\cdot d\mathbf{S} = \int_0^1\int_0^2\left[x^2(-2)+0+2xy(1)\right]dx\,dy = \int_0^1\int_0^2(2xy-2x^2)\,dx\,dy.}
+\]
+\end{enumerate}
+
+%%% PROBLEM 60 %%%
+\item \textbf{Solution.}
+The cylinder has radius $2$, $0\le z\le 3$.
+
+$\mathbf{r}(\theta,z)=(2\cos\theta, 2\sin\theta, z)$.
+
+$\mathbf{r}_\theta=(-2\sin\theta, 2\cos\theta, 0)$, $\mathbf{r}_z=(0,0,1)$.
+\[
+\mathbf{r}_\theta\times\mathbf{r}_z = (2\cos\theta, 2\sin\theta, 0).
+\]
+\[
+\|\mathbf{r}_\theta\times\mathbf{r}_z\| = 2.
+\]
+
+On the cylinder, $f=\sqrt{x^2+y^2}=2$.
+\[
+\iint_S f\,dS = \int_0^{2\pi}\int_0^3 2\cdot 2\,dz\,d\theta = \int_0^{2\pi}\int_0^3 4\,dz\,d\theta = 4\cdot 3\cdot 2\pi = \boxed{24\pi}.
+\]
+
+%%% PROBLEM 61 %%%
+\item \textbf{Solution.}
+Hemisphere: $x^2+y^2+z^2=9$, $z\ge 0$, radius $R=3$.
+
+Parameterize using spherical coordinates: $\mathbf{r}(\phi,\theta)=(3\sin\phi\cos\theta,\;3\sin\phi\sin\theta,\;3\cos\phi)$, with $0\le\phi\le\pi/2$, $0\le\theta\le 2\pi$.
+
+$\|\mathbf{r}_\phi\times\mathbf{r}_\theta\| = 9\sin\phi$.
+
+On the surface: $\rho = z = 3\cos\phi$.
+
+\begin{enumerate}
+\item \textbf{Total mass:}
+\[
+\boxed{\iint_S \rho\,dS = \int_0^{2\pi}\int_0^{\pi/2}(3\cos\phi)(9\sin\phi)\,d\phi\,d\theta = 27\int_0^{2\pi}\int_0^{\pi/2}\cos\phi\sin\phi\,d\phi\,d\theta.}
+\]
+Evaluating: $\int_0^{\pi/2}\cos\phi\sin\phi\,d\phi = \frac{1}{2}$, so the mass is $27\cdot2\pi\cdot\frac{1}{2}=27\pi$.
+
+\item \textbf{Outward flux of $\mathbf{F}=(0,0,z)$:}
+
+The outward unit normal on the sphere is $\hat{\mathbf{n}}=\frac{1}{3}(x,y,z)=(\sin\phi\cos\theta,\sin\phi\sin\theta,\cos\phi)$.
+
+$\mathbf{F}\cdot\hat{\mathbf{n}} = z\cos\phi = 3\cos\phi\cdot\cos\phi = 3\cos^2\phi$.
+
+\[
+\boxed{\iint_S\mathbf{F}\cdot d\mathbf{S} = \int_0^{2\pi}\int_0^{\pi/2}3\cos^2\phi\cdot 9\sin\phi\,d\phi\,d\theta = 27\int_0^{2\pi}\int_0^{\pi/2}\cos^2\phi\sin\phi\,d\phi\,d\theta.}
+\]
+Evaluating: $\int_0^{\pi/2}\cos^2\phi\sin\phi\,d\phi = \frac{1}{3}$, so the flux is $27\cdot2\pi\cdot\frac{1}{3}=18\pi$.
+\end{enumerate}
+
+%%% PROBLEM 62 %%%
+\item \textbf{Solution.}
+\begin{enumerate}
+\item $g(x,y)=x+2y$, so $g_x=1$, $g_y=2$.
+
+The upward-oriented normal vector is $\mathbf{n}=(-g_x,-g_y,1)=(-1,-2,1)$.
+
+\item $\mathbf{F}=(2x,3y,-z)$. On the surface $z=x+2y$: $\mathbf{F}=(2x, 3y, -(x+2y))$.
+
+\begin{align*}
+\mathbf{F}\cdot\mathbf{n} &= 2x(-1)+3y(-2)+(-(x+2y))(1) \\
+&= -2x-6y-x-2y = -3x-8y.
+\end{align*}
+
+\[
+\boxed{\iint_S\mathbf{F}\cdot d\mathbf{S} = \int_0^2\int_0^1(-3x-8y)\,dx\,dy.}
+\]
+\end{enumerate}
+
+%%% PROBLEM 63 %%%
+\item \textbf{Solution.}
+$\mathbf{v}=(x,y,-1)$, closed surface: cylinder $x^2+y^2=4$, $-1\le z\le 2$, plus top and bottom disks.
+
+\begin{enumerate}
+\item \textbf{Curved side:} $\mathbf{r}(\theta,z)=(2\cos\theta, 2\sin\theta, z)$, $0\le\theta\le 2\pi$, $-1\le z\le 2$.
+
+$\mathbf{r}_\theta\times\mathbf{r}_z = (2\cos\theta, 2\sin\theta, 0)$ (outward-pointing).
+
+\item \textbf{Flux through curved side:}
+
+$\mathbf{v}=(2\cos\theta, 2\sin\theta, -1)$ on the surface.
+\[
+\mathbf{v}\cdot(\mathbf{r}_\theta\times\mathbf{r}_z) = 4\cos^2\theta+4\sin^2\theta = 4.
+\]
+\[
+\Phi_{\text{side}} = \int_0^{2\pi}\int_{-1}^{2}4\,dz\,d\theta = 4\cdot 3\cdot 2\pi = 24\pi.
+\]
+
+\textbf{Flux through top disk} ($z=2$, outward normal $\hat{\mathbf{n}}=(0,0,1)$):
+\[
+\mathbf{v}\cdot\hat{\mathbf{n}} = -1.
+\]
+\[
+\Phi_{\text{top}} = \iint_{x^2+y^2\le 4}(-1)\,dA = -4\pi.
+\]
+
+\textbf{Flux through bottom disk} ($z=-1$, outward normal $\hat{\mathbf{n}}=(0,0,-1)$):
+\[
+\mathbf{v}\cdot\hat{\mathbf{n}} = -(-1) = 1.
+\]
+\[
+\Phi_{\text{bot}} = \iint_{x^2+y^2\le 4}1\,dA = 4\pi.
+\]
+
+\item \textbf{Total outward flux:}
+\[
+\Phi = \Phi_{\text{side}}+\Phi_{\text{top}}+\Phi_{\text{bot}} = 24\pi - 4\pi + 4\pi = \boxed{24\pi}.
+\]
+
+\textbf{Verification via Divergence Theorem:} $\nabla\cdot\mathbf{v}=1+1+0=2$, and the volume is $\pi(2)^2(3)=12\pi$. So $\iiint_V 2\,dV = 24\pi$.
+\end{enumerate}
+
+%%% PROBLEM 64 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(y^2, z^2, x^2)$.
+
+\textbf{Step 1:} Compute $\nabla\times\mathbf{F}$:
+\[
+\nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ \partial_x&\partial_y&\partial_z\\ y^2&z^2&x^2\end{vmatrix} = (0-2z)\mathbf{i}-(2x-0)\mathbf{j}+(0-2y)\mathbf{k} = (-2z,-2x,-2y).
+\]
+
+\textbf{Step 2:} Parameterize $\Sigma$: the paraboloid $z=x^2+y^2$ for $x^2+y^2\le 4$. Use $\mathbf{r}(x,y)=(x,y,x^2+y^2)$.
+
+$\mathbf{r}_x=(1,0,2x)$, $\mathbf{r}_y=(0,1,2y)$.
+
+For Stokes' Theorem with the boundary oriented counterclockwise when viewed from above, we need the upward-oriented normal:
+\[
+\mathbf{r}_x\times\mathbf{r}_y = (-2x,-2y,1).
+\]
+
+\textbf{Step 3:} By Stokes' Theorem:
+\[
+\oint_C\mathbf{F}\cdot d\mathbf{r} = \iint_\Sigma(\nabla\times\mathbf{F})\cdot d\mathbf{S}.
+\]
+
+$(\nabla\times\mathbf{F})\cdot(\mathbf{r}_x\times\mathbf{r}_y) = (-2z)(-2x)+(-2x)(-2y)+(-2y)(1)$.
+
+On $\Sigma$: $z=x^2+y^2$:
+\[
+= 4x(x^2+y^2)+4xy-2y.
+\]
+
+\[
+\boxed{\oint_C\mathbf{F}\cdot d\mathbf{r} = \iint_{x^2+y^2\le 4}\left[4x(x^2+y^2)+4xy-2y\right]dA.}
+\]
+
+%%% PROBLEM 65 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(e^y, \ln(1+z^2), y^2z)$, $\Sigma$: $x+2y+3z=6$ in the first octant.
+
+\textbf{Decision:} It is easier to use the \textbf{surface integral} $\iint_\Sigma(\nabla\times\mathbf{F})\cdot d\mathbf{S}$ (Stokes' Theorem) rather than the line integral directly. The reason: computing $\oint_C \mathbf{F}\cdot d\mathbf{r}$ directly requires parameterizing three edges of the triangle and evaluating three separate integrals with complicated integrands ($e^y$, $\ln(1+z^2)$). In contrast, the curl may simplify, and the surface integral over a flat triangular patch is straightforward.
+
+\textbf{Outline of steps:}
+\begin{enumerate}
+\item Compute $\nabla\times\mathbf{F}$:
+Computing component by component:
+\[
+(\nabla\times\mathbf{F})_x = \frac{\partial(y^2z)}{\partial y}-\frac{\partial(\ln(1+z^2))}{\partial z} = 2yz - \frac{2z}{1+z^2},
+\]
+\[
+(\nabla\times\mathbf{F})_y = \frac{\partial(e^y)}{\partial z}-\frac{\partial(y^2z)}{\partial x} = 0-0 = 0,
+\]
+\[
+(\nabla\times\mathbf{F})_z = \frac{\partial(\ln(1+z^2))}{\partial x}-\frac{\partial(e^y)}{\partial y} = 0-e^y = -e^y.
+\]
+
+\item The plane $x+2y+3z=6$ has upward normal $\mathbf{n}=(1,2,3)/\sqrt{14}$ and $d\mathbf{S}=(1,2,3)\,dA'$ where $dA'$ is the projected area element.
+
+\item Parameterize using $(y,z)$ or project onto a coordinate plane and integrate over the triangular region.
+\end{enumerate}
+
+%%% PROBLEM 66 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(-y,x,0)$ on the cylinder $x^2+y^2=9$, $-2\le z\le 5$.
+
+\begin{enumerate}
+\item
+\[
+\nabla\times\mathbf{F} = \begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\ \partial_x&\partial_y&\partial_z\\ -y&x&0\end{vmatrix} = (0-0)\mathbf{i}-(0-0)\mathbf{j}+(1-(-1))\mathbf{k} = (0,0,2).
+\]
+
+\item The boundary $\partial\Sigma$ consists of two circles:
+
+\textbf{Top circle} ($z=5$): $\mathbf{r}_1(\theta)=(3\cos\theta, 3\sin\theta, 5)$, $\theta\in[0,2\pi]$, oriented counterclockwise when viewed from outside (by the right-hand rule with the outward cylinder normal).
+
+\textbf{Bottom circle} ($z=-2$): $\mathbf{r}_2(\theta)=(3\cos\theta, 3\sin\theta, -2)$, $\theta\in[0,2\pi]$, oriented clockwise when viewed from above (i.e., counterclockwise when viewed from below, consistent with the outward-pointing normal and right-hand rule).
+
+\item By Stokes' Theorem:
+\[
+\oint_{\partial\Sigma}\mathbf{F}\cdot d\mathbf{r} = \iint_\Sigma(\nabla\times\mathbf{F})\cdot d\mathbf{S}.
+\]
+
+The cylinder surface has outward normal $\hat{\mathbf{n}}=(\cos\theta, \sin\theta, 0)$.
+
+$(\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}} = (0,0,2)\cdot(\cos\theta,\sin\theta,0) = 0$.
+
+\[
+\boxed{\iint_\Sigma(\nabla\times\mathbf{F})\cdot d\mathbf{S} = 0.}
+\]
+\end{enumerate}
+
+%%% PROBLEM 67 %%%
+\item \textbf{Solution.}
+If $\mathbf{F}=\nabla f$, then $\nabla\times\mathbf{F}=\nabla\times(\nabla f)=\mathbf{0}$ (by the identity proven in Problem 50).
+
+By Stokes' Theorem:
+\[
+\oint_C \mathbf{F}\cdot d\mathbf{r} = \iint_\Sigma(\nabla\times\mathbf{F})\cdot d\mathbf{S} = \iint_\Sigma\mathbf{0}\cdot d\mathbf{S} = 0.
+\]
+
+Therefore, for any smooth oriented surface $\Sigma$ with boundary $C$:
+\[
+\oint_C \nabla f\cdot d\mathbf{r} = 0. \qquad\blacksquare
+\]
+
+This is consistent with the fact that conservative fields have path-independent line integrals, so the integral around any closed loop is zero.
+
+%%% PROBLEM 68 %%%
+\item \textbf{Solution.}
+Faraday's Law states:
+\[
+\oint_C \mathbf{E}\cdot d\mathbf{r} = -\frac{d}{dt}\iint_\Sigma\mathbf{B}\cdot d\mathbf{S}.
+\]
+
+By Stokes' Theorem, the left side equals:
+\[
+\oint_C \mathbf{E}\cdot d\mathbf{r} = \iint_\Sigma(\nabla\times\mathbf{E})\cdot d\mathbf{S}.
+\]
+
+If the surface $\Sigma$ is fixed (static boundary), we can bring the time derivative inside:
+\[
+\iint_\Sigma(\nabla\times\mathbf{E})\cdot d\mathbf{S} = -\iint_\Sigma\frac{\partial\mathbf{B}}{\partial t}\cdot d\mathbf{S}.
+\]
+
+Since this holds for every surface $\Sigma$, the integrands must be equal:
+\[
+\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t},
+\]
+which is the differential form of Faraday's Law.
+
+Here $\mathbf{E}$ plays the role of the vector field in the line integral (circulation of the electric field), and $\nabla\times\mathbf{E}$ plays the role of the flux integrand (the curl relates to the surface integral via Stokes).
+
+\textbf{Physical meaning of the negative time derivative:} A \emph{changing} magnetic flux through $\Sigma$ induces an electric field that circulates around $C$. The negative sign (Lenz's law) means the induced electric field opposes the change in magnetic flux: if $\mathbf{B}$ increases, the induced $\mathbf{E}$ circulates in the direction that would create a magnetic field opposing the increase.
+
+%%% PROBLEM 69 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(xy, yz, xz)$.
+\[
+\nabla\cdot\mathbf{F} = \frac{\partial(xy)}{\partial x}+\frac{\partial(yz)}{\partial y}+\frac{\partial(xz)}{\partial z} = y+z+x.
+\]
+
+By the Divergence Theorem:
+\[
+\oiint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V(x+y+z)\,dV,
+\]
+where $V$ is the ball $x^2+y^2+z^2\le 4$.
+
+In spherical coordinates: $x+y+z = \rho\sin\phi\cos\theta+\rho\sin\phi\sin\theta+\rho\cos\phi$, $dV=\rho^2\sin\phi\,d\rho\,d\phi\,d\theta$.
+
+By symmetry, $\iiint_V x\,dV = \iiint_V y\,dV = \iiint_V z\,dV = 0$ (each is an odd function integrated over a symmetric domain).
+
+\[
+\boxed{\iiint_V(x+y+z)\,dV = 0.}
+\]
+
+%%% PROBLEM 70 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(x^2,y^2,z^2)$. The region $V$: $0\le z\le\sqrt{x^2+y^2}$ capped by $z=2$.
+
+More precisely, $V$ is the region inside the cone $z=\sqrt{x^2+y^2}$ and below $z=2$. In cylindrical coordinates: $r\le z\le 2$, $0\le r\le 2$, $0\le\theta\le 2\pi$.
+
+\begin{enumerate}
+\item \textbf{Boundary surfaces:}
+\begin{itemize}
+\item The cone: $z=\sqrt{x^2+y^2}$ (i.e., $z=r$) for $0\le r\le 2$ (with inward-pointing normal to close the volume, i.e., normal pointing outward from $V$, which is downward-and-outward on the cone).
+\item The top disk: $z=2$, $x^2+y^2\le 4$ (outward normal is $\hat{\mathbf{n}}=(0,0,1)$).
+\end{itemize}
+
+\item By the Divergence Theorem:
+\[
+\nabla\cdot\mathbf{F} = 2x+2y+2z.
+\]
+\[
+\iint_{\partial V}\mathbf{F}\cdot d\mathbf{S} = \iiint_V(2x+2y+2z)\,dV.
+\]
+
+In cylindrical coordinates:
+\[
+= \int_0^{2\pi}\int_0^2\int_r^2(2r\cos\theta+2r\sin\theta+2z)\,r\,dz\,dr\,d\theta.
+\]
+
+By symmetry, the $\cos\theta$ and $\sin\theta$ terms integrate to zero over $[0,2\pi]$:
+\[
+\boxed{= \int_0^{2\pi}\int_0^2\int_r^2 2zr\,dz\,dr\,d\theta = 2\pi\int_0^2 r\left[z^2\right]_r^2 dr = 2\pi\int_0^2 r(4-r^2)\,dr.}
+\]
+Evaluating: $\int_0^2 r(4-r^2)\,dr = \int_0^2(4r-r^3)\,dr = [2r^2-r^4/4]_0^2 = 8-4=4$. So the total flux is $8\pi$.
+\end{enumerate}
+
+%%% PROBLEM 71 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(e^z, \sin(xy), 2z)$, $V$: cylinder $x^2+y^2\le 1$, $0\le z\le 5$.
+
+\textbf{Decision:} Use the \textbf{Divergence Theorem} (volume integral), because computing the surface integral directly requires parameterizing three surfaces (curved side, top disk, bottom disk) with complicated integrands like $e^z$ and $\sin(xy)$.
+
+\textbf{Divergence:}
+\[
+\nabla\cdot\mathbf{F} = 0 + x\cos(xy) + 2.
+\]
+
+By the Divergence Theorem:
+\[
+\oiint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = \iiint_V(x\cos(xy)+2)\,dV.
+\]
+
+\textbf{Steps:}
+\begin{enumerate}
+\item The integral of $2$ over $V$: $2\cdot\text{Vol}(V) = 2\cdot\pi(1)^2(5)=10\pi$.
+
+\item The integral of $x\cos(xy)$ over $V$: Note $x\cos(xy)$ is an \emph{odd} function of $x$ (replacing $x\to -x$ gives $-x\cos(-xy)=-x\cos(xy)$), and the domain is symmetric in $x$. Therefore $\iiint_V x\cos(xy)\,dV = 0$.
+\end{enumerate}
+
+\[
+\boxed{\oiint_{\partial V}\mathbf{F}\cdot\mathbf{n}\,dS = 10\pi.}
+\]
+
+%%% PROBLEM 72 %%%
+\item \textbf{Solution.}
+$\mathbf{F}=(x^2+y^2, z, 3x)$, $V$: ball $x^2+y^2+z^2\le 4$.
+\[
+\nabla\cdot\mathbf{F} = 2x+0+0 = 2x.
+\]
+
+In spherical coordinates: $x = \rho\sin\phi\cos\theta$, $dV=\rho^2\sin\phi\,d\rho\,d\phi\,d\theta$.
+\[
+\iiint_V 2x\,dV = \int_0^{2\pi}\int_0^{\pi}\int_0^{2} 2\rho\sin\phi\cos\theta\cdot\rho^2\sin\phi\,d\rho\,d\phi\,d\theta.
+\]
+\[
+\boxed{= 2\int_0^{2\pi}\cos\theta\,d\theta\int_0^{\pi}\sin^2\phi\,d\phi\int_0^2\rho^3\,d\rho.}
+\]
+
+Since $\int_0^{2\pi}\cos\theta\,d\theta = 0$, the entire integral equals $\boxed{0}$.
+
+%%% PROBLEM 73 %%%
+\item \textbf{Solution.}
+If a fluid is \textbf{incompressible}, then $\nabla\cdot\mathbf{v}=0$ everywhere. This means at every point, the rate of fluid creation (or destruction) per unit volume is zero---fluid is neither created nor destroyed anywhere.
+
+By the Divergence Theorem, for any closed surface $S=\partial V$ bounding a volume $V$:
+\[
+\oiint_{\partial V}\mathbf{v}\cdot d\mathbf{S} = \iiint_V\nabla\cdot\mathbf{v}\,dV = \iiint_V 0\,dV = 0.
+\]
+
+The net outward flux through any closed surface is zero. Physically, this means whatever amount of fluid enters the volume through $S$ must also leave through $S$ (conservation of mass with constant density). No fluid accumulates inside, and none disappears. This is the mathematical statement of incompressibility: the volume of any fluid parcel is preserved over time.
+
+\end{enumerate}
