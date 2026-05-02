@@ -1,219 +1,136 @@
 # Theories of Generalized Change: A Calculus III Textbook
 
-## Overview
+A complete Calculus III textbook, lecture-note workbook, and solutions manual written by **Joseph Babcanec** for **MATH 241** at **Benedict College** (Columbia, SC).
 
-This repository contains a comprehensive Calculus III textbook exploring the theories of generalized change, complete with mathematical concepts, proofs, and extensive programming examples across multiple languages.
+The book is the source of truth for everything in the course: the chapter content, the in-class worksheets that mirror it, the homework problem sets, and the syllabus pacing. The same materials are used across both Spring and Fall sections.
 
-## Contents
+## Repository Contents
 
-### Textbook Structure
+```
+.
+├── main.tex, intro.tex, preface.tex, appendix.tex, refs.tex   # Textbook glue
+├── chapters/                          # Seven textbook chapters + per-chapter code/figures
+├── solutions_manual/                  # Per-chapter worked solutions + main_solutions.pdf
+├── lecture_notes/                     # 23 in-class worksheets (src/, blank/, filled/)
+│   ├── src/                           # LaTeX sources + worksheet_style.sty + pics/
+│   ├── blank/                         # Student handouts (problems only)
+│   ├── filled/                        # Instructor versions (with worked answers)
+│   ├── MATH241_Lecture_Notes_Blank.pdf
+│   └── MATH241_Lecture_Notes_Filled.pdf
+├── pics/                              # Cover art and shared images
+├── Theories of Generalized Change.pdf # Compiled textbook (~16 MB, 700+ pp)
+└── README.md, LICENSE
+```
 
-The textbook is organized into seven chapters, each building upon fundamental concepts of multivariable calculus and vector analysis:
+The working folders `audit/`, `problems_review/`, and `standards/` are intentionally excluded from the repository (they hold internal review/grading artifacts).
 
-1. **Chapter 1: Vectors and 3D Geometry**
-   - Vector operations (dot and cross products)
-   - 3D coordinate systems
-   - Quadric surfaces and their visualizations
+## Textbook Structure
 
-2. **Chapter 2: Vector Functions and Parametric Curves**
-   - Parametric representations of curves
-   - Velocity, acceleration, and curvature
-   - Arc length and curve analysis
+Seven chapters, building from vector geometry to vector calculus, with two reference chapters at the end:
 
-3. **Chapter 3: Partial Derivatives**
-   - Functions of multiple variables
-   - Gradient vectors and directional derivatives
-   - Optimization and critical point analysis
+| Ch. | Title                                | Status in MATH 241  |
+|-----|--------------------------------------|---------------------|
+| 1   | Vectors and 3D Geometry              | **Taught**          |
+| 2   | Vector Functions and Parametric Curves | **Taught**        |
+| 3   | Partial Derivatives                  | **Taught**          |
+| 4   | Multiple Integration                 | **Taught**          |
+| 5   | Vector Calculus                      | **Taught**          |
+| 6   | Differential Equations               | Reference only      |
+| 7   | Complex Analysis                     | Reference only      |
 
-4. **Chapter 4: Multiple Integration**
-   - Double and triple integrals
-   - Change of variables and coordinate systems
-   - Applications to area, volume, and center of mass
+Chapters 6 and 7 are included for students who want to continue past MATH 241 (PDEs, complex variables) but are not part of the course itself.
 
-5. **Chapter 5: Vector Calculus**
-   - Vector fields and line integrals
-   - Green's theorem and circulation
-   - Divergence and curl operations
+## Lecture Notes — 23 Worksheets
 
-6. **Chapter 6: Differential Equations**
-   - Ordinary differential equations
-   - Numerical solution methods
-   - Partial differential equations and heat transfer
+The `lecture_notes/` directory contains the in-class worksheet for every lecture, in two versions: a **blank** copy that students fill in during class, and a **filled** copy with all answers worked out for the instructor. Each worksheet is a single-source LaTeX document that toggles between the two versions via `\worksheetfilledtrue`.
 
-7. **Chapter 7: Complex Analysis**
-   - Complex functions and mappings
-   - Domain coloring visualization
-   - Riemann surfaces and branch cuts
+| #  | Topic                                              | Textbook §  |
+|----|----------------------------------------------------|-------------|
+| 01 | Calculus Review and 3D Coordinates                 | 1.1–1.2     |
+| 02 | Vectors                                            | 1.3         |
+| 03 | Lines and Planes                                   | 1.4         |
+| 04 | Vector-Valued Functions                            | 2.1         |
+| 05 | Motion and Arc Length                              | 2.2         |
+| 06 | Functions of Several Variables                     | 3.1         |
+| 07 | Limits and Continuity                              | 3.2         |
+| 08 | Partial Derivatives                                | 3.3         |
+| 09 | Chain Rule                                         | 3.4         |
+| 10 | Directional Derivatives and Gradient               | 3.5         |
+| 11 | Tangent Planes and Linear Approximations           | 3.6         |
+| 12 | Extrema and Critical Points                        | 3.7         |
+| 13 | Double Integrals over Rectangular Regions          | 4.1         |
+| 14 | Double Integrals over General Regions              | 4.2         |
+| 15 | Applications of Multiple Integrals                 | 4.3         |
+| 16 | Triple Integrals                                   | 4.4         |
+| 17 | Change of Variables                                | 4.5         |
+| 18 | Vector Fields                                      | 5.1         |
+| 19 | Line Integrals                                     | 5.2         |
+| 20 | Green's Theorem                                    | 5.3         |
+| 21 | Curl and Divergence                                | 5.4         |
+| 22 | Surface Integrals                                  | 5.5         |
+| 23 | Stokes' Theorem and the Divergence Theorem         | 5.6         |
 
-### Programming Examples
+### Why these 23 lectures?
 
-Each chapter includes comprehensive code examples in **four programming languages**:
+A single semester at Benedict College gives roughly 26 class meetings after subtracting exams, holidays, and a review day. The course has been pared from "everything in the textbook" to "everything that pays for itself in the time available." Three textbook topics are intentionally omitted from the lecture sequence:
 
-- **Python** - High-level mathematical computing with NumPy and visualization
-- **C++** - Object-oriented implementations with performance optimization
-- **C** - Low-level procedural programming for computational efficiency
-- **Ruby** - Elegant scripting for mathematical exploration
+- **Quadric surfaces.** Useful for visualization, but students are not assessed on classifying them and the figures appear naturally in later chapters when they are needed (e.g. ellipsoids in change-of-variables, paraboloids in surface integrals). The textbook still treats them in Chapter 1 for reference.
+- **The TNB frame and curvature formulas.** A beautiful topic, but it does not scaffold any later material in MATH 241 and competes for time with the chain rule and gradient. Chapter 2 still contains the full treatment for interested readers.
+- **Lagrange multipliers.** Relegated to reading. Chapter 3 covers Lagrange multipliers and the Karush–Kuhn–Tucker conditions in depth (with a worked SVM example), but in-class time is better spent on the unconstrained extrema and gradient-descent tools that the engineering and data-science majors will actually use afterward.
 
-#### Code Organization
+The lectures that *are* taught are numbered sequentially **01–23**, matching the worksheet filenames, the worksheet headers, and the syllabus calendar.
+
+## How to Compile
+
+The textbook and the lecture notes use a small custom style file each (`main.tex` includes its own preamble; `lecture_notes/src/worksheet_style.sty` handles the worksheets). MiKTeX or TeX Live with the standard math packages (`amsmath`, `amssymb`, `mathtools`, `physics`, `tcolorbox`, `tikz`, `pgfplots`, `esint`, `booktabs`, `enumitem`, `hyperref`) is enough.
+
+```bash
+# Full textbook
+pdflatex main.tex && pdflatex main.tex   # second pass for cross-refs/index
+
+# Solutions manual
+cd solutions_manual && pdflatex main_solutions.tex
+
+# Individual worksheet (both blank and filled versions)
+cd lecture_notes/src && bash build.sh           # all worksheets
+cd lecture_notes/src && bash build.sh 07        # just lecture 07
+
+# Combine the per-lecture PDFs into the bound versions
+pdfunite lecture_notes/filled/*.pdf lecture_notes/MATH241_Lecture_Notes_Filled.pdf
+pdfunite lecture_notes/blank/*.pdf  lecture_notes/MATH241_Lecture_Notes_Blank.pdf
+```
+
+The build artifacts (`*.aux`, `*.log`, `*.synctex.gz`, `main.pdf`, etc.) are gitignored; the repository tracks only the published `Theories of Generalized Change.pdf`.
+
+## Programming Examples
+
+Each chapter ships with parallel implementations of its computational examples in **C, C++, Python, and Ruby**, under `chapters/chpN_code/`. The same algorithm is implemented in all four languages so students can compare paradigms and use the language they already know.
 
 ```
 chapters/
-├── chp1_code/          # Vectors and 3D Geometry
-├── chp2_code/          # Vector Functions
-├── chp3_code/          # Partial Derivatives  
-├── chp4_code/          # Multiple Integration
-├── chp5_code/          # Vector Calculus
-├── chp6_code/          # Differential Equations
-└── chp7_code/          # Complex Analysis
+├── chp1_code/   # Vectors and 3D geometry
+├── chp2_code/   # Vector functions, curvature
+├── chp3_code/   # Partial derivatives, gradient descent
+├── chp4_code/   # Multiple integration
+├── chp5_code/   # Vector fields, line/surface integrals
+├── chp6_code/   # Differential equations
+└── chp7_code/   # Complex analysis
 ```
 
-Each code directory contains equivalent implementations across all four languages, allowing students and instructors to:
-- Compare algorithmic approaches across programming paradigms
-- Learn mathematical concepts through multiple computational perspectives
-- Develop programming skills while studying advanced mathematics
+A handful of figure assets live next to the code in each chapter's `chpN_pics/` directory.
 
-### Key Features
+## Notation
 
-#### Mathematical Rigor
-- Complete mathematical proofs and derivations
-- Rigorous treatment of limits, continuity, and differentiability
-- Advanced topics in vector calculus and complex analysis
-
-#### Computational Focus
-- Numerical methods for solving differential equations
-- Visualization techniques for complex mathematical objects
-- Performance considerations across different programming languages
-
-#### Educational Design
-- Progressive difficulty building from basic concepts
-- Extensive worked examples and applications
-- Programming exercises that reinforce mathematical understanding
-
-## File Types
-
-- **`.tex`** - LaTeX source files for the main textbook
-- **`.py`** - Python implementations with scientific computing libraries
-- **`.cpp`** - C++ object-oriented mathematical programming
-- **`.c`** - C procedural implementations for numerical computing
-- **`.rb`** - Ruby scripts for mathematical exploration
-- **`.csv`** - Data output files for visualization and analysis
-
-## Educational Applications
-
-This textbook and code collection is designed for:
-
-### Students
-- Advanced undergraduate calculus courses
-- Graduate-level mathematical analysis
-- Computational mathematics and scientific computing
-- Cross-disciplinary studies combining mathematics and programming
-
-### Instructors
-- Course material for Calculus III and Vector Calculus
-- Programming assignments across multiple languages
-- Visualization examples for complex mathematical concepts
-- Research applications in mathematical modeling
-
-### Researchers
-- Reference implementations of numerical algorithms
-- Benchmarking across programming languages
-- Foundation for advanced mathematical computing projects
-
-## Technical Requirements
-
-### For LaTeX Compilation
-- LaTeX distribution (TeX Live, MiKTeX, or MacTeX)
-- Standard mathematical packages (amsmath, amsfonts, etc.)
-
-### For Code Execution
-
-**Python:**
-- Python 3.7+
-- NumPy, Matplotlib, SciPy
-- Jupyter notebooks (optional)
-
-**C++:**
-- C++17 compatible compiler (GCC 7+, Clang 5+, MSVC 2019+)
-- Standard library with complex number support
-
-**C:**
-- C99 compatible compiler
-- Math library support for complex numbers
-
-**Ruby:**
-- Ruby 2.7+
-- Built-in complex number support
-
-## Getting Started
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/jbabcanec/Theories-of-Generalized-Change.git
-   cd Theories-of-Generalized-Change
-   ```
-
-2. **Compile the textbook:**
-   ```bash
-   # Navigate to appropriate chapter directory
-   pdflatex your_chapter.tex
-   ```
-
-3. **Run code examples:**
-   ```bash
-   # Python
-   python3 chapters/chp1_code/vector_operations.py
-   
-   # C++
-   g++ -std=c++17 chapters/chp1_code/vector_operations.cpp -o vector_ops
-   ./vector_ops
-   
-   # C
-   gcc chapters/chp1_code/vector_operations.c -lm -o vector_ops_c
-   ./vector_ops_c
-   
-   # Ruby
-   ruby chapters/chp1_code/vector_operations.rb
-   ```
-
-## Contributing
-
-This educational resource welcomes contributions from students, educators, and researchers. Please see the LICENSE file for usage restrictions and requirements.
-
-## Mathematical Notation and Conventions
-
-- Vectors are denoted in boldface: **v**, **F**
-- Complex numbers use standard notation: z = x + iy
-- Partial derivatives: ∂f/∂x, ∇f
-- Vector operations: **a** · **b** (dot product), **a** × **b** (cross product)
-- Integrals maintain standard mathematical notation
-
-## Visualization and Graphics
-
-The code examples generate data suitable for:
-- 3D surface plotting and visualization
-- Vector field representations
-- Complex function domain coloring
-- Parametric curve animations
-- Heat equation simulations
-
-Output files in CSV format can be imported into visualization tools like:
-- Python: Matplotlib, Plotly, Mayavi
-- R: ggplot2, plotly
-- MATLAB: Built-in plotting functions
-- Mathematica: Graphics3D, ComplexPlot
+- Vectors are bold: $\mathbf{v}$, $\mathbf{F}$ (or angle-bracket notation $\langle a,b,c\rangle$).
+- Unit vectors carry a hat: $\hat{\mathbf{i}}$, $\hat{\mathbf{j}}$, $\hat{\mathbf{k}}$.
+- Partial derivatives: $\partial f/\partial x$ or $f_x$; gradient: $\nabla f$.
+- Dot and cross products: $\mathbf{a}\cdot\mathbf{b}$, $\mathbf{a}\times\mathbf{b}$.
+- Complex numbers: $z = x + iy$.
 
 ## Author
 
-**Joseph Babcanec**
+**Joseph Babcanec** — Department of Mathematics and Computer Science, **Benedict College**, Columbia, SC. Comments, corrections, and pull requests are welcome.
 
-## Academic Integrity
+## License
 
-This textbook and accompanying code are provided for educational purposes. Students should:
-- Use these materials to enhance understanding of mathematical concepts
-- Cite this work appropriately in academic submissions
-- Follow their institution's academic integrity policies
-- Develop independent solutions while using these examples as learning aids
-
----
-
-*This work represents a comprehensive approach to teaching advanced calculus through the integration of mathematical theory and computational practice across multiple programming paradigms.*
+See `LICENSE`. The textbook and accompanying materials are intended for classroom use; please cite the work if you adopt it elsewhere.

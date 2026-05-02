@@ -1,0 +1,216 @@
+\documentclass[11pt]{article}
+\usepackage{worksheet_style}
+
+%\worksheetfilledtrue
+\begin{document}
+\worksheetheader{20}{Green's Theorem}
+
+\begin{background}
+Green's Theorem is the first of the three big theorems in vector calculus. It converts a line integral around a closed curve into a double integral over the enclosed region. This is powerful both computationally---sometimes one side is much easier than the other---and theoretically, as it connects circulation to curl.
+\end{background}
+
+\wsection{Green's Theorem}
+
+-- Converts a line integral around a closed curve into a double integral over the enclosed region (and vice versa)
+
+\begin{thmbox}{Green's Theorem (Circulation Form)}
+Let $C$ be a positively oriented (CCW), simple, closed curve bounding a region $D$. If $P$ and $Q$ have continuous partial derivatives on an open region containing $D$:
+\[\boxed{\oint_C P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA}\]
+
+\textbf{Requirements:}
+\begin{itemize}[nosep]
+  \item $C$ must be \wbi{simple, closed, positively oriented}{5cm}
+  \item $P, Q$ must be \wbi{continuously differentiable on all of $D$}{6cm}
+\end{itemize}
+\end{thmbox}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    % Filled region D
+    \fill[bclight] plot[smooth cycle, tension=0.75] coordinates
+      {(0,0) (1.8,-0.3) (3.5,0.5) (3.8,2) (3,3.5) (1.5,3.2) (-0.3,2) (-0.2,0.8)};
+
+    % Boundary curve C with CCW arrows
+    \draw[bcblue, very thick, decoration={markings,
+      mark=at position 0.12 with {\arrow{>}},
+      mark=at position 0.37 with {\arrow{>}},
+      mark=at position 0.62 with {\arrow{>}},
+      mark=at position 0.87 with {\arrow{>}}},
+      postaction={decorate}]
+      plot[smooth cycle, tension=0.75] coordinates
+      {(0,0) (1.8,-0.3) (3.5,0.5) (3.8,2) (3,3.5) (1.5,3.2) (-0.3,2) (-0.2,0.8)};
+
+    % Microscopic circulation: small CCW arrows inside D
+    \foreach \x/\y in {0.6/0.7, 1.5/0.5, 2.5/0.8, 0.8/1.8, 1.7/1.6, 2.8/1.7,
+                       0.5/2.5, 1.6/2.5, 2.5/2.6, 1.2/1.2, 2.1/1.2, 3.0/2.4,
+                       1.0/2.0, 2.0/2.1, 2.8/0.9, 1.4/0.9} {
+      \draw[bcgreen, thin, ->] (\x,\y) ++(0.18,0) arc[start angle=0, end angle=330, radius=0.18];
+    }
+
+    % Labels
+    \node[font=\large] at (1.8,1.6) {$D$};
+    \node[bcblue, font=\small, anchor=west] at (4.1,1.8) {$C$ (boundary)};
+    \node[bcgreen, font=\small, anchor=west] at (4.1,1.2) {microscopic curls};
+    \draw[->, bcblue, thin] (4.1,1.8) -- (3.6,2.3);
+    \draw[->, bcgreen, thin] (4.1,1.2) -- (2.9,1.5);
+\end{tikzpicture}
+
+{\small Macroscopic circulation around $C$ = sum of all microscopic curls ($Q_x - P_y$) inside $D$.}
+\end{center}
+
+\begin{thmbox}{Green's Theorem (Vector Form)}
+Recall that $\oint_C P\,dx + Q\,dy$ is really a line integral of $\vect{F} = \vec{P, Q}$ along $C$. Writing Green's Theorem entirely in terms of $\vect{F}$:
+\[\boxed{\oint_C \vect{F}\cdot d\vect{r} \;=\; \int_a^b \vect{F}(\vect{r}(t))\cdot\vect{r}\,'(t)\,dt \;=\; \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right)dA}\]
+The middle form is what we compute directly (parameterize $C$, dot, integrate). The right side is what Green's lets us swap to---a double integral over $D$.
+
+\medskip
+\textit{Preview:} The quantity $Q_x - P_y$ is what we will call the \textbf{curl} of $\vect{F}$ (next lecture). It measures local rotation. When we later learn \textbf{Stokes' Theorem}, we will see that Green's is just Stokes' with the surface flat in the $xy$-plane. Swap $Q_x - P_y$ for curl and you get Stokes'.
+\end{thmbox}
+
+\wsubsection{When to use Green's Theorem}
+
+\begin{itemize}[nosep, leftmargin=*]
+  \item Hard line integral but easy double integral $\implies$ use Green's left-to-right
+  \item Hard double integral but easy line integral $\implies$ use Green's right-to-left
+  \item To compute areas via line integrals
+\end{itemize}
+
+
+\begin{example}[Verification on a Triangle (Both Sides)]
+Verify Green's Theorem for $\oint_C (x^2 y\,dx + xy^2\,dy)$ around the triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$.
+
+\wbbox{
+\textbf{Double integral side:}
+
+1. \textbf{Compute:} $P = x^2 y$, $Q = xy^2$. \; $Q_x - P_y = y^2 - x^2$
+
+2. \textbf{Set up:} $\ds\iint_D (y^2 - x^2)\,dA = \int_0^1 \int_0^{1-x} (y^2 - x^2)\,dy\,dx$
+
+3. \textbf{Inner integral:} $\left[\dfrac{y^3}{3} - x^2 y\right]_0^{1-x} = \dfrac{(1-x)^3}{3} - x^2(1-x)$
+
+4. \textbf{Evaluate:} $\ds\int_0^1 \left[\frac{(1-x)^3}{3} - x^2(1-x)\right]dx = \frac{1}{12} - \frac{1}{12} = 0$
+
+\medskip
+\textbf{Line integral side:}
+
+$C_1$: $(0,0)\to(1,0)$: $\vect{r} = \vec{t,0}$, integral $= \int_0^1 0\,dt = 0$
+
+$C_2$: $(1,0)\to(0,1)$: $\vect{r} = \vec{1-t, t}$, $dx = -dt$, $dy = dt$
+
+\quad Integral $= \int_0^1[-(1-t)^2 t + (1-t)t^2]\,dt = \int_0^1 t(1-t)(2t-1)\,dt$
+
+\quad $= \int_0^1(2t^3-3t^2+t)\,dt = \frac{1}{2} - 1 + \frac{1}{2} = 0$
+
+$C_3$: $(0,1)\to(0,0)$: $\vect{r} = \vec{0,1-t}$, integral $= 0$
+
+Total: $0 + 0 + 0 = 0$ \;\checkmark
+}{9cm}
+\end{example}
+
+\begin{example}[Using Green's to Simplify a Circle Integral]
+Evaluate $\ds\oint_C (e^x + y^3)\,dx + (x^3 - \sin y)\,dy$ where $C$ is the unit circle (CCW).
+
+\wbbox{
+1. \textbf{Identify:} $P = e^x + y^3$, \; $Q = x^3 - \sin y$
+
+2. \textbf{Compute:} $Q_x - P_y = 3x^2 - 3y^2$
+
+3. \textbf{Convert to polar:} $\ds\iint_D (3x^2 - 3y^2)\,dA = \int_0^{2\pi}\int_0^1 3r^2(\cos^2\theta - \sin^2\theta)\cdot r\,dr\,d\theta$
+
+4. \textbf{Evaluate:} $= 3\int_0^1 r^3\,dr \cdot \int_0^{2\pi}\cos 2\theta\,d\theta = 3 \cdot \dfrac{1}{4} \cdot 0 = \boxed{0}$
+}{5cm}
+\end{example}
+
+\wsection{Area via Green's Theorem}
+
+\begin{formulabox}{Area Formulas via Green's Theorem}
+Setting $Q_x - P_y = 1$ in Green's Theorem gives area formulas. After parameterizing $C$ with $\vect{r}(t) = \vec{x(t), y(t)}$:
+\[\text{Area}(D) = \frac{1}{2}\int_a^b \!\left(x\,\frac{dy}{dt} - y\,\frac{dx}{dt}\right)dt\]
+Also written in differential notation: $\frac{1}{2}\oint_C (x\,dy - y\,dx)$, or equivalently $\oint_C x\,dy$ or $-\oint_C y\,dx$.
+\end{formulabox}
+
+\begin{example}[Area of an Ellipse]
+Find the area enclosed by $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$ using Green's Theorem.
+
+\wbbox{
+1. \textbf{Parameterize:} $x = a\cos t$, \; $y = b\sin t$, \; $t \in [0, 2\pi]$
+
+2. \textbf{Compute differentials:} $dx = -a\sin t\,dt$, \; $dy = b\cos t\,dt$
+
+3. \textbf{Apply area formula:}
+\[A = \frac{1}{2}\oint_C (x\,dy - y\,dx) = \frac{1}{2}\int_0^{2\pi}\left[a\cos t \cdot b\cos t - b\sin t \cdot (-a\sin t)\right]dt\]
+
+4. \textbf{Simplify:} $= \dfrac{ab}{2}\ds\int_0^{2\pi}(\cos^2 t + \sin^2 t)\,dt = \dfrac{ab}{2}\cdot 2\pi = \boxed{\pi ab}$
+}{5cm}
+\end{example}
+
+\wsection{When Green's Theorem Fails}
+
+-- Green's requires $P, Q$ to have continuous partials on \textbf{all} of $D$
+
+-- If $\vect{F}$ is undefined inside $D$ (e.g., at the origin), the theorem does \textbf{not} apply directly
+
+\begin{example}[The $1/(x^2+y^2)$ Counterexample]
+Compute $\ds\oint_C \frac{-y}{x^2+y^2}\,dx + \frac{x}{x^2+y^2}\,dy$ around the unit circle. Show Green's Theorem does not apply.
+
+\wbbox{
+1. \textbf{Check partials:} $P = \dfrac{-y}{x^2+y^2}$, $Q = \dfrac{x}{x^2+y^2}$.
+
+\quad $P_y = \dfrac{y^2 - x^2}{(x^2+y^2)^2}$, \; $Q_x = \dfrac{y^2 - x^2}{(x^2+y^2)^2}$. \; So $Q_x - P_y = 0$!
+
+\quad If Green's applied, the answer would be $\iint_D 0\,dA = 0$. But...
+
+2. \textbf{Direct computation:} $\vect{r}(t) = \vec{\cos t, \sin t}$, $\vect{r}\,' = \vec{-\sin t, \cos t}$
+
+\quad $\vect{F}\cdot\vect{r}\,' = (-\sin t)(-\sin t) + (\cos t)(\cos t) = 1$
+
+\quad $\ds\oint_C \vect{F}\cdot d\vect{r} = \int_0^{2\pi} 1\,dt = \boxed{2\pi} \neq 0$
+
+3. \textbf{Why:} $\vect{F}$ is undefined at $(0,0)$, which lies inside $C$. The domain has a ``hole,'' so Green's Theorem does not apply.
+}{7cm}
+\end{example}
+
+\begin{practice}
+
+\prob
+Use Green's Theorem to evaluate $\ds\oint_C (2y\,dx + 3x\,dy)$ around the unit square $[0,1]^2$ (CCW).
+
+\wans{$\wbm{1}$}
+
+\vspace{2.5cm}
+
+\prob
+Evaluate $\ds\oint_C (y^2\,dx + x^2\,dy)$ where $C$ is the boundary of the region between $y = x$ and $y = x^2$, $0 \le x \le 1$ (CCW).
+
+\wans{$\wbm{\dfrac{1}{30}}$}
+
+\vspace{4cm}
+
+\prob
+Use Green's Theorem to find the area enclosed by the astroid $x = \cos^3 t$, $y = \sin^3 t$, $0 \le t \le 2\pi$.
+
+\wans{$\wbm{\dfrac{3\pi}{8}}$}
+
+\vspace{4cm}
+
+\prob
+Evaluate $\ds\oint_C (x^2 y\,dx - xy^2\,dy)$ where $C$ is the circle $x^2 + y^2 = 4$ (CCW).
+
+\wans{$\wbml{Q_x - P_y = -y^2 - x^2 = -(x^2+y^2); \quad \iint_D -(x^2+y^2)\,dA = -\int_0^{2\pi}\!\int_0^2 r^3\,dr\,d\theta = -8\pi}$}
+
+\vspace{4cm}
+
+\prob
+True or false (explain briefly):
+
+(a) If $Q_x - P_y = 0$ everywhere in $D$, then $\oint_C P\,dx + Q\,dy = 0$.
+
+(b) Green's Theorem can be applied to $\vect{F} = \vec{x/r^2, y/r^2}$ (where $r = \sqrt{x^2+y^2}$) on any region not containing the origin.
+
+Answer: \wbbox{(a) True --- by Green's Theorem, $\oint = \iint 0\,dA = 0$, provided $P,Q$ are smooth on all of $D$.
+
+(b) True --- as long as $D$ does not contain the origin, $\vect{F}$ is smooth on $D$ and Green's applies.}{3cm}
+
+\end{practice}
+
+\end{document}

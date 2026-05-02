@@ -1,0 +1,311 @@
+\documentclass[11pt]{article}
+\usepackage{worksheet_style}
+
+% ---- Toggle: uncomment for filled version ----
+%\worksheetfilledtrue
+\begin{document}
+\worksheetheader{18}{Vector Fields}
+
+\begin{background}
+We now begin the final chapter of the course: vector calculus. Until now, our functions have been scalar-valued---$f(x,y)$ returns a number. A vector field $\vect{F}(x,y)$ returns a vector at each point: think wind velocity, magnetic force, or fluid flow. Over the next six lectures, we'll integrate vector fields along curves (line integrals), across surfaces (flux integrals), and connect everything through the great theorems of Green, Stokes, and Gauss. These theorems unify all of calculus into a single principle: the integral of a derivative over a region equals the integral of the function over the boundary.
+\end{background}
+
+%=============================================================
+\wsection{Warm-Up: Gradient Review}
+
+Find $\nabla f$ for $f(x,y,z) = x^2 y + yz^3$.
+
+1. $f_x = \wbm{2xy}$
+
+2. $f_y = \wbm{x^2 + z^3}$
+
+3. $f_z = \wbm{3yz^2}$
+
+4. $\nabla f = \wbml{\vec{2xy,\; x^2+z^3,\; 3yz^2}}$
+
+-- The gradient assigns a \emph{vector} to each point -- this is an example of a \textbf{vector field}.
+
+%=============================================================
+\wsection{Vector Field Definition}
+
+\begin{defbox}{Vector Field}
+A \textbf{vector field} on $\R^2$ is a function $\vect{F}(x,y) = P(x,y)\,\ihat + Q(x,y)\,\jhat$.
+
+A \textbf{vector field} on $\R^3$ is $\vect{F}(x,y,z) = P\,\ihat + Q\,\jhat + R\,\khat$.
+
+\medskip
+-- At each point, $\vect{F}$ assigns a vector (direction and magnitude)
+
+-- Examples: wind velocity, gravitational force, electric field, fluid flow
+\end{defbox}
+
+%=============================================================
+\wsection{How to Draw a Vector Field}
+
+\begin{formulabox}{Procedure for Sketching $\vect{F}(x,y)$}
+\begin{enumerate}[nosep]
+  \item Pick a grid of sample points (e.g., $(\pm 1, 0)$, $(0, \pm 1)$, $(\pm 1, \pm 1)$, etc.)
+  \item At each point $(a,b)$: evaluate $\vect{F}(a,b) = \vec{P(a,b),\; Q(a,b)}$
+  \item Draw an arrow \textbf{starting at $(a,b)$}, pointing in the direction $\vect{F}(a,b)$
+  \item Arrow length $\propto \|\vect{F}(a,b)\|$ (longer arrow $=$ stronger field)
+\end{enumerate}
+
+-- \textbf{Key:} the arrow's \textit{tail} is at the sample point, not its midpoint
+
+-- \textbf{Normalization:} $\hat{\vect{F}} = \vect{F}/\|\vect{F}\|$ makes all arrows length 1 (shows direction only)
+\end{formulabox}
+
+\wsubsection{Common Patterns}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7, >=Stealth]
+  % Source field F = <x,y>
+  \begin{scope}[shift={(-5,0)}]
+    \draw[->] (-2.3,0) -- (2.3,0); \draw[->] (0,-2.3) -- (0,2.3);
+    \foreach \x/\y in {1/0, -1/0, 0/1, 0/-1, 1/1, -1/1, 1/-1, -1/-1, 1.5/0.5, -1.5/0.5, 0.5/1.5, -0.5/-1.5} {
+      \draw[->, bcblue, thick] (\x,\y) -- +(\x*0.3, \y*0.3);
+    }
+    \node[below] at (0,-2.6) {\small\textbf{Source:} $\vect{F} = \vec{x,y}$};
+  \end{scope}
+  % Rotation field F = <-y,x>
+  \begin{scope}[shift={(0,0)}]
+    \draw[->] (-2.3,0) -- (2.3,0); \draw[->] (0,-2.3) -- (0,2.3);
+    \foreach \x/\y in {1/0, -1/0, 0/1, 0/-1, 1/1, -1/1, 1/-1, -1/-1, 1.5/0.5, -1.5/0.5, 0.5/1.5, -0.5/-1.5} {
+      \draw[->, bcred, thick] (\x,\y) -- +(-\y*0.3, \x*0.3);
+    }
+    \node[below] at (0,-2.6) {\small\textbf{Rotation:} $\vect{F} = \vec{-y,x}$};
+  \end{scope}
+  % Sink field F = <-x,-y>
+  \begin{scope}[shift={(5,0)}]
+    \draw[->] (-2.3,0) -- (2.3,0); \draw[->] (0,-2.3) -- (0,2.3);
+    \foreach \x/\y in {1/0, -1/0, 0/1, 0/-1, 1/1, -1/1, 1/-1, -1/-1, 1.5/0.5, -1.5/0.5, 0.5/1.5, -0.5/-1.5} {
+      \draw[->, bcgreen!70!black, thick] (\x,\y) -- +(-\x*0.3, -\y*0.3);
+    }
+    \node[below] at (0,-2.6) {\small\textbf{Sink:} $\vect{F} = \vec{-x,-y}$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{itemize}[nosep, leftmargin=*]
+  \item \textbf{Source:} vectors point away from origin -- fluid is being ``created''
+  \item \textbf{Sink:} vectors point toward origin -- fluid is being ``absorbed''
+  \item \textbf{Rotation:} vectors swirl around a point -- ``whirlpool'' pattern
+\end{itemize}
+
+%=============================================================
+\wsection{Examples}
+
+\begin{example}[Evaluating and Sketching a Rotation Field]
+Let $\vect{F}(x,y) = \vec{-y,\, x}$. Evaluate at several points and describe the pattern.
+
+\wbbox{
+1. \textbf{Evaluate at sample points:}
+
+\begin{center}
+\begin{tabular}{c|c|c}
+$(a,b)$ & $\vect{F}(a,b) = \vec{-b,\,a}$ & Direction \\ \hline
+$(1,0)$ & $\vec{0,1}$ & up \\
+$(0,1)$ & $\vec{-1,0}$ & left \\
+$(-1,0)$ & $\vec{0,-1}$ & down \\
+$(0,-1)$ & $\vec{1,0}$ & right \\
+$(1,1)$ & $\vec{-1,1}$ & upper-left \\
+$(2,0)$ & $\vec{0,2}$ & up (longer)
+\end{tabular}
+\end{center}
+
+2. \textbf{Sketch:} At each point, draw arrow \textit{starting at that point} in the direction computed.
+
+3. \textbf{Pattern:} Vectors circulate \textbf{counterclockwise} around the origin.
+
+\quad Magnitude: $\|\vect{F}\| = \sqrt{x^2+y^2} = r$ -- arrows get longer farther from the origin.
+
+\quad This is a \textbf{rotation field} (also called a \textbf{vortex}).
+}{5cm}
+\end{example}
+
+\begin{example}[Evaluating a Source Field]
+Let $\vect{F}(x,y) = \vec{x,\, y}$. Evaluate at $(1,0)$, $(0,2)$, $(-1,1)$.
+
+\wbbox{
+1. $\vect{F}(1,0) = \vec{1,0}$ -- points right from $(1,0)$
+
+2. $\vect{F}(0,2) = \vec{0,2}$ -- points up from $(0,2)$
+
+3. $\vect{F}(-1,1) = \vec{-1,1}$ -- points upper-left from $(-1,1)$
+
+4. \textbf{Pattern:} Every vector points \textbf{radially outward} from the origin. This is a \textbf{source field}.
+
+\quad Magnitude $= \sqrt{x^2+y^2} = r$; arrows grow with distance.
+}{3.5cm}
+\end{example}
+
+%=============================================================
+\wsection{Conservative Vector Fields}
+
+\begin{defbox}{Conservative Field}
+$\vect{F}$ is \textbf{conservative} if there exists a scalar function $f$ (the \textbf{potential function}) such that:
+\[\vect{F} = \nabla f\]
+-- Work done by a conservative field is \wbi{path-independent}{3cm}
+
+-- In physics: conservative $\iff$ energy is conserved (e.g., gravity, electrostatics)
+\end{defbox}
+
+\begin{thmbox}{Test for Conservative Fields (2D)}
+$\vect{F} = \vec{P,\,Q}$ is conservative on a simply connected domain if and only if:
+\[\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}\]
+\textbf{3D version:} $\vect{F} = \vec{P,Q,R}$ is conservative iff $\curl\vect{F} = \vect{0}$:
+\[P_y = Q_x, \qquad P_z = R_x, \qquad Q_z = R_y\]
+\textbf{Caution:} The domain must be \textbf{simply connected} (no holes) for the test to be sufficient.
+\end{thmbox}
+
+\wsubsection{Simply Connected Domains}
+
+\begin{itemize}[nosep, leftmargin=*]
+  \item \textbf{Simply connected} -- every closed curve can be shrunk to a point without leaving the domain
+  \item $\R^2$ and $\R^3$: simply connected \quad\checkmark
+  \item $\R^2 \setminus \{(0,0)\}$: \textbf{not} simply connected (has a ``hole'')
+\end{itemize}
+
+%=============================================================
+\wsection{Finding Potential Functions}
+
+\begin{formulabox}{Algorithm for Finding $f$ (2D)}
+Given $\vect{F} = \vec{P,Q}$ that passes the conservative test:
+\begin{enumerate}[nosep]
+  \item \textbf{Integrate:} $f = \int P\,dx$ (treat $y$ as constant) $\implies$ $f = (\ldots) + g(y)$
+  \item \textbf{Differentiate:} $f_y = (\ldots) + g'(y)$. Set equal to $Q$ and solve for $g'(y)$.
+  \item \textbf{Integrate} $g'(y)$ to find $g(y)$. Combine.
+\end{enumerate}
+
+For 3D: same idea but with $g(y,z)$, then $h(z)$.
+\end{formulabox}
+
+\begin{example}[Testing and Finding a Potential Function]
+Is $\vect{F} = \vec{2xy + y^2\cos x,\; x^2 + 2y\sin x}$ conservative? If so, find $f$.
+
+\wbbox{
+1. \textbf{Test:} $P = 2xy+y^2\cos x$, $Q = x^2+2y\sin x$.
+
+$P_y = 2x + 2y\cos x$
+
+$Q_x = 2x + 2y\cos x$
+
+$P_y = Q_x$ \;\checkmark\; -- Conservative!
+
+2. \textbf{Integrate $P$ with respect to $x$:}
+
+$f = \int(2xy+y^2\cos x)\,dx = x^2 y + y^2\sin x + g(y)$
+
+3. \textbf{Differentiate with respect to $y$ and match to $Q$:}
+
+$f_y = x^2 + 2y\sin x + g'(y) = Q = x^2+2y\sin x$
+
+$\implies g'(y) = 0 \implies g(y) = C$
+
+4. \textbf{Result:} $\boxed{f(x,y) = x^2 y + y^2\sin x + C}$
+}{5.5cm}
+\end{example}
+
+\begin{example}[Non-Conservative Field: The Hole Counterexample]
+Show that $\vect{F} = \left\langle\dfrac{-y}{x^2+y^2},\; \dfrac{x}{x^2+y^2}\right\rangle$ passes $P_y = Q_x$ but is NOT conservative.
+
+\wbbox{
+1. \textbf{Check partials:}
+
+$P_y = \frac{y^2-x^2}{(x^2+y^2)^2}$, \quad $Q_x = \frac{y^2-x^2}{(x^2+y^2)^2}$
+
+$P_y = Q_x$ \;\checkmark\; -- test satisfied!
+
+2. \textbf{But the domain is $\R^2\setminus\{(0,0)\}$} -- not simply connected (hole at origin).
+
+3. \textbf{Proof:} Integrate around the unit circle $C$: $x=\cos t$, $y=\sin t$, $0\le t\le 2\pi$:
+
+$\oint_C \vect{F}\cdot d\vect{r} = \int_0^{2\pi}(\sin^2 t+\cos^2 t)\,dt = 2\pi \neq 0$
+
+If $\vect{F}$ were conservative, every closed-loop integral would be $0$. Contradiction!
+
+4. \textbf{Lesson:} Simply connected domain is \textbf{essential} for the $P_y = Q_x$ test.
+}{6cm}
+\end{example}
+
+%=============================================================
+\begin{practice}
+
+\prob
+Evaluate $\vect{F}(x,y) = \vec{x^2,\, xy}$ at $(1,2)$, $(2,1)$, $(-1,3)$. For each, state where the arrow starts and what direction it points.
+
+\wbbox{
+$\vect{F}(1,2) = \vec{1, 2}$: arrow starts at $(1,2)$, points in direction $\vec{1,2}$ (up-right, steep).
+
+$\vect{F}(2,1) = \vec{4, 2}$: arrow starts at $(2,1)$, points in direction $\vec{4,2}$ (right-ish, shallow).
+
+$\vect{F}(-1,3) = \vec{1, -3}$: arrow starts at $(-1,3)$, points in direction $\vec{1,-3}$ (down-right).
+}{3cm}
+
+\prob
+Determine if $\vect{F} = \vec{ye^{xy},\, xe^{xy}}$ is conservative. If so, find $f$.
+
+\wbbox{
+1. \textbf{Test:} $P_y = e^{xy}+xye^{xy}$, \; $Q_x = e^{xy}+xye^{xy}$. Equal \;\checkmark
+
+2. \textbf{Integrate:} $f = \int ye^{xy}\,dx = e^{xy} + g(y)$
+
+3. \textbf{Match:} $f_y = xe^{xy} + g'(y) = xe^{xy} \implies g'(y) = 0$
+
+4. \textbf{Result:} $f = e^{xy} + C$
+}{3.5cm}
+
+\prob
+Show that $\vect{F} = \vec{x^2-y^2,\; 2xy}$ is NOT conservative.
+
+\wbbox{
+$P_y = -2y$, \; $Q_x = 2y$.
+
+Since $-2y \neq 2y$ (for $y \neq 0$), $P_y \neq Q_x$. NOT conservative.
+}{2cm}
+
+\prob
+Find the potential function for $\vect{F} = \vec{2xz+y,\; x+z^2,\; x^2+2yz}$.
+
+\wbbox{
+1. \textbf{Integrate $P$ w.r.t.\ $x$:} $f = \int(2xz+y)\,dx = x^2 z + xy + g(y,z)$
+
+2. \textbf{Match $f_y = Q$:} $x + g_y = x + z^2 \implies g_y = z^2 \implies g = yz^2 + h(z)$
+
+3. \textbf{Match $f_z = R$:} $x^2 + 2yz + h'(z) = x^2 + 2yz \implies h'(z) = 0$
+
+4. \textbf{Result:} $f = x^2 z + xy + yz^2 + C$
+}{4cm}
+
+\prob
+Let $\vect{F} = \vec{y\cos(xy)+1,\; x\cos(xy)+2z,\; 2y+3z^2}$.
+\begin{enumerate}[label=(\alph*), nosep]
+  \item Verify $\vect{F}$ is conservative (check all three conditions).
+  \item Find the potential function.
+\end{enumerate}
+
+\wbbox{
+\textbf{(a) Test:}
+
+$P_y = \cos(xy) - xy\sin(xy)$, \; $Q_x = \cos(xy) - xy\sin(xy)$ \;\checkmark
+
+$Q_z = 2$, \; $R_y = 2$ \;\checkmark
+
+$P_z = 0$, \; $R_x = 0$ \;\checkmark
+
+All three match -- conservative.
+
+\textbf{(b) Find $f$:}
+
+1. $f = \int(y\cos(xy)+1)\,dx = \sin(xy) + x + g(y,z)$
+
+2. $f_y = x\cos(xy) + g_y = x\cos(xy) + 2z \implies g_y = 2z \implies g = 2yz + h(z)$
+
+3. $f_z = 2y + h'(z) = 2y + 3z^2 \implies h'(z) = 3z^2 \implies h = z^3$
+
+4. \textbf{Result:} $f = \sin(xy) + x + 2yz + z^3 + C$
+}{5.5cm}
+
+\end{practice}
+
+\end{document}
